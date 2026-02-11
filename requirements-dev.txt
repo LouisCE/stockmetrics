@@ -1,0 +1,4 @@
+ydata-profiling==4.12.0  # notebooks only
+yellowbrick==1.5         # notebook visuals
+
+# ppscore==1.1.0  # Windows/Py3.12 install issues
