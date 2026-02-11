@@ -8,3 +8,9 @@ node_modules/
 .github/
 cloudinary_python.txt
 kaggle.json
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
