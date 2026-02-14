@@ -14,3 +14,11 @@ kaggle.json
 venv/
 ENV/
 env/
+
+# Data created during analysis (can be recreated)
+data/raw/
+data/processed/
+
+# Model files and other generated outputs
+models/
+outputs/
