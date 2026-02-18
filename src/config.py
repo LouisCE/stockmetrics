@@ -61,5 +61,23 @@ DEFAULT_VERSION = "v1"
 DEFAULT_START_DATE = "2010-01-01"
 DEFAULT_END_DATE = utc_today_str()
 
-# Starting small while developing; expanding later (Mag 7 + benchmarks)
-DEFAULT_TICKERS = ["SPY", "TSLA"]
+# Tickers
+
+# "Magnificent Seven" (Yahoo Finance US tickers)
+MAG7_TICKERS = ["AAPL", "AMZN", "GOOGL", "META", "MSFT", "NVDA", "TSLA"]
+
+# UK ETFs (Yahoo Finance uses the ".L" suffix for LSE listings)
+# VUAG.L = Vanguard S&P 500 UCITS ETF (Accumulating)
+# VWRP.L = Vanguard FTSE All-World UCITS ETF (Accumulating)
+SP500_ACC_TICKER = "VUAG.L"
+ALL_WORLD_ACC_TICKER = "VWRP.L"  # Will add fallback if this ever breaks.
+
+# US equivalents (useful for comparisons or if a UK ticker fails)
+SP500_US_PROXY = "SPY"  # VUAG.L equivalent
+ALL_WORLD_US_PROXY = "VT"  # VWRP.L equivalent
+
+# Main collection list for the project going forward
+CORE_TICKERS = [ALL_WORLD_ACC_TICKER, SP500_ACC_TICKER] + MAG7_TICKERS
+
+# Default set used by notebooks + the app
+DEFAULT_TICKERS = CORE_TICKERS
