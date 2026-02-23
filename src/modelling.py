@@ -74,21 +74,29 @@ def build_pipeline() -> Pipeline:
         ]
     )
 
-    model = RandomForestRegressor(random_state=42, n_jobs=-1)
+    model = RandomForestRegressor(random_state=42, n_jobs=1)
 
     pipe = Pipeline(steps=[("preprocess", pre), ("model", model)])
     return pipe
 
 
-def get_param_grid() -> Dict[str, list[object]]:
+def get_param_grid(fast: bool = False) -> Dict[str, list[object]]:
     """
     Hyperparameter options for GridSearchCV.
 
-    GridSearchCV will try all combinations of these settings
-    and pick the best-performing model based on the CV score.
-
-    6 hyperparameters, each with 3+ values.
+    fast=True runs a small grid for quick validation.
+    fast=False runs the full grid (final evidence run).
     """
+    if fast:
+        return {
+            "model__n_estimators": [25, 50],
+            "model__max_depth": [5, 10],
+            "model__min_samples_split": [2],
+            "model__min_samples_leaf": [1],
+            "model__max_features": ["sqrt"],
+            "model__max_leaf_nodes": [200],
+        }
+
     return {
         "model__n_estimators": [200, 500, 1000],
         "model__max_depth": [5, 10, None],
@@ -102,6 +110,7 @@ def get_param_grid() -> Dict[str, list[object]]:
 def train_and_tune(
     feat_df: pd.DataFrame,
     test_size: float = 0.2,
+    fast: bool = False,
 ) -> TrainResult:
     """
     Train + tune on a time-aware CV (TimeSeriesSplit).
@@ -120,17 +129,17 @@ def train_and_tune(
     y_test = test_df[TARGET_COL].astype(float)
 
     pipe = build_pipeline()
-    grid = get_param_grid()
+    grid = get_param_grid(fast=fast)
 
-    tscv = TimeSeriesSplit(n_splits=5)
+    tscv = TimeSeriesSplit(n_splits=3 if fast else 5)
 
     search = GridSearchCV(
         estimator=pipe,
         param_grid=grid,
         scoring="r2",
         cv=tscv,
-        n_jobs=-1,
-        verbose=1,
+        n_jobs=1,
+        verbose=2,
     )
 
     search.fit(X_train, y_train)
