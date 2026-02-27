@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Tuple
 
 import pandas as pd
+import numpy as np
 
 
 FEATURE_COLUMNS = [
@@ -36,8 +37,7 @@ def add_features_per_ticker(g: pd.DataFrame) -> pd.DataFrame:
     g["return_1d"] = s.pct_change()
 
     # Log returns (stable baseline)
-    g["log_return_1d"] = (s / s.shift(1)).apply(lambda v: pd.NA if pd.isna(v) else v)
-    g["log_return_1d"] = pd.to_numeric(g["log_return_1d"], errors="coerce")
+    g["log_return_1d"] = np.log(s / s.shift(1))
 
     # Volatility
     g["vol_30d"] = g["return_1d"].rolling(30).std()
