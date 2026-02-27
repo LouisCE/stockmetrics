@@ -20,5 +20,6 @@ data/raw/
 data/processed/
 
 # Model files and other generated outputs
-models/
+models/*
+!models/model_card_v1.md
 outputs/
