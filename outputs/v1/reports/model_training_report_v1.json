@@ -1,0 +1,24 @@
+{
+  "version": "v1",
+  "dataset": "data/processed/v1/features_v1_latest.csv",
+  "task": "Regression: predict next-day return (return_1d)",
+  "algorithm": "RandomForestRegressor",
+  "best_params": {
+    "model__max_depth": 10,
+    "model__max_features": "sqrt",
+    "model__max_leaf_nodes": 200,
+    "model__min_samples_leaf": 1,
+    "model__min_samples_split": 2,
+    "model__n_estimators": 50
+  },
+  "metrics_train": {
+    "r2": 0.23778869913050282,
+    "mae": 0.01382238726113526,
+    "rmse": 0.020282372223856315
+  },
+  "metrics_test": {
+    "r2": 0.09051047124363532,
+    "mae": 0.01306452412291344,
+    "rmse": 0.020477022104016494
+  }
+}

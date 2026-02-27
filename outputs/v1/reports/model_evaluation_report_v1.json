@@ -1,0 +1,96 @@
+{
+  "version": "v1",
+  "model_file": "C:\\Users\\Louis\\Documents\\vscode-projects\\stockmetrics\\models\\stock_forecast_model_v1.pkl",
+  "dataset": "data/processed/v1/features_v1_latest.csv",
+  "task": "Regression: predict next-day return (return_1d)",
+  "metrics_train": {
+    "r2": 0.23778869913050282,
+    "mae": 0.01382238726113526,
+    "rmse": 0.020282372223856315
+  },
+  "metrics_test": {
+    "r2": 0.09051047124363532,
+    "mae": 0.01306452412291344,
+    "rmse": 0.020477022104016494
+  },
+  "model_successful_against_business_case": true,
+  "success_rule": "Test R\u00b2 > 0 indicates a generalisable signal",
+  "by_ticker_test_metrics": [
+    {
+      "Ticker": "NVDA",
+      "r2": 0.14847053023649193,
+      "mae": 0.01996071687364516,
+      "rmse": 0.027705011596304504,
+      "n_rows": 671
+    },
+    {
+      "Ticker": "GOOGL",
+      "r2": 0.13947150250980056,
+      "mae": 0.012431016970769128,
+      "rmse": 0.017109851611408933,
+      "n_rows": 671
+    },
+    {
+      "Ticker": "VUAG.L",
+      "r2": 0.1064484249553217,
+      "mae": 0.005373758841840198,
+      "rmse": 0.00790648318538246,
+      "n_rows": 678
+    },
+    {
+      "Ticker": "META",
+      "r2": 0.10303553858035153,
+      "mae": 0.014715406111708629,
+      "rmse": 0.021413574972574543,
+      "n_rows": 671
+    },
+    {
+      "Ticker": "VWRP.L",
+      "r2": 0.10300061334918764,
+      "mae": 0.004834189850824373,
+      "rmse": 0.0069229060886067985,
+      "n_rows": 678
+    },
+    {
+      "Ticker": "AAPL",
+      "r2": 0.08777733840100033,
+      "mae": 0.01056015425147709,
+      "rmse": 0.015865224219742163,
+      "n_rows": 671
+    },
+    {
+      "Ticker": "AMZN",
+      "r2": 0.08282027320947472,
+      "mae": 0.013741680026581547,
+      "rmse": 0.018851834894907032,
+      "n_rows": 671
+    },
+    {
+      "Ticker": "MSFT",
+      "r2": 0.08200667669829176,
+      "mae": 0.009728023091810624,
+      "rmse": 0.013985780192265956,
+      "n_rows": 672
+    },
+    {
+      "Ticker": "TSLA",
+      "r2": 0.036801239366311966,
+      "mae": 0.026406835465959524,
+      "rmse": 0.03673842315847364,
+      "n_rows": 671
+    }
+  ],
+  "artefacts": {
+    "predictions_train_csv": "predictions_train_v1.csv",
+    "predictions_test_csv": "predictions_test_v1.csv",
+    "actual_vs_pred_train_plot": "eval_actual_vs_pred_train_v1.png",
+    "actual_vs_pred_test_plot": "eval_actual_vs_pred_test_v1.png",
+    "residuals_hist_test_plot": "eval_residuals_hist_test_v1.png",
+    "residuals_ts_test_plot": "eval_residuals_timeseries_test_v1.png",
+    "pred_timeseries_test_plot": "eval_pred_timeseries_test_v1.png"
+  },
+  "notes": [
+    "Time-aware chronological split used (prevents leakage).",
+    "Returns are noisy; scenario ranges are used in the dashboard."
+  ]
+}
