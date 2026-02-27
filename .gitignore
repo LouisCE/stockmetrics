@@ -22,4 +22,7 @@ data/processed/
 # Model files and other generated outputs
 models/*
 !models/model_card_v1.md
-outputs/
+
+# Track evaluation artefacts, ignore only huge prediction CSVs
+outputs/v1/reports/predictions_train_v1.csv
+outputs/v1/reports/predictions_test_v1.csv
