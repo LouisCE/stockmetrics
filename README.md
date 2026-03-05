@@ -18,7 +18,7 @@ Learning how to invest can feel overwhelming. New investors are hit with unfamil
 
 StockMetrics exists to cut through the noise and help users to capitalise on their most valuable asset: their time.
 
-The goal is to turn **clueless users into confident investors in five minutes or less** by providing:
+The goal is to turn **clueless users into confident investors in fifteen minutes or less** by providing:
 
 - a clear explanation of the purpose of the app.
 - simple investing principles to anchor decision-making.

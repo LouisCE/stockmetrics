@@ -31,7 +31,7 @@ PAGES = {
 
 with st.sidebar:
     st.title("📈 StockMetrics")
-    st.caption("Clueless to confident in five minutes")
+    st.caption("Clueless to confident in fifteen minutes")
 
     page_name = st.radio(
         "Navigation",
