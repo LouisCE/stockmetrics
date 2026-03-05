@@ -19,6 +19,11 @@ env/
 data/raw/
 data/processed/
 
+# Allow small "latest" datasets required for dashboard deployment
+!data/processed/
+data/processed/v1/*
+!data/processed/v1/clean_prices_v1_latest.csv
+
 # Model files and other generated outputs
 models/*
 !models/model_card_v1.md
