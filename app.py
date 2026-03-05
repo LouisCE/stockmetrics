@@ -18,7 +18,7 @@ from app_pages.model_performance import render as model_performance_page
 st.set_page_config(
     page_title="StockMetrics",
     page_icon="📈",
-    layout="wide",
+    layout="centered",
 )
 
 PAGES = {
