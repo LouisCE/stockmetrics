@@ -9,6 +9,13 @@ StockMetrics is a predictive analytics dashboard designed to help beginners unde
 [![GitHub repo size](https://img.shields.io/github/repo-size/LouisCE/stockmetrics)](https://www.github.com/LouisCE/stockmetrics)
 [![badge](https://img.shields.io/badge/deployment-Render-teal)](https://stockmetrics-emhu.onrender.com)
 
+---
+
+## Live Dashboard
+
+The StockMetrics dashboard is deployed on Render and available at:
+
+https://stockmetrics-emhu.onrender.com
 
 ---
 
