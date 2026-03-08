@@ -428,3 +428,80 @@ Financial market data contains several inherent limitations.
 
 These limitations are explicitly acknowledged in the project documentation and dashboard explanations to ensure responsible interpretation of results.
 
+---
+
+## Epics and User Stories
+
+The project was organised into several Epics that reflect the stages of data science development and dashboard delivery. Each Epic contains a set of User Stories that describe the intended functionality of the StockMetrics application and the development work required to support it.
+
+---
+
+### Epic - Dashboard Introduction and User Guidance
+
+| Target | Expectation | Outcome |
+|---|---|---|
+| As a beginner investor | I want a simple homepage explaining what StockMetrics does and who it is for | so I can quickly understand the app. |
+| As a beginner investor | I want clear disclaimers that this is educational and not financial advice | so I can use the dashboard responsibly. |
+
+---
+
+### Epic - Asset Exploration and Market Insights
+
+| Target | Expectation | Outcome |
+|---|---|---|
+| As a beginner investor | I want to explore a curated list of well-known stocks and index funds | so I don’t get overwhelmed by too many choices. |
+| As a beginner investor | I want to select a ticker and date range | so I can focus analysis on a time period that matters to me. |
+| As a beginner investor | I want interactive charts of historical prices and returns | so I can visually understand how performance changes over time. |
+| As a beginner investor | I want to view daily returns | so I can understand how volatile an asset is in the short term. |
+| As a beginner investor | I want beginner-friendly explanations of investing terms | so I can understand what the dashboard is showing me. |
+| As a beginner investor | I want to compare assets using the same metrics | so I can make fair comparisons without guessing. |
+
+---
+
+### Epic - Portfolio Planning and Forecasting
+
+| Target | Expectation | Outcome |
+|---|---|---|
+| As a beginner investor | I want a forecast for different time horizons (1 to 10 years) | so I can see how profits compound over time. |
+| As a beginner investor | I want forecasts presented as optimistic, realistic, and pessimistic scenarios | so I can understand prediction uncertainty instead of seeing one “magic number.” |
+| As a beginner investor | I want four risk-based portfolio plans with clear allocations | so I can pick a plan that matches my risk tolerance. |
+| As a beginner investor | I want to compare portfolio plans using performance and risk visuals | so I can understand the trade-offs between conservative and aggressive strategies. |
+
+---
+
+### Epic - Data Science Pipeline Development
+
+| Target | Expectation | Outcome |
+|---|---|---|
+| As a data scientist | I want to collect historical stock data | so the dataset can be used for analysis and modelling. |
+| As a data analyst | I want to clean and prepare the dataset | so the data is suitable for analysis and modelling. |
+| As a data analyst | I want to explore the dataset visually | so I can understand patterns and relationships in the data. |
+| As a data scientist | I want to engineer predictive features | so the machine learning model has meaningful inputs. |
+| As a data scientist | I want to train a machine learning model | so the application can assess short-term market uncertainty and support model evaluation. |
+| As a data scientist | I want to evaluate the machine learning model | so I can determine whether it meets the business case requirements. |
+
+The workflow is implemented across the following notebooks:
+
+- `jupyter_notebooks/01_data_collection.ipynb`
+- `jupyter_notebooks/02_data_cleaning.ipynb`
+- `jupyter_notebooks/03_eda.ipynb`
+- `jupyter_notebooks/04_feature_engineering.ipynb`
+- `jupyter_notebooks/05_model_training.ipynb`
+- `jupyter_notebooks/06_model_evaluation.ipynb`
+
+---
+
+### Epic - Model Transparency and Evaluation
+
+| Target | Expectation | Outcome |
+|---|---|---|
+| As a technical reviewer | I want a model performance page with metrics and evaluation plots | so I can verify whether the ML pipeline meets its business case success criteria. |
+
+---
+
+### Epic - Deployment and Application Availability
+
+| Target | Expectation | Outcome |
+|---|---|---|
+| As a user | I want the StockMetrics dashboard deployed online | so I can access the application from a live public URL. |
+| As a developer | I want the application deployed using Render | so the dashboard can be reliably hosted and accessed by users. |
