@@ -536,3 +536,27 @@ This hypothesis tests whether portfolios with broader diversification demonstrat
 Financial markets are known to be noisy and difficult to predict over short time horizons.
 
 This hypothesis evaluates whether a machine learning model can successfully predict next-day stock returns.
+
+---
+
+## CRISP-DM Process
+
+StockMetrics follows the CRISP-DM (Cross Industry Standard Process for Data Mining) framework to structure the data science workflow.
+
+| CRISP-DM Stage | Implementation |
+|---|---|
+| Business Understanding | Defined business requirements and project hypotheses |
+| Data Collection | `01_data_collection.ipynb` retrieves historical price data from the Yahoo Finance API using `yfinance` |
+| Data Preparation | `02_data_cleaning.ipynb` cleans the dataset and `04_feature_engineering.ipynb` generates model features |
+| Data Understanding | `03_eda.ipynb` explores trends, volatility, correlations and drawdowns |
+| Modelling | `05_model_training.ipynb` trains and tunes the machine learning pipeline |
+| Evaluation | `06_model_evaluation.ipynb` evaluates model performance and validates the ML business case |
+| Deployment | Streamlit dashboard deployed online via Render |
+
+Each stage produces reproducible outputs that are saved in **versioned project folders** such as:
+
+- `data/raw/<version>/`
+- `data/processed/<version>/`
+- `outputs/<version>/`
+
+This structure ensures that datasets, models and evaluation artefacts remain reproducible across project iterations.
