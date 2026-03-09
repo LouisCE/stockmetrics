@@ -505,3 +505,34 @@ The workflow is implemented across the following notebooks:
 |---|---|---|
 | As a user | I want the StockMetrics dashboard deployed online | so I can access the application from a live public URL. |
 | As a developer | I want the application deployed using Render | so the dashboard can be reliably hosted and accessed by users. |
+
+---
+
+## Project Hypotheses
+
+StockMetrics investigates several hypotheses related to stock market behaviour, diversification, and predictive modelling.  
+These hypotheses help frame the exploratory analysis and modelling tasks within the project and guide the interpretation of results.
+
+### Hypothesis 1: Concentrated portfolio plans are riskier than diversified ones but also have greater potential rewards
+
+Large technology companies are often associated with higher growth potential but also greater volatility compared with broadly diversified index funds.
+
+Portfolio plans that concentrate capital in a smaller number of high-growth companies may therefore experience larger gains during strong market periods but also larger losses during downturns.
+
+This hypothesis tests whether portfolio plans that allocate more weight to individual technology stocks exhibit higher volatility and potentially higher returns than broadly diversified ETF-based plans.
+
+### Hypothesis 2: Technology stocks exhibit higher volatility than diversified ETFs
+
+Large technology companies are often perceived as more volatile than diversified index funds because they are exposed to company-specific risks and investor sentiment.
+
+### Hypothesis 3: Diversified portfolios experience smaller drawdowns than concentrated portfolios
+
+Diversification across many companies is widely considered a mechanism for reducing portfolio risk.
+
+This hypothesis tests whether portfolios with broader diversification demonstrate smaller historical drawdowns than more concentrated portfolios.
+
+### Hypothesis 4: Short-horizon return prediction is inherently difficult
+
+Financial markets are known to be noisy and difficult to predict over short time horizons.
+
+This hypothesis evaluates whether a machine learning model can successfully predict next-day stock returns.
