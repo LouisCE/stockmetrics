@@ -23,6 +23,8 @@ data/processed/
 !data/processed/
 data/processed/v1/*
 !data/processed/v1/clean_prices_v1_latest.csv
+data/processed/v2/*
+!data/processed/v2/clean_prices_v2_latest.csv
 
 # Model files and other generated outputs
 models/*
@@ -31,3 +33,5 @@ models/*
 # Track evaluation artefacts, ignore only huge prediction CSVs
 outputs/v1/reports/predictions_train_v1.csv
 outputs/v1/reports/predictions_test_v1.csv
+outputs/v2/reports/predictions_train_v2.csv
+outputs/v2/reports/predictions_test_v2.csv
