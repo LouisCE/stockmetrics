@@ -576,3 +576,104 @@ This section links each business requirement to the analysis or machine learning
 | Clear Communication of Model Results | Actual vs predicted plots, residual analysis, and performance metrics | Evaluation of regression model performance (R², MAE, RMSE) |
 
 This mapping ensures that each dashboard component directly supports the project’s business objectives.
+
+---
+
+## ML Business Case
+
+### Predictive Task
+
+The machine learning task in StockMetrics is supervised regression.
+
+The model predicts:
+
+```
+next-day return (return_1d)
+```
+
+This task is intentionally framed as a predictive analytics demonstration, rather than a trading signal generator.
+
+---
+
+### Learning Method
+
+The model uses a RandomForestRegressor ensemble model, a tree-based ensemble learning method well suited to tabular datasets.
+
+Random Forest models:
+
+- capture nonlinear relationships
+- are robust to noisy data
+- provide feature importance estimates
+
+---
+
+### Feature Engineering
+
+Features used in the model include:
+
+- rolling volatility measures
+- momentum indicators
+- drawdown metrics
+- lagged returns
+
+These features are engineered in:
+
+```
+jupyter_notebooks/04_feature_engineering.ipynb
+src/features.py
+```
+
+---
+
+### Hyperparameter Optimisation
+
+Hyperparameter optimisation was implemented using:
+
+```
+GridSearchCV
+```
+
+with a TimeSeriesSplit cross-validation strategy to ensure chronological validation.
+
+Six hyperparameters were tuned:
+
+- n_estimators
+- max_depth
+- min_samples_split
+- min_samples_leaf
+- max_features
+- max_leaf_nodes
+
+Each hyperparameter includes at least three candidate values, satisfying the advanced modelling requirement.
+
+---
+
+### Success Criteria
+
+Primary evaluation metric:
+
+```
+Test R² > 0
+```
+
+Secondary metrics:
+
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+
+If the model achieves a positive test-set R², it indicates that the model captures some generalisable signal in the dataset.
+
+---
+
+### Model Output and User Relevance
+
+The model predicts next-day returns, which are highly noisy in financial markets.
+
+Therefore the predictions are not used directly as trading signals.
+
+Instead, the model serves two purposes:
+
+1. Demonstrating how machine learning can analyse financial time-series data.
+2. Supporting educational insights about uncertainty and prediction difficulty.
+
+Long-horizon forecasts in the dashboard are generated using historical trend and volatility simulations, rather than compounding daily ML predictions.
