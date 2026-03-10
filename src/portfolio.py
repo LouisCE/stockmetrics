@@ -16,18 +16,20 @@ from typing import Dict
 import numpy as np
 import pandas as pd
 
+from src.config import ALL_WORLD_TICKER, SP500_TICKER
+
 
 PLAN_WEIGHTS: Dict[str, Dict[str, float]] = {
     # Vanguard All-World ETF for a simple, diversified baseline
-    # with a broad, globalised index
-    "Diversified (Low Risk)": {"VWRP.L": 1.0},
+    # with a broad, global index
+    "Diversified (Low Risk)": {ALL_WORLD_TICKER: 1.0},
 
-    # Vanguard US Equity ETF for a more targeted US-focused plan
-    "Targeted (Moderate Risk)": {"VUAG.L": 1.0},
+    # Vanguard S&P 500 ETF for a more targeted US-focused plan
+    "Targeted (Moderate Risk)": {SP500_TICKER: 1.0},
 
     # Concentrated on high-growth US tech for higher risk/reward potential
     "Concentrated (High Risk)": {
-        "VUAG.L": 0.75,
+        SP500_TICKER: 0.75,
         "AAPL": 0.25 / 7,
         "AMZN": 0.25 / 7,
         "GOOGL": 0.25 / 7,
@@ -39,7 +41,7 @@ PLAN_WEIGHTS: Dict[str, Dict[str, float]] = {
 
     # More aggressive with a Tesla overweight to show volatility impact
     "Aggressive (Higher Risk)": {
-        "VUAG.L": 0.50,
+        SP500_TICKER: 0.50,
         "AAPL": 0.25 / 6,
         "AMZN": 0.25 / 6,
         "GOOGL": 0.25 / 6,
