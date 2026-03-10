@@ -1,0 +1,96 @@
+{
+  "version": "v2",
+  "model_file": "C:\\Users\\Louis\\Documents\\vscode-projects\\stockmetrics\\models\\stock_forecast_model_v2.pkl",
+  "dataset": "data/processed/v2/features_v2_latest.csv",
+  "task": "Regression: predict next-day return (return_1d)",
+  "metrics_train": {
+    "r2": 0.26397161824789483,
+    "mae": 0.012417230002945218,
+    "rmse": 0.01859139304480067
+  },
+  "metrics_test": {
+    "r2": 0.0900693882569894,
+    "mae": 0.013029058660644358,
+    "rmse": 0.02043515520374621
+  },
+  "model_successful_against_business_case": true,
+  "success_rule": "Test R\u00b2 > 0 indicates a generalisable signal",
+  "by_ticker_test_metrics": [
+    {
+      "Ticker": "NVDA",
+      "r2": 0.153547902035564,
+      "mae": 0.0199221737742548,
+      "rmse": 0.02764484705090624,
+      "n_rows": 674
+    },
+    {
+      "Ticker": "GOOGL",
+      "r2": 0.13761444097081033,
+      "mae": 0.012431096622501784,
+      "rmse": 0.017070035250297492,
+      "n_rows": 674
+    },
+    {
+      "Ticker": "VUSA.L",
+      "r2": 0.11806428487727716,
+      "mae": 0.005330371217473372,
+      "rmse": 0.007823452281716065,
+      "n_rows": 682
+    },
+    {
+      "Ticker": "META",
+      "r2": 0.10869950052368804,
+      "mae": 0.014652311627123537,
+      "rmse": 0.021258396666698796,
+      "n_rows": 674
+    },
+    {
+      "Ticker": "VWRL.L",
+      "r2": 0.10491310732352821,
+      "mae": 0.004790938583709722,
+      "rmse": 0.006919193376587266,
+      "n_rows": 682
+    },
+    {
+      "Ticker": "MSFT",
+      "r2": 0.08001117618653353,
+      "mae": 0.009756524382887643,
+      "rmse": 0.014011184570658747,
+      "n_rows": 675
+    },
+    {
+      "Ticker": "AMZN",
+      "r2": 0.07855955546344129,
+      "mae": 0.013698502057614463,
+      "rmse": 0.01884239998133603,
+      "n_rows": 674
+    },
+    {
+      "Ticker": "AAPL",
+      "r2": 0.07524740402142172,
+      "mae": 0.010607912946709885,
+      "rmse": 0.01597079343065467,
+      "n_rows": 674
+    },
+    {
+      "Ticker": "TSLA",
+      "r2": 0.033710457603776556,
+      "mae": 0.026246103187399172,
+      "rmse": 0.03664551505746966,
+      "n_rows": 675
+    }
+  ],
+  "artefacts": {
+    "predictions_train_csv": "predictions_train_v2.csv",
+    "predictions_test_csv": "predictions_test_v2.csv",
+    "actual_vs_pred_train_plot": "eval_actual_vs_pred_train_v2.png",
+    "actual_vs_pred_test_plot": "eval_actual_vs_pred_test_v2.png",
+    "residuals_hist_test_plot": "eval_residuals_hist_test_v2.png",
+    "residuals_ts_test_plot": "eval_residuals_timeseries_test_v2.png",
+    "pred_timeseries_test_plot": "eval_pred_timeseries_test_v2.png"
+  },
+  "notes": [
+    "Time-aware chronological split used (prevents leakage).",
+    "Returns are noisy; scenario ranges are used in the dashboard."
+  ]
+}
