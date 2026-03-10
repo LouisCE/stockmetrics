@@ -32,7 +32,7 @@ def get_project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
-def get_paths(version: str = "v1") -> Paths:
+def get_paths(version: str = "v2") -> Paths:
     """Build versioned folder paths."""
     root = get_project_root()
     data_dir = root / "data"
@@ -56,28 +56,44 @@ def utc_today_str() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
-# Defaults used during early development (safe and small)
-DEFAULT_VERSION = "v1"
-DEFAULT_START_DATE = "2010-01-01"
+# Versioning
+
+# v1 = original dataset/artefacts
+# v2 = longer-history ETF run using VWRL/VUSA from 2012-05-22
+DEFAULT_VERSION = "v2"
+
+
+# Date window (single unified window across ALL tickers)
+
+# VWRL and VUSA launched on 2012-05-22, so this is the earliest clean
+# start date that keeps equal coverage across ETFs + Mag 7.
+DEFAULT_START_DATE = "2012-05-22"
 DEFAULT_END_DATE = utc_today_str()
+
 
 # Tickers
 
 # "Magnificent Seven" (Yahoo Finance US tickers)
 MAG7_TICKERS = ["AAPL", "AMZN", "GOOGL", "META", "MSFT", "NVDA", "TSLA"]
 
-# UK ETFs (Yahoo Finance uses the ".L" suffix for LSE listings)
-# VUAG.L = Vanguard S&P 500 UCITS ETF (Accumulating)
-# VWRP.L = Vanguard FTSE All-World UCITS ETF (Accumulating)
-SP500_ACC_TICKER = "VUAG.L"
-ALL_WORLD_ACC_TICKER = "VWRP.L"  # Will add fallback if this ever breaks.
+# UK ETFs (LSE uses ".L")
+# Vanguard FTSE All-World and S&P 500
+# Distributing share classes (longer history)
+SP500_DIST_TICKER = "VUSA.L"       # Distributing (launched 2012)
+ALL_WORLD_DIST_TICKER = "VWRL.L"   # Distributing (launched 2012)
 
-# US equivalents (useful for comparisons or if a UK ticker fails)
-SP500_US_PROXY = "SPY"  # VUAG.L equivalent
-ALL_WORLD_US_PROXY = "VT"  # VWRP.L equivalent
+# Accumulating share classes (shorter history, kept as alternates)
+SP500_ACC_TICKER = "VUAG.L"        # Accumulating (launched 2019)
+ALL_WORLD_ACC_TICKER = "VWRP.L"    # Accumulating (launched 2019)
 
-# Main collection list for the project going forward
-CORE_TICKERS = [ALL_WORLD_ACC_TICKER, SP500_ACC_TICKER] + MAG7_TICKERS
+# Default ETF choices for this project run (v2)
+SP500_TICKER = SP500_DIST_TICKER
+ALL_WORLD_TICKER = ALL_WORLD_DIST_TICKER
 
-# Default set used by notebooks + the app
+# US proxies (only for emergency fallback / comparisons)
+SP500_US_PROXY = "SPY"
+ALL_WORLD_US_PROXY = "VT"
+
+# Main collection list for notebooks + dashboard
+CORE_TICKERS = [ALL_WORLD_TICKER, SP500_TICKER] + MAG7_TICKERS
 DEFAULT_TICKERS = CORE_TICKERS
