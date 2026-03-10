@@ -677,3 +677,110 @@ Instead, the model serves two purposes:
 2. Supporting educational insights about uncertainty and prediction difficulty.
 
 Long-horizon forecasts in the dashboard are generated using historical trend and volatility simulations, rather than compounding daily ML predictions.
+
+---
+
+## Dashboard Design
+
+The Streamlit dashboard is structured as a multi-page application using the `app_pages` folder.
+
+The dashboard pages either address a specific business requirement directly or support the overall user experience through onboarding and explanation.
+
+---
+
+### Home Page
+
+**Purpose**
+
+- Introduce the project
+- Explain key investing concepts
+- Provide beginner-friendly guidance
+
+**Content**
+
+- project description
+- glossary of investing terminology
+- explanations of ETFs and diversification
+- description of the four portfolio plans
+
+**Business requirement addressed**
+
+- clear onboarding and user guidance
+
+---
+
+### Stock Explorer
+
+**Purpose**
+
+Allow users to explore historical behaviour of individual assets.
+
+**Features**
+
+- ticker selector
+- date range filter
+- interactive price chart
+- daily return visualisation
+- return distribution histogram
+
+**Business requirement addressed**
+
+- historical market exploration
+
+---
+
+### Predictor
+
+**Purpose**
+
+Illustrate potential future outcomes using scenario ranges.
+
+**Features**
+
+- ticker selection
+- forecast horizon selection
+- simulated price scenarios
+- optimistic / realistic / pessimistic outcomes
+
+**Business requirement addressed**
+
+- scenario-based forecasting
+
+---
+
+### Portfolio Plans
+
+**Purpose**
+
+Allow users to compare different portfolio diversification strategies.
+
+**Features**
+
+- selectable portfolio plans
+- historical equity curves
+- portfolio performance metrics
+- volatility and drawdown comparison
+
+**Business requirement addressed**
+
+- portfolio risk comparison
+
+---
+
+### Model Performance
+
+**Purpose**
+
+Provide transparency regarding the machine learning model.
+
+**Features**
+
+- model success indicator
+- regression metrics
+- actual vs predicted plots
+- residual analysis
+- feature importance visualisation
+
+**Business requirement addressed**
+
+- clear communication of model results
