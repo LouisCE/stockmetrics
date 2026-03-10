@@ -560,3 +560,19 @@ Each stage produces reproducible outputs that are saved in **versioned project f
 - `outputs/<version>/`
 
 This structure ensures that datasets, models and evaluation artefacts remain reproducible across project iterations.
+
+---
+
+## Rationale to map the business requirements to the Data Visualisations and ML tasks
+
+This section links each business requirement to the analysis or machine learning task used to address it.
+
+| Business Requirement | Data Analysis / Visualisation | ML Task |
+|---|---|---|
+| Historical Market Exploration | Price charts, daily returns visualisation, and return distribution histograms | — |
+| Portfolio Risk Comparison | Portfolio equity curves, volatility metrics, and drawdown analysis | — |
+| Predictive Analytics Feature | Model evaluation plots, feature importance visualisation | Regression model predicting next-day returns |
+| Scenario-Based Forecasting | Scenario tables showing optimistic, realistic, and pessimistic outcomes | — |
+| Clear Communication of Model Results | Actual vs predicted plots, residual analysis, and performance metrics | Evaluation of regression model performance (R², MAE, RMSE) |
+
+This mapping ensures that each dashboard component directly supports the project’s business objectives.
