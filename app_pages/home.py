@@ -100,6 +100,55 @@ often lead to **analysis paralysis**.
             "A blue-chip stock usually refers to a large, established company "
             "with a strong reputation and long operating history."
         )
+
+    st.divider()
+
+    st.header("Frequently asked questions")
+
+    with st.expander("What is the S&P 500?"):
+        st.write(
+            "The S&P 500 is a stock market index tracking 500 of the largest "
+            "publicly traded companies in the United States. It is widely "
+            "usedas a benchmark for the broader US stock market."
+        )
+
+    with st.expander("What is VWRL.L?"):
+        st.write(
+            "VWRL.L is the Vanguard FTSE All-World UCITS ETF. It gives "
+            "exposureto a broad range of companies across developed and "
+            "emerging markets, making it a simple example of global "
+            "diversification."
+        )
+
+    with st.expander("What is the Magnificent Seven?"):
+        st.write(
+            "The Magnificent Seven refers to Alphabet, Amazon, Apple, Meta, "
+            "Microsoft, Nvidia, and Tesla. These companies have played a "
+            "major role in recent US market growth, but they also represent "
+            "a more concentrated type of exposure."
+        )
+
+    with st.expander("Why is Tesla featured heavily in the Aggressive plan?"):
+        st.write(
+            "Tesla is used as an example of a more volatile stock. Its price "
+            "history helps illustrate how concentration in one high-profile "
+            "company can increase both upside potential and downside risk."
+        )
+
+    with st.expander("Why does StockMetrics use scenario ranges instead of one prediction?"):
+        st.write(
+            "Financial markets are noisy, especially in the short term. "
+            "Scenario ranges help communicate uncertainty more responsibly than "
+            "a single ‘magic number’ prediction."
+        )
+    
+    with st.expander("Does StockMetrics recommend a trading platform?"):
+        st.write(
+            "No. StockMetrics is designed for education, not broker recommendations. "
+            "If you choose to invest, compare platforms based on regulation, fees, "
+            "available account types, ease of use, and the assets you want to buy."
+        )
+
     st.divider()
 
     st.header("Four risk-based plans")
