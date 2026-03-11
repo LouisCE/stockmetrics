@@ -42,9 +42,13 @@ def render() -> None:
 
     st.markdown(
         """
-These plans are designed to be easy to compare.
-Risk here is about **concentration**
-(how much you rely on a small set of stocks).
+### What's your appetite for risk?
+
+In StockMetrics, these risk labels are **relative to each other**.
+They describe how concentrated each plan is, not whether investing is ever risk-free.
+
+A more concentrated plan may offer higher potential upside,
+but it may also experience larger drawdowns and a bumpier ride.
 """
     )
 
@@ -70,8 +74,16 @@ Risk here is about **concentration**
     fig.update_layout(yaxis_title="Equity curve", xaxis_title="Date")
     st.plotly_chart(fig, use_container_width=True)
 
+    st.caption(
+        "This chart shows how £1 would have grown historically under the selected plan. "
+        "It helps illustrate the trade-off between diversification, concentration, and volatility."
+    )
+
     st.subheader("Plan composition")
     st.write("Weights (renormalised if tickers are missing):")
     st.json(weights)
 
-    st.info("Educational use only. Historical performance does not guarantee future results.")
+    st.info(
+        "Educational use only. These plans illustrate risk trade-offs and are not "
+        "personal investment recommendations."
+    )
