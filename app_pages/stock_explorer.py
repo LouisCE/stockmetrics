@@ -6,6 +6,7 @@ Interactive exploration of prices and returns for each ticker.
 
 from __future__ import annotations
 
+import pandas as pd
 import streamlit as st
 
 from src.config import DEFAULT_VERSION, get_paths
@@ -31,29 +32,58 @@ def render() -> None:
     tickers = sorted(df["Ticker"].unique().tolist())
     ticker = st.selectbox("Select ticker", options=tickers)
 
+    ticker_df = df[df["Ticker"] == ticker].copy()
+    min_date = ticker_df["Date"].min().date()
+    max_date = ticker_df["Date"].max().date()
+
+    date_range = st.date_input(
+        "Select date range",
+        value=(min_date, max_date),
+        min_value=min_date,
+        max_value=max_date,
+    )
+
+    if isinstance(date_range, tuple) and len(date_range) == 2:
+        start_date, end_date = date_range
+    else:
+        start_date, end_date = min_date, max_date
+
+    filtered_df = df[
+        (df["Ticker"] == ticker)
+        & (df["Date"].dt.date >= start_date)
+        & (df["Date"].dt.date <= end_date)
+    ].copy()
+
     c1, c2, c3 = st.columns(3)
     with c1:
-        st.metric("Rows", f"{len(df):,}")
+        st.metric("Rows", f"{len(filtered_df):,}")
     with c2:
-        st.metric("Tickers", f"{len(tickers)}")
+        st.metric("Ticker", ticker)
     with c3:
-        st.metric("Date range", f"{df['Date'].min().date()} → {df['Date'].max().date()}")
+        st.metric("Date range", f"{start_date} → {end_date}")
 
     st.divider()
 
     tab1, tab2, tab3 = st.tabs(["Prices", "Returns", "Distribution"])
 
     with tab1:
-        st.plotly_chart(line_prices(df, ticker), use_container_width=True)
-        st.caption("This chart shows how the adjusted price changed over time.")
+        st.plotly_chart(line_prices(filtered_df, ticker), use_container_width=True)
+        st.caption(
+            "This chart shows how the adjusted price changed over the selected time period."
+        )
 
     with tab2:
-        st.plotly_chart(line_returns(df, ticker), use_container_width=True)
-        st.caption("Daily returns show day-to-day volatility (noise is normal).")
+        st.plotly_chart(line_returns(filtered_df, ticker), use_container_width=True)
+        st.caption(
+            "Daily returns show day-to-day volatility. Short-term noise is normal."
+        )
 
     with tab3:
-        st.plotly_chart(hist_returns(df, ticker), use_container_width=True)
-        st.caption("The distribution helps you see typical vs extreme return days.")
+        st.plotly_chart(hist_returns(filtered_df, ticker), use_container_width=True)
+        st.caption(
+            "The distribution helps show which daily return outcomes were most common "
+            "and which were more extreme."
+        )
 
     st.caption(
         "Charts are based on the cleaned dataset in data/processed/<version>/ "
