@@ -15,6 +15,13 @@ def render() -> None:
 
     st.markdown(
         """
+> *“The stock market is a device for transferring money from the impatient to the patient.”*  
+> — Warren Buffett
+"""
+    )
+
+    st.markdown(
+        """
 Learning to invest can feel intimidating and overwhelming:
 unfamiliar terms, endless strategies, and conflicting advice
 often lead to **analysis paralysis**.
