@@ -160,8 +160,8 @@ All plans are equity-based and may experience significant short-term volatility.
     )
 
     plans = [
-        ("Diversified (Low Risk)", "100% All-World fund (VWRP.L)"),
-        ("Targeted (Moderate Risk)", "100% S&P 500 fund (VUAG.L)"),
+        ("Diversified (Low Risk)", "100% All-World fund (VWRL.L)"),
+        ("Targeted (Moderate Risk)", "100% S&P 500 fund (VUSA.L)"),
         ("Concentrated (High Risk)", "75% S&P 500 + 25% Magnificent Seven"),
         ("Aggressive (Higher Risk)", "50% S&P 500 + 25% Magnificent Six + 25% Tesla"),
     ]
