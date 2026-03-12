@@ -14,12 +14,13 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.experimental import enable_halving_search_cv  # noqa: F401
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
+from sklearn.model_selection import GridSearchCV, HalvingGridSearchCV, TimeSeriesSplit
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.ensemble import RandomForestRegressor
 
 
 TARGET_COL = "return_1d"
@@ -82,10 +83,14 @@ def build_pipeline() -> Pipeline:
 
 def get_param_grid(fast: bool = False) -> Dict[str, list[object]]:
     """
-    Hyperparameter options for GridSearchCV.
+    Hyperparameter options for search.
 
-    fast=True runs a small grid for quick validation.
-    fast=False runs the full grid (final evidence run).
+    fast=True:
+        Small grid used for quick validation during notebook development.
+
+    fast=False:
+        Full parameter space:
+        6 hyperparameters, each with 3 distinct acceptable values.
     """
     if fast:
         return {
@@ -98,12 +103,12 @@ def get_param_grid(fast: bool = False) -> Dict[str, list[object]]:
         }
 
     return {
-        "model__n_estimators": [200, 500, 1000],
+        "model__n_estimators": [100, 200, 300],
         "model__max_depth": [5, 10, None],
         "model__min_samples_split": [2, 5, 10],
         "model__min_samples_leaf": [1, 2, 4],
         "model__max_features": ["sqrt", "log2", 0.5],
-        "model__max_leaf_nodes": [50, 200, None],  # Three distinct values
+        "model__max_leaf_nodes": [50, 200, None],
     }
 
 
@@ -113,11 +118,21 @@ def train_and_tune(
     fast: bool = False,
 ) -> TrainResult:
     """
-    Train + tune on a time-aware CV (TimeSeriesSplit).
+    Train + tune on a time-aware CV search.
 
     Target: next-day return (return_1d).
+
+    fast=True:
+        Uses GridSearchCV on a small grid for quick notebook iteration.
+
+    fast=False:
+        Uses HalvingGridSearchCV on the full parameter
+        space to reduce runtime while still searching across all defined
+        hyperparameter options.
     """
-    df = feat_df.dropna(subset=FEATURE_COLS_NUM + FEATURE_COLS_CAT + [TARGET_COL]).copy()
+    df = feat_df.dropna(
+        subset=FEATURE_COLS_NUM + FEATURE_COLS_CAT + [TARGET_COL]
+    ).copy()
     df = df.sort_values(["Date", "Ticker"]).reset_index(drop=True)
 
     train_df, test_df = time_split(df, test_size=test_size)
@@ -131,21 +146,34 @@ def train_and_tune(
     pipe = build_pipeline()
     grid = get_param_grid(fast=fast)
 
-    tscv = TimeSeriesSplit(n_splits=3 if fast else 5)
+    tscv = TimeSeriesSplit(n_splits=3)
 
-    search = GridSearchCV(
-        estimator=pipe,
-        param_grid=grid,
-        scoring="r2",
-        cv=tscv,
-        n_jobs=1,
-        verbose=2,
-    )
+    if fast:
+        search = GridSearchCV(
+            estimator=pipe,
+            param_grid=grid,
+            scoring="r2",
+            cv=tscv,
+            n_jobs=1,
+            verbose=2,
+        )
+    else:
+        search = HalvingGridSearchCV(
+            estimator=pipe,
+            param_grid=grid,
+            scoring="r2",
+            cv=tscv,
+            factor=3,
+            resource="n_samples",
+            max_resources="auto",
+            min_resources="exhaust",
+            n_jobs=1,
+            verbose=2,
+        )
 
     search.fit(X_train, y_train)
     best_model = search.best_estimator_
 
-    # Metrics
     pred_train = best_model.predict(X_train)
     pred_test = best_model.predict(X_test)
 
