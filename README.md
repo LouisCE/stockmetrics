@@ -784,3 +784,27 @@ Provide transparency regarding the machine learning model.
 **Business requirement addressed**
 
 - clear communication of model results
+
+---
+
+## Tools and Technologies
+
+The **StockMetrics** project uses the following technologies to collect financial market data, process and analyse time-series datasets, build a machine learning pipeline, and deploy an interactive Streamlit dashboard.
+
+| Tool / Technology | Purpose |
+|---|---|
+| [![badge](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) | Version control system (`git add`, `git commit`, `git push`) used to track development history through small, feature-based commits. |
+| [![badge](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) | Remote repository hosting used for source control, project backup, and Agile project tracking with GitHub Projects. |
+| [![badge](https://img.shields.io/badge/VSCode-grey?logo=visualstudiocode&logoColor=007ACC)](https://code.visualstudio.com) | Local development environment used to write Python modules, notebooks, and project documentation. |
+| [![badge](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB)](https://www.python.org) | Primary programming language used for data collection, data processing, machine learning, and dashboard development. |
+| [![badge](https://img.shields.io/badge/Jupyter-grey?logo=jupyter&logoColor=F37626)](https://jupyter.org) | Notebook environment used to implement the CRISP-DM workflow, including data collection, cleaning, exploratory analysis, feature engineering, model training, and evaluation. |
+| [![badge](https://img.shields.io/badge/NumPy-grey?logo=numpy&logoColor=013243)](https://numpy.org) | Numerical computing library used for return calculations, volatility calculations, simulation logic, and modelling support. |
+| [![badge](https://img.shields.io/badge/Pandas-grey?logo=pandas&logoColor=150458)](https://pandas.pydata.org) | Data manipulation library used to clean, transform, aggregate, and analyse historical financial time-series data. |
+| [![badge](https://img.shields.io/badge/Matplotlib-grey?logo=python&logoColor=3776AB)](https://matplotlib.org) | Static plotting library used in the EDA and model evaluation notebooks to generate analysis and diagnostic figures. |
+| [![badge](https://img.shields.io/badge/Plotly-grey?logo=plotly&logoColor=3F4F75)](https://plotly.com/python) | Interactive visualisation library used in the Streamlit dashboard for dynamic price charts, returns charts, histograms, and portfolio growth visuals. |
+| [![badge](https://img.shields.io/badge/scikit--learn-grey?logo=scikitlearn&logoColor=F7931E)](https://scikit-learn.org) | Machine learning framework used to build preprocessing pipelines, perform time-aware cross-validation with `TimeSeriesSplit`, tune hyperparameters using `GridSearchCV` / `HalvingGridSearchCV`, train the `RandomForestRegressor` model, and evaluate predictive performance. |
+| [![badge](https://img.shields.io/badge/Streamlit-grey?logo=streamlit&logoColor=FF4B4B)](https://streamlit.io) | Framework used to build the interactive multi-page dashboard for beginner investors. |
+| [![badge](https://img.shields.io/badge/Yahoo%20Finance-grey?logo=yahoo&logoColor=720E9E)](https://finance.yahoo.com) | Financial market data source accessed programmatically through the `yfinance` Python library to retrieve historical OHLCV stock and ETF data. |
+| [![badge](https://img.shields.io/badge/yfinance-grey?logo=python&logoColor=3776AB)](https://pypi.org/project/yfinance/) | Python library used to download historical stock and ETF data from the Yahoo Finance endpoint during the data collection stage. |
+| [![badge](https://img.shields.io/badge/Render-grey?logo=render&logoColor=46E3B7)](https://render.com) | Cloud hosting platform used to deploy the Streamlit dashboard as a live publicly accessible web application. |
+| [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) | Used as a learning aid for planning architecture, debugging code, improving explanations, and drafting documentation during development. |
