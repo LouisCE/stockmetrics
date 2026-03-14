@@ -808,3 +808,51 @@ The **StockMetrics** project uses the following technologies to collect financia
 | [![badge](https://img.shields.io/badge/yfinance-grey?logo=python&logoColor=3776AB)](https://pypi.org/project/yfinance/) | Python library used to download historical stock and ETF data from the Yahoo Finance endpoint during the data collection stage. |
 | [![badge](https://img.shields.io/badge/Render-grey?logo=render&logoColor=46E3B7)](https://render.com) | Cloud hosting platform used to deploy the Streamlit dashboard as a live publicly accessible web application. |
 | [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) | Used as a learning aid for planning architecture, debugging code, improving explanations, and drafting documentation during development. |
+
+---
+
+## Agile Development Process
+
+### GitHub Projects
+
+[GitHub Projects](https://www.github.com/LouisCE/stockmetrics/projects) was used as the primary Agile planning and tracking tool for the **StockMetrics** project.
+
+The GitHub Projects board followed a Kanban-style workflow and was used to:
+
+* Plan and manage Epics and User Stories
+* Break down features into manageable development tasks
+* Track progress
+* Create, prioritise and move tasks through the Kanban workflow from *To Do* through *In Progress* to *Done*
+* Record bugs and technical issues discovered during development
+
+The board was updated regularly throughout the build process to reflect the current state of development and priorities.
+
+---
+
+### GitHub Issues
+
+[GitHub Issues](https://www.github.com/LouisCE/stockmetrics/issues) were used as a supporting tool to log Epics, User Stories, and Bugs.
+
+To keep the workflow organised, labels were applied within GitHub Issues, including:
+
+* **Bug** - used to identify bugs, defects, and technical issues discovered during development
+* **Epic** - used to identify larger Epic-level items that grouped related User Stories under a broader development objective
+
+This helped maintain a clear structure between high-level planning items and smaller actionable tasks throughout the project lifecycle.
+
+Bugs were also documented within **TESTING.md**, allowing all planning, progress tracking, and issue documentation to remain centralised during development.
+
+---
+
+### MoSCoW Prioritisation
+
+User Stories were prioritised using the **MoSCoW** method to ensure that core functionality was delivered first, while still allowing room for enhancements if time permitted.
+
+Each User Story was labelled accordingly within GitHub Issues:
+
+* **Must Have** - Core features required for the site to function correctly and meet the project’s assessment criteria
+* **Should Have** - Important features that significantly improve user experience but are not strictly essential
+* **Could Have** - Nice-to-have features that add extra polish if time allows
+* **Won’t Have** - Features intentionally deferred to future development beyond the scope of this submission
+
+This prioritisation helped guide development decisions and ensured the project remained achievable within the available timeframe.
