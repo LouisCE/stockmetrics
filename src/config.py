@@ -97,3 +97,30 @@ ALL_WORLD_US_PROXY = "VT"
 # Main collection list for notebooks + dashboard
 CORE_TICKERS = [ALL_WORLD_TICKER, SP500_TICKER] + MAG7_TICKERS
 DEFAULT_TICKERS = CORE_TICKERS
+
+TICKER_DISPLAY_NAMES = {
+    "VWRL.L": "Vanguard FTSE All-World UCITS ETF",
+    "VUSA.L": "Vanguard S&P 500 UCITS ETF",
+    "AAPL": "Apple",
+    "AMZN": "Amazon",
+    "GOOGL": "Alphabet (Class A)",
+    "META": "Meta",
+    "MSFT": "Microsoft",
+    "NVDA": "Nvidia",
+    "TSLA": "Tesla",
+}
+
+PLAN_DESCRIPTIONS = {
+    "Diversified (Low Risk)": (
+        "Global diversification through one broad all-world ETF."
+    ),
+    "Targeted (Moderate Risk)": (
+        "Simple US-focused exposure through the S&P 500."
+    ),
+    "Concentrated (High Risk)": (
+        "More concentrated exposure with Magnificent Seven stocks."
+    ),
+    "Aggressive (Higher Risk)": (
+        "Highest concentration, with a stronger tilt toward Tesla."
+    ),
+}
