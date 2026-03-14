@@ -863,3 +863,50 @@ This prioritisation helped guide development decisions and ensured the project r
 
 > [!NOTE]  
 > For all testing, please refer to the [TESTING.md](TESTING.md) file.
+
+---
+
+## Deployment
+
+The live deployed application can be accessed here:  
+[StockMetrics on Render](https://stockmetrics-emhu.onrender.com)
+
+### Render Deployment
+
+The StockMetrics dashboard is deployed using **Render**. The following steps were used to deploy the application.
+
+1. Log in to **Render.com** using a GitHub account.
+2. Create a workspace and click **New → Web Service**.
+3. Under **Source Code**, select **Git Provider** and connect the GitHub repository.
+4. Choose the repository. In my case: `LouisCE/stockmetrics`.
+5. Enter a unique service name. In my case: `stockmetrics`.
+6. Select **Python 3** as the runtime environment.
+7. Select the **main** branch for deployment.
+8. Choose the **Frankfurt (EU Central)** region.
+9. Leave **Root Directory** empty so the repository root is used.
+10. Set the **Build Command** to install project dependencies and configure Streamlit:
+
+```
+pip install -r requirements.txt && bash setup.sh
+```
+
+11. Set the **Start Command** to run the Streamlit dashboard:
+
+```
+streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+```
+
+12. Select the **Free** instance type.
+13. Leave **Environment Variables** empty as no external secrets are required.
+14. In **Advanced Settings**, set the **Health Check Path** to:
+
+```
+/
+```
+
+15. Disable **Auto-Deploy** initially to allow manual deployment control during development.
+16. Click **Deploy Web Service**.
+
+Once the build process completes, Render provides a public URL where the dashboard can be accessed.
+
+Free Render instances spin down after periods of inactivity, so the first request may take several seconds while the service wakes up.
