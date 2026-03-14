@@ -856,3 +856,10 @@ Each User Story was labelled accordingly within GitHub Issues:
 * **Won’t Have** - Features intentionally deferred to future development beyond the scope of this submission
 
 This prioritisation helped guide development decisions and ensured the project remained achievable within the available timeframe.
+
+---
+
+## Testing
+
+> [!NOTE]  
+> For all testing, please refer to the [TESTING.md](TESTING.md) file.
