@@ -65,6 +65,35 @@ def render() -> None:
     c3.metric("Test RMSE", f"{metrics_test.get('rmse', float('nan')):.6f}")
     c4.metric("Train R²", f"{metrics_train.get('r2', float('nan')):.6f}")
 
+    st.markdown("### Beginner-friendly interpretation")
+
+    if success:
+        st.success(
+            "This means the model showed **some predictive signal** on unseen data. "
+            "That is useful for the project business case, but it still does **not** "
+            "mean the model can predict the market with certainty."
+        )
+    else:
+        st.warning(
+            "This means the model did **not** show strong enough generalisable signal "
+            "to succeed as a precise next-day predictor. That is common in finance, "
+            "where short-term price movements are highly noisy."
+        )
+
+    st.write(
+        "**R²** shows whether the model performed better than a very simple baseline. "
+        "A value above 0 suggests some useful signal. A value at or below 0 suggests "
+        "the model struggled to generalise."
+    )
+    st.write(
+        "**MAE** and **RMSE** show the average prediction error size. Lower values are better."
+    )
+    st.write(
+        "For StockMetrics, the model is used as an **educational component** to show "
+        "how difficult short-term market prediction is. Long-term scenario ranges are "
+        "communicated separately."
+    )
+
     st.divider()
 
     st.subheader(f"Best hyperparameters ({version})")
