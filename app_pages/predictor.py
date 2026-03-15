@@ -48,6 +48,46 @@ def _predict_next_day_if_possible(model_path: Path, feat_df: pd.DataFrame, ticke
         return None
 
 
+def _ml_interpretation_message(model_pred: float | None) -> tuple[str, str]:
+    """
+    Return a beginner-friendly interpretation message for the optional
+    next-day ML prediction.
+
+    Returns:
+        (status, message)
+        status: "info", "success", or "warning"
+    """
+    if model_pred is None:
+        return (
+            "info",
+            "A machine learning next-day estimate is not available for this ticker. "
+            "StockMetrics can still show long-term scenario ranges using historical "
+            "trend and volatility.",
+        )
+
+    if model_pred > 0:
+        return (
+            "success",
+            f"The model's next-day estimate is **{model_pred:.2%}**, which is slightly positive. "
+            "This does **not** mean the price will definitely rise tomorrow. It simply means the "
+            "model detected a small positive pattern in the recent historical features.",
+        )
+
+    if model_pred < 0:
+        return (
+            "warning",
+            f"The model's next-day estimate is **{model_pred:.2%}**, which is slightly negative. "
+            "This does **not** mean the price will definitely fall tomorrow. It simply means the "
+            "model detected a small negative pattern in the recent historical features.",
+        )
+
+    return (
+        "info",
+        "The model's next-day estimate is close to **0.00%**. In plain English, that suggests "
+        "the model is not seeing a strong short-term directional signal right now.",
+    )
+
+
 def render() -> None:
     st.title("🎯 Predictor")
     st.markdown(
