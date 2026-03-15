@@ -92,11 +92,21 @@ def render() -> None:
     st.title("🎯 Predictor")
     st.markdown(
         """
-StockMetrics generates **long-horizon scenario ranges** by following each ticker’s
-**historical trend and volatility**.
+This page combines **two different ideas**:
 
-These are **educational scenarios**, not guarantees.
+1. a **machine learning estimate** for the **next trading day**
+2. **long-horizon scenario ranges** based on historical trend and volatility
+
+This keeps StockMetrics beginner-friendly by showing that:
+- short-term market moves are noisy and difficult to predict
+- long-term outcomes are better understood as **ranges**, not promises
 """
+    )
+
+    st.info(
+        "Important: the machine learning estimate is a **short-term educational signal**. "
+        "It is **not** a buy/sell instruction, and it is **not** used to generate the "
+        "long-term scenario table below."
     )
 
     version = st.selectbox("Data version", options=[DEFAULT_VERSION], index=0)
@@ -109,7 +119,7 @@ These are **educational scenarios**, not guarantees.
     ticker = st.selectbox("Select ticker", options=tickers)
 
     # Horizon (how far to forecast)
-    horizon_years = st.selectbox("Horizon", options=[1, 2, 5, 10, 20, 50], index=2)
+    horizon_years = st.selectbox("Horizon (how far to forecast)", options=[1, 2, 5, 10, 20, 50], index=2)
     horizon_days = int(horizon_years * 252)
 
     # Trend window (how much history to follow)
@@ -159,13 +169,64 @@ These are **educational scenarios**, not guarantees.
     # Convert mu_log to a simple daily drift for human reading:
     # approx: mu_simple ≈ exp(mu_log) - 1
     mu_simple = float(np.expm1(res.mu_log_used))
-    sigma_simple = float(np.sqrt(np.expm1(res.sigma_log_used**2))) if res.sigma_log_used > 0 else 0.0
+    sigma_simple = (
+        float(np.sqrt(np.expm1(res.sigma_log_used**2)))
+        if res.sigma_log_used > 0
+        else 0.0
+    )
     c4.metric("Estimated daily drift", f"{mu_simple:.4%}")
 
-    if model_pred is not None:
-        st.caption(f"ML next-day prediction (not used in scenarios): {model_pred:.4%}")
+    st.divider()
+    st.subheader("Machine Learning snapshot")
 
-    st.caption(f"Estimated daily volatility (approx): {sigma_simple:.4%}")
+    if model_pred is not None:
+        st.metric(
+            "Estimated next-day return",
+            f"{model_pred:.4%}",
+            help=(
+                "This is the model's estimated next-day return based on the latest "
+                "engineered features. It is a short-term educational estimate, not "
+                "a guaranteed outcome."
+            ),
+        )
+    else:
+        st.metric("Estimated next-day return", "Not available")
+
+    status, message = _ml_interpretation_message(model_pred)
+    if status == "success":
+        st.success(message)
+    elif status == "warning":
+        st.warning(message)
+    else:
+        st.info(message)
+
+    st.caption(
+        "The machine learning model predicts **next-day return only**. "
+        "Because daily returns are noisy, StockMetrics treats this as a small "
+        "educational signal rather than a trading instruction."
+    )
+
+    st.caption(
+        f"Estimated daily volatility from historical data: {sigma_simple:.4%}"
+    )
+
+    st.markdown("### What this means for beginners")
+    st.write(
+        "Short-term price movements are often noisy and influenced by many "
+        "factors, including news, sentiment, and general market volatility. "
+        "That makes next-day prediction very difficult."
+    )
+    st.write(
+        "In StockMetrics, the machine learning estimate is best understood as "
+        "an indicator of **uncertainty and unpredictability**, not as a signal "
+        "for short-term day trading."
+    )
+    st.write(
+        "This is one reason why many investors prefer a **long-term approach**. "
+        "Over longer time horizons, it is often more useful to think in terms "
+        "of broad trends, diversification, and scenario ranges rather than "
+        "trying to guess tomorrow's move."
+    )
 
     st.divider()
     st.subheader(f"Scenario end prices (≈{horizon_years}y)")
@@ -178,7 +239,22 @@ These are **educational scenarios**, not guarantees.
     )
     st.dataframe(out, use_container_width=True)
 
+    st.markdown("### How to read these scenarios")
+    st.write(
+        "The **pessimistic**, **realistic**, and **optimistic** values are not "
+        "three promises about the future. They are a simple way to show a **range "
+        "of possible long-term outcomes** based on the asset's historical trend "
+        "and volatility."
+    )
+    st.write(
+        "A wider spread between the pessimistic and optimistic values usually "
+        "suggests a more volatile asset. A narrower spread suggests a steadier "
+        "historical pattern."
+    )
+
     st.info(
-        "These scenarios follow the ticker’s historical trend and volatility to "
-        "illustrate uncertainty over time. Not financial advice."
+        "These scenario ranges are driven by **historical trend and volatility**, "
+        "not by the next-day machine learning estimate. StockMetrics separates "
+        "short-term ML from long-term scenarios to communicate uncertainty more "
+        "responsibly."
     )
