@@ -76,7 +76,7 @@ def render_plan_boxes(selected_plan: str) -> None:
 def render() -> None:
     st.title("💼 Portfolio Plans")
 
-    version = st.selectbox("Data version", options=[DEFAULT_VERSION], index=0)
+    version = DEFAULT_VERSION
     plan_name = st.selectbox("Select plan", options=list(PLAN_WEIGHTS.keys()))
 
     st.markdown(

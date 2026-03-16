@@ -109,8 +109,7 @@ This keeps StockMetrics beginner-friendly by showing that:
         "long-term scenario table below."
     )
 
-    version = st.selectbox("Data version", options=[DEFAULT_VERSION], index=0)
-
+    version = DEFAULT_VERSION
     paths = get_paths(version)
     clean_df = load_clean_prices_latest(paths.processed_dir, version)
 

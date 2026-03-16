@@ -39,9 +39,5 @@ with st.sidebar:
         index=0,
     )
 
-    st.divider()
-    st.write("Data/artefacts are versioned (e.g. v1, v2).")
-    st.code("data/raw/<version>/\ndata/processed/<version>/\noutputs/<version>/", language="text")
-
 st.container()
 PAGES[page_name]()

@@ -130,8 +130,7 @@ def render() -> None:
     """Render the Stock Explorer page."""
     st.title("🔎 Stock Explorer")
 
-    version = st.selectbox("Data version", options=[DEFAULT_VERSION], index=0)
-
+    version = DEFAULT_VERSION
     df = load_prices(version)
 
     tickers = sorted(df["Ticker"].unique().tolist())
@@ -193,9 +192,8 @@ def render() -> None:
         )
 
     st.caption(
-        "Charts are based on the cleaned dataset in "
-        "data/processed/<version>/ and are intended for education, not "
-        "trading signals."
+        "These charts are based on historical price data and are intended "
+        "for education, not trading signals."
     )
 
     render_asset_guide()

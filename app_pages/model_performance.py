@@ -26,9 +26,9 @@ def read_json(path: Path) -> dict:
 def render() -> None:
     st.title("🧪 Model Performance")
 
-    version = st.selectbox("Artefact version", options=[DEFAULT_VERSION], index=0)
-
+    version = DEFAULT_VERSION
     base = Path("outputs") / version
+
     reports = base / "reports"
     figures = base / "figures"
 
