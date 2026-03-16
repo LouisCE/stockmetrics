@@ -124,7 +124,7 @@ This keeps StockMetrics beginner-friendly by showing that:
     st.caption(f"Selected asset: {format_ticker_label(ticker)}")
 
     # Horizon (how far to forecast)
-    horizon_years = st.selectbox("Horizon (how far to forecast)", options=[1, 2, 5, 10, 20, 50], index=2)
+    horizon_years = st.selectbox("Horizon (how far to forecast)", options=[1, 2, 5, 10], index=2)
     horizon_days = int(horizon_years * 252)
 
     # Trend window (how much history to follow)

@@ -63,8 +63,6 @@ StockMetrics provides predicted price outcomes over multiple time horizons:
 - 2 years
 - 5 years
 - 10 years
-- 20 years
-- 50 years
 
 To reflect uncertainty and volatility, predictions are presented as a range of scenarios:
 
