@@ -17,7 +17,7 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-from src.config import DEFAULT_VERSION, get_paths
+from src.config import DEFAULT_VERSION, format_ticker_label, get_paths
 from src.data_processing import load_clean_prices_latest
 from src.features import load_features_latest  # only used to support model pred if present
 from src.forecast import (
@@ -115,7 +115,13 @@ This keeps StockMetrics beginner-friendly by showing that:
 
     # Ticker selection
     tickers = sorted(clean_df["Ticker"].unique().tolist())
-    ticker = st.selectbox("Select ticker", options=tickers)
+    ticker = st.selectbox(
+        "Select asset",
+        options=tickers,
+        format_func=format_ticker_label,
+    )
+
+    st.caption(f"Selected asset: {format_ticker_label(ticker)}")
 
     # Horizon (how far to forecast)
     horizon_years = st.selectbox("Horizon (how far to forecast)", options=[1, 2, 5, 10, 20, 50], index=2)

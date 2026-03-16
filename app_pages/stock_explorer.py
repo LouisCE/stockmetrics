@@ -9,7 +9,7 @@ from __future__ import annotations
 import pandas as pd
 import streamlit as st
 
-from src.config import DEFAULT_VERSION, get_paths
+from src.config import DEFAULT_VERSION, format_ticker_label, get_paths
 from src.data_processing import load_clean_prices_latest
 from src.viz import hist_returns, line_prices, line_returns
 
@@ -122,7 +122,8 @@ def render_asset_guide() -> None:
 
     for ticker in ordered_tickers:
         title, summary = summaries[ticker]
-        with st.expander(title):
+        label = format_ticker_label(ticker)
+        with st.expander(label):
             st.write(summary)
 
 
@@ -134,7 +135,11 @@ def render() -> None:
     df = load_prices(version)
 
     tickers = sorted(df["Ticker"].unique().tolist())
-    ticker = st.selectbox("Select ticker", options=tickers)
+    ticker = st.selectbox(
+        "Select asset",
+        options=tickers,
+        format_func=format_ticker_label,
+    )
 
     ticker_df = df[df["Ticker"] == ticker].copy()
     min_date = ticker_df["Date"].min().date()
@@ -162,7 +167,7 @@ def render() -> None:
     with c1:
         st.metric("Rows", f"{len(filtered_df):,}")
     with c2:
-        st.metric("Ticker", ticker)
+        st.metric("Selected asset", format_ticker_label(ticker))
     with c3:
         st.metric("Date range", f"{start_date} → {end_date}")
 

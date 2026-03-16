@@ -110,6 +110,17 @@ TICKER_DISPLAY_NAMES = {
     "TSLA": "Tesla",
 }
 
+TICKER_DISPLAY_LABELS = {
+    ticker: f"{name} ({ticker})"
+    for ticker, name in TICKER_DISPLAY_NAMES.items()
+}
+
+
+def format_ticker_label(ticker: str) -> str:
+    """Return a beginner-friendly ticker label like Apple (AAPL)."""
+    return TICKER_DISPLAY_LABELS.get(ticker, ticker)
+
+
 PLAN_DESCRIPTIONS = {
     "Diversified (Low Risk)": (
         "Global diversification through one broad all-world ETF."

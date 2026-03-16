@@ -141,8 +141,8 @@ also experience larger drawdowns and a bumpier ride.
     plan_table = pd.DataFrame(
         [
             {
+                "Asset": TICKER_DISPLAY_NAMES.get(ticker, ticker),
                 "Ticker": ticker,
-                "Name": TICKER_DISPLAY_NAMES.get(ticker, ticker),
                 "Weight (%)": round(weight * 100, 2),
             }
             for ticker, weight in weights.items()
