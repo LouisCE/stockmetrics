@@ -100,8 +100,8 @@ CORE_TICKERS = [ALL_WORLD_TICKER, SP500_TICKER] + MAG7_TICKERS
 DEFAULT_TICKERS = CORE_TICKERS
 
 TICKER_DISPLAY_NAMES = {
-    "VWRL.L": "Vanguard FTSE All-World UCITS ETF",
-    "VUSA.L": "Vanguard S&P 500 UCITS ETF",
+    "VWRL.L": "Vanguard FTSE All-World (Dist)",
+    "VUSA.L": "Vanguard S&P 500 (Dist)",
     "AAPL": "Apple",
     "AMZN": "Amazon",
     "GOOGL": "Alphabet (Class A)",

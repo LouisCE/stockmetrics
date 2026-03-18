@@ -109,13 +109,13 @@ often lead to **analysis paralysis**.
         st.write(
             "The S&P 500 is a stock market index tracking 500 of the largest "
             "publicly traded companies in the United States. It is widely "
-            "usedas a benchmark for the broader US stock market."
+            "used as a benchmark for the broader US stock market."
         )
 
-    with st.expander("What is VWRL.L?"):
+    with st.expander("What is FTSE All-World fund?"):
         st.write(
-            "VWRL.L is the Vanguard FTSE All-World UCITS ETF. It gives "
-            "exposureto a broad range of companies across developed and "
+            "The Vanguard FTSE All-World fund gives "
+            "exposure to a broad range of companies across developed and "
             "emerging markets, making it a simple example of global "
             "diversification."
         )
@@ -155,15 +155,29 @@ often lead to **analysis paralysis**.
     st.markdown(
         """
 Risk in StockMetrics refers to **how concentrated** a portfolio is.
-All plans are equity-based and may experience significant short-term volatility.
+All plans are equity-based and may experience significant short-term
+volatility.
 """
     )
 
     plans = [
-        ("Diversified (Low Risk)", "100% All-World fund (VWRL.L)"),
-        ("Targeted (Moderate Risk)", "100% S&P 500 fund (VUSA.L)"),
-        ("Concentrated (High Risk)", "75% S&P 500 + 25% Magnificent Seven"),
-        ("Aggressive (Higher Risk)", "50% S&P 500 + 25% Magnificent Six + 25% Tesla"),
+        (
+            "Diversified (Low Risk)",
+            "100% Vanguard FTSE All-World (Dist) (VWRL.L)",
+        ),
+        (
+            "Targeted (Moderate Risk)",
+            "100% Vanguard S&P 500 (Dist) (VUSA.L)",
+        ),
+        (
+            "Concentrated (High Risk)",
+            "75% Vanguard S&P 500 (Dist) (VUSA.L) + 25% Magnificent Seven",
+        ),
+        (
+            "Aggressive (Higher Risk)",
+            "50% Vanguard S&P 500 (Dist) (VUSA.L) + 25% Magnificent Six + "
+            "25% Tesla (TSLA)",
+        ),
     ]
     for name, desc in plans:
         st.markdown(f"- **{name}:** {desc}")

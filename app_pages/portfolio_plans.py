@@ -123,7 +123,10 @@ also experience larger drawdowns and a bumpier ride.
         y="Equity",
         title=f"{plan_name} — Growth of £1 (historical)",
     )
-    fig.update_layout(yaxis_title="Equity curve", xaxis_title="Date")
+    fig.update_layout(
+        yaxis_title="Portfolio growth index",
+        xaxis_title="Date",
+    )
     st.plotly_chart(fig, use_container_width=True)
 
     st.caption(
@@ -149,7 +152,7 @@ also experience larger drawdowns and a bumpier ride.
         ]
     )
 
-    st.dataframe(plan_table, use_container_width=True)
+    st.dataframe(plan_table, use_container_width=True, hide_index=True)
 
     st.caption(
         "This is your selected plan. It is shown for educational comparison "
