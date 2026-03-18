@@ -17,7 +17,12 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-from src.config import DEFAULT_VERSION, format_ticker_label, get_paths
+from src.config import (
+    DEFAULT_VERSION,
+    format_display_date,
+    format_ticker_label,
+    get_paths,
+)
 from src.data_processing import load_clean_prices_latest
 from src.features import load_features_latest  # only used to support model pred if present
 from src.forecast import (
@@ -166,11 +171,6 @@ This keeps StockMetrics beginner-friendly by showing that:
         feat_df = load_features_latest(paths.processed_dir, version)
         model_pred = _predict_next_day_if_possible(model_path, feat_df, ticker)
 
-    c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Last price", f"{last_price:,.2f}")
-    c2.metric("Last date", f"{last_dt.date()}")
-    c3.metric("Trend window used", f"{res.window_days} days")
-
     # Convert mu_log to a simple daily drift for human reading:
     # approx: mu_simple ≈ exp(mu_log) - 1
     mu_simple = float(np.expm1(res.mu_log_used))
@@ -179,7 +179,14 @@ This keeps StockMetrics beginner-friendly by showing that:
         if res.sigma_log_used > 0
         else 0.0
     )
-    c4.metric("Estimated daily drift", f"{mu_simple:.4%}")
+
+    row1_col1, row1_col2 = st.columns(2)
+    row2_col1, row2_col2 = st.columns(2)
+
+    row1_col1.metric("Latest adjusted close", f"{last_price:,.2f}")
+    row1_col2.metric("Last date", format_display_date(last_dt))
+    row2_col1.metric("Trend window used", f"{res.window_days} days")
+    row2_col2.metric("Estimated daily drift", f"{mu_simple:.4%}")
 
     st.divider()
     st.subheader("Machine Learning snapshot")
@@ -239,10 +246,15 @@ This keeps StockMetrics beginner-friendly by showing that:
     out = pd.DataFrame(
         {
             "Scenario": ["Pessimistic", "Realistic", "Optimistic"],
-            "End price": [res.pessimistic, res.realistic, res.optimistic],
+            "Percentile": ["25th", "50th (median)", "75th"],
+            "Projected price ($)": [
+                round(res.pessimistic, 2),
+                round(res.realistic, 2),
+                round(res.optimistic, 2),
+            ],
         }
     )
-    st.dataframe(out, use_container_width=True)
+    st.dataframe(out, use_container_width=True, hide_index=True)
 
     st.markdown("### How to read these scenarios")
     st.write(
