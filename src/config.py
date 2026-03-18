@@ -11,6 +11,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from datetime import datetime, timezone
 
+import pandas as pd
 
 @dataclass(frozen=True)
 class Paths:
@@ -119,6 +120,11 @@ TICKER_DISPLAY_LABELS = {
 def format_ticker_label(ticker: str) -> str:
     """Return a beginner-friendly ticker label like Apple (AAPL)."""
     return TICKER_DISPLAY_LABELS.get(ticker, ticker)
+
+
+def format_display_date(value) -> str:
+    """Return a DD/MM/YYYY display date string."""
+    return pd.to_datetime(value).strftime("%d/%m/%Y")
 
 
 PLAN_DESCRIPTIONS = {
