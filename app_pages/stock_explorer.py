@@ -9,7 +9,12 @@ from __future__ import annotations
 import pandas as pd
 import streamlit as st
 
-from src.config import DEFAULT_VERSION, format_ticker_label, get_paths
+from src.config import (
+    DEFAULT_VERSION,
+    format_display_date,
+    format_ticker_label,
+    get_paths,
+)
 from src.data_processing import load_clean_prices_latest
 from src.viz import hist_returns, line_prices, line_returns
 
@@ -163,13 +168,20 @@ def render() -> None:
         & (df["Date"].dt.date <= end_date)
     ].copy()
 
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.metric("Rows", f"{len(filtered_df):,}")
-    with c2:
-        st.metric("Selected asset", format_ticker_label(ticker))
-    with c3:
-        st.metric("Date range", f"{start_date} → {end_date}")
+    row1_col1, row1_col2 = st.columns(2)
+    row2_col1, row2_col2 = st.columns(2)
+
+    row1_col1.metric("Rows", f"{len(filtered_df):,}")
+    row1_col2.metric("Selected asset", format_ticker_label(ticker))
+
+    row2_col1.metric(
+        "Date range start",
+        format_display_date(filtered_df["Date"].min()),
+    )
+    row2_col2.metric(
+        "Date range end",
+        format_display_date(filtered_df["Date"].max()),
+    )
 
     st.divider()
 
