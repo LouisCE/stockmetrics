@@ -20,6 +20,8 @@ FEATURE_COLUMNS = [
     "vol_90d",
     "mom_30d",
     "mom_90d",
+    "zscore_30d",
+    "mean_reversion_5d",
     "drawdown",
     "lag_return_1",
     "lag_return_5",
@@ -50,6 +52,16 @@ def add_features_per_ticker(g: pd.DataFrame) -> pd.DataFrame:
     g["mom_30d"] = g["return_1d"].rolling(30).mean()
     g["mom_90d"] = g["return_1d"].rolling(90).mean()
 
+    # Mean reversion / relative move signal
+    rolling_mean_30 = g["return_1d"].rolling(30).mean()
+    rolling_std_30 = g["return_1d"].rolling(30).std()
+    g["zscore_30d"] = (g["return_1d"] - rolling_mean_30) / rolling_std_30
+
+    # Short-term mean reversion signal
+    g["mean_reversion_5d"] = (
+        g["return_1d"] - g["return_1d"].rolling(5).mean()
+    )
+
     # Drawdown
     running_max = s.cummax()
     g["drawdown"] = s / running_max - 1.0
@@ -76,8 +88,14 @@ def build_features(clean_df: pd.DataFrame) -> pd.DataFrame:
             "target_next_day_return",
             "return_1d",
             "vol_30d",
+            "vol_90d",
             "mom_30d",
+            "mom_90d",
+            "zscore_30d",
+            "mean_reversion_5d",
             "drawdown",
+            "lag_return_1",
+            "lag_return_5",
             "lag_return_21",
         ]
     )

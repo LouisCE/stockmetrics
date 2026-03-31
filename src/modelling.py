@@ -30,6 +30,8 @@ FEATURE_COLS_NUM = [
     "vol_90d",
     "mom_30d",
     "mom_90d",
+    "zscore_30d",
+    "mean_reversion_5d",
     "drawdown",
     "lag_return_1",
     "lag_return_5",
