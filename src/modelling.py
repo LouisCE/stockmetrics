@@ -23,7 +23,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
 
-TARGET_COL = "return_1d"
+TARGET_COL = "target_next_day_return"
 
 FEATURE_COLS_NUM = [
     "vol_30d",
@@ -120,7 +120,7 @@ def train_and_tune(
     """
     Train + tune on a time-aware CV search.
 
-    Target: next-day return (return_1d).
+    Target: next-day return (target_next_day_return = return_1d.shift(-1)).
 
     fast=True:
         Uses GridSearchCV on a small grid for quick notebook iteration.

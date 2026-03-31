@@ -36,6 +36,9 @@ def add_features_per_ticker(g: pd.DataFrame) -> pd.DataFrame:
     # Returns
     g["return_1d"] = s.pct_change()
 
+    # Target: next-day return (forward shift)
+    g["target_next_day_return"] = g["return_1d"].shift(-1)
+
     # Log returns (stable baseline)
     g["log_return_1d"] = np.log(s / s.shift(1))
 
@@ -69,7 +72,14 @@ def build_features(clean_df: pd.DataFrame) -> pd.DataFrame:
 
     # Drop early rows where rolling windows aren't available yet
     feat_df = feat_df.dropna(
-        subset=["return_1d", "vol_30d", "mom_30d", "drawdown", "lag_return_21"]
+        subset=[
+            "target_next_day_return",
+            "return_1d",
+            "vol_30d",
+            "mom_30d",
+            "drawdown",
+            "lag_return_21",
+        ]
     )
 
     return feat_df
