@@ -1,24 +1,24 @@
 {
   "version": "v2",
   "dataset": "data/processed/v2/features_v2_latest.csv",
-  "task": "Regression: predict next-day return (return_1d)",
+  "task": "Regression: predict next-day return (target_next_day_return = return_1d.shift(-1))",
   "algorithm": "RandomForestRegressor",
   "best_params": {
     "model__max_depth": 5,
     "model__max_features": "sqrt",
     "model__max_leaf_nodes": 200,
-    "model__min_samples_leaf": 2,
-    "model__min_samples_split": 10,
-    "model__n_estimators": 200
+    "model__min_samples_leaf": 4,
+    "model__min_samples_split": 5,
+    "model__n_estimators": 100
   },
   "metrics_train": {
-    "r2": 0.11775057821296286,
-    "mae": 0.013039340942225327,
-    "rmse": 0.020354495520836915
+    "r2": 0.035235559275712536,
+    "mae": 0.013625820360087176,
+    "rmse": 0.021268468952737065
   },
   "metrics_test": {
-    "r2": 0.07564498037786072,
-    "mae": 0.01313394654536929,
-    "rmse": 0.02059648949082342
+    "r2": 0.0007399543394753794,
+    "mae": 0.013720922183151643,
+    "rmse": 0.021400453024040034
   }
 }
