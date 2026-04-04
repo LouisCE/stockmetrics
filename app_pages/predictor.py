@@ -183,7 +183,12 @@ This keeps StockMetrics beginner-friendly by showing that:
     row1_col1, row1_col2 = st.columns(2)
     row2_col1, row2_col2 = st.columns(2)
 
-    row1_col1.metric("Latest adjusted close", f"{last_price:,.2f}")
+    currency_symbol = "£" if ticker.endswith(".L") else "$"
+
+    row1_col1.metric(
+        "Latest adjusted close",
+        f"{currency_symbol}{last_price:,.2f}",
+    )
     row1_col2.metric("Last date", format_display_date(last_dt))
     row2_col1.metric("Trend window used", f"{res.window_days} days")
     row2_col2.metric("Estimated daily drift", f"{mu_simple:.4%}")
@@ -247,7 +252,7 @@ This keeps StockMetrics beginner-friendly by showing that:
         {
             "Scenario": ["Pessimistic", "Realistic", "Optimistic"],
             "Percentile": ["25th", "50th (median)", "75th"],
-            "Projected price ($)": [
+            f"Projected price ({currency_symbol})": [
                 round(res.pessimistic, 2),
                 round(res.realistic, 2),
                 round(res.optimistic, 2),

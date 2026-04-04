@@ -190,8 +190,9 @@ def render() -> None:
     with tab1:
         st.plotly_chart(line_prices(filtered_df, ticker), use_container_width=True)
         st.caption(
-            "This chart shows how the adjusted price changed over the selected "
-            "time period."
+            "This chart shows how the price changed over the selected time "
+            "period. Prices are shown in $ for individual stocks and £ for "
+            "the UK-listed ETFs."
         )
 
     with tab2:

@@ -11,18 +11,19 @@ from src.config import format_ticker_label
 
 
 def line_prices(df: pd.DataFrame, ticker: str) -> "px.Figure":
-    """Adjusted close line chart for one ticker."""
+    """Price history line chart for one ticker."""
     d = df[df["Ticker"] == ticker].sort_values("Date")
     label = format_ticker_label(ticker)
+    currency_symbol = "£" if ticker.endswith(".L") else "$"
 
     fig = px.line(
         d,
         x="Date",
         y="Adj_Close",
-        title=f"{label} — Adjusted close price",
+        title=f"{label} — Price history ({currency_symbol})",
     )
     fig.update_layout(
-        yaxis_title="Adjusted close price",
+        yaxis_title=f"Price ({currency_symbol})",
         xaxis_title="Date",
     )
     return fig
