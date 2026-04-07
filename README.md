@@ -70,7 +70,11 @@ To reflect uncertainty and volatility, predictions are presented as a range of s
 - **Realistic**
 - **Pessimistic**
 
+Long-term scenarios are produced using a Monte Carlo simulation approach based on each asset’s historical log-return drift and volatility. Future price paths are simulated using GBM-style log-return compounding, and the 25th, 50th, and 75th percentile end prices are presented as pessimistic, realistic, and optimistic scenarios.
+
 The four plans are calibrated to be **comparable and easy to switch between**. Users can move from a lower-risk plan to a higher-risk plan as their confidence grows, or from a higher-risk plan to a lower-risk plan if their risk-aversion grows, without completely changing the overall structure of the portfolio.
+
+This separation ensures that long-term outcomes remain statistically grounded, while the ML model is reserved for short-horizon educational estimation.
 
 Ultimately, StockMetrics is designed to be a stepping stone: users can later customise their portfolio or explore other companies and sectors, but StockMetrics helps them start sooner - with clarity and confidence.
 
