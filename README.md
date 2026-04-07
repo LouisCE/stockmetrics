@@ -200,13 +200,17 @@ The application must include at least one **machine learning task** to support p
 
 StockMetrics implements a supervised machine learning regression model that predicts:
 
-```
-next-day return (return_1d)
+- next-day return (`target_next_day_return`)
+
+This target is defined as the forward-shifted daily return:
+
+```python
+return_1d.shift(-1)
 ```
 
 This model is not used to produce trading signals. Instead, it demonstrates how machine learning can attempt to detect patterns in financial time-series data.
 
-The model output is used as an **educational indicator of short-term market uncertainty**.
+The model output is used as an educational indicator of short-term market uncertainty, and the final evaluation showed a small positive test-set R², meaning the model met the project business case while still highlighting how weak short-term predictive signal can be in finance.
 
 Implemented in:
 
