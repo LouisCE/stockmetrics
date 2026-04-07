@@ -2,7 +2,7 @@
 
 Developer: Louis Cowell-English ([LouisCE](https://www.github.com/LouisCE))
 
-StockMetrics is a predictive analytics dashboard designed to help beginners understand stock market risk and returns using historical price data and machine learning forecasts.
+StockMetrics is a predictive analytics dashboard designed to help beginners understand stock market risk and returns using historical price data, machine learning evaluation, and scenario-based forecasting.
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/LouisCE/stockmetrics)](https://www.github.com/LouisCE/stockmetrics/commits/main)
 [![GitHub last commit](https://img.shields.io/github/last-commit/LouisCE/stockmetrics)](https://www.github.com/LouisCE/stockmetrics/commits/main)
@@ -21,7 +21,7 @@ https://stockmetrics-emhu.onrender.com
 
 ## Project Overview
 
-StockMetrics is a Predictive Analytics dashboard designed to make investing easier for beginners.
+StockMetrics is a predictive analytics dashboard designed to make investing easier for beginners.
 
 Learning how to invest can feel overwhelming. New investors are hit with unfamiliar terms (e.g., *dividends*, *dollar-cost averaging*, *volatility*), countless strategies and overcomplication, which often leads to **analysis paralysis** and ultimately deciding not to invest at all.
 
