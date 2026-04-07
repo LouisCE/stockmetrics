@@ -78,6 +78,10 @@ This separation ensures that long-term outcomes remain statistically grounded, w
 
 Ultimately, StockMetrics is designed to be a stepping stone: users can later customise their portfolio or explore other companies and sectors, but StockMetrics helps them start sooner - with clarity and confidence.
 
+![screenshot](documentation/images/mockup.png)
+
+[AmiResponsive preview](https://fireship.dev/amiresponsive?url=https://stockmetrics-emhu.onrender.com/)
+
 ---
 
 ## Business Requirements
