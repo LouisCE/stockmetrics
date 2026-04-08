@@ -227,7 +227,10 @@ app_pages/model_performance.py
 
 Users must be able to explore potential future outcomes over multiple time horizons.
 
-StockMetrics generates scenario ranges using historical trend and volatility.
+StockMetrics generates scenario ranges using historical log-return drift and volatility.
+
+Future price paths are simulated using a geometric Brownian motion style approach,
+and percentile outcomes are used to produce optimistic, realistic, and pessimistic scenarios.
 
 Supported horizons include:
 
@@ -235,8 +238,6 @@ Supported horizons include:
 - 2 years
 - 5 years
 - 10 years
-- 20 years
-- 50 years
 
 Forecasts are presented as:
 
@@ -245,6 +246,8 @@ Forecasts are presented as:
 - pessimistic scenario
 
 This approach helps communicate uncertainty and reinforces the importance of **long-term investing**.
+
+This forecasting component is intentionally separate from the machine learning model. The ML pipeline is used only for short-horizon next-day return estimation, while long-horizon outcomes are modelled using Monte Carlo simulation with GBM-style log-return compounding based on historical drift and volatility.
 
 Implemented in:
 
