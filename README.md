@@ -258,9 +258,9 @@ src/forecast.py
 
 ---
 
-### Business Requirement 5 - Clear Communication of Model Results
+### Business Requirement 5 - Clear Communication of ML Model Results
 
-The dashboard must clearly communicate whether the machine learning model successfully met its business case criteria.
+The dashboard must clearly communicate whether the machine learning model successfully met its business case criteria and how strong that result actually was.
 
 The Model Performance page displays:
 
@@ -270,7 +270,7 @@ The Model Performance page displays:
 - evaluation plots
 - feature importance
 
-This ensures transparency regarding the model’s performance and limitations.
+This ensures transparency regarding both the model’s success against the business case and the fact that the predictive signal remains weak.
 
 Implemented in:
 
