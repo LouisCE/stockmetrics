@@ -553,6 +553,46 @@ Portfolio plans that concentrate capital in a smaller number of high-growth comp
 
 This hypothesis tests whether portfolio plans that allocate more weight to individual technology stocks exhibit higher volatility and potentially higher returns than broadly diversified ETF-based plans.
 
+#### Validation approach
+
+To test this hypothesis:
+
+- Portfolio plans were constructed using predefined allocation weights.
+- Historical daily returns were calculated for each asset.
+- Portfolio return series were simulated using weighted daily returns.
+- Portfolio volatility and cumulative performance were compared across the four plans.
+
+#### Validation metrics
+
+This hypothesis was assessed using:
+
+- annualised return comparisons across plans
+- annualised volatility comparisons across plans
+- maximum drawdown comparisons across plans
+- historical growth-of-£1 comparison
+
+The hypothesis was considered supported if the more concentrated plans showed higher volatility and deeper drawdowns than the diversified plans, while also showing stronger upside during favourable market periods.
+
+#### Evidence generated in
+
+```
+app_pages/portfolio_plans.py
+src/portfolio.py
+jupyter_notebooks/03_eda.ipynb
+```
+
+#### Conclusion
+
+**Status:** Supported
+
+The historical portfolio simulations show that more concentrated plans generally exhibit higher volatility and larger drawdowns compared with diversified plans.
+
+However, these plans may also achieve higher cumulative returns during strong market periods.
+
+This supports the hypothesis that increased concentration can amplify both potential gains and potential losses.
+
+---
+
 ### Hypothesis 2: Technology stocks exhibit higher volatility than diversified ETFs
 
 Large technology companies are often perceived as more volatile than diversified index funds because they are exposed to company-specific risks and investor sentiment.
