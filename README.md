@@ -535,8 +535,15 @@ The workflow is implemented across the following notebooks:
 
 ## Project Hypotheses
 
-StockMetrics investigates several hypotheses related to stock market behaviour, diversification, and predictive modelling.  
+The hypotheses in this project were validated using a combination of descriptive statistics, comparative portfolio metrics, volatility measures, drawdown calculations, and machine learning evaluation metrics.
+
+For this project, **“statistical means”** primarily refers to quantitative comparison of summary statistics, simulated portfolio metrics, volatility distributions, and model evaluation outputs rather than relying on visual judgement alone.
+
+StockMetrics investigates several hypotheses related to stock market behaviour, diversification, and predictive modelling.
+
 These hypotheses help frame the exploratory analysis and modelling tasks within the project and guide the interpretation of results.
+
+---
 
 ### Hypothesis 1: Concentrated portfolio plans are riskier than diversified ones but also have greater potential rewards
 
