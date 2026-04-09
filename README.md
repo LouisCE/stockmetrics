@@ -865,7 +865,7 @@ Each hyperparameter includes at least three candidate values, satisfying the adv
 
 ---
 
-### Success Criteria
+### Success Criteria, Model Results and Interpretation
 
 Primary evaluation metric:
 
@@ -879,6 +879,12 @@ Secondary metrics:
 - Root Mean Squared Error (RMSE)
 
 If the model achieves a positive test-set R², it indicates that the model captures some generalisable signal in the dataset.
+
+In the final evaluation run, the model **did** achieve the success criterion of **Test R² > 0**, with a test-set R² of **0.000740**.
+
+This means the model was **successful against the business case**, but the predictive signal remained **weak** rather than strong. That outcome still fits the educational purpose of the project, because it shows that short-term return forecasting may contain some signal while still being highly uncertain in practice.
+
+In financial return forecasting, especially at the next-day horizon, very high R² values are uncommon because market returns contain substantial noise. For this reason, StockMetrics treats a positive test-set R² as evidence of a small generalisable signal rather than strong predictive power.
 
 ---
 
