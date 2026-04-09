@@ -521,6 +521,18 @@ The workflow is implemented across the following notebooks:
 
 ---
 
+### Epic - Documentation, Validation and Polish
+
+| Target | Expectation | Outcome |
+|---|---|---|
+| As an assessor | I want a complete README document | so I can clearly evaluate the project rationale, business case, methodology, deployment, and project structure. |
+| As an assessor | I want a complete TESTING document | so I can clearly evaluate the project's validation process, testing evidence, and technical quality. |
+| As an assessor | I want clear hypothesis validation evidence | so I can verify that the project conclusions are statistically justified. |
+| As a user | I want the dashboard to be polished and accessible | so the deployed application feels professional and easy to use. |
+| As an assessor | I want the Agile board and documentation to be fully aligned | so I can clearly trace development from business requirements to delivery. |
+
+---
+
 ## Project Hypotheses
 
 StockMetrics investigates several hypotheses related to stock market behaviour, diversification, and predictive modelling.  
