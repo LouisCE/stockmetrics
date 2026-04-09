@@ -810,7 +810,7 @@ This task is intentionally framed as a predictive analytics demonstration rather
 
 ### Learning Method
 
-The model uses a RandomForestRegressor ensemble model, a tree-based ensemble learning method well suited to tabular datasets.
+The model uses a `RandomForestRegressor` ensemble model, a tree-based ensemble learning method well suited to tabular datasets.
 
 Random Forest models:
 
@@ -824,10 +824,11 @@ Random Forest models:
 
 Features used in the model include:
 
-- rolling volatility measures
-- momentum indicators
-- drawdown metrics
-- lagged returns
+- rolling volatility measures (`vol_30d`, `vol_90d`)
+- momentum indicators (`mom_30d`, `mom_90d`)
+- mean reversion signals (`zscore_30d`, `mean_reversion_5d`)
+- drawdown metrics (`drawdown`)
+- lagged returns (`lag_return_1`, `lag_return_5`, `lag_return_21`)
 
 These features are engineered in:
 
@@ -836,26 +837,29 @@ jupyter_notebooks/04_feature_engineering.ipynb
 src/features.py
 ```
 
+They were chosen because they are lightweight, interpretable, and suitable for a beginner-focused educational project while still demonstrating realistic financial time-series feature engineering.
+
 ---
 
 ### Hyperparameter Optimisation
 
-Hyperparameter optimisation was implemented using:
+Hyperparameter optimisation was implemented using a **time-aware cross-validation** strategy with `TimeSeriesSplit`.
 
-```
-GridSearchCV
-```
+Two search modes were used during development:
 
-with a TimeSeriesSplit cross-validation strategy to ensure chronological validation.
+- `GridSearchCV` for smaller, faster validation runs while building the notebook workflow.
+- `HalvingGridSearchCV` for the final full hyperparameter search across the parameter space since the full search with `GridSearchCV` was computationally expensive (taking several hours) and impractical for iterative development on the available hardware.
 
-Six hyperparameters were tuned:
+This approach kept iteration practical during development while still providing evidence of advanced hyperparameter optimisation in the final modelling process.
 
-- n_estimators
-- max_depth
-- min_samples_split
-- min_samples_leaf
-- max_features
-- max_leaf_nodes
+Six hyperparameters were tuned in the full search:
+
+- `n_estimators`
+- `max_depth`
+- `min_samples_split`
+- `min_samples_leaf`
+- `max_features`
+- `max_leaf_nodes`
 
 Each hyperparameter includes at least three candidate values, satisfying the advanced modelling requirement.
 
