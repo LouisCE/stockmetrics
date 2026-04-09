@@ -786,6 +786,10 @@ This mapping ensures that each dashboard component directly supports the project
 
 ## ML Business Case
 
+This section outlines the machine learning business case for StockMetrics. It explains the predictive analytics task, the target variable, the learning method, the feature engineering and hyperparameter optimisation strategy, the intended outcome, the success criteria, and the relevance of the model output to the project’s business requirements and educational purpose.
+
+---
+
 ### Predictive Task
 
 The machine learning task in StockMetrics is supervised regression.
