@@ -899,7 +899,9 @@ Instead, the model serves two purposes:
 1. Demonstrating how machine learning can analyse financial time-series data.
 2. Supporting educational insights about uncertainty and prediction difficulty.
 
-Long-horizon forecasts in the dashboard are generated using historical trend and volatility simulations, rather than compounding daily ML predictions.
+To communicate uncertainty responsibly, long-horizon outcomes are modelled separately using a Monte Carlo simulation approach based on historical log-return paths, while the ML pipeline is reserved for short-term next-day educational estimates.
+
+Final outcome: the model achieved a **slightly positive** test-set R² and was therefore **successful against the business case**. However, the signal was weak, so the model is still best understood as an educational demonstration of short-horizon uncertainty rather than a dependable trading tool.
 
 ---
 
