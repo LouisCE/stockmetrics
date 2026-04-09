@@ -646,6 +646,43 @@ Diversification across many companies is widely considered a mechanism for reduc
 
 This hypothesis tests whether portfolios with broader diversification demonstrate smaller historical drawdowns than more concentrated portfolios.
 
+#### Validation approach
+
+To test this hypothesis:
+
+- Historical daily returns were calculated for each asset.
+- Portfolio plans were constructed using predefined allocation weights.
+- Portfolio equity curves were simulated using cumulative returns.
+- Maximum drawdowns were computed for each portfolio plan.
+
+#### Validation metrics
+
+This hypothesis was assessed using:
+
+- maximum drawdown for each portfolio plan
+- comparative annualised volatility
+- visual comparison of portfolio growth curves during weaker market periods
+
+The hypothesis was considered supported if the diversified plans showed smaller peak-to-trough declines than the more concentrated plans.
+
+#### Evidence generated in
+
+```
+jupyter_notebooks/03_eda.ipynb
+app_pages/portfolio_plans.py
+src/portfolio.py
+```
+
+#### Conclusion
+
+**Status:** Supported
+
+The diversified portfolio plans generally show smaller historical drawdowns compared with more concentrated plans that include higher allocations to individual technology stocks.
+
+This supports the hypothesis that diversification can reduce downside risk, although it may also reduce potential upside.
+
+---
+
 ### Hypothesis 4: Short-horizon return prediction is inherently difficult
 
 Financial markets are known to be noisy and difficult to predict over short time horizons.
