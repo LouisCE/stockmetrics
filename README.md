@@ -687,7 +687,60 @@ This supports the hypothesis that diversification can reduce downside risk, alth
 
 Financial markets are known to be noisy and difficult to predict over short time horizons.
 
-This hypothesis evaluates whether a machine learning model can successfully predict next-day stock returns.
+This hypothesis evaluates whether a machine learning model can predict **next-day stock returns** using engineered historical features, while recognising that any predictive signal is likely to be weak.
+
+#### Validation approach
+
+To test this hypothesis:
+
+- A supervised regression model was trained to predict `target_next_day_return`, defined as the next-day return (`return_1d.shift(-1)`).
+- A chronological train/test split was used to prevent data leakage.
+- Model performance was evaluated using R², MAE, and RMSE.
+- Actual vs predicted plots and residual analysis were generated.
+
+#### Validation metrics
+
+This hypothesis was assessed using:
+
+- Test R²
+- Test MAE
+- Test RMSE
+- actual vs predicted plots
+- residual analysis
+
+The hypothesis was considered supported if the model either failed to generalise or achieved only a very weak positive Test R², indicating that short-horizon prediction remains highly difficult even when some signal is present.
+
+#### Evidence generated in
+
+```
+jupyter_notebooks/05_model_training.ipynb
+jupyter_notebooks/06_model_evaluation.ipynb
+```
+
+#### Conclusion
+
+**Status:** Supported with caution
+
+The final model did achieve the business case success criterion of **Test R² > 0** on unseen data, but only by a very small margin.
+
+- Test R²: 0.000740  
+- Train R²: 0.035236  
+- Test MAE: 0.013721  
+- Test RMSE: 0.021400  
+
+This result suggests that the model captured **some generalisable predictive signal**, but that the signal is **very weak** relative to the noise in daily stock returns.
+
+This supports the hypothesis that **short-horizon return prediction remains inherently difficult**, even when a model is technically successful against the business case.
+
+For this reason, StockMetrics does not use the machine learning model to generate long-horizon forecasts. Instead, it uses historical trend and volatility to produce scenario ranges, reinforcing uncertainty awareness and long-term investing principles.
+
+**Final model result**
+
+- **Predictive task:** next-day return regression
+- **Success criterion:** Test R² > 0
+- **Final Test R²:** 0.000740
+- **Outcome:** successful against the business case, but with a very weak predictive signal
+- **How the dashboard uses it:** as an educational short-horizon signal only, not as trading advice and not as the driver of long-horizon scenario ranges
 
 ---
 
