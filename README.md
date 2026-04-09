@@ -597,6 +597,49 @@ This supports the hypothesis that increased concentration can amplify both poten
 
 Large technology companies are often perceived as more volatile than diversified index funds because they are exposed to company-specific risks and investor sentiment.
 
+#### Validation approach
+
+To test this hypothesis:
+
+- Daily returns were calculated for each ticker.
+- Return distributions were visualised using histograms and boxplots.
+- Rolling volatility (30-day standard deviation of returns) was analysed.
+- Volatility statistics were compared across ETFs and technology stocks.
+
+#### Validation metrics
+
+This hypothesis was assessed using:
+
+- daily return standard deviation
+- rolling 30-day volatility
+- return distribution spread observed in histograms and boxplots
+
+The hypothesis was considered supported if the individual technology stocks showed consistently wider return distributions and higher volatility statistics than VWRL.L and VUSA.L.
+
+#### Evidence generated in
+
+```
+jupyter_notebooks/03_eda.ipynb
+```
+
+Key plots produced include:
+
+- Daily return distributions
+- Boxplots comparing volatility across tickers
+- Rolling volatility time series
+
+#### Conclusion
+
+**Status:** Supported
+
+The EDA results show that individual technology stocks generally exhibit higher volatility and wider return distributions than diversified ETFs such as VWRL.L and VUSA.L.
+
+As expected, a greater proportion of Tesla in particular correlated with greater volatility and deeper drawdowns.
+
+This supports the hypothesis that concentration in individual equities leads to more volatile price behaviour.
+
+---
+
 ### Hypothesis 3: Diversified portfolios experience smaller drawdowns than concentrated portfolios
 
 Diversification across many companies is widely considered a mechanism for reducing portfolio risk.
