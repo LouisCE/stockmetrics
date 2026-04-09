@@ -796,11 +796,15 @@ The machine learning task in StockMetrics is supervised regression.
 
 The model predicts:
 
-```
-next-day return (return_1d)
+- `target_next_day_return`
+
+This target is defined as the forward-shifted next-day return:
+
+```python
+return_1d.shift(-1)
 ```
 
-This task is intentionally framed as a predictive analytics demonstration, rather than a trading signal generator.
+This task is intentionally framed as a predictive analytics demonstration rather than a trading signal generator, allowing the project to evaluate whether a small but real short-term signal can be detected without presenting the model as financial advice.
 
 ---
 
