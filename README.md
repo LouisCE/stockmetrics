@@ -927,6 +927,8 @@ A persistent **sidebar navigation menu** is used across the application to help 
 
 This structured sidebar supports intuitive navigation, reinforces information hierarchy, and directly satisfies the requirement for a clear multi-page navigation system.
 
+![screenshot](documentation/dashboard/sidebar.png)
+
 ---
 
 ### Home Page
@@ -957,6 +959,8 @@ The Home page is designed as the onboarding layer of the dashboard. It helps beg
 
 - clear onboarding and user guidance
 
+![screenshot](documentation/dashboard/home.png)
+
 ---
 
 ### Stock Explorer
@@ -983,6 +987,8 @@ The Stock Explorer helps users see that higher-growth assets often experience mo
 **Business requirement addressed**
 
 - historical market exploration
+
+![screenshot](documentation/dashboard/stock_explorer.png)
 
 ---
 
@@ -1013,6 +1019,8 @@ The Predictor page combines a short-term ML next-day estimate with long-term Mon
 
 - scenario-based forecasting
 
+![screenshot](documentation/dashboard/predictor.png)
+
 ---
 
 ### Portfolio Plans
@@ -1039,6 +1047,8 @@ The Portfolio Plans page helps users compare the trade-off between diversificati
 **Business requirement addressed**
 
 - portfolio risk comparison
+
+![screenshot](documentation/dashboard/portfolio_plans.png)
 
 ---
 
@@ -1067,6 +1077,8 @@ The Model Performance page explains whether the predictive model actually met th
 **Business requirement addressed**
 
 - clear communication of model results
+
+![screenshot](documentation/dashboard/model_performance.png)
 
 ---
 
