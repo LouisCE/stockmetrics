@@ -935,14 +935,23 @@ This structured sidebar supports intuitive navigation, reinforces information hi
 
 - Introduce the project
 - Explain key investing concepts
-- Provide beginner-friendly guidance
+- Provide beginner-friendly onboarding
+- Reduce analysis paralysis for new investors
 
-**Content**
+**Features**
 
-- project description
-- glossary of investing terminology
-- explanations of ETFs and diversification
-- description of the four portfolio plans
+- welcome introduction and project purpose
+- introductory quote
+- beginner investing principles
+- glossary explanations
+- ETF and diversification guidance
+- FAQ expanders
+- four risk-based plan overview
+- educational disclaimer
+
+**Interpretation**
+
+The Home page is designed as the onboarding layer of the dashboard. It helps beginners understand the language of investing before interacting with forecasts, plans, or machine learning outputs. The FAQ expanders and glossary improve accessibility for users with no prior financial background.
 
 **Business requirement addressed**
 
