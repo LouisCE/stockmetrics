@@ -1050,11 +1050,19 @@ Provide transparency regarding the machine learning model.
 
 **Features**
 
-- model success indicator
+- business case success indicator
 - regression metrics
+- beginner-friendly metric explanations
 - actual vs predicted plots
-- residual analysis
-- feature importance visualisation
+- residual analysis plots
+- best hyperparameter display
+- feature importance table
+- saved evaluation plot display
+- model disclaimer
+
+**Interpretation**
+
+The Model Performance page explains whether the predictive model actually met the business case and how much trust should be placed in it. A slightly positive Test R² supports the educational ML task, but the weak magnitude reinforces that short-term market prediction remains highly uncertain. Hyperparameters, residual plots, and feature importance outputs help demonstrate modelling transparency and advanced tuning evidence.
 
 **Business requirement addressed**
 
