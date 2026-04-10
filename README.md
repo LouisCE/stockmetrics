@@ -911,6 +911,22 @@ The Streamlit dashboard is structured as a multi-page application using the `app
 
 The dashboard pages either address a specific business requirement directly or support the overall user experience through onboarding and explanation.
 
+Each page is designed to guide beginner investors from basic understanding, through historical exploration and forecasting, to portfolio comparison and model transparency.
+
+---
+
+### Sidebar Navigation Menu
+
+A persistent **sidebar navigation menu** is used across the application to help users move clearly between the five dashboard pages:
+
+- 🏁 Home
+- 🔎 Stock Explorer
+- 🎯 Predictor
+- 💼 Portfolio Plans
+- 🧪 Model Performance
+
+This structured sidebar supports intuitive navigation, reinforces information hierarchy, and directly satisfies the requirement for a clear multi-page navigation system.
+
 ---
 
 ### Home Page
