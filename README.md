@@ -996,8 +996,18 @@ Illustrate potential future outcomes using scenario ranges.
 
 - ticker selection
 - forecast horizon selection
-- simulated price scenarios
+- trend window selection
+- ML next-day estimate
+- ML disclaimer and uncertainty messaging
+- Monte Carlo scenario simulation
 - optimistic / realistic / pessimistic outcomes
+- scenario result table
+- beginner interpretation guidance
+- volatility and drift metrics
+
+**Interpretation**
+
+The Predictor page combines a short-term ML next-day estimate with long-term Monte Carlo scenario projections to help beginners understand both short-term noise and long-term uncertainty ranges. It teaches that long-term investing outcomes are better understood as a range of possibilities rather than a single guaranteed number, while also reinforcing that short-term ML signals remain weak and highly uncertain.
 
 **Business requirement addressed**
 
