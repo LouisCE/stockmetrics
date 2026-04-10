@@ -1205,3 +1205,61 @@ streamlit run app.py --server.port $PORT --server.address 0.0.0.0
 Once the build process completes, Render provides a public URL where the dashboard can be accessed.
 
 Free Render instances spin down after periods of inactivity, so the first request may take several seconds while the service wakes up.
+
+---
+
+## Project Limitations
+
+Financial market modelling contains several inherent limitations that must be acknowledged when interpreting the results produced by StockMetrics.
+
+---
+
+### Market Noise
+
+Daily stock returns contain a large amount of stochastic noise. Short-term price movements are influenced by many unpredictable external factors including:
+
+- news events
+- macroeconomic announcements
+- geopolitical developments
+- investor sentiment
+
+As a result, predicting **next-day returns** is inherently difficult.
+
+---
+
+### Non-Stationary Market Behaviour
+
+Financial markets evolve over time. Relationships that existed historically may change due to:
+
+- economic cycles
+- regulatory changes
+- technological shifts
+- structural changes in financial markets
+
+This means that models trained on historical data may not generalise perfectly to future market conditions.
+
+---
+
+### Limited Asset Universe
+
+StockMetrics intentionally focuses on a **small curated set of assets** consisting of:
+
+- two ETFs (VWRL.L and VUSA.L)
+- the Magnificent Seven technology companies
+
+This design improves usability for beginner investors but does not represent the full diversity of the global equity market.
+
+---
+
+### Educational Scope
+
+The machine learning model is designed as an **educational demonstration of predictive analytics** rather than a trading signal generator.
+
+Although the final model achieved a **slightly positive test-set R²**, the predictive signal was weak. This means the model was successful against the project business case, but it is still not strong enough to justify confident short-term trading decisions.
+
+To address these limitations, StockMetrics:
+
+- avoids presenting single deterministic forecasts and instead uses scenario ranges to communicate uncertainty
+- avoids compounding the ML predictions meant for the next day to make long-term predictions and instead uses historical trend and volatility for long-horizon forecasting
+
+This approach reinforces the importance of uncertainty when interpreting financial predictions.
