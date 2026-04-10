@@ -972,6 +972,13 @@ Allow users to explore historical behaviour of individual assets.
 - interactive price chart
 - daily return visualisation
 - return distribution histogram
+- asset summary expanders
+- beginner-friendly chart captions
+- summary metrics for rows, selected asset, and date range
+
+**Interpretation**
+
+The Stock Explorer helps users see that higher-growth assets often experience more short-term instability. Price charts show the long-run direction of the asset, daily return charts reveal short-term noise and volatility, and return distributions help users understand how frequently extreme moves occur. The asset education expanders help connect price behaviour to real-world companies and ETFs.
 
 **Business requirement addressed**
 
