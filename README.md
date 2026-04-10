@@ -1024,9 +1024,17 @@ Allow users to compare different portfolio diversification strategies.
 **Features**
 
 - selectable portfolio plans
-- historical equity curves
-- portfolio performance metrics
+- beginner-friendly risk explanation
+- plan comparison boxes with relative risk labels
+- portfolio metrics
+- historical growth chart
+- allocation breakdown table
 - volatility and drawdown comparison
+- educational plan disclaimer
+
+**Interpretation**
+
+The Portfolio Plans page helps users compare the trade-off between diversification and concentration. More concentrated plans may produce stronger growth in favourable conditions, but they also tend to show higher volatility and deeper drawdowns. The allocation table and plan comparison boxes make risk differences easy to interpret visually.
 
 **Business requirement addressed**
 
