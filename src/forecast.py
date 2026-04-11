@@ -1,7 +1,8 @@
 """
 Forecast helpers for StockMetrics.
 
-Trend-following, data-driven scenarios (educational, not financial advice).
+Trend-following, data-driven scenarios
+(educational, not financial advice).
 
 Approach (simple and stable):
 - Estimate drift and volatility from the ticker's own historical returns.
@@ -35,9 +36,13 @@ class ScenarioResult:
     window_days: int
 
 
-def get_last_price(clean_df: pd.DataFrame, ticker: str) -> Tuple[pd.Timestamp, float]:
+def get_last_price(
+    clean_df: pd.DataFrame,
+    ticker: str,
+) -> Tuple[pd.Timestamp, float]:
     """
-    Return (last_date, last_adj_close) for the ticker from the cleaned dataset.
+    Return (last_date, last_adj_close) for the ticker from the cleaned
+    dataset.
     """
     d = clean_df[clean_df["Ticker"] == ticker].sort_values("Date")
     if d.empty:
@@ -52,8 +57,8 @@ def estimate_mu_sigma_from_history(
     window_days: int = 1260,  # ~5 years of trading days
 ) -> Tuple[float, float, int]:
     """
-    Estimate log-return drift (mu_log) and log-return volatility (sigma_log)
-    from the ticker's historical returns.
+    Estimate log-return drift (mu_log) and log-return volatility
+    (sigma_log) from the ticker's historical returns.
 
     We use log returns:
       r_log = log(Adj_Close_t / Adj_Close_{t-1})
@@ -120,13 +125,22 @@ def scenario_ranges_from_history(
     mu_log = float(mu_log)
     sigma_log = float(max(sigma_log, 1e-8))
 
-    # Simulate log returns and compound
-    log_rets = rng.normal(loc=mu_log, scale=sigma_log, size=(n_sims, horizon_days))
+    # Monte Carlo simulation: draw many future log-return paths from the
+    # historical drift (mu_log) and volatility (sigma_log), then convert
+    # them into an end-price distribution.
+    log_rets = rng.normal(
+        loc=mu_log,
+        scale=sigma_log,
+        size=(n_sims, horizon_days),
+    )
     log_growth = log_rets.sum(axis=1)
 
     end_prices = float(last_price) * np.exp(log_growth)
 
-    q25, q50, q75 = np.quantile(end_prices, [0.25, 0.50, 0.75])
+    q25, q50, q75 = np.quantile(
+        end_prices,
+        [0.25, 0.50, 0.75],
+    )
 
     # window_days is filled by caller (kept in the result for display)
     return ScenarioResult(

@@ -59,7 +59,10 @@ def price_wide(df: pd.DataFrame) -> pd.DataFrame:
     Convert tidy clean prices df into wide Adj_Close prices:
     index=Date, columns=Ticker.
     """
-    wide = df.pivot(index="Date", columns="Ticker", values="Adj_Close").sort_index()
+    wide = (
+        df.pivot(index="Date", columns="Ticker", values="Adj_Close")
+        .sort_index()
+    )
     return wide
 
 
@@ -68,7 +71,9 @@ def daily_returns_from_prices(prices: pd.DataFrame) -> pd.DataFrame:
     return prices.pct_change().dropna(how="all")
 
 
-def build_plan_returns(returns: pd.DataFrame, weights: Dict[str, float]) -> pd.Series:
+def build_plan_returns(
+    returns: pd.DataFrame, weights: Dict[str, float]
+) -> pd.Series:
     """
     Weighted plan return series from wide returns.
 

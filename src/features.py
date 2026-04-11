@@ -9,8 +9,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Tuple
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 FEATURE_COLUMNS = [
@@ -30,7 +30,9 @@ FEATURE_COLUMNS = [
 
 
 def add_features_per_ticker(g: pd.DataFrame) -> pd.DataFrame:
-    """Add time-series features for one ticker (expects Date-sorted tidy data)."""
+    """
+    Add time-series features for one ticker (expects Date-sorted tidy data).
+    """
     g = g.sort_values("Date").copy()
 
     s = pd.to_numeric(g["Adj_Close"], errors="coerce")
@@ -78,9 +80,13 @@ def build_features(clean_df: pd.DataFrame) -> pd.DataFrame:
     """
     Build a model-ready feature table from the cleaned prices table.
 
-    Returns a tidy DataFrame (same rows as clean_df minus initial rolling windows).
+    Returns a tidy DataFrame with the same rows as clean_df minus
+    initial rolling windows.
     """
-    feat_df = clean_df.groupby("Ticker", group_keys=False).apply(add_features_per_ticker)
+    feat_df = clean_df.groupby(
+        "Ticker",
+        group_keys=False,
+    ).apply(add_features_per_ticker)
 
     # Drop early rows where rolling windows aren't available yet
     feat_df = feat_df.dropna(
