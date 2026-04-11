@@ -1263,3 +1263,102 @@ To address these limitations, StockMetrics:
 - avoids compounding the ML predictions meant for the next day to make long-term predictions and instead uses historical trend and volatility for long-horizon forecasting
 
 This approach reinforces the importance of uncertainty when interpreting financial predictions.
+
+---
+
+## Future Features
+
+Several enhancements could be implemented in future iterations of StockMetrics to improve educational depth, diversification coverage, and personalised investor guidance.
+
+---
+
+### Expanded Asset Universe and Sector Coverage
+
+Future versions could expand beyond the current ETF and technology-heavy asset set by incorporating companies and funds from a broader range of sectors, such as:
+
+- **Consumer Staples** — Coca-Cola, PepsiCo
+- **Consumer Discretionary** — McDonald's, Walmart
+- **Financials** — JPMorgan Chase & Co.
+- **Healthcare** — Johnson & Johnson
+- **Real Estate / REITs** — Realty Income
+- **Communication Services / Media** — Netflix
+
+This would help users compare how different sectors behave across market cycles and improve diversification education beyond the current technology concentration.
+
+---
+
+### Dividend and Income Modelling
+
+A future version could include dividend-aware portfolio analysis to help users understand how shareholder distributions contribute to total return.
+
+Potential additions include:
+
+- dividend yield comparisons
+- income-focused portfolio plans
+- dividend reinvestment simulations
+- total return comparisons (price growth + dividends)
+
+This would improve the educational value for long-term investors interested in passive income and compounding.
+
+---
+
+### Longer-Horizon and Alternative Machine Learning Models
+
+The current ML task focuses on **next-day return prediction**, which naturally contains substantial market noise.
+
+Future iterations could experiment with:
+
+- weekly return prediction
+- monthly return prediction
+- rolling 3-month trend prediction
+- volatility regime classification
+- Gradient Boosting models (XGBoost or LightGBM)
+- linear models with regularisation
+- neural network models for time-series prediction
+
+Longer forecast horizons, alternative modelling approaches, and different machine learning algorithms may all improve signal strength and increase the likelihood of a stronger **R² score**.
+
+These changes would also support clearer model comparison and provide more useful educational insights into medium-term market behaviour.
+
+---
+
+### Recommendation and Robo-Advisor Features
+
+A future roadmap enhancement could introduce a beginner-friendly recommendation engine that suggests a portfolio plan based on user preferences such as:
+
+- investment horizon
+- risk tolerance
+- diversification preference
+- income vs growth preference
+
+This could evolve into a lightweight **robo-advisor style educational assistant**, helping users understand why a specific plan may better align with their goals.
+
+---
+
+### Macroeconomic and Multi-Factor Integration
+
+Additional explanatory variables could be incorporated into the feature engineering pipeline, including:
+
+- interest rates
+- inflation indicators
+- economic sentiment indexes
+- unemployment data
+- treasury yield spreads
+
+These variables may improve the explanatory power of predictive models and better reflect real-world drivers of market behaviour.
+
+---
+
+### Portfolio-Level Simulation and Optimisation
+
+Monte Carlo simulations are currently used to generate long-horizon asset-level scenario ranges.
+
+Future versions could extend this by introducing:
+
+- portfolio-level Monte Carlo simulations
+- mean-variance optimisation
+- risk-parity allocation
+- factor-based portfolio construction
+- dynamic rebalancing simulations
+
+These additions would allow StockMetrics to evolve from educational comparison toward more advanced portfolio construction analysis.
