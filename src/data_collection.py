@@ -44,7 +44,12 @@ def make_timestamp() -> str:
     return datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
 
 
-def save_snapshot(df: pd.DataFrame, out_dir: Path, ticker: str, version: str) -> Path:
+def save_snapshot(
+    df: pd.DataFrame,
+    out_dir: Path,
+    ticker: str,
+    version: str,
+) -> Path:
     """Save a single ticker snapshot as CSV and return the saved path."""
     out_dir.mkdir(parents=True, exist_ok=True)
     stamp = make_timestamp()

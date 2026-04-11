@@ -8,14 +8,16 @@ it belongs here rather than being duplicated in multiple places.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from pathlib import Path
 from datetime import datetime, timezone
+from pathlib import Path
 
 import pandas as pd
+
 
 @dataclass(frozen=True)
 class Paths:
     """Common project paths."""
+
     root: Path
     data_dir: Path
     raw_dir: Path
@@ -80,12 +82,12 @@ MAG7_TICKERS = ["AAPL", "AMZN", "GOOGL", "META", "MSFT", "NVDA", "TSLA"]
 # UK ETFs (LSE uses ".L")
 # Vanguard FTSE All-World and S&P 500
 # Distributing share classes (longer history)
-SP500_DIST_TICKER = "VUSA.L"       # Distributing (launched 2012)
-ALL_WORLD_DIST_TICKER = "VWRL.L"   # Distributing (launched 2012)
+SP500_DIST_TICKER = "VUSA.L"  # Distributing (launched 2012)
+ALL_WORLD_DIST_TICKER = "VWRL.L"  # Distributing (launched 2012)
 
 # Accumulating share classes (shorter history, kept as alternates)
-SP500_ACC_TICKER = "VUAG.L"        # Accumulating (launched 2019)
-ALL_WORLD_ACC_TICKER = "VWRP.L"    # Accumulating (launched 2019)
+SP500_ACC_TICKER = "VUAG.L"  # Accumulating (launched 2019)
+ALL_WORLD_ACC_TICKER = "VWRP.L"  # Accumulating (launched 2019)
 
 # Default ETF choices for this project run (v2)
 SP500_TICKER = SP500_DIST_TICKER

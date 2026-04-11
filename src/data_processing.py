@@ -23,7 +23,11 @@ REQUIRED_COLUMNS = [
 ]
 
 
-def latest_snapshot_for_ticker(raw_dir: Path, ticker: str, version: str) -> Path:
+def latest_snapshot_for_ticker(
+    raw_dir: Path,
+    ticker: str,
+    version: str,
+) -> Path:
     """
     Return the newest snapshot CSV for a ticker/version.
 
@@ -33,7 +37,10 @@ def latest_snapshot_for_ticker(raw_dir: Path, ticker: str, version: str) -> Path
     matches = sorted(raw_dir.glob(pattern))
     if not matches:
         raise FileNotFoundError(
-            f"No raw snapshots found for {ticker} in {raw_dir} (pattern: {pattern})"
+            (
+                f"No raw snapshots found for {ticker} in {raw_dir} "
+                f"(pattern: {pattern})"
+            )
         )
     return matches[-1]
 
@@ -44,7 +51,10 @@ def build_latest_snapshot_map(
     version: str,
 ) -> Dict[str, Path]:
     """Map each ticker to its latest snapshot path."""
-    return {t: latest_snapshot_for_ticker(raw_dir, t, version) for t in tickers}
+    return {
+        t: latest_snapshot_for_ticker(raw_dir, t, version)
+        for t in tickers
+    }
 
 
 def clean_prices(df: pd.DataFrame) -> pd.DataFrame:
@@ -135,7 +145,10 @@ def save_clean_prices(
     return archived_path, latest_path
 
 
-def load_clean_prices_latest(processed_dir: Path, version: str) -> pd.DataFrame:
+def load_clean_prices_latest(
+    processed_dir: Path,
+    version: str,
+) -> pd.DataFrame:
     """Load the stable latest cleaned dataset."""
     path = processed_dir / f"clean_prices_{version}_latest.csv"
     return pd.read_csv(path, parse_dates=["Date"])
