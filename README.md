@@ -1362,3 +1362,68 @@ Future versions could extend this by introducing:
 - dynamic rebalancing simulations
 
 These additions would allow StockMetrics to evolve from educational comparison toward more advanced portfolio construction analysis.
+
+---
+
+## Credits
+
+This section acknowledges the learning resources, technical references, data sources, and people that supported the research, development, deployment, and documentation of StockMetrics.
+
+---
+
+### General Guidance
+
+The following learning resources were used as reference material and general guidance during development:
+
+- The **Code Institute LMS** was used as the primary learning resource for CRISP-DM workflow, tabular ML techniques, and the overall Predictive Analytics project structure.  
+  [Code Institute LMS](https://learn.codeinstitute.net/)
+
+- The **Churnometer walkthrough** was used as a reference for the recommended notebook flow, ML pipeline approach, and Streamlit page structure (`app.py` + `app_pages` + `src`).  
+  [Code Institute LMS – Churnometer walkthrough](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DDA101+3/courseware/bba260bd5cc14e998b0d7e9b305d50ec/c83c55ea9f6c4e11969591e1b99c6c35/)
+
+- The **PP5 Predictive Analytics Assessment Criteria** were used to shape the scope, workflow, and documentation standards of the project (README and TESTING files, notebooks structure, and dashboard requirements).  
+  [PP5 Assessment Criteria (Code Institute)](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PA_PAGPPF+2/courseware/bde016cdbd184cdeafd341a73807e138/bd2104eb84de4e48a9df6f685773cbf2/)
+
+- The **Code Institute “Bring Your Own Data” template repository** was used as the initial repository base (tooling, deployment scaffolding, and project layout), then extensively adapted to align with the StockMetrics dataset, business requirements, machine learning workflow, and beginner-focused dashboard design.
+  [Code Institute Template - Bring Your Own Data](https://github.com/Code-Institute-Solutions/milestone-project-bring-your-own-data)
+
+---
+
+### Code / Technical References
+
+The following references were used during development to support best practices, library usage, and deployment configuration:
+
+| Source | Notes |
+| --- | --- |
+| [Chris Beams](https://chris.beams.io/posts/git-commit) | Guidance on writing clear, meaningful Git commit messages. |
+| [Python Documentation](https://www.python.org/doc/) | Language reference used for core Python behaviour and standard library usage. |
+| [Pandas Documentation](https://pandas.pydata.org/docs/) | Reference for DataFrame manipulation used in data cleaning and feature engineering. |
+| [NumPy Documentation](https://numpy.org/doc/) | Reference for numerical operations used across notebooks and modelling utilities. |
+| [SciPy Documentation](https://docs.scipy.org/doc/scipy/) | Reference for statistical tests used for hypothesis validation (where applicable). |
+| [scikit-learn Documentation](https://scikit-learn.org/stable/) | Reference for pipelines, preprocessing, model selection, and evaluation metrics. |
+| [feature-engine Documentation](https://feature-engine.trainindata.com/) | Reference for feature engineering transformers integrated into ML pipelines. |
+| [XGBoost Documentation](https://xgboost.readthedocs.io/) | Reference for gradient boosting modelling and tuning options. |
+| [Plotly Documentation](https://plotly.com/python/) | Reference for interactive chart creation in the Streamlit dashboard. |
+| [Streamlit Documentation](https://docs.streamlit.io/) | Reference for multipage dashboard patterns, widgets, and caching. |
+| [Render Documentation](https://render.com/docs) | Reference for deployment configuration, build/start commands, and service management. |
+| [ChatGPT](https://chat.openai.com) | Used responsibly as a learning aid while going through the LMS, for planning the file structure, debugging support, improving beginner-friendly explanations, and drafting documentation during development. |
+
+---
+
+### Data Source
+
+| Source | Notes |
+|---|---|
+| Yahoo Finance API (`yfinance`) | Historical OHLCV financial market data (open, high, low, close, adjusted close, volume) retrieved programmatically through the `yfinance` Python library during the Data Collection stage of the CRISP-DM pipeline. |
+
+---
+
+### Acknowledgements
+
+I would like to acknowledge the following people and organisations for their support throughout the development of this project:
+
+- I would like to thank my PP5 Code Institute mentor, **Mo Shami**, for guidance on structuring the logical project workflow (repository setup → data → cleaning → processing → training → evaluation → dashboard → deployment → documentation) and for feedback throughout development.
+
+- I would like to thank my previous Code Institute mentor, **Tim Nelson**, for guidance on mapping evidence for the full Agile Development process, including use of epics, user stories, sprints and milestones.
+
+- I would like to thank **Code Institute** for the knowledge, experience, and professional development skills I have gained throughout the diploma, and for helping me to discover my passion as a developer.
