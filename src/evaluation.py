@@ -7,10 +7,9 @@ Used by 06_model_evaluation.ipynb and dashboard pages.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict, Tuple
+from typing import Dict
 
 import matplotlib.pyplot as plt
-import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 
