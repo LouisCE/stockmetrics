@@ -104,7 +104,10 @@ also experience larger drawdowns and a bumpier ride.
     c1, c2, c3, c4, c5 = st.columns(5)
     c1.metric("Mean daily return", f"{metrics.mean_daily_return:.2%}")
     c2.metric("Daily volatility", f"{metrics.daily_volatility:.2%}")
-    c3.metric("Annualised return (approx)", f"{metrics.annualised_return_approx:.2%}")
+    c3.metric(
+        "Annualised return (approx)",
+        f"{metrics.annualised_return_approx:.2%}",
+    )
     c4.metric(
         "Annualised volatility (approx)",
         f"{metrics.annualised_volatility_approx:.2%}",

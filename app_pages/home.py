@@ -11,11 +11,14 @@ import streamlit as st
 
 def render() -> None:
     st.title("🏁 Welcome to StockMetrics")
-    st.subheader("Clarity for beginner investors in fifteen minutes or less")
+    st.subheader(
+        "Clarity for beginner investors in fifteen minutes or less"
+    )
 
     st.markdown(
         """
-> *“The stock market is a device for transferring money from the impatient to the patient.”*  
+> *“The stock market is a device for transferring money from the
+> impatient to the patient.”*
 > — Warren Buffett
 """
     )
@@ -40,7 +43,9 @@ often lead to **analysis paralysis**.
     c1, c2, c3 = st.columns(3)
     with c1:
         st.markdown("### ⏳ Start early")
-        st.write("Time is your biggest advantage because compounding needs time.")
+        st.write(
+            "Time is your biggest advantage because compounding needs time."
+        )
     with c2:
         st.markdown("### 🧘 Think long-term")
         st.write("Time in the market often beats timing the market.")
@@ -114,10 +119,9 @@ often lead to **analysis paralysis**.
 
     with st.expander("What is FTSE All-World fund?"):
         st.write(
-            "The Vanguard FTSE All-World fund gives "
-            "exposure to a broad range of companies across developed and "
-            "emerging markets, making it a simple example of global "
-            "diversification."
+            "The Vanguard FTSE All-World fund gives exposure to a broad range "
+            "of companies across developed and emerging markets, making it a "
+            "simple example of global diversification."
         )
 
     with st.expander("What is the Magnificent Seven?"):
@@ -128,25 +132,30 @@ often lead to **analysis paralysis**.
             "a more concentrated type of exposure."
         )
 
-    with st.expander("Why is Tesla featured heavily in the Aggressive plan?"):
+    with st.expander(
+        "Why is Tesla featured heavily in the Aggressive plan?"
+    ):
         st.write(
             "Tesla is used as an example of a more volatile stock. Its price "
             "history helps illustrate how concentration in one high-profile "
             "company can increase both upside potential and downside risk."
         )
 
-    with st.expander("Why does StockMetrics use scenario ranges instead of one prediction?"):
+    with st.expander(
+        "Why does StockMetrics use scenario ranges instead of one prediction?"
+    ):
         st.write(
             "Financial markets are noisy, especially in the short term. "
-            "Scenario ranges help communicate uncertainty more responsibly than "
-            "a single ‘magic number’ prediction."
+            "Scenario ranges help communicate uncertainty more responsibly "
+            "than a single ‘magic number’ prediction."
         )
-    
+
     with st.expander("Does StockMetrics recommend a trading platform?"):
         st.write(
-            "No. StockMetrics is designed for education, not broker recommendations. "
-            "If you choose to invest, compare platforms based on regulation, fees, "
-            "available account types, ease of use, and the assets you want to buy."
+            "No. StockMetrics is designed for education, not broker "
+            "recommendations. If you choose to invest, compare platforms "
+            "based on regulation, fees, available account types, ease of use, "
+            "and the assets you want to buy."
         )
 
     st.divider()

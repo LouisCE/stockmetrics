@@ -24,7 +24,9 @@ from src.config import (
     get_paths,
 )
 from src.data_processing import load_clean_prices_latest
-from src.features import load_features_latest  # only used to support model pred if present
+from src.features import (
+    load_features_latest,  # only used to support model pred if present
+)
 from src.forecast import (
     estimate_mu_sigma_from_history,
     get_last_price,
@@ -33,7 +35,9 @@ from src.forecast import (
 from src.modelling import FEATURE_COLS_NUM, FEATURE_COLS_CAT
 
 
-def _predict_next_day_if_possible(model_path: Path, feat_df: pd.DataFrame, ticker: str) -> float | None:
+def _predict_next_day_if_possible(
+    model_path: Path, feat_df: pd.DataFrame, ticker: str
+) -> float | None:
     """
     Best-effort next-day prediction. Returns None if anything is missing.
     """
@@ -42,7 +46,11 @@ def _predict_next_day_if_possible(model_path: Path, feat_df: pd.DataFrame, ticke
             return None
 
         cols = FEATURE_COLS_NUM + FEATURE_COLS_CAT
-        d = feat_df[feat_df["Ticker"] == ticker].sort_values("Date").dropna(subset=cols)
+        d = (
+            feat_df[feat_df["Ticker"] == ticker]
+            .sort_values("Date")
+            .dropna(subset=cols)
+        )
         if d.empty:
             return None
 
@@ -65,31 +73,34 @@ def _ml_interpretation_message(model_pred: float | None) -> tuple[str, str]:
     if model_pred is None:
         return (
             "info",
-            "A machine learning next-day estimate is not available for this ticker. "
-            "StockMetrics can still show long-term scenario ranges using historical "
-            "trend and volatility.",
+            "A machine learning next-day estimate is not available for this "
+            "ticker. StockMetrics can still show long-term scenario ranges "
+            "using historical trend and volatility.",
         )
 
     if model_pred > 0:
         return (
             "success",
-            f"The model's next-day estimate is **{model_pred:.2%}**, which is slightly positive. "
-            "This does **not** mean the price will definitely rise tomorrow. It simply means the "
-            "model detected a small positive pattern in the recent historical features.",
+            f"The model's next-day estimate is **{model_pred:.2%}**, which is "
+            "slightly positive. This does **not** mean the price will "
+            "definitely rise tomorrow. It simply means the model detected a "
+            "small positive pattern in the recent historical features.",
         )
 
     if model_pred < 0:
         return (
             "warning",
-            f"The model's next-day estimate is **{model_pred:.2%}**, which is slightly negative. "
-            "This does **not** mean the price will definitely fall tomorrow. It simply means the "
-            "model detected a small negative pattern in the recent historical features.",
+            f"The model's next-day estimate is **{model_pred:.2%}**, which is "
+            "slightly negative. This does **not** mean the price will "
+            "definitely fall tomorrow. It simply means the model detected a "
+            "small negative pattern in the recent historical features.",
         )
 
     return (
         "info",
-        "The model's next-day estimate is close to **0.00%**. In plain English, that suggests "
-        "the model is not seeing a strong short-term directional signal right now.",
+        "The model's next-day estimate is close to **0.00%**. In plain "
+        "English, that suggests the model is not seeing a strong short-term "
+        "directional signal right now.",
     )
 
 
@@ -109,9 +120,10 @@ This keeps StockMetrics beginner-friendly by showing that:
     )
 
     st.info(
-        "Important: the machine learning estimate is a **short-term educational signal**. "
-        "It is **not** a buy/sell instruction, and it is **not** used to generate the "
-        "long-term scenario table below."
+        "Important: the machine learning estimate is a "
+        "**short-term educational signal**. "
+        "It is **not** a buy/sell instruction, and "
+        "it is **not** used to generate the long-term scenario table below."
     )
 
     version = DEFAULT_VERSION
@@ -129,11 +141,19 @@ This keeps StockMetrics beginner-friendly by showing that:
     st.caption(f"Selected asset: {format_ticker_label(ticker)}")
 
     # Horizon (how far to forecast)
-    horizon_years = st.selectbox("Horizon (how far to forecast)", options=[1, 2, 5, 10], index=2)
+    horizon_years = st.selectbox(
+        "Horizon (how far to forecast)",
+        options=[1, 2, 5, 10],
+        index=2,
+    )
     horizon_days = int(horizon_years * 252)
 
     # Trend window (how much history to follow)
-    window_years = st.selectbox("Trend window (how much history to follow)", options=[1, 2, 5, 10], index=2)
+    window_years = st.selectbox(
+        "Trend window (how much history to follow)",
+        options=[1, 2, 5, 10],
+        index=2,
+    )
     window_days = int(window_years * 252)
 
     last_dt, last_price = get_last_price(clean_df, ticker)
@@ -144,6 +164,8 @@ This keeps StockMetrics beginner-friendly by showing that:
         window_days=window_days,
     )
 
+    # Long-horizon Monte Carlo scenario simulation
+    # using historical drift + volatility.
     res = scenario_ranges_from_history(
         last_price=last_price,
         mu_log=mu_log,
@@ -201,9 +223,9 @@ This keeps StockMetrics beginner-friendly by showing that:
             "Estimated next-day return",
             f"{model_pred:.4%}",
             help=(
-                "This is the model's estimated next-day return based on the latest "
-                "engineered features. It is a short-term educational estimate, not "
-                "a guaranteed outcome."
+                "This is the model's estimated next-day return based on the "
+                "latest engineered features. It is a short-term educational "
+                "estimate, not a guaranteed outcome."
             ),
         )
     else:
@@ -235,14 +257,14 @@ This keeps StockMetrics beginner-friendly by showing that:
     )
     st.write(
         "In StockMetrics, the machine learning estimate is best understood as "
-        "an indicator of **uncertainty and unpredictability**, not as a signal "
-        "for short-term day trading."
+        "an indicator of **uncertainty and unpredictability**, not as a "
+        "signal for short-term day trading."
     )
     st.write(
-        "This is one reason why many investors prefer a **long-term approach**. "
-        "Over longer time horizons, it is often more useful to think in terms "
-        "of broad trends, diversification, and scenario ranges rather than "
-        "trying to guess tomorrow's move."
+        "This is one reason why many investors prefer a **long-term "
+        "approach**. Over longer time horizons, it is often more useful to "
+        "think in terms of broad trends, diversification, and scenario "
+        "ranges rather than trying to guess tomorrow's move."
     )
 
     st.divider()
@@ -263,20 +285,20 @@ This keeps StockMetrics beginner-friendly by showing that:
 
     st.markdown("### How to read these scenarios")
     st.write(
-        "The **pessimistic**, **realistic**, and **optimistic** values are not "
-        "three promises about the future. They are a simple way to show a **range "
-        "of possible long-term outcomes** based on the asset's historical trend "
-        "and volatility."
+        "The **pessimistic**, **realistic**, and **optimistic** values are "
+        "not three promises about the future. They are a simple way to show "
+        "a **range of possible long-term outcomes** based on the asset's "
+        "historical trend and volatility."
     )
     st.write(
-        "A wider spread between the pessimistic and optimistic values usually "
-        "suggests a more volatile asset. A narrower spread suggests a steadier "
-        "historical pattern."
+        "A wider spread between the pessimistic and optimistic values "
+        "usually suggests a more volatile asset. A narrower spread suggests "
+        "a steadier historical pattern."
     )
 
     st.info(
-        "These scenario ranges are driven by **historical trend and volatility**, "
-        "not by the next-day machine learning estimate. StockMetrics separates "
-        "short-term ML from long-term scenarios to communicate uncertainty more "
-        "responsibly."
+        "These scenario ranges are driven by **historical trend and "
+        "volatility**, not by the next-day machine learning estimate. "
+        "StockMetrics separates short-term ML from long-term scenarios to "
+        "communicate uncertainty more responsibly."
     )

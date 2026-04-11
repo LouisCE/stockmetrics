@@ -188,7 +188,10 @@ def render() -> None:
     tab1, tab2, tab3 = st.tabs(["Prices", "Returns", "Distribution"])
 
     with tab1:
-        st.plotly_chart(line_prices(filtered_df, ticker), use_container_width=True)
+        st.plotly_chart(
+            line_prices(filtered_df, ticker),
+            use_container_width=True,
+        )
         st.caption(
             "This chart shows how the price changed over the selected time "
             "period. Prices are shown in $ for individual stocks and £ for "
@@ -196,14 +199,20 @@ def render() -> None:
         )
 
     with tab2:
-        st.plotly_chart(line_returns(filtered_df, ticker), use_container_width=True)
+        st.plotly_chart(
+            line_returns(filtered_df, ticker),
+            use_container_width=True,
+        )
         st.caption(
             "Daily returns show day-to-day volatility. Short-term noise is "
             "normal."
         )
 
     with tab3:
-        st.plotly_chart(hist_returns(filtered_df, ticker), use_container_width=True)
+        st.plotly_chart(
+            hist_returns(filtered_df, ticker),
+            use_container_width=True,
+        )
         st.caption(
             "The distribution helps show which daily return outcomes were "
             "most common and which were more extreme."

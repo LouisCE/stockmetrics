@@ -47,7 +47,12 @@ def render() -> None:
 
     metrics_test = eval_report.get("metrics_test", {})
     metrics_train = eval_report.get("metrics_train", {})
-    success = bool(eval_report.get("model_successful_against_business_case", False))
+    success = bool(
+        eval_report.get(
+            "model_successful_against_business_case",
+            False,
+        )
+    )
     rule = eval_report.get(
         "success_rule",
         "Test R² > 0 indicates a generalisable signal",
@@ -69,29 +74,34 @@ def render() -> None:
 
     if success:
         st.success(
-            "This means the model showed **some predictive signal** on unseen data. "
-            "That is useful for the project business case, but it still does **not** "
-            "mean the model can predict the market with certainty."
+            "This means the model showed **some predictive signal** "
+            "on unseen data. That is useful for the project business "
+            "case, but it still does **not** mean the model can "
+            "predict the market with certainty."
         )
     else:
         st.warning(
-            "This means the model did **not** show strong enough generalisable signal "
-            "to succeed as a precise next-day predictor. That is common in finance, "
-            "where short-term price movements are highly noisy."
+            "This means the model did **not** show strong enough "
+            "generalisable signal to succeed as a precise next-day "
+            "predictor. That is common in finance, where short-term "
+            "price movements are highly noisy."
         )
 
     st.write(
-        "**R²** shows whether the model performed better than a very simple baseline. "
-        "A value above 0 suggests some useful signal. A value at or below 0 suggests "
-        "the model struggled to generalise."
+        "**R²** shows whether the model performed better than a very "
+        "simple baseline. A value above 0 suggests some useful "
+        "signal. A value at or below 0 suggests the model struggled "
+        "to generalise."
     )
     st.write(
-        "**MAE** and **RMSE** show the average prediction error size. Lower values are better."
+        "**MAE** and **RMSE** show the average prediction error "
+        "size. Lower values are better."
     )
     st.write(
-        "For StockMetrics, the model is used as an **educational component** to show "
-        "how difficult short-term market prediction is. Long-term scenario ranges are "
-        "communicated separately."
+        "For StockMetrics, the model is used as an **educational "
+        "component** to show how difficult short-term market "
+        "prediction is. Long-term scenario ranges are communicated "
+        "separately."
     )
 
     st.divider()
