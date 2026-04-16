@@ -86,3 +86,16 @@ Each notebook was reviewed by validating its Python code cells separately. This 
 For validation purposes, notebook Python code cells were pasted into the PEP 8 CI linter as a single script. A short notebook title comment was included at the top of each pasted validation input only to make the validation screenshots easier to identify; this was not added to the real notebook code cells because each notebook already includes its title in the opening Markdown section.
 
 Where necessary, imports were grouped at the top of the pasted validation input to satisfy linter expectations without changing the actual notebook logic, execution order, or saved outputs.
+
+---
+
+#### Notebook Validation Results
+
+| Directory | File | GitHub File | Screenshot | Notes |
+| --- | --- | --- | --- | --- |
+| `jupyter_notebooks/` | `01_data_collection.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/01_data_collection.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/01_data_collection.png) | Python code cells validated |
+| `jupyter_notebooks/` | `02_data_cleaning.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/02_data_cleaning.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/02_data_cleaning.png) | Python code cells validated |
+| `jupyter_notebooks/` | `03_eda.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/03_eda.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/03_eda.png) | Python code cells validated |
+| `jupyter_notebooks/` | `04_feature_engineering.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/04_feature_engineering.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/04_feature_engineering.png) | Python code cells validated |
+| `jupyter_notebooks/` | `05_model_training.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/05_model_training.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/05_model_training.png) | Python code cells validated |
+| `jupyter_notebooks/` | `06_model_evaluation.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/06_model_evaluation.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/06_model_evaluation.png) | Python code cells validated |
