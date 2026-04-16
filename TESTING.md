@@ -99,3 +99,12 @@ Where necessary, imports were grouped at the top of the pasted validation input 
 | `jupyter_notebooks/` | `04_feature_engineering.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/04_feature_engineering.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/04_feature_engineering.png) | Python code cells validated |
 | `jupyter_notebooks/` | `05_model_training.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/05_model_training.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/05_model_training.png) | Python code cells validated |
 | `jupyter_notebooks/` | `06_model_evaluation.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/06_model_evaluation.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/06_model_evaluation.png) | Python code cells validated |
+
+---
+
+### Code Validation Summary
+
+- All custom `.py` files passed PEP 8 validation.
+- Notebook validation was carried out on executable Python code cells only.
+- No unresolved linting issues remain in the validated `.py` files or notebook validation inputs.
+- Validation confirmed that the custom codebase is clean, readable, and suitable for submission.
