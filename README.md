@@ -591,6 +591,12 @@ However, these plans may also achieve higher cumulative returns during strong ma
 
 This supports the hypothesis that increased concentration can amplify both potential gains and potential losses.
 
+#### Business Implications
+
+Beginner investors should favour diversified portfolio structures when prioritising risk reduction, as increased concentration leads to higher volatility and deeper drawdowns.
+
+This insight directly informs the design of the portfolio plans in the dashboard, where users can visually compare how increasing concentration impacts both potential returns and downside risk.
+
 ---
 
 ### Hypothesis 2: Technology stocks exhibit higher volatility than diversified ETFs
@@ -638,6 +644,12 @@ As expected, a greater proportion of Tesla in particular correlated with greater
 
 This supports the hypothesis that concentration in individual equities leads to more volatile price behaviour.
 
+#### Business Implications
+
+Beginner investors should expect individual technology stocks to experience larger short-term price swings compared to diversified ETFs.  
+
+This reinforces the importance of diversification when managing risk and helps users interpret volatility observed in the Stock Explorer dashboard.
+
 ---
 
 ### Hypothesis 3: Diversified portfolios experience smaller drawdowns than concentrated portfolios
@@ -680,6 +692,12 @@ src/portfolio.py
 The diversified portfolio plans generally show smaller historical drawdowns compared with more concentrated plans that include higher allocations to individual technology stocks.
 
 This supports the hypothesis that diversification can reduce downside risk, although it may also reduce potential upside.
+
+#### Business Implications
+
+Diversification reduces downside risk and should be considered by beginner investors seeking more stable long-term outcomes.
+
+This insight supports the inclusion of low-risk portfolio plans in the dashboard and helps users understand why diversified funds are often recommended as a starting point.
 
 ---
 
@@ -733,6 +751,12 @@ This result suggests that the model captured **some generalisable predictive sig
 This supports the hypothesis that **short-horizon return prediction remains inherently difficult**, even when a model is technically successful against the business case.
 
 For this reason, StockMetrics does not use the machine learning model to generate long-horizon forecasts. Instead, it uses historical trend and volatility to produce scenario ranges, reinforcing uncertainty awareness and long-term investing principles.
+
+#### Business Implications
+
+Short-term market prediction should not be relied upon for investment decision-making due to the extremely weak predictive signal.  
+
+This reinforces the educational positioning of the dashboard, where the ML model is used to demonstrate uncertainty rather than provide actionable trading signals, and supports the use of scenario-based forecasting for long-term planning.
 
 **Final model result**
 
