@@ -1082,6 +1082,61 @@ The Model Performance page explains whether the predictive model actually met th
 
 ---
 
+## Plots
+
+> [!NOTE]  
+> These plots were generated during the EDA and evaluation stages and support hypothesis validation and the ML business case.  
+> The interactive versions of key insights are presented within the dashboard itself.
+
+This section includes multiple plot types used across exploratory analysis and machine learning evaluation, including **line plots, histograms, box plots, heatmaps, scatter plots, and residual diagnostics**.
+
+These visualisations were generated during the **Data Understanding** and **Evaluation** stages of CRISP-DM and were used to investigate historical market behaviour, compare volatility across assets, validate project hypotheses, and determine whether the regression pipeline met the ML business case success criterion.
+
+---
+
+### Exploratory Data Analysis Plots
+
+The following plots were used to validate the hypotheses around **volatility, diversification, concentration risk, and comparative market behaviour**.
+
+| Plot | Purpose | Key Metric / Evidence | Interpretation / Insight | Business Evidence | Screenshot |
+|---|---|---|---|---|---|
+| Adjusted Close Time Series | Compare long-term adjusted closing price trends across ETFs and technology stocks. | Multi-year adjusted close growth trajectories; technology equities show materially steeper compounded growth paths than ETFs. | All assets show long-term upward growth overall, but individual technology stocks display steeper appreciation paths and visibly larger regime swings than the ETFs. This supports the conclusion that concentrated equity exposure may offer greater upside potential, but with greater instability and path dependency. | Business Requirement 1, Hypothesis 1 | ![Adjusted Close Time Series](outputs/v2/figures/eda_adj_close_timeseries.png) |
+| Daily Returns Time Series | Show day-to-day return behaviour for each asset. | Magnitude and frequency of short-term spikes in `return_1d`; TSLA and NVDA exhibit larger absolute swings than VWRL.L and VUSA.L. | The daily return series highlights how noisy short-term market behaviour is. Technology stocks show larger positive and negative spikes, while the ETFs are generally more stable. This provides statistical support that individual technology stocks are more volatile than diversified funds. | Business Requirement 1, Hypothesis 2 | ![Daily Returns Time Series](outputs/v2/figures/eda_daily_returns_timeseries.png) |
+| Daily Returns Histogram | Compare the distribution and spread of daily returns across assets. | Wider return distributions and fatter tails for TSLA/NVDA relative to ETF benchmarks. | Stocks such as Tesla and Nvidia show wider return distributions, indicating more frequent extreme daily moves. The ETF distributions are narrower and more concentrated around zero, indicating lower day-to-day volatility. This supports the hypothesis that individual equities exhibit greater dispersion risk. | Business Requirement 1, Hypothesis 2 | ![Daily Returns Histogram](outputs/v2/figures/eda_daily_returns_hist.png) |
+| Daily Returns Box Plot | Compare volatility spread and outlier behaviour across assets. | Larger IQR and more extreme outliers in stock return distributions versus ETFs. | The box plot shows that individual stocks have wider interquartile ranges and more extreme outliers than the ETFs. This reinforces the conclusion that concentrated positions carry greater short-term risk and more severe tail-event exposure. | Business Requirement 1, Hypothesis 2 | ![Daily Returns Box Plot](outputs/v2/figures/eda_daily_returns_boxplot.png) |
+| Returns Correlation Heatmap | Show the correlation structure between daily returns of included assets. | Positive but imperfect cross-asset correlations; diversification benefit remains present despite shared market beta. | Most assets are positively related, although the strength of the relationship varies. This suggests that diversification across equities can reduce risk, but not eliminate it entirely, because many assets still move together during broad market events. | Business Requirement 2, Hypothesis 3 | ![Returns Correlation Heatmap](outputs/v2/figures/eda_returns_correlation_heatmap.png) |
+| Rolling 30-Day Volatility | Show how short-term volatility changes over time for each asset. | 30-day rolling standard deviation of `return_1d`; TSLA volatility spikes materially above VWRL.L during stress periods. | Volatility changes substantially over time, showing that market risk is not constant. Technology stocks experience sharper volatility spikes than the ETFs, especially during turbulent periods. This provides strong evidence that concentrated portfolios are likely to experience larger swings than diversified ones. | Business Requirement 2, Hypotheses 1 and 2 | ![Rolling 30-Day Volatility](outputs/v2/figures/eda_rolling_volatility_30d.png) |
+
+---
+
+### Model Evaluation Plots
+
+The following diagnostic plots were used to determine whether the regression pipeline met the **ML business case success criterion of Test R² > 0**.
+
+| Plot | Purpose | Key Metric / Evidence | Interpretation / Insight | Business Evidence | Screenshot |
+|---|---|---|---|---|---|
+| Actual vs Predicted Train | Compare actual and predicted next-day returns on the training set. | Train R² = **0.035236**; predictions remain tightly clustered around small return values. | The model captures some structure in the training data, but predictions remain tightly clustered around small return values. This suggests limited signal strength even before evaluating generalisation performance. | ML Business Case, Business Requirement 5 | ![Actual vs Predicted Train](outputs/v2/figures/eval_actual_vs_pred_train_v2.png) |
+| Actual vs Predicted Test | Compare actual and predicted next-day returns on unseen test data. | Test R² = **0.000740**, satisfying the business case threshold of **Test R² > 0**. | The relationship between actual and predicted values is weak, which is fully consistent with the very small positive Test R². This indicates that the model captured **some generalisable signal**, but predictive strength remains extremely limited. This still satisfies the ML business case threshold while reinforcing that next-day market forecasting is inherently difficult. | ML Business Case, Hypothesis 4, Business Requirement 5 | ![Actual vs Predicted Test](outputs/v2/figures/eval_actual_vs_pred_test_v2.png) |
+| Predicted Time Series Test | Compare predicted and actual returns across the test period. | Predicted values loosely track directional movement but fail to capture larger volatility spikes. | The model follows some short-term directional movement, but it fails to capture many larger spikes and reversals accurately. This reinforces the conclusion that short-horizon market prediction remains highly difficult even when weak positive signal exists. | Hypothesis 4, Business Requirement 5 | ![Predicted Time Series Test](outputs/v2/figures/eval_pred_timeseries_test_v2.png) |
+| Residuals Histogram Test | Inspect residual distribution on unseen data. | Residuals centred near zero; error spread remains large relative to daily return magnitudes. | The residuals are centred near zero, suggesting the model is not strongly biased in one direction, but the spread of errors remains substantial relative to the tiny size of daily returns. This explains why the model should be treated as an educational tool rather than a dependable forecasting engine. | ML Business Case, Business Requirement 5 | ![Residuals Histogram Test](outputs/v2/figures/eval_residuals_hist_test_v2.png) |
+| Residuals Time Series Test | Show temporal behaviour of prediction errors. | Error clustering visible across multiple market regimes, indicating instability across conditions. | Residuals fluctuate over time and include periods of clustered larger errors, indicating that model performance is unstable across changing market conditions. This further supports Hypothesis 4 that next-day return prediction remains highly uncertain. | Hypothesis 4, Business Requirement 5 | ![Residuals Time Series Test](outputs/v2/figures/eval_residuals_timeseries_test_v2.png) |
+
+---
+
+### Plot Relevance to the Business Case
+
+Together, these visualisations provide evidence-led support for the project’s business requirements by helping to:
+
+- explain historical market behaviour through **price, return, correlation, and volatility analysis**
+- compare the relative stability of diversified ETFs and concentrated technology stocks
+- justify the validation of hypotheses using **quantitative evidence rather than visual judgement alone**
+- demonstrate that the ML pipeline achieved the business case success threshold of **Test R² > 0**
+- communicate clearly that short-term return prediction remains highly uncertain even when a small positive predictive signal is present
+
+This section strengthens the project’s **statistical justification, hypothesis validation, and ML business case transparency**, while also evidencing multiple distinct plot types.
+
+---
+
 ## Tools and Technologies
 
 The **StockMetrics** project uses the following technologies to collect financial market data, process and analyse time-series datasets, build a machine learning pipeline, and deploy an interactive Streamlit dashboard.
