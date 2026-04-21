@@ -445,46 +445,21 @@ These limitations are explicitly acknowledged in the project documentation and d
 
 ## Epics and User Stories
 
-The project was organised into several Epics that reflect the stages of data science development and dashboard delivery. Each Epic contains a set of User Stories that describe the intended functionality of the StockMetrics application and the development work required to support it.
+The project was structured using Agile methodology, where an Epic is a large body of work that represents a major goal or initiative.
 
----
+Each Epic comprises a set of User Stories, with each User Story representing a small, specific requirement focused on a single piece of value for the end user.
 
-### Epic - Dashboard Introduction and User Guidance
-
-| Target | Expectation | Outcome |
-|---|---|---|
-| As a beginner investor | I want a simple homepage explaining what StockMetrics does and who it is for | so I can quickly understand the app. |
-| As a beginner investor | I want clear disclaimers that this is educational and not financial advice | so I can use the dashboard responsibly. |
-
----
-
-### Epic - Asset Exploration and Market Insights
-
-| Target | Expectation | Outcome |
-|---|---|---|
-| As a beginner investor | I want to explore a curated list of well-known stocks and index funds | so I don’t get overwhelmed by too many choices. |
-| As a beginner investor | I want to select a ticker and date range | so I can focus analysis on a time period that matters to me. |
-| As a beginner investor | I want interactive charts of historical prices and returns | so I can visually understand how performance changes over time. |
-| As a beginner investor | I want to view daily returns | so I can understand how volatile an asset is in the short term. |
-| As a beginner investor | I want beginner-friendly explanations of investing terms | so I can understand what the dashboard is showing me. |
-| As a beginner investor | I want to compare assets using the same metrics | so I can make fair comparisons without guessing. |
-
----
-
-### Epic - Portfolio Planning and Forecasting
-
-| Target | Expectation | Outcome |
-|---|---|---|
-| As a beginner investor | I want a forecast for different time horizons (1 to 10 years) | so I can see how profits compound over time. |
-| As a beginner investor | I want forecasts presented as optimistic, realistic, and pessimistic scenarios | so I can understand prediction uncertainty instead of seeing one “magic number.” |
-| As a beginner investor | I want four risk-based portfolio plans with clear allocations | so I can pick a plan that matches my risk tolerance. |
-| As a beginner investor | I want to compare portfolio plans using performance and risk visuals | so I can understand the trade-offs between conservative and aggressive strategies. |
+All Epics and User Stories are tracked as GitHub Issues with defined acceptance criteria and tasks within each User Story.
 
 ---
 
 ### Epic - Data Science Pipeline Development
 
-| Target | Expectation | Outcome |
+This Epic is relevant to **Milestone 1**.
+
+These stories are implemented across the six `jupyter_notebooks` and support the full CRISP-DM data science workflow.
+
+| User | User Story | Benefit |
 |---|---|---|
 | As a data scientist | I want to collect historical stock data | so the dataset can be used for analysis and modelling. |
 | As a data analyst | I want to clean and prepare the dataset | so the data is suitable for analysis and modelling. |
@@ -493,43 +468,87 @@ The project was organised into several Epics that reflect the stages of data sci
 | As a data scientist | I want to train a machine learning model | so the application can assess short-term market uncertainty and support model evaluation. |
 | As a data scientist | I want to evaluate the machine learning model | so I can determine whether it meets the business case requirements. |
 
-The workflow is implemented across the following notebooks:
+---
 
-- `jupyter_notebooks/01_data_collection.ipynb`
-- `jupyter_notebooks/02_data_cleaning.ipynb`
-- `jupyter_notebooks/03_eda.ipynb`
-- `jupyter_notebooks/04_feature_engineering.ipynb`
-- `jupyter_notebooks/05_model_training.ipynb`
-- `jupyter_notebooks/06_model_evaluation.ipynb`
+### Epic - Core Application Architecture
+
+This Epic is relevant to **Milestone 2**.
+
+These stories are implemented through the reusable modules in `src/`, which separate business logic from notebooks and dashboard page rendering.
+
+| User | User Story | Benefit |
+|---|---|---|
+| As a developer | I want a central configuration module | so paths, tickers, versions, and display labels remain consistent across notebooks and dashboard pages. |
+| As a developer | I want reusable data collection helpers | so historical price data can be downloaded and saved consistently from the Yahoo Finance endpoint. |
+| As a developer | I want reusable data processing helpers | so datasets can be cleaned, standardised, saved, and reloaded reliably. |
+| As a developer | I want reusable evaluation helpers | so model metrics and diagnostic plots can be generated consistently. |
+| As a developer | I want reusable feature engineering helpers | so machine learning inputs are reproducible across the project. |
+| As a developer | I want reusable forecasting helpers | so long-horizon scenario logic is consistent and reusable in the dashboard. |
+| As a developer | I want reusable modelling and tuning helpers | so the ML pipeline can be trained, tuned, and saved consistently. |
+| As a developer | I want reusable portfolio calculation helpers | so portfolio plans can be calculated consistently across the dashboard. |
+| As a developer | I want reusable visualisation helpers | so dashboard charts are consistent and easier to maintain. |
 
 ---
 
-### Epic - Model Transparency and Evaluation
+### Epic - Dashboard Application
 
-| Target | Expectation | Outcome |
+This Epic is relevant to **Milestone 3**.
+
+These stories are implemented through `app.py` and the dashboard page modules in `app_pages/`.
+
+| User | User Story | Benefit |
 |---|---|---|
-| As a technical reviewer | I want a model performance page with metrics and evaluation plots | so I can verify whether the ML pipeline meets its business case success criteria. |
+| As a beginner investor | I want a clear sidebar navigation menu | so I can move easily between the dashboard pages. |
+| As a beginner investor | I want a simple homepage explaining what StockMetrics does and how to use it | so I can quickly understand the purpose of the dashboard. |
+| As a beginner investor | I want interactive charts of historical prices, returns, and daily returns | so I can understand asset performance and volatility over time. |
+| As a beginner investor | I want optimistic, realistic, and pessimistic scenario ranges alongside a next-day ML estimate | so I can understand uncertainty across different time horizons without relying on a single prediction. |
+| As a beginner investor | I want to compare risk-based portfolio plans | so I can understand diversification and concentration trade-offs. |
+| As a technical reviewer | I want a model performance page with metrics and diagnostic plots | so I can verify whether the ML pipeline met its business case. |
 
 ---
 
 ### Epic - Deployment and Application Availability
 
-| Target | Expectation | Outcome |
+This Epic is relevant to **Milestone 4**.
+
+This Epic covers deployment configuration, hosted availability, and the steps required to make the finished dashboard publicly accessible on **Render**.
+
+| User | User Story | Benefit |
 |---|---|---|
 | As a user | I want the StockMetrics dashboard deployed online | so I can access the application from a live public URL. |
 | As a developer | I want the application deployed using Render | so the dashboard can be reliably hosted and accessed by users. |
 
 ---
 
-### Epic - Documentation, Validation and Polish
+### Epic - README Documentation and Polish
 
-| Target | Expectation | Outcome |
+This Epic is relevant to **Milestone 5**.
+
+This Epic covers the written project rationale, dashboard design explanation, hypothesis validation, Agile traceability, and overall `README.md` submission polish.
+
+| User | User Story | Benefit |
 |---|---|---|
-| As an assessor | I want a complete README document | so I can clearly evaluate the project rationale, business case, methodology, deployment, and project structure. |
-| As an assessor | I want a complete TESTING document | so I can clearly evaluate the project's validation process, testing evidence, and technical quality. |
+| As a user | I want the dashboard to be polished, accessible, and beginner-friendly | so the deployed application feels professional and easy to use. |
 | As an assessor | I want clear hypothesis validation evidence | so I can verify that the project conclusions are statistically justified. |
-| As a user | I want the dashboard to be polished and accessible | so the deployed application feels professional and easy to use. |
-| As an assessor | I want the Agile board and documentation to be fully aligned | so I can clearly trace development from business requirements to delivery. |
+| As an assessor | I want the ML business case to be clearly explained | so I can understand the predictive task, success criteria, and model relevance. |
+| As an assessor | I want the CRISP-DM process to be clearly documented | so I can verify that the project follows a structured data science workflow. |
+| As an assessor | I want Agile evidence to be fully aligned with implementation | so I can trace development from business requirements to final features. |
+
+---
+
+### Epic - TESTING Documentation and Validation
+
+This Epic is relevant to **Milestone 6**.
+
+This Epic covers code validation, automated testing covered in `tests/`, manual functional testing, widget testing, and the final `TESTING.md` documentation.
+
+| User | User Story | Benefit |
+|---|---|---|
+| As an assessor | I want **PEP 8** validation evidence | so I can assess technical quality. |
+| As a developer | I want automated tests carried out with **Pytest** | so the core project logic is reliable. |
+| As an assessor | I want user story testing | so I can verify functionality. |
+| As an assessor | I want widget interaction testing | so I can verify correct behaviour of all dashboard inputs and outputs. |
+| As an assessor | I want clear bug tracking evidence | so I can verify debugging and problem-solving process. |
 
 ---
 
