@@ -1206,19 +1206,68 @@ The **StockMetrics** project uses the following technologies to collect financia
 
 ## Agile Development Process
 
-### GitHub Projects
+Agile methodology was used throughout the development of **StockMetrics** to ensure structured, iterative progress aligned with the project’s business requirements and CRISP-DM workflow.
 
-[GitHub Projects](https://www.github.com/LouisCE/stockmetrics/projects) was used as the primary Agile planning and tracking tool for the **StockMetrics** project.
+Agile was particularly important for this project because it:
 
-The GitHub Projects board followed a Kanban-style workflow and was used to:
+- allowed incremental delivery of a complex data science pipeline
+- supported iterative experimentation during model development
+- ensured clear traceability from business requirements → implementation → dashboard features
+- helped prioritise core functionality within a fixed submission deadline
 
-* Plan and manage Epics and User Stories
-* Break down features into manageable development tasks
-* Track progress
-* Create, prioritise and move tasks through the Kanban workflow from *To Do* through *In Progress* to *Done*
-* Record bugs and technical issues discovered during development
+---
 
-The board was updated regularly throughout the build process to reflect the current state of development and priorities.
+### Agile Structure and Workflow
+
+The project followed a structured hierarchy:
+
+- **Epics** → represent major project phases aligned with CRISP-DM stages
+- **User Stories** → define specific functional requirements
+- **Tasks** → break User Stories into implementable steps
+
+- **Milestones** → represent significant moments in the project's maturity throughout the development process
+- **Sprints** → represent periods of time during which tasks are completed to achieve Milestones
+
+Each User Story included:
+
+- a clear user-focused objective  
+- defined acceptance criteria  
+- linked implementation tasks  
+
+This ensured that all development work could be traced directly back to business requirements.
+
+---
+
+### Mapping to CRISP-DM
+
+Agile Epics were aligned with CRISP-DM stages:
+
+| CRISP-DM Stage | Agile Implementation |
+|---|---|
+| Business Understanding | Business Requirements, Hypotheses, User Stories |
+| Data Collection | Data collection notebook + raw dataset pipeline |
+| Data Preparation | Cleaning and feature engineering notebooks |
+| Data Understanding | EDA notebook and visual analysis |
+| Modelling | Model training and hyperparameter tuning |
+| Evaluation | Model evaluation notebook and dashboard outputs |
+| Deployment | Streamlit dashboard + Render deployment |
+
+This ensured that the Agile workflow directly supported a structured data science lifecycle.
+
+---
+
+### Issue Structure
+
+Each issue included:
+
+- a clear description  
+- acceptance criteria  
+- labels (Bug, Epic, etc.)  
+- linkage to commits and features  
+
+This provides full traceability:
+
+User Story → Code Implementation → Dashboard Feature
 
 ---
 
@@ -1235,6 +1284,61 @@ This helped maintain a clear structure between high-level planning items and sma
 
 Bugs were also documented within **TESTING.md**, allowing all planning, progress tracking, and issue documentation to remain centralised during development.
 
+| Link | Screenshot |
+|---|---|
+| [![GitHub open issues](https://img.shields.io/github/issues-search/LouisCE/stockmetrics?query=is%3Aissue%20is%3Aopen%20-label%3Abug\&label=Open%20Issues\&color=yellow)](https://www.github.com/LouisCE/stockmetrics/issues?q=is%3Aissue%20is%3Aopen%20-label%3Abug) | ![screenshot](documentation/agile/gh-issues-open.png) |
+| [![GitHub closed issues](https://img.shields.io/github/issues-search/LouisCE/stockmetrics?query=is%3Aissue%20is%3Aclosed%20-label%3Abug\&label=Closed%20Issues\&color=green)](https://www.github.com/LouisCE/stockmetrics/issues?q=is%3Aissue%20is%3Aclosed%20-label%3Abug) | ![screenshot](documentation/agile/gh-issues-closed.png) |
+
+---
+
+### GitHub Milestones
+
+[GitHub Milestones](https://www.github.com/LouisCE/stockmetrics/milestones) were used to mark key checkpoints in the project's development lifecycle.
+
+While Epics and User Stories defined the project's functionality, Milestones represented the "Definition of Done" for major phases, ensuring that development remained aligned with the core business case.
+
+Each Milestone bridged multiple **Sprints**, which are flexible one-or-two-week time-boxes used to manage task execution. This structure allowed for iterative development while maintaining a clear path toward final assessment.
+
+A deliberate buffer period was integrated into the final weeks to minimise time trouble and mitigate technical risk, providing extra time for rigorous testing, bug fixing, and final UI/UX polish.
+
+| Milestone | Sprint | Outcome |
+| :--- | :--- | :--- |
+| M0 - Project Setup Initialised | Sprint 0 | Repository created, early file structure planned, CI template integration, and dataset procurement with `yfinance`. |
+| M1 - Data Science Pipeline Ready | Sprints 1 and 2 | Completion of all `jupyter_notebooks` (01-06) covering data collection and cleaning, EDA, feature engineering, and ML model training and evaluation. |
+| M2 - Core Logic Modularised | Sprint 3 | Transitioning notebook logic into production-ready `src` modules. |
+| M3 - Streamlit Dashboard UI Developed | Sprint 4 and 5 | Implementation of the **Streamlit** frontend, including `app.py` and all functional `app_pages` with a beginner-friendly UI. |
+| M4 - Deployment on Render Successful | Sprint 6 | Successful hosting on **Render**, environment configuration, and stability validation. |
+| M5 - UX Refinement & README Complete | Sprint 7 and 8 | Dashboard and educational guidance polish and `README.md` completion to explain the project with rationale, business case, and hypotheses. |
+| M6 - Validation and TESTING Complete | Sprints 9 and 10 | `TESTING.md` completion to prove the project works with PEP 8 compliance, automated testing suite with Pytest handled in the `tests` files, widget validation, user story testing and comprehensive bug logging. |
+| M7 - Project Ready for Assessment | Sprint 11 | Final Agile board alignment in **GitHub Issues**, **GitHub Projects** and **GitHub Milestones**, buffer period, and project submission. |
+
+> **Note on Agility:** Sprints were managed as flexible time targets rather than strict deadlines, allowing adaptation during development while maintaining overall milestone alignment.
+
+| Link | Screenshot |
+|---|---|
+| [![GitHub open milestones](https://img.shields.io/github/milestones/open/LouisCE/stockmetrics?label=Open%20Milestones\&color=yellow)](https://www.github.com/LouisCE/stockmetrics/milestones) | ![screenshot](documentation/agile/gh-milestones-open.png) |
+| [![GitHub closed milestones](https://img.shields.io/github/milestones/closed/LouisCE/stockmetrics?label=Closed%20Milestones\&color=green)](https://www.github.com/LouisCE/stockmetrics/milestones?state=closed) | ![screenshot](documentation/agile/gh-milestones-closed.png) |
+
+---
+
+### GitHub Projects
+
+[GitHub Projects](https://www.github.com/LouisCE/stockmetrics/projects) was used as the primary Agile planning and tracking tool for the **StockMetrics** project.
+
+The GitHub Projects board followed a Kanban-style workflow and was used to:
+
+* Plan and manage Epics, User Stories, and Sprints
+* Break down features into manageable development tasks
+* Track progress
+* Create, prioritise and move Epic and User Story issues through the Kanban workflow from *To Do* through *In Progress* to *Done*
+* Record bugs and technical issues discovered during development and move them from *Bugs* to *Fixed Bugs* once resolved
+
+The board was updated regularly throughout the build process to reflect real-time project progress.
+
+| Link | Screenshot |
+|---|---|
+| [![GitHub project board](https://img.shields.io/badge/GitHub-Project%20Board-blue?logo=github)](https://github.com/users/LouisCE/projects/14) | ![screenshot](documentation/agile/gh-projects.png) |
+
 ---
 
 ### MoSCoW Prioritisation
@@ -1249,6 +1353,29 @@ Each User Story was labelled accordingly within GitHub Issues:
 * **Won’t Have** - Features intentionally deferred to future development beyond the scope of this submission
 
 This prioritisation helped guide development decisions and ensured the project remained achievable within the available timeframe.
+
+---
+
+### Version Control and Incremental Development
+
+Development followed best practices using Git:
+
+- small, incremental commits
+- commit messages ≤ 50 characters
+- each commit mapped to a specific feature or fix
+
+This provides clear evidence of the development process and avoids large, ambiguous commits.
+
+---
+
+### Summary
+
+The Agile process ensured that:
+
+- development remained aligned with business requirements
+- features were delivered incrementally
+- the ML pipeline could be iterated effectively
+- the final dashboard reflects a structured, traceable development process
 
 ---
 
