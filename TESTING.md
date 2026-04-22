@@ -133,3 +133,19 @@ Automated tests were created for:
 - forecasting utility functions
 
 The Streamlit interface itself was tested manually, while backend logic was tested automatically.
+
+---
+
+### Test Execution
+
+| Test Module | Command Used | Result | Screenshot |
+| --- | --- | --- | --- |
+| config tests | `python -m pytest tests/test_config.py` | Passed | ![screenshot](documentation/tests/test_config.png) |
+| data processing tests | `python -m pytest tests/test_data_processing.py` | Passed | ![screenshot](documentation/tests/test_data_processing.png) |
+| features tests | `python -m pytest tests/test_features.py` | Passed | ![screenshot](documentation/tests/test_features.png) |
+| forecast tests | `python -m pytest tests/test_forecast.py` | Passed | ![screenshot](documentation/tests/test_forecast.png) |
+| modelling tests | `python -m pytest tests/test_modelling.py` | Passed | ![screenshot](documentation/tests/test_modelling.png) |
+| portfolio tests | `python -m pytest tests/test_portfolio.py` | Passed | ![screenshot](documentation/tests/test_portfolio.png) |
+| full suite | `python -m pytest` | All tests passed | ![screenshot](documentation/tests/test_full.png) |
+
+> **Full test suite result:** 21 tests passed in 3.15 seconds
