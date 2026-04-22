@@ -149,3 +149,21 @@ The Streamlit interface itself was tested manually, while backend logic was test
 | full suite | `python -m pytest` | All tests passed | ![screenshot](documentation/tests/test_full.png) |
 
 > **Full test suite result:** 21 tests passed in 3.15 seconds
+
+---
+
+### Automated Testing Summary
+
+- Core reusable functions were tested in isolation.
+- Automated tests increased confidence in data handling, calculations, and scenario logic.
+- The Streamlit UI was validated manually, while backend logic was validated automatically.
+
+Automated testing was intentionally focused on reusable backend logic rather than full application coverage.
+
+The following parts of the project were not prioritised for automated unit tests:
+
+- `app.py` and `app_pages/`, because these files mainly handle Streamlit page layout, routing, and UI rendering, which were better validated through manual functional and widget testing
+- `jupyter_notebooks/`, because these notebooks were assessed through successful execution, saved outputs, and documented evidence rather than isolated unit tests
+- selected `src/` modules such as `data_collection.py`, `viz.py`, and `evaluation.py`, because they either depend on external services, generate visual outputs, or were less suitable for lightweight deterministic unit testing than the core reusable logic covered here
+
+This kept the automated test suite lightweight, relevant, and aligned with the overall project architecture and testing strategy.
