@@ -948,6 +948,107 @@ Final outcome: the model achieved a **slightly positive** test-set R² and was t
 
 ---
 
+## Model Development and Iteration
+
+The machine learning model was developed iteratively to improve performance and meet the business case success criterion.
+
+---
+
+### Initial Approach
+
+The initial modelling approach used a `RandomForestRegressor` with standard hyperparameter tuning using `GridSearchCV`.
+
+The predictive target was also refined during development to correctly frame the task as next-day return prediction.
+
+Early iterations did not meet the business case success criterion, indicating that the model was not capturing a generalisable signal from the data.
+
+Result:
+
+- Test R² < 0
+- Model did not meet the business case
+
+---
+
+### Feature Engineering Improvements
+
+To improve model performance, additional features were introduced:
+
+- rolling volatility (`vol_90d`)
+- momentum (`mom_90d`)
+- mean reversion (`zscore_30d`, `mean_reversion_5d`)
+- additional lagged returns (`lag_return_1`, `lag_return_5`)
+
+Result:
+
+- improved signal capture
+- Test R² moved slightly above zero
+- model met the business case by a very small margin
+
+---
+
+### Hyperparameter Optimisation Strategy
+
+Due to computational constraints, the tuning approach evolved:
+
+- `GridSearchCV` used for smaller test runs
+- `HalvingGridSearchCV` used for full optimisation
+
+This allowed:
+
+- efficient exploration of the parameter space
+- practical runtime on local hardware
+- evidence of advanced tuning techniques
+
+Six hyperparameters were tuned:
+
+- n_estimators
+- max_depth
+- min_samples_split
+- min_samples_leaf
+- max_features
+- max_leaf_nodes
+
+Each used at least three candidate values.
+
+```python
+  return {
+      "model__n_estimators": [100, 200, 300],
+      "model__max_depth": [5, 10, None],
+      "model__min_samples_split": [2, 5, 10],
+      "model__min_samples_leaf": [1, 2, 4],
+      "model__max_features": ["sqrt", "log2", 0.5],
+      "model__max_leaf_nodes": [50, 200, None],
+  }
+```
+
+---
+
+### Final Model Outcome
+
+After iteration:
+
+- Test R²: **0.000740**
+- Model met success criterion (Test R² > 0)
+
+However:
+
+- predictive signal remains extremely weak
+- confirms difficulty of short-horizon prediction
+
+The final submitted and deployed project uses **v2** as the production dataset and artefact version. Earlier **v1** artefacts are retained only as iteration evidence and are not the active production version.
+
+---
+
+### Conclusion
+
+The iterative process demonstrates:
+
+- structured model improvement
+- justified feature engineering decisions
+- practical optimisation strategy selection
+
+---
+
 ## Dashboard Design
 
 The Streamlit dashboard is structured as a multi-page application using the `app_pages` folder.
