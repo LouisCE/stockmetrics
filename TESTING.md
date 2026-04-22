@@ -108,3 +108,28 @@ Where necessary, imports were grouped at the top of the pasted validation input 
 - Notebook validation was carried out on executable Python code cells only.
 - No unresolved linting issues remain in the validated `.py` files or notebook validation inputs.
 - Validation confirmed that the custom codebase is clean, readable, and suitable for submission.
+
+---
+
+## Automated Testing
+
+Automated testing was implemented using `pytest` to validate reusable project logic within the `src/` modules.
+
+The tests focused on deterministic functions and data-processing helpers where expected outputs could be asserted reliably without depending on Streamlit UI rendering or expensive model-training runs.
+
+This approach complemented manual dashboard testing by adding repeatable checks for backend logic while keeping the test suite lightweight and practical for the project scope.
+
+---
+
+### Automated Test Scope
+
+Automated tests were created for:
+
+- configuration helpers
+- data cleaning and schema consistency
+- feature engineering outputs
+- chronological train/test splitting
+- portfolio calculation helpers
+- forecasting utility functions
+
+The Streamlit interface itself was tested manually, while backend logic was tested automatically.
