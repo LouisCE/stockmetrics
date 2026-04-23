@@ -152,10 +152,16 @@ often lead to **analysis paralysis**.
 
     with st.expander("Does StockMetrics recommend a trading platform?"):
         st.write(
-            "No. StockMetrics is designed for education, not broker "
-            "recommendations. If you choose to invest, compare platforms "
-            "based on regulation, fees, available account types, ease of use, "
-            "and the assets you want to buy."
+            "StockMetrics does not provide personalised financial advice, "
+            "but beginners often look for platforms that are simple and "
+            "accessible.\n\n"
+            "One commonly used platform is Trading 212 (T212), which is known "
+            "for features such as commission-free trading, a user-friendly "
+            "interface, fractional shares, a wide range of available assets, "
+            "interest on uninvested cash, and free ISA accounts in the UK.\n\n"
+            "However, this is **not financial advice**. Always do your own "
+            "research and choose a platform that suits your needs. "
+            "**Capital is at risk.**"
         )
 
     st.divider()
