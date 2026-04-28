@@ -451,65 +451,148 @@ Each Epic comprises a set of User Stories, with each User Story representing a s
 
 All Epics and User Stories are tracked as GitHub Issues with defined acceptance criteria and tasks within each User Story.
 
+> [!NOTE]
+> Acceptance criteria and task breakdowns can be viewed directly within the GitHub Issues and Project board, providing full traceability from requirement → implementation → validation.
+
 ---
 
 ### Epic - Data Science Pipeline Development
 
-This Epic is relevant to **Milestone 1**.
+This Epic is linked to **Milestone 1**.
 
 These stories are implemented across the six `jupyter_notebooks` and support the full CRISP-DM data science workflow.
 
-| User | User Story | Benefit |
-|---|---|---|
-| As a data scientist | I want to collect historical stock data | so the dataset can be used for analysis and modelling. |
-| As a data analyst | I want to clean and prepare the dataset | so the data is suitable for analysis and modelling. |
-| As a data analyst | I want to explore the dataset visually | so I can understand patterns and relationships in the data. |
-| As a data scientist | I want to engineer predictive features | so the machine learning model has meaningful inputs. |
-| As a data scientist | I want to train a machine learning model | so the application can assess short-term market uncertainty and support model evaluation. |
-| As a data scientist | I want to evaluate the machine learning model | so I can determine whether it meets the business case requirements. |
+| User | User Story | Benefit | Implemented In |
+|---|---|---|---|
+| As a data scientist | I want to collect historical stock data | so the dataset can be used for analysis and modelling. | `jupyter_notebooks/01_data_collection.ipynb` |
+| As a data analyst | I want to clean and prepare the dataset | so the data is suitable for analysis and modelling. | `jupyter_notebooks/02_data_cleaning.ipynb` |
+| As a data analyst | I want to explore the dataset visually | so I can understand patterns and relationships in the data. | `jupyter_notebooks/03_eda.ipynb` |
+| As a data scientist | I want to engineer predictive features | so the machine learning model has meaningful inputs. | `jupyter_notebooks/04_feature_engineering.ipynb` |
+| As a data scientist | I want to train a machine learning model | so the application can assess short-term market uncertainty and support model evaluation. | `jupyter_notebooks/05_model_training.ipynb` |
+| As a data scientist | I want to evaluate the machine learning model | so I can determine whether it meets the business case requirements. | `jupyter_notebooks/06_model_evaluation.ipynb` |
 
 ---
 
 ### Epic - Core Application Architecture
 
-This Epic is relevant to **Milestone 2**.
+This Epic is linked to **Milestone 2**.
 
-These stories are implemented through the reusable modules in `src/`, which separate business logic from notebooks and dashboard page rendering.
+This Epic covers the reusable modules in `src/`, which separate project logic from the notebooks and Streamlit dashboard pages.
 
-| User | User Story | Benefit |
-|---|---|---|
-| As a developer | I want a central configuration module | so paths, tickers, versions, and display labels remain consistent across notebooks and dashboard pages. |
-| As a developer | I want reusable data collection helpers | so historical price data can be downloaded and saved consistently from the Yahoo Finance endpoint. |
-| As a developer | I want reusable data processing helpers | so datasets can be cleaned, standardised, saved, and reloaded reliably. |
-| As a developer | I want reusable evaluation helpers | so model metrics and diagnostic plots can be generated consistently. |
-| As a developer | I want reusable feature engineering helpers | so machine learning inputs are reproducible across the project. |
-| As a developer | I want reusable forecasting helpers | so long-horizon scenario logic is consistent and reusable in the dashboard. |
-| As a developer | I want reusable modelling and tuning helpers | so the ML pipeline can be trained, tuned, and saved consistently. |
-| As a developer | I want reusable portfolio calculation helpers | so portfolio plans can be calculated consistently across the dashboard. |
-| As a developer | I want reusable visualisation helpers | so dashboard charts are consistent and easier to maintain. |
+| User | User Story | Benefit | Implemented In |
+|---|---|---|---|
+| As a developer | I want a central configuration module | so paths, tickers, versions, display labels, and plan descriptions remain consistent across the project. | `src/config.py` |
+| As a data scientist | I want reusable data collection helpers | so historical Yahoo Finance data can be downloaded and saved consistently from the endpoint. | `src/data_collection.py` |
+| As a data analyst | I want reusable data processing helpers | so raw data can be cleaned, standardised, saved, and reloaded reliably. | `src/data_processing.py` |
+| As a data scientist | I want reusable evaluation helpers | so model metrics and actual-vs-predicted plots can be generated consistently. | `src/evaluation.py` |
+| As a data scientist | I want reusable feature engineering helpers | so machine learning inputs and the next-day target can be reproduced consistently. | `src/features.py` |
+| As a developer | I want reusable forecasting helpers | so long-horizon scenario ranges can be generated consistently in the dashboard. | `src/forecast.py` |
+| As a developer | I want reusable modelling helpers | so the ML pipeline can be built, tuned, evaluated, and saved consistently. | `src/modelling.py` |
+| As a developer | I want reusable portfolio calculation helpers | so risk-based portfolio plans can be calculated consistently. | `src/portfolio.py` |
+| As a developer | I want reusable visualisation helpers | so dashboard charts are consistent, labelled, and maintainable. | `src/viz.py` |
 
 ---
 
-### Epic - Dashboard Application
+### Epic - Dashboard Structure and Navigation System
 
-This Epic is relevant to **Milestone 3**.
+This Epic is linked to **Milestone 3**.
 
-These stories are implemented through `app.py` and the dashboard page modules in `app_pages/`.
+This Epic covers the main Streamlit entry point in `app.py`, including page routing, sidebar navigation, and consistent dashboard structure.
 
-| User | User Story | Benefit |
-|---|---|---|
-| As a beginner investor | I want a clear sidebar navigation menu | so I can move easily between the dashboard pages. |
-| As a beginner investor | I want a simple homepage explaining what StockMetrics does and how to use it | so I can quickly understand the purpose of the dashboard. |
-| As a beginner investor | I want interactive charts of historical prices, returns, and daily returns | so I can understand asset performance and volatility over time. |
-| As a beginner investor | I want optimistic, realistic, and pessimistic scenario ranges alongside a next-day ML estimate | so I can understand uncertainty across different time horizons without relying on a single prediction. |
-| As a beginner investor | I want to compare risk-based portfolio plans | so I can understand diversification and concentration trade-offs. |
-| As a technical reviewer | I want a model performance page with metrics and diagnostic plots | so I can verify whether the ML pipeline met its business case. |
+| User | User Story | Benefit | Implemented In |
+|---|---|---|---|
+| As a beginner investor | I want a clear sidebar navigation menu | so I can move easily between the dashboard pages. | `app.py` |
+| As a beginner investor | I want all dashboard pages routed from one main app entry point | so navigation feels consistent and easy to use. | `app.py` |
+
+---
+
+### Epic - User Onboarding and Educational Content
+
+This Epic is linked to **Milestone 3**.
+
+This Epic covers the `app_pages/home.py` page, which introduces StockMetrics and provides beginner-friendly investing guidance.
+
+| User | User Story | Benefit | Implemented In |
+|---|---|---|---|
+| As a beginner investor | I want a simple homepage explaining what StockMetrics does and who it is for | so I can quickly understand the app. | `app_pages/home.py` |
+| As a beginner investor | I want beginner-friendly investing principles | so I can understand the basic ideas behind long-term investing. | `app_pages/home.py` |
+| As a beginner investor | I want a glossary in plain English | so I can understand unfamiliar investing terms. | `app_pages/home.py` |
+| As a beginner investor | I want FAQs in plain English | so I can understand key concepts used throughout the dashboard. | `app_pages/home.py` |
+| As a beginner investor | I want an introduction to the four risk-based plans | so I can understand the portfolio options before comparing them. | `app_pages/home.py` |
+| As a beginner investor | I want clear educational disclaimers | so I understand that StockMetrics is not financial advice. | `app_pages/home.py` |
+
+---
+
+### Epic - Asset Exploration and Market Insights
+
+This Epic is linked to **Milestone 3**.
+
+This Epic covers the `app_pages/stock_explorer.py` page, which allows users to explore historical asset behaviour.
+
+| User | User Story | Benefit | Implemented In |
+|---|---|---|---|
+| As a beginner investor | I want to explore a curated list of stocks and ETFs | so I do not get overwhelmed by too many choices. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want to select an asset and date range | so I can focus on a time period that matters to me. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want summary information for the selected asset and period | so I can quickly understand the data being shown. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want interactive price, return, and distribution charts | so I can understand historical performance and volatility visually. | `app_pages/stock_explorer.py`, `src/viz.py` |
+| As a beginner investor | I want plain-English explanations of the included assets | so I understand what the companies and funds are. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want educational captions alongside the charts | so I understand that historical data is for learning, not trading signals. | `app_pages/stock_explorer.py` |
+
+---
+
+### Epic - Predictor and Scenario Guidance
+
+This Epic is linked to **Milestone 3**.
+
+This Epic covers the `app_pages/predictor.py` page, which separates short-term ML estimation from long-term scenario ranges.
+
+| User | User Story | Benefit | Implemented In |
+|---|---|---|---|
+| As a beginner investor | I want to select an asset, forecast horizon, and trend window | so I can explore how assumptions affect long-term scenarios. | `app_pages/predictor.py` |
+| As a beginner investor | I want to see the latest price and date for the selected asset | so I have context for the forecast output. | `app_pages/predictor.py` |
+| As a beginner investor | I want a separate next-day machine learning estimate | so I can distinguish short-term ML output from long-term scenarios. | `app_pages/predictor.py` |
+| As a beginner investor | I want optimistic, realistic, and pessimistic scenario ranges | so I can understand uncertainty instead of relying on one “magic number”. | `app_pages/predictor.py`, `src/forecast.py` |
+| As a beginner investor | I want beginner-friendly interpretation and disclaimers | so I understand that forecasts and ML outputs are educational, not financial advice. | `app_pages/predictor.py` |
+
+---
+
+### Epic - Portfolio Planning and Risk Comparison
+
+This Epic is linked to **Milestone 3**.
+
+This Epic covers the `app_pages/portfolio_plans.py` page, which helps users compare diversification, concentration, and risk.
+
+| User | User Story | Benefit | Implemented In |
+|---|---|---|---|
+| As a beginner investor | I want four risk-based portfolio plans with clear descriptions | so I can compare different risk styles. | `app_pages/portfolio_plans.py`, `src/portfolio.py` |
+| As a beginner investor | I want the selected plan to be clearly highlighted | so I can see which plan I am currently reviewing. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want performance and risk metrics for each plan | so I can compare return, volatility, and drawdown. | `app_pages/portfolio_plans.py`, `src/portfolio.py` |
+| As a beginner investor | I want to see how £1 would have grown historically | so I can visualise long-term differences between plans. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want to view the selected plan’s allocation table | so I can clearly see which assets make up the plan. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want educational risk messaging and disclaimers | so I understand that the plans are for comparison, not personal financial advice. | `app_pages/portfolio_plans.py` |
+
+---
+
+### Epic - Model Transparency and Evaluation
+
+This Epic is linked to **Milestone 3**.
+
+This Epic covers the `app_pages/model_performance.py` page, which presents model performance, evaluation evidence, and business-case transparency.
+
+| User | User Story | Benefit | Implemented In |
+|---|---|---|---|
+| As a technical reviewer | I want the model business-case result displayed clearly | so I can quickly see whether the model met its stated success rule. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want to view train and test evaluation metrics | so I can assess model performance more accurately. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want beginner-friendly interpretation of the model results | so the technical outputs are understandable in context. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want to view the best hyperparameters | so I can inspect the final tuned model settings. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want to view evaluation plots and feature importance | so I can visually assess model behaviour and influential features. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want clear educational disclaimers | so the project communicates that the model is not financial advice. | `app_pages/model_performance.py` |
 
 ---
 
 ### Epic - Deployment and Application Availability
 
-This Epic is relevant to **Milestone 4**.
+This Epic is linked to **Milestone 4**.
 
 This Epic covers deployment configuration, hosted availability, and the steps required to make the finished dashboard publicly accessible on **Render**.
 
@@ -520,27 +603,30 @@ This Epic covers deployment configuration, hosted availability, and the steps re
 
 ---
 
-### Epic - README Documentation and Polish
+### Epic - Dashboard Polish and README Documentation
 
-This Epic is relevant to **Milestone 5**.
+This Epic is linked to **Milestone 5**.
 
-This Epic covers the written project rationale, dashboard design explanation, hypothesis validation, Agile traceability, and overall `README.md` submission polish.
+This Epic covers presentation of the live dashboard and `README.md` documentation, including the dataset description, hypothesis validation, CRISP-DM documentation, project rationale, machine learning business case, dashboard design explanation, and Agile traceability, ensuring the submission is clear, structured, and aligned with assessment requirements.
 
 | User | User Story | Benefit |
 |---|---|---|
 | As a user | I want the dashboard to be polished, accessible, and beginner-friendly | so the deployed application feels professional and easy to use. |
-| As an assessor | I want clear hypothesis validation evidence | so I can verify that the project conclusions are statistically justified. |
-| As an assessor | I want the ML business case to be clearly explained | so I can understand the predictive task, success criteria, and model relevance. |
+| As an assessor | I want the dataset source, structure, and variables clearly documented | so I can verify the data used is appropriate and well understood. |
+| As an assessor | I want clear validation evidence for at least three hypotheses | so I can verify that the project conclusions are statistically justified. |
 | As an assessor | I want the CRISP-DM process to be clearly documented | so I can verify that the project follows a structured data science workflow. |
+| As an assessor | I want a clear rationale mapping between business requirements, visualisations, and ML tasks | so I can verify how the solution delivers value. |
+| As an assessor | I want the ML business case to be clearly explained | so I can understand the predictive task, success criteria, and model relevance. |
+| As an assessor | I want the dashboard design and page structure explained | so I can understand how each page supports the business requirements. |
 | As an assessor | I want Agile evidence to be fully aligned with implementation | so I can trace development from business requirements to final features. |
 
 ---
 
 ### Epic - TESTING Documentation and Validation
 
-This Epic is relevant to **Milestone 6**.
+This Epic is linked to **Milestone 6**.
 
-This Epic covers code validation, automated testing covered in `tests/`, manual functional testing, widget testing, and the final `TESTING.md` documentation.
+This Epic covers `TESTING.md` documentation, including code validation, automated testing covered in `tests/`, manual functional testing, widget interaction testing and evidence of bug tracking.
 
 | User | User Story | Benefit |
 |---|---|---|
