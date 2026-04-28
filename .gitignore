@@ -30,6 +30,7 @@ data/processed/v2/*
 # Model files and other generated outputs
 models/*
 !models/model_card_v1.md
+!models/model_card_v2.md
 !models/stock_forecast_model_v2.pkl
 
 # Track evaluation artefacts, ignore only huge prediction CSVs
