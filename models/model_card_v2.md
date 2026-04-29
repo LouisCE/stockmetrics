@@ -1,5 +1,19 @@
 # StockMetrics Model Card (v2)
 
+## Version status
+
+This is the final production model version used by the submitted StockMetrics dashboard.
+
+Version 2 uses `VWRL.L` and `VUSA.L` instead of the earlier accumulating ETF share classes because these distributing ETF share classes provide a longer shared historical window.
+
+Both `VWRL.L` and `VUSA.L` have inception dates of 22 May 2012. The individual technology stocks were also aligned to this same start date, even where their own trading histories go further back, so that all assets could be compared and modelled across a consistent shared period.
+
+This improves comparability across the ETFs and Magnificent Seven stocks used in the final dataset, dashboard, model artefacts, and evaluation outputs.
+
+This change also resolves a limitation from v1, where the accumulating ETF share classes (`VWRP.L`, `VUAG.L`) only provided data from 2019 onwards. By switching to distributing share classes with data available from 2012, the model could be trained and evaluated on a longer and more consistent historical period.
+
+In a real-world long-term investing context, accumulating ETF share classes may often be preferable for investors who want automatic dividend reinvestment to benefit from compounding. However, this project prioritised reproducible modelling evidence and a longer consistent data history for assessment.
+
 ## Model purpose
 
 This model predicts a ticker's **next-day return** using engineered time-series features.

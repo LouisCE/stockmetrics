@@ -1,5 +1,17 @@
 # StockMetrics Model Card (v1)
 
+## Version status
+
+This is an earlier model iteration retained as development evidence.
+
+The final submitted and deployed StockMetrics project uses **v2** as the production dataset and artefact version. The v1 model card is kept to show model development, dataset iteration, and experimentation during the project lifecycle.
+
+In v1, the project used accumulating ETF share classes (`VWRP.L` and `VUAG.L`). These are suitable real-world long-term investing examples because accumulating ETFs automatically reinvest dividends.
+
+However, these share classes have shorter available histories. `VUAG.L` has an inception date of 14 May 2019, and `VWRP.L` has an inception date of 23 July 2019. This limited the shared historical window available for modelling and comparison.
+
+These tickers were later replaced in v2 with distributing ETF share classes (`VWRL.L` and `VUSA.L`) because both have inception dates of 22 May 2012. This provided a longer shared historical window for the ETF data and allowed the individual technology stocks to be aligned to the same common start date for fairer comparison and modelling.
+
 ## Model purpose
 This model predicts a ticker’s **next-day return** (`return_1d`) using engineered
 time-series features. StockMetrics uses the output to support **scenario ranges**
