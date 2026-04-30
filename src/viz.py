@@ -26,6 +26,7 @@ def line_prices(df: pd.DataFrame, ticker: str) -> "px.Figure":
         yaxis_title=f"Price ({currency_symbol})",
         xaxis_title="Date",
     )
+    fig.update_xaxes(tickformat="%d/%m/%Y")
     return fig
 
 
@@ -69,4 +70,5 @@ def hist_returns(df: pd.DataFrame, ticker: str) -> "px.Figure":
         xaxis_title="Daily return",
         yaxis_title="Count",
     )
+    fig.update_xaxes(tickformat=".2%")
     return fig
