@@ -57,3 +57,23 @@ with st.sidebar:
         "- As always with investing, **your capital is at risk.**",
         icon="⚠️"
     )
+
+
+# Render persistent footer across all pages
+def render_footer() -> None:
+    st.divider()
+    st.caption("StockMetrics © 2026. All rights reserved.")
+    st.caption(
+        "This site was developed by Louis Cowell-English as part of a "
+        "Portfolio Project for educational use."
+    )
+    st.markdown(
+        "View the project on "
+        "[GitHub](https://github.com/LouisCE/stockmetrics)"
+    )
+
+
+with st.container():
+    PAGES[page_name]()  # Page content
+
+render_footer()     # Footer content
