@@ -45,5 +45,15 @@ with st.sidebar:
         index=0,
     )
 
-st.container()
-PAGES[page_name]()
+    # Divider to separate navigation from legal info
+    st.divider()
+
+    # Legal disclaimer
+    st.warning(
+        "**Disclaimer:**\n"
+        "- StockMetrics is for educational use only, not financial advice.\n"
+        "- Forecasts illustrate scenario ranges and uncertainty, not "
+        "guaranteed outcomes.\n"
+        "- As always with investing, **your capital is at risk.**",
+        icon="⚠️"
+    )
