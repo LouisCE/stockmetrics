@@ -11,9 +11,6 @@ import streamlit as st
 
 def render() -> None:
     st.title("🏁 Welcome to StockMetrics")
-    st.subheader(
-        "Clarity for beginner investors in fifteen minutes or less"
-    )
 
     st.markdown(
         """

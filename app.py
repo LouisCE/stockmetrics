@@ -21,6 +21,7 @@ st.set_page_config(
     layout="centered",
 )
 
+# Define the available pages and their render functions
 PAGES = {
     "🏁 Home": home_page,
     "🔎 Stock Explorer": stock_explorer_page,
@@ -31,8 +32,13 @@ PAGES = {
 
 with st.sidebar:
     st.title("📈 StockMetrics")
-    st.caption("Clueless to confident in fifteen minutes")
+    # StockMetrics tagline
+    st.markdown("*Clueless to confident in fifteen minutes*")
 
+    # Divider to separate tagline from navigation
+    st.divider()
+
+    # Navigation
     page_name = st.radio(
         "Navigation",
         options=list(PAGES.keys()),
