@@ -189,7 +189,9 @@ also experience larger drawdowns and a bumpier ride.
         icon="ℹ️"
     )
 
-    st.subheader("Your selected plan")
+    st.divider()
+
+    st.header("Your selected plan")
     st.write(
         "This table shows the assets included in the selected plan and "
         "their target weights."
@@ -208,7 +210,7 @@ also experience larger drawdowns and a bumpier ride.
 
     st.dataframe(plan_table, use_container_width=True, hide_index=True)
 
-    st.caption(
+    st.write(
         "This is your selected plan. It is shown for educational comparison "
         "only and is not a personal investment recommendation."
     )
