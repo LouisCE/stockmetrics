@@ -128,6 +128,9 @@ def render() -> None:
 
     st.divider()
 
+    st.header("How to read this page")
+
+    st.write(
         """
 This page combines **two different ideas**:
 
@@ -140,11 +143,20 @@ This keeps StockMetrics beginner-friendly by showing that:
 """
     )
 
-    st.info(
-        "Important: the machine learning estimate is a "
+    st.write(
+        "The machine learning estimate is based on the latest processed "
+        "dataset included with this project version. It does **not** update "
+        "live every day. This keeps the project reproducible for assessment "
+        "while still showing why next-day prediction is difficult.",
+    )
+
+    st.warning(
+        "**Important:**\n"
+        "The machine learning estimate is a "
         "**short-term educational signal**. "
         "It is **not** a buy/sell instruction, and "
-        "it is **not** used to generate the long-term scenario table below."
+        "it is **not** used to generate the long-term scenario table below.",
+        icon="⚠️"
     )
 
     version = DEFAULT_VERSION
