@@ -215,7 +215,11 @@ also experience larger drawdowns and a bumpier ride.
         "only and is not a personal investment recommendation."
     )
 
-    st.info(
-        "Educational use only. These plans illustrate risk trade-offs and "
-        "are not personal investment recommendations."
+    st.divider()
+
+    st.success(
+        "**Congratulations and welcome to the world of investing!**   \n"
+        "You've taken the first step toward understanding market dynamics "
+        "and building your financial confidence.",
+        icon="🚀"
     )
