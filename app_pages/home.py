@@ -14,9 +14,9 @@ def render() -> None:
 
     st.markdown(
         """
-> *“The stock market is a device for transferring money from the
-> impatient to the patient.”*
-> — Warren Buffett
+> **“The stock market is a device for transferring money from the
+> impatient to the patient.”**
+> **— Warren Buffett**
 """
     )
 
