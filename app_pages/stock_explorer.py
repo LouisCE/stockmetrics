@@ -195,17 +195,27 @@ def render() -> None:
         & (df["Date"].dt.date <= end_date)
     ].copy()
 
-    row1_col1, row1_col2 = st.columns(2)
-    row2_col1, row2_col2 = st.columns(2)
+    st.divider()
+
+    st.header("🔑 Key metrics for your selection")
+
+    st.write(
+        "This section shows key metrics for the selected asset and date "
+        "range, including the number of rows in the dataset and the date "
+        "range covered. These metrics can help you understand the scope of "
+        "the data you're exploring."
+    )
+
+    st.metric("Selected asset", format_ticker_label(ticker))
+
+    row1_col1, row1_col2, row1_col3 = st.columns(3)
 
     row1_col1.metric("Rows", f"{len(filtered_df):,}")
-    row1_col2.metric("Selected asset", format_ticker_label(ticker))
-
-    row2_col1.metric(
+    row1_col2.metric(
         "Date range start",
         format_display_date(filtered_df["Date"].min()),
     )
-    row2_col2.metric(
+    row1_col3.metric(
         "Date range end",
         format_display_date(filtered_df["Date"].max()),
     )
