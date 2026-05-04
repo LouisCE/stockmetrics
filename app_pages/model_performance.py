@@ -47,6 +47,37 @@ def render() -> None:
         use_container_width=True,
     )
 
+    st.divider()
+
+    st.header("Next-day return prediction performance")
+
+    st.write(
+        """
+This page explains how the StockMetrics machine learning model performed.
+
+The model tries to estimate **next-day return**, which is a deliberately
+difficult short-term prediction task. This helps demonstrate why beginner
+investors should be cautious about short-term trading signals.
+
+StockMetrics uses this model as an **educational snapshot**, not as a
+buy/sell recommendation.
+"""
+    )
+
+    st.success(
+        "In simple terms: the model found a very small short-term signal, "
+        "but daily market prediction remains difficult. This supports the "
+        "project's focus on long-term scenario thinking.",
+        icon="💡"
+    )
+
+    st.info(
+        "The long-term scenario ranges on the Predictor page are generated "
+        "separately using historical trend and volatility. They are **not** "
+        "created by compounding the next-day machine learning prediction.",
+        icon="ℹ️"
+    )
+
     version = DEFAULT_VERSION
     base = Path("outputs") / version
 
