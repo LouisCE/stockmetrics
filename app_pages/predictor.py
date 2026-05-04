@@ -330,7 +330,12 @@ This keeps StockMetrics beginner-friendly by showing that:
     )
 
     st.divider()
-    st.subheader(f"Scenario end prices (≈{horizon_years}y)")
+
+    st.header(f"Scenario end prices (≈{horizon_years}y)")
+    st.write(
+        "These figures are rounded estimates from a simulation, not target "
+        "prices."
+    )
 
     out = pd.DataFrame(
         {
@@ -345,7 +350,9 @@ This keeps StockMetrics beginner-friendly by showing that:
     )
     st.dataframe(out, use_container_width=True, hide_index=True)
 
-    st.markdown("### How to read these scenarios")
+    st.divider()
+
+    st.header("How to read these scenarios")
     st.write(
         "The **pessimistic**, **realistic**, and **optimistic** values are "
         "not three promises about the future. They are a simple way to show "
@@ -362,5 +369,6 @@ This keeps StockMetrics beginner-friendly by showing that:
         "These scenario ranges are driven by **historical trend and "
         "volatility**, not by the next-day machine learning estimate. "
         "StockMetrics separates short-term ML from long-term scenarios to "
-        "communicate uncertainty more responsibly."
+        "communicate uncertainty more responsibly.",
+        icon="ℹ️"
     )
