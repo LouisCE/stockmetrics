@@ -139,27 +139,58 @@ time-series data.
             icon="⚠️"
         )
 
+    st.divider()
+
+    st.header("Model performance metrics")
+
+    st.write(
+        "The model's performance was evaluated using several metrics. These "
+        "metrics help us understand how well the model is predicting next-day "
+        "returns and whether it shows any generalisable signal."
+    )
+
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Test R²", f"{metrics_test.get('r2', float('nan')):.6f}")
     c2.metric("Test MAE", f"{metrics_test.get('mae', float('nan')):.6f}")
     c3.metric("Test RMSE", f"{metrics_test.get('rmse', float('nan')):.6f}")
     c4.metric("Train R²", f"{metrics_train.get('r2', float('nan')):.6f}")
 
-    st.markdown("### Beginner-friendly interpretation")
+    st.divider()
+
+    st.header("What these results mean")
+
+    st.write(
+        "**R²** shows whether the model performed better than a simple "
+        "baseline. A value above 0 suggests some useful signal. A value close "
+        "to 0 means the signal is weak."
+    )
+
+    st.write(
+        "**MAE** and **RMSE** show average prediction error. Lower values are "
+        "better, but they should be interpreted carefully because daily "
+        "returns are naturally noisy."
+    )
+
+    st.write(
+        "For StockMetrics, the key lesson is that even when a model meets the "
+        "minimum success rule, short-term predictions can still be weak. This "
+        "supports the app's beginner-friendly message: long-term investing "
+        "is usually more sensible than relying on day-to-day predictions."
+    )
 
     if success:
         st.success(
-            "This means the model showed **some predictive signal** "
-            "on unseen data. That is useful for the project business "
-            "case, but it still does **not** mean the model can "
-            "predict the market with certainty."
+            "The model showed a **small positive signal** on unseen data. "
+            "That means it performed slightly better than a simple baseline "
+            "according to the project success rule.",
+            icon="✅"
         )
     else:
         st.warning(
-            "This means the model did **not** show strong enough "
-            "generalisable signal to succeed as a precise next-day "
-            "predictor. That is common in finance, where short-term "
-            "price movements are highly noisy."
+            "The model did not show enough generalisable signal to beat the "
+            "project success rule. This would still be useful evidence that "
+            "short-term market prediction is difficult.",
+            icon="⚠️"
         )
 
     st.write(
