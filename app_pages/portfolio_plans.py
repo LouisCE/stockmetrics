@@ -76,6 +76,27 @@ def render_plan_boxes(selected_plan: str) -> None:
 def render() -> None:
     st.title("💼 Portfolio Plans")
 
+    st.divider()
+
+    st.header("Compare the four risk-based plans")
+
+    st.write(
+        "This page is designed to help you understand how different "
+        "portfolio plans would have performed historically, and to show the "
+        "trade-offs between diversification, concentration, and volatility. "
+        "It's not a recommendation for which plan to choose, but it can help "
+        "you see how different approaches might have played out in the past."
+    )
+
+    st.image(
+        "documentation/dashboard/portfolio_plans_hero.png",
+        caption=(
+            "The historical resilience of the U.S. stock market against "
+            "major global crises from the late 1920s through the early 2020s."
+        ),
+        use_container_width=True,
+    )
+
     version = DEFAULT_VERSION
     plan_name = st.selectbox("Select plan", options=list(PLAN_WEIGHTS.keys()))
 
