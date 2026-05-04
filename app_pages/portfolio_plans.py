@@ -123,23 +123,34 @@ also experience larger drawdowns and a bumpier ride.
 
     st.divider()
 
+    st.header("Historical performance of your selected plan")
+
+    st.write(
+        "This section shows how the selected plan would have performed "
+        "historically based on daily returns. It includes key metrics, a "
+        "growth of £1 chart, and a table of the plan's asset weights."
+    )
+
     returns = load_returns(version)
     weights = PLAN_WEIGHTS[plan_name]
     plan_ret = build_plan_returns(returns, weights)
     metrics = compute_plan_metrics(plan_ret)
 
-    c1, c2, c3, c4, c5 = st.columns(5)
-    c1.metric("Mean daily return", f"{metrics.mean_daily_return:.2%}")
-    c2.metric("Daily volatility", f"{metrics.daily_volatility:.2%}")
-    c3.metric(
-        "Annualised return (approx)",
+    row1_col1, row1_col2 = st.columns(2)
+    row2_col1, row2_col2 = st.columns(2)
+
+    row1_col1.metric("Mean daily return", f"{metrics.mean_daily_return:.2%}")
+    row1_col2.metric("Daily volatility", f"{metrics.daily_volatility:.2%}")
+    row2_col1.metric(
+        "Approx annual return",
         f"{metrics.annualised_return_approx:.2%}",
     )
-    c4.metric(
-        "Annualised volatility (approx)",
+    row2_col2.metric(
+        "Annual volatility",
         f"{metrics.annualised_volatility_approx:.2%}",
     )
-    c5.metric("Max drawdown", f"{metrics.max_drawdown:.2%}")
+
+    st.metric("Max drawdown", f"{metrics.max_drawdown:.2%}")
 
     st.divider()
 
