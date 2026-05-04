@@ -205,6 +205,18 @@ This keeps StockMetrics beginner-friendly by showing that:
         window_days=window_days,
     )
 
+    st.divider()
+
+    st.header("Scenario ranges based on historical trend and volatility")
+
+    st.write(
+        "The table below shows projected end prices for the selected asset "
+        "after the chosen horizon, based on a Monte Carlo simulation of "
+        "possible price paths. The scenarios are driven by the asset's "
+        "historical daily drift (trend) and volatility, estimated from the "
+        "selected window of past data."
+    )
+
     # Long-horizon Monte Carlo scenario simulation
     # using historical drift + volatility.
     res = scenario_ranges_from_history(
