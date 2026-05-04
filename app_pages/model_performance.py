@@ -216,15 +216,26 @@ to learn from, and that long-term scenario thinking is often more sensible
 than relying on day-to-day predictions.
 """
     )
+
+    st.divider()
+
+    st.header("Why the model is intentionally limited")
+
     st.write(
-        "**MAE** and **RMSE** show the average prediction error "
-        "size. Lower values are better."
-    )
-    st.write(
-        "For StockMetrics, the model is used as an **educational "
-        "component** to show how difficult short-term market "
-        "prediction is. Long-term scenario ranges are communicated "
-        "separately."
+        """
+The model predicts only the **next trading day's return**. It does not know
+future news, earnings reports, interest-rate decisions, investor sentiment, or
+unexpected market shocks.
+
+That limitation is part of the learning goal. It shows beginners that:
+
+- short-term price movement is noisy
+- model outputs are estimates, not guarantees
+- prediction uncertainty should be communicated clearly
+- long-term scenario ranges are more responsible than single-point promises
+- therefore, long-term investing is often more sensible than relying on
+day-to-day predictions
+"""
     )
 
     st.divider()
