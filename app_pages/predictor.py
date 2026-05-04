@@ -163,6 +163,16 @@ This keeps StockMetrics beginner-friendly by showing that:
     paths = get_paths(version)
     clean_df = load_clean_prices_latest(paths.processed_dir, version)
 
+    st.divider()
+
+    st.header("Select an asset and forecast horizon")
+
+    st.write(
+        "Use the dropdown to select an asset and the horizon selector to "
+        "choose how far into the future to forecast. The scenario ranges will "
+        "update based on your selection."
+    )
+
     # Ticker selection
     tickers = sorted(clean_df["Ticker"].unique().tolist())
     ticker = st.selectbox(
@@ -171,19 +181,17 @@ This keeps StockMetrics beginner-friendly by showing that:
         format_func=format_ticker_label,
     )
 
-    st.caption(f"Selected asset: {format_ticker_label(ticker)}")
-
-    # Horizon (how far to forecast)
+    # Horizon (how far to forecast in years)
     horizon_years = st.selectbox(
-        "Horizon (how far to forecast)",
+        "Horizon (how far to forecast in years)",
         options=[1, 2, 5, 10],
         index=2,
     )
     horizon_days = int(horizon_years * 252)
 
-    # Trend window (how much history to follow)
+    # Trend window (how much history to follow in years)
     window_years = st.selectbox(
-        "Trend window (how much history to follow)",
+        "Trend window (how much history to follow in years)",
         options=[1, 2, 5, 10],
         index=2,
     )
