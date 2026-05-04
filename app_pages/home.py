@@ -39,6 +39,10 @@ def render() -> None:
         use_container_width=True,
     )
 
+    st.divider()
+
+    st.header("What is the purpose of StockMetrics and who is it for?")
+
     st.markdown(
         """
 Learning to invest can feel intimidating and overwhelming:
@@ -46,10 +50,20 @@ unfamiliar terms, endless strategies, and conflicting advice
 often lead to **analysis paralysis**.
 
 **StockMetrics** exists to help beginners start sooner by:
-- explaining what matters (and what doesn’t) in plain English,
-- focusing on a small curated set of tickers,
-- comparing simple risk-based portfolio plans,
-- showing forecast-style **scenario ranges** (not promises).
+1. explaining what matters in plain English (and omitting the noise),
+2. focusing on a small curated set of tickers,
+3. comparing simple risk-based portfolio plans,
+4. showing forecast-style **scenario ranges** (not promises).
+
+To keep things simple and educational, StockMetrics focuses on a small set
+of popular tech stocks and ETF funds, but the core principles apply broadly.
+The goal is to build intuition and confidence,
+not to provide a one-size-fits-all recommendation.
+
+Ultimately, StockMetrics is designed to be a stepping stone:
+you can later customise your portfolio or explore other
+companies and sectors, but StockMetrics helps you start sooner
+with clarity and confidence.
 """
     )
 
