@@ -153,6 +153,16 @@ def render() -> None:
         use_container_width=True,
     )
 
+    st.divider()
+
+    st.header("🗓️ Choose an asset and date range")
+
+    st.write(
+        "Use the dropdown to select an asset and the date picker to choose a "
+        "date range. The charts will update to show the price and return "
+        "patterns for that selection."
+    )
+
     version = DEFAULT_VERSION
     df = load_prices(version)
 
