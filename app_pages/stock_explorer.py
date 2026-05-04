@@ -136,6 +136,23 @@ def render() -> None:
     """Render the Stock Explorer page."""
     st.title("🔎 Stock Explorer")
 
+    st.divider()
+
+    st.header("Explore historical price and return patterns")
+
+    st.write(
+        "This page allows you to explore the historical price and return "
+        "patterns for each of the included assets. You can select an asset "
+        "and a date range to visualize its performance."
+    )
+
+    st.image(
+        "documentation/dashboard/stock_explorer_hero.png",
+        caption="Explore the historical prices, returns, and volatility "
+                "of featured assets.",
+        use_container_width=True,
+    )
+
     version = DEFAULT_VERSION
     df = load_prices(version)
 
