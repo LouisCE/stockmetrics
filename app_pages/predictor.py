@@ -309,11 +309,9 @@ This keeps StockMetrics beginner-friendly by showing that:
         icon="ℹ️"
     )
 
-    st.caption(
-        f"Estimated daily volatility from historical data: {sigma_simple:.4%}"
-    )
+    st.divider()
 
-    st.markdown("### What this means for beginners")
+    st.header("What this means for beginners")
     st.write(
         "Short-term price movements are often noisy and influenced by many "
         "factors, including news, sentiment, and general market volatility. "
