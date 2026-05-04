@@ -26,6 +26,24 @@ def read_json(path: Path) -> dict:
 def render() -> None:
     st.title("🧪 Model Performance")
 
+    st.divider()
+
+    st.header("Machine learning model evaluation and what it means")
+    st.write(
+        "Review whether the machine learning model met its business case, "
+        "what the results mean, and why the signal should be interpreted "
+        "carefully."
+    )
+
+    st.image(
+        "documentation/dashboard/model_performance_hero.png",
+        caption=(
+            "StockMetrics uses supervised learning and regression techniques "
+            "to do market forecasting with a next-day return prediction model."
+        ),
+        use_container_width=True,
+    )
+
     version = DEFAULT_VERSION
     base = Path("outputs") / version
 
