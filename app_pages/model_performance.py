@@ -110,11 +110,34 @@ buy/sell recommendation.
         "Test R² > 0 indicates a generalisable signal",
     )
 
-    st.subheader("Business case result")
+    st.divider()
+
+    st.header("Business case result")
+
+    st.write(
+        """
+The business case did **not** require a perfect market predictor. It required
+evidence that the model could detect at least some generalisable signal on
+unseen chronological test data.
+
+The model was evaluated using chronological train/test splitting and
+time-aware cross-validation, helping avoid unrealistic random shuffling of
+time-series data.
+"""
+    )
+
     if success:
-        st.success(f"Model successful vs business case ✅ ({rule})")
+        st.success(
+            "The model met the project business case\n\n"
+            f"Success rule: **{rule}**",
+            icon="✅"
+        )
     else:
-        st.warning(f"Model not successful vs business case ⚠️ ({rule})")
+        st.warning(
+            "The model did not meet the project business case\n\n"
+            f"Success rule: **{rule}**",
+            icon="⚠️"
+        )
 
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Test R²", f"{metrics_test.get('r2', float('nan')):.6f}")
