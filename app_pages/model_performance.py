@@ -1,10 +1,11 @@
 """
 Model Performance page.
 
-Loads evaluation artefacts from outputs/<version> and displays:
-- success flag
-- key metrics
-- plots saved by 06_model_evaluation.ipynb
+Loads evaluation artefacts from outputs/<version> and explains:
+- whether the model met the ML business case
+- what the metrics mean in beginner-friendly language
+- why weak short-term prediction supports the project message
+- which evaluation plots and feature importance artefacts were produced
 """
 
 from __future__ import annotations
@@ -19,11 +20,13 @@ from src.config import DEFAULT_VERSION
 
 
 def read_json(path: Path) -> dict:
+    """Read a JSON report file."""
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def render() -> None:
+    """Render the Model Performance page."""
     st.title("🧪 Model Performance")
 
     st.divider()
