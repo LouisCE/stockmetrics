@@ -269,7 +269,15 @@ This keeps StockMetrics beginner-friendly by showing that:
     row2_col2.metric("Estimated daily drift", f"{mu_simple:.4%}")
 
     st.divider()
-    st.subheader("Machine Learning snapshot")
+
+    st.header("Next-day machine learning estimate")
+
+    st.write(
+        "If a machine learning model was successfully trained for this "
+        "ticker, the next-day return estimate will be shown below. This is "
+        "a short-term educational signal based on the latest engineered "
+        "features."
+    )
 
     if model_pred is not None:
         st.metric(
@@ -286,16 +294,19 @@ This keeps StockMetrics beginner-friendly by showing that:
 
     status, message = _ml_interpretation_message(model_pred)
     if status == "success":
-        st.success(message)
+        st.success(message, icon="✅")
     elif status == "warning":
-        st.warning(message)
+        st.warning(message, icon="⚠️")
     else:
-        st.info(message)
+        st.info(message, icon="ℹ️")
 
-    st.caption(
+    st.info(
         "The machine learning model predicts **next-day return only**. "
         "Because daily returns are noisy, StockMetrics treats this as a small "
-        "educational signal rather than a trading instruction."
+        "educational signal rather than a trading instruction.\n\n"
+        f"Estimated daily volatility from historical data: "
+        f"**{sigma_simple:.4%}**",
+        icon="ℹ️"
     )
 
     st.caption(
