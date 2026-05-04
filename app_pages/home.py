@@ -20,6 +20,25 @@ def render() -> None:
 """
     )
 
+    st.divider()
+
+    st.header("Your beginner-friendly investing dashboard")
+
+    st.write(
+        "StockMetrics is designed as a guide for beginner investors who want "
+        "to understand the basics of investing without getting "
+        "lost in the noise."
+    )
+
+    st.image(
+        "documentation/dashboard/home_hero.png",
+        caption=(
+            "StockMetrics helps beginner investors understand risk, "
+            "returns, and uncertainty."
+        ),
+        use_container_width=True,
+    )
+
     st.markdown(
         """
 Learning to invest can feel intimidating and overwhelming:
