@@ -290,40 +290,45 @@ with clarity and confidence.
 
     st.divider()
 
-    st.header("Four risk-based plans")
+    st.header("🧩 Preview of the four risk-based plans")
     st.markdown(
         """
-Risk in StockMetrics refers to **how concentrated** a portfolio is.
-All plans are equity-based and may experience significant short-term
-volatility.
+StockMetrics is built around the idea of taking sensible risks.
+
+Each plan below shows a different level of **concentration risk**.
+
+Higher concentration can increase both potential returns and potential
+losses. These examples help illustrate how portfolio structure affects
+risk and reward.
+
+See the Portfolio Plans page for a more detailed comparison of how
+these plans would have performed historically and the trade-offs between
+diversification, concentration, and volatility.
 """
     )
 
-    plans = [
-        (
-            "Diversified (Low Risk)",
-            "100% Vanguard FTSE All-World (Dist) (VWRL.L)",
-        ),
-        (
-            "Targeted (Moderate Risk)",
-            "100% Vanguard S&P 500 (Dist) (VUSA.L)",
-        ),
-        (
-            "Concentrated (High Risk)",
-            "75% Vanguard S&P 500 (Dist) (VUSA.L) + 25% Magnificent Seven",
-        ),
-        (
-            "Aggressive (Higher Risk)",
-            "50% Vanguard S&P 500 (Dist) (VUSA.L) + 25% Magnificent Six + "
-            "25% Tesla (TSLA)",
-        ),
-    ]
-    for name, desc in plans:
-        st.markdown(f"- **{name}:** {desc}")
+    col1, col2, col3, col4 = st.columns(4)
 
-    st.divider()
+    with col1:
+        st.info(
+            "🛡️ **Diversified (Low Risk)**\n\n"
+            "Global diversification across developed and emerging markets."
+        )
 
-    st.info(
-        "Educational use only. StockMetrics is not financial advice. "
-        "Forecasts are scenario ranges to illustrate uncertainty."
-    )
+    with col2:
+        st.success(
+            "⚖️ **Targeted (Moderate Risk)**\n\n"
+            "Focused exposure to large US companies in the S&P 500."
+        )
+
+    with col3:
+        st.warning(
+            "🧗 **Concentrated (High Risk)**\n\n"
+            "Mix of S&P 500 and Magnificent Seven for higher growth."
+        )
+
+    with col4:
+        st.error(
+            "🌋 **Aggressive (Higher Risk)**\n\n"
+            "High concentration with Tesla overweight for volatility."
+        )
