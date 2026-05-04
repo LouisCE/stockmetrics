@@ -222,6 +222,13 @@ def render() -> None:
 
     st.divider()
 
+    st.header("📈 Charts for your selection")
+
+    st.write(
+        "The charts below show the price history, daily returns, and return "
+        "distribution for the selected asset and date range."
+    )
+
     tab1, tab2, tab3 = st.tabs(["Prices", "Returns", "Distribution"])
 
     with tab1:
@@ -229,10 +236,14 @@ def render() -> None:
             line_prices(filtered_df, ticker),
             use_container_width=True,
         )
-        st.caption(
-            "This chart shows how the price changed over the selected time "
+
+        st.info(
+            "These charts show how the price changed over the selected time "
             "period. Prices are shown in $ for individual stocks and £ for "
-            "the UK-listed ETFs."
+            "the UK-listed ETFs. "
+            "These charts are based on historical price data and are intended "
+            "for education, not trading signals.",
+            icon="ℹ️"
         )
 
     with tab2:
@@ -254,10 +265,5 @@ def render() -> None:
             "The distribution helps show which daily return outcomes were "
             "most common and which were more extreme."
         )
-
-    st.caption(
-        "These charts are based on historical price data and are intended "
-        "for education, not trading signals."
-    )
 
     render_asset_guide()
