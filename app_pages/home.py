@@ -69,18 +69,18 @@ with clarity and confidence.
 
     st.divider()
 
-    st.header("Core investing principles")
+    st.header("💡 Core investing principles")
     c1, c2, c3 = st.columns(3)
     with c1:
-        st.markdown("### ⏳ Start early")
+        st.subheader("⏳ Start early")
         st.write(
             "Time is your biggest advantage because compounding needs time."
         )
     with c2:
-        st.markdown("### 🧘 Think long-term")
+        st.subheader("🧘 Think long-term")
         st.write("Time in the market often beats timing the market.")
     with c3:
-        st.markdown("### 🧺 Diversify")
+        st.subheader("🧺 Diversify")
         st.write("Spreading exposure can reduce concentration risk.")
 
     st.divider()
