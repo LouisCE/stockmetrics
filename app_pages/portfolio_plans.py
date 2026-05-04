@@ -43,7 +43,7 @@ def render_plan_boxes(selected_plan: str) -> None:
     with col1:
         label = "✅ Selected" if plans[0] == selected_plan else ""
         st.info(
-            f"**{plans[0]}**\n\n"
+            f"🛡️ **{plans[0]}**\n\n"
             f"{PLAN_DESCRIPTIONS[plans[0]]}\n\n"
             f"{label}"
         )
@@ -51,7 +51,7 @@ def render_plan_boxes(selected_plan: str) -> None:
     with col2:
         label = "✅ Selected" if plans[1] == selected_plan else ""
         st.success(
-            f"**{plans[1]}**\n\n"
+            f"⚖️ **{plans[1]}**\n\n"
             f"{PLAN_DESCRIPTIONS[plans[1]]}\n\n"
             f"{label}"
         )
@@ -59,7 +59,7 @@ def render_plan_boxes(selected_plan: str) -> None:
     with col3:
         label = "✅ Selected" if plans[2] == selected_plan else ""
         st.warning(
-            f"**{plans[2]}**\n\n"
+            f"🧗 **{plans[2]}**\n\n"
             f"{PLAN_DESCRIPTIONS[plans[2]]}\n\n"
             f"{label}"
         )
@@ -67,7 +67,7 @@ def render_plan_boxes(selected_plan: str) -> None:
     with col4:
         label = "✅ Selected" if plans[3] == selected_plan else ""
         st.error(
-            f"**{plans[3]}**\n\n"
+            f"🌋 **{plans[3]}**\n\n"
             f"{PLAN_DESCRIPTIONS[plans[3]]}\n\n"
             f"{label}"
         )
