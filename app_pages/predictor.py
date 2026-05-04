@@ -13,9 +13,9 @@ from __future__ import annotations
 from pathlib import Path
 
 import joblib
+import numpy as np
 import pandas as pd
 import streamlit as st
-import numpy as np
 
 from src.config import (
     DEFAULT_VERSION,
@@ -106,7 +106,28 @@ def _ml_interpretation_message(model_pred: float | None) -> tuple[str, str]:
 
 def render() -> None:
     st.title("🎯 Predictor")
-    st.markdown(
+
+    st.divider()
+
+    st.header("Short and long-term forecasting")
+    st.write(
+        "Use this page to compare a short-term machine learning estimate with "
+        "long-term scenario ranges based on historical trend and volatility."
+    )
+
+    # Use columns to center a smaller version of the image
+    # The [1, 4, 1] ratio keeps the image centred without making it full width
+    col1, col2, col3 = st.columns([1, 4, 1])
+
+    with col2:
+        st.image(
+            "documentation/dashboard/predictor_hero.png",
+            caption="Growth of the Magnificent Seven (2019-2024)",
+            use_container_width=True,
+        )
+
+    st.divider()
+
         """
 This page combines **two different ideas**:
 
