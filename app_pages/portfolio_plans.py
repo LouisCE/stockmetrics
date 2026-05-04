@@ -98,12 +98,13 @@ def render() -> None:
     )
 
     version = DEFAULT_VERSION
-    plan_name = st.selectbox("Select plan", options=list(PLAN_WEIGHTS.keys()))
 
-    st.markdown(
+    st.divider()
+
+    st.header("What's your appetite for risk?")
+
+    st.write(
         """
-### What's your appetite for risk?
-
 In StockMetrics, these risk labels are **relative to each other**.
 They describe how concentrated each plan is, not whether investing is
 ever risk-free.
@@ -111,6 +112,11 @@ ever risk-free.
 A more concentrated plan may offer higher potential upside, but it may
 also experience larger drawdowns and a bumpier ride.
 """
+    )
+
+    plan_name = st.selectbox(
+        "Select plan",
+        options=list(PLAN_WEIGHTS.keys()),
     )
 
     render_plan_boxes(plan_name)
