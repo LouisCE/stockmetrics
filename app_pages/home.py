@@ -145,47 +145,103 @@ with clarity and confidence.
             "diversification."
         )
 
-        st.markdown("### What are dividends?")
-        st.write(
-            "Dividends are payments some companies make to shareholders from "
-            "their profits. Some funds distribute them, while others reinvest "
-            "them automatically."
-        )
-
-        st.markdown("### What is a blue-chip stock?")
-        st.write(
-            "A blue-chip stock usually refers to a large, established company "
-            "with a strong reputation and long operating history."
-        )
-
     st.divider()
 
-    st.header("Frequently asked questions")
+    st.header("❓ Frequently asked questions")
 
-    with st.expander("What is the S&P 500?"):
+    with st.expander("🤔 Why should I invest at all?"):
         st.write(
-            "The S&P 500 is a stock market index tracking 500 of the largest "
-            "publicly traded companies in the United States. It is widely "
-            "used as a benchmark for the broader US stock market."
+            "While keeping cash in a bank account feels safe, "
+            "**inflation is a 'silent tax'** "
+            "that eats away at your buying power over time. "
+            "Investing turns your money into "
+            "a tool that works for you while you sleep, "
+            "giving you the best chance to "
+            "outpace rising costs and build long-term wealth."
+        )
+        st.info(
+            "**Did you know?** Historically, the stock market "
+            "has returned an average of ~10% per year.",
+            icon="ℹ️"
         )
 
-    with st.expander("What is FTSE All-World fund?"):
+    with st.expander("🧭 When should I buy and sell?"):
+        st.write(
+            "For most people, the 'perfect time' to buy doesn't exist. "
+            "Instead, **starting as soon as you can** is usually better "
+            "because it gives your money more time to grow. Investing a "
+            "set amount every month (called dollar-cost averaging) is a "
+            "great way to smooth out the 'bumps' of the market without the "
+            "stress of guessing when to buy."
+        )
+        st.write(
+            "Selling is personal. You might sell when you've reached a "
+            "specific savings goal (like a house deposit) or if your life "
+            "plans change. The secret is to **stick to your plan** and avoid "
+            "making quick decisions just because the market had a bad day."
+        )
+        st.info(
+            "**Golden Rule:** Time *in* the market is almost always "
+            "better than trying to *time* the market.",
+            icon="⏳"
+        )
+
+    with st.expander(
+        "💰 How much and how often should I invest?"
+    ):
+        st.write(
+            "The right amount and frequency of investing depends on your "
+            "personal financial situation, goals, and risk tolerance. \n\n"
+            "A common benchmark is to invest 10% to 20% of your take-home pay "
+            "monthly, with 15% often cited as an ideal target for long-term "
+            "retirement. This is a strategy called dollar-cost averaging, "
+            "which can help reduce the impact of market volatility and avoid "
+            "trying to time the market. However, the best approach for you "
+            "may differ."
+        )
+
+    with st.expander("🇺🇸 What is the S&P 500?"):
+        st.write(
+            "The S&P 500 is a stock market index tracking 500 of the largest "
+            "publicly traded companies in the United States, representing "
+            "about 80% of the US stock market by capitalization. It is widely "
+            "used as a gold standard for measuring the overall performance of "
+            "the US stock market and a benchmark for portfolio success.\n\n"
+            "This is a popular choice as it provides easy diversification "
+            "without much cognitive load for beginners.\n\n"
+            "Some beginners choose simple index-based strategies because they "
+            "reduce decision fatigue and provide broad market exposure."
+        )
+
+    with st.expander("🌍 What is the FTSE All-World fund?"):
         st.write(
             "The Vanguard FTSE All-World fund gives exposure to a broad range "
             "of companies across developed and emerging markets, making it a "
-            "simple example of global diversification."
+            "simple example of global diversification. Choosing this option "
+            "means betting that the world economy will continue to grow over "
+            "time.\n\n"
+            "This option is even more diversified than the S&P 500, but it "
+            "tends to have slightly lower returns because it includes more "
+            "exposure to slower, more mature markets."
         )
 
-    with st.expander("What is the Magnificent Seven?"):
+    with st.expander("⚜️ What is the Magnificent Seven?"):
         st.write(
             "The Magnificent Seven refers to Alphabet, Amazon, Apple, Meta, "
             "Microsoft, Nvidia, and Tesla. These companies have played a "
             "major role in recent US market growth, but they also represent "
-            "a more concentrated type of exposure."
+            "a more concentrated type of exposure.\n\n"
+            "Because these seven companies make up nearly 40% of the S&P 500 "
+            "by value, the index's performance is often heavily driven by "
+            "just this small group of tech giants.\n\n"
+            "To keep things simple, StockMetrics doesn't expand beyond these "
+            "seven as individual stocks. The diversification principle is "
+            "covered by the S&P 500 and All-World funds while the "
+            "concentration principle is illustrated by the Magnificent Seven."
         )
 
     with st.expander(
-        "Why is Tesla featured heavily in the Aggressive plan?"
+        "🏎️ Why is Tesla featured heavily in the Aggressive plan?"
     ):
         st.write(
             "Tesla is used as an example of a more volatile stock. Its price "
@@ -194,7 +250,8 @@ with clarity and confidence.
         )
 
     with st.expander(
-        "Why does StockMetrics use scenario ranges instead of one prediction?"
+        "📊 Why does StockMetrics use scenario ranges instead of one "
+        "prediction?"
     ):
         st.write(
             "Financial markets are noisy, especially in the short term. "
@@ -202,7 +259,7 @@ with clarity and confidence.
             "than a single ‘magic number’ prediction."
         )
 
-    with st.expander("Does StockMetrics recommend a trading platform?"):
+    with st.expander("📱 Does StockMetrics recommend a trading platform?"):
         st.write(
             "StockMetrics does not provide personalised financial advice, "
             "but beginners often look for platforms that are simple and "
@@ -213,7 +270,22 @@ with clarity and confidence.
             "interest on uninvested cash, and free ISA accounts in the UK.\n\n"
             "However, this is **not financial advice**. Always do your own "
             "research and choose a platform that suits your needs. "
-            "**Capital is at risk.**"
+        )
+
+    with st.expander("🧱 Are there any other assets I can explore?"):
+        st.write(
+            "Yes, there are many other stocks and ETFs you can explore "
+            "beyond the ones featured in StockMetrics. StockMetrics is "
+            "designed to be a starting point to build your confidence and "
+            "understanding of investing. Once you feel comfortable, you "
+            "can research and invest in other companies or funds that "
+            "align with your interests. \n\n"
+            "Popular assets include Netflix, Walmart, JPMorgan Chase & Co., "
+            "Johnson & Johnson, Coca-Cola, PepsiCo, McDonald's, "
+            "and Realty Income, as well as physical silver and gold beyond "
+            "traditional stocks. \n\n"
+            "Always remember to do your own research and consider your risk "
+            "tolerance before investing in any asset. "
         )
 
     st.divider()
