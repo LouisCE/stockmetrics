@@ -193,11 +193,28 @@ time-series data.
             icon="⚠️"
         )
 
+    st.divider()
+
+    st.header("Why R² > 0 is a meaningful success rule")
+
     st.write(
-        "**R²** shows whether the model performed better than a very "
-        "simple baseline. A value above 0 suggests some useful "
-        "signal. A value at or below 0 suggests the model struggled "
-        "to generalise."
+        """
+Normally, an R² barely above 0 might seem underwhelming.
+However, in the context of next-day stock return prediction, even a small
+positive R² can be meaningful. It indicates that the model is capturing some
+generalisable signal in a very noisy and difficult prediction task.
+
+Low R² values are common in financial prediction, and they reflect the inherent
+unpredictability of markets. The key point is that the model's performance is
+not expected to be perfect, but it should show some evidence of learning from
+the data. This is a more realistic and educational success criterion than
+expecting a high R², which would be unlikely in this context.
+
+This supports the project's educational message that while
+short-term predictions are challenging, there can still be some signal
+to learn from, and that long-term scenario thinking is often more sensible
+than relying on day-to-day predictions.
+"""
     )
     st.write(
         "**MAE** and **RMSE** show the average prediction error "
