@@ -32,28 +32,32 @@ def get_asset_summaries() -> dict[str, tuple[str, str]]:
     """Return beginner-friendly titles and summaries for all assets."""
     return {
         "AAPL": (
-            "What is Apple?",
+            "🍎 What is Apple?",
             "Apple is a global technology company best known for the iPhone, "
             "Mac, iPad, Apple Watch, and services such as iCloud and the App "
             "Store. Investors often watch Apple because of its strong brand, "
             "large profits, and loyal customer base.",
         ),
         "AMZN": (
-            "What is Amazon?",
+            "📦 What is Amazon?",
             "Amazon is a major technology and e-commerce company. It makes "
             "money from online shopping, cloud computing through AWS, digital "
             "services, and advertising. Investors often track Amazon because "
             "it operates in several large and growing industries.",
         ),
         "GOOGL": (
-            "What is Alphabet (Class A)?",
+            "🔤 What is Alphabet (Class A)?",
             "Alphabet is the parent company of Google. Its business includes "
             "search, YouTube, digital advertising, cloud services, and AI. "
             "Investors often follow Alphabet because advertising revenue and "
-            "technology innovation play a major role in its performance.",
+            "technology innovation play a major role in its performance. \n\n"
+            "Alphabet has two main share classes: Class A (GOOGL) with voting "
+            "rights and Class C (GOOG) without voting rights. This dashboard "
+            "focuses on Class A (GOOGL) since it is more widely held by "
+            "investors and has voting rights.",
         ),
         "META": (
-            "What is Meta Platforms?",
+            "🌐 What is Meta Platforms?",
             "Meta owns Facebook, Instagram, WhatsApp, and other digital "
             "platforms. It earns much of its revenue from advertising and is "
             "also investing heavily in AI and virtual reality. Investors "
@@ -61,7 +65,7 @@ def get_asset_summaries() -> dict[str, tuple[str, str]]:
             "strongly affect profits.",
         ),
         "MSFT": (
-            "What is Microsoft?",
+            "💻 What is Microsoft?",
             "Microsoft is a large technology company known for Windows, "
             "Office, Azure cloud computing, LinkedIn, and other business "
             "software. Investors often see Microsoft as a major blue-chip "
@@ -69,7 +73,7 @@ def get_asset_summaries() -> dict[str, tuple[str, str]]:
             "diversification.",
         ),
         "NVDA": (
-            "What is Nvidia?",
+            "⚡ What is Nvidia?",
             "Nvidia designs advanced computer chips used in gaming, data "
             "centres, and artificial intelligence. It has become especially "
             "important in the AI boom. Investors follow Nvidia closely "
@@ -77,26 +81,44 @@ def get_asset_summaries() -> dict[str, tuple[str, str]]:
             "also higher volatility.",
         ),
         "TSLA": (
-            "What is Tesla?",
+            "🚗 What is Tesla?",
             "Tesla is an electric vehicle and clean energy company. It is "
             "also closely associated with themes such as innovation, "
             "automation, and AI. Investors often view Tesla as a "
             "high-growth but highly volatile stock, meaning its price can "
-            "move sharply.",
+            "move sharply.\n\n"
+            "Tesla is volatile due to intense competition in the electric "
+            "vehicle market, high-risk AI investments, and key person risk "
+            "(CEO Elon Musk).\n\n"
+            "If you strongly believe in self-driving cars and clean energy, "
+            "you might choose to overweight Tesla.",
         ),
         "VUSA.L": (
-            "What is the S&P 500 ETF?",
-            "VUSA.L is Vanguard's S&P 500 UCITS ETF. It tracks the S&P 500, "
-            "which includes 500 of the largest publicly traded companies in "
-            "the United States. Investors use it as a simple way to gain "
-            "broad exposure to the US stock market.",
+            "🇺🇸 What is the S&P 500 ETF?",
+            "The S&P 500 includes 500 of the largest publicly traded "
+            "companies in the United States. Investors use it as a simple "
+            "way to gain broad exposure to the US stock market. \n\n"
+            "The S&P 500 has an accumulating share class (Acc) which "
+            "reinvests dividends automatically and a distributing share "
+            "class (Dist) which pays dividends out. \n\n"
+            "This dashboard uses the distributing share class for a larger "
+            "historical dataset, but the accumulating share class is "
+            "preferred by some investors for its tax efficiency and "
+            "compounding benefits.",
         ),
         "VWRL.L": (
-            "What is the All-World ETF?",
-            "VWRL.L is Vanguard's FTSE All-World UCITS ETF. It provides "
-            "exposure to a broad mix of companies across developed and "
-            "emerging markets. Investors often use it as a simple example of "
-            "global diversification in one fund.",
+            "🌍 What is the All-World ETF?",
+            "The All-World ETF provides exposure to a broad mix of "
+            "companies across developed and emerging markets. Investors "
+            "often use it as a simple example of global diversification "
+            "in one fund. \n\n"
+            "The All-World ETF has an accumulating share class (Acc) which "
+            "reinvests dividends automatically and a distributing share "
+            "class (Dist) which pays dividends out. \n\n"
+            "This dashboard uses the distributing share class for a larger "
+            "historical dataset, but the accumulating share class is "
+            "preferred by some investors for its tax efficiency and "
+            "compounding benefits.",
         ),
     }
 
@@ -106,8 +128,8 @@ def render_asset_guide() -> None:
     summaries = get_asset_summaries()
 
     st.divider()
-    st.subheader("Know your assets")
-    st.markdown(
+    st.header("🧠 Know your assets")
+    st.write(
         "Investors should have a basic understanding of the companies or "
         "funds they invest in so they can better understand what may drive "
         "profits, losses, and price movements."
@@ -127,8 +149,7 @@ def render_asset_guide() -> None:
 
     for ticker in ordered_tickers:
         title, summary = summaries[ticker]
-        label = format_ticker_label(ticker)
-        with st.expander(label):
+        with st.expander(title):
             st.write(summary)
 
 
