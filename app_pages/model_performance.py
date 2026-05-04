@@ -240,7 +240,19 @@ day-to-day predictions
 
     st.divider()
 
-    st.subheader(f"Best hyperparameters ({version})")
+    st.header("Best hyperparameters")
+
+    st.write(
+        "Hyperparameters are model settings chosen during training. "
+        "They control how the Random Forest learns, such as the number "
+        "of trees, tree depth, and how splits are made."
+        "\n\n"
+        "These are the parameters selected during model tuning in the "
+        "training notebook."
+        "\n\n"
+        "These technical settings are included for transparency and "
+        "reproducibility."
+    )
     st.json(train_report.get("best_params", {}))
 
     st.divider()
