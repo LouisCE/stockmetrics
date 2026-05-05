@@ -257,19 +257,44 @@ day-to-day predictions
 
     st.divider()
 
-    st.subheader("Evaluation plots")
+    st.header("Evaluation plots")
+
+    st.write(
+        """
+These plots are technical checks from the evaluation notebook. They help show
+whether the model generalised to unseen data and whether prediction errors
+looked reasonable.
+"""
+    )
+
     plot_files = [
-        figures / f"eval_actual_vs_pred_train_{version}.png",
-        figures / f"eval_actual_vs_pred_test_{version}.png",
-        figures / f"eval_residuals_hist_test_{version}.png",
-        figures / f"eval_residuals_timeseries_test_{version}.png",
-        figures / f"eval_pred_timeseries_test_{version}.png",
+        (
+            figures / f"eval_actual_vs_pred_train_{version}.png",
+            "Train set: actual vs predicted returns",
+        ),
+        (
+            figures / f"eval_actual_vs_pred_test_{version}.png",
+            "Test set: actual vs predicted returns",
+        ),
+        (
+            figures / f"eval_residuals_hist_test_{version}.png",
+            "Test set: prediction error distribution",
+        ),
+        (
+            figures / f"eval_residuals_timeseries_test_{version}.png",
+            "Test set: prediction errors over time",
+        ),
+        (
+            figures / f"eval_pred_timeseries_test_{version}.png",
+            "Test set: actual vs predicted returns over time",
+        ),
     ]
-    for p in plot_files:
-        if p.exists():
-            st.image(str(p), caption=p.name, use_container_width=True)
+
+    for path, caption in plot_files:
+        if path.exists():
+            st.image(str(path), caption=caption, use_container_width=True)
         else:
-            st.warning(f"Missing: {p.name}")
+            st.warning(f"Missing: {path.name}")
 
     st.divider()
 
