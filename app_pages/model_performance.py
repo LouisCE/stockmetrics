@@ -298,11 +298,23 @@ looked reasonable.
 
     st.divider()
 
-    st.subheader("Feature importance (top rows)")
+    st.header("Feature importance")
+
+    st.write(
+        """
+Feature importance shows which inputs the fitted model relied on most.
+
+Higher-ranked features had more influence on the model's predictions.
+
+This does **not** prove that those features cause future returns. It only shows
+which features were most useful to the model when making predictions.
+"""
+    )
+
     fi_path = reports / f"feature_importance_{version}.csv"
     if fi_path.exists():
         fi = pd.read_csv(fi_path)
-        st.dataframe(fi.head(20), use_container_width=True)
+        st.dataframe(fi.head(20), use_container_width=True, hide_index=True)
     else:
         st.warning("Feature importance file not found.")
 
