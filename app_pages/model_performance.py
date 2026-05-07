@@ -318,7 +318,15 @@ which features were most useful to the model when making predictions.
     else:
         st.warning("Feature importance file not found.")
 
-    st.info(
-        "StockMetrics uses scenario ranges to communicate uncertainty. "
-        "This model is an educational component, not financial advice."
+    st.divider()
+
+    st.header("ML model summary")
+
+    st.write(
+        "The model showed a small positive signal on unseen data, meeting the "
+        "project's educational business case. However, the signal was weak, "
+        "which supports the app's beginner-friendly message that short-term "
+        "market prediction is difficult and uncertain. The evaluation plots "
+        "and feature importance provide additional insights into how the "
+        "model made predictions and which features it relied on."
     )
