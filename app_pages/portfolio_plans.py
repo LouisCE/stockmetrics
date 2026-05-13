@@ -229,6 +229,25 @@ also experience larger drawdowns and a bumpier ride.
 
     st.divider()
 
+    st.header("🤷 What if I still can't decide?")
+
+    st.write(
+        "If choosing still feels overwhelming, the Targeted (Moderate Risk) "
+        "plan is the simplest focused option in StockMetrics because it uses "
+        "the S&P 500 only. The S&P 500 has historically shown resilience "
+        "through many major market events, although past performance never "
+        "guarantees future results."
+    )
+
+    st.info(
+        "For beginners who want to keep things simple, a broad index-based "
+        "strategy can reduce decision fatigue. This is shown for education "
+        "only and is not personal investment advice.",
+        icon="ℹ️",
+    )
+
+    st.divider()
+
     st.success(
         "**Congratulations and welcome to the world of investing!**   \n"
         "You've taken the first step toward understanding market dynamics "
