@@ -318,6 +318,15 @@ This keeps StockMetrics beginner-friendly by showing that:
         icon="ℹ️"
     )
 
+    st.warning(
+        "Because daily returns are noisy and difficult to predict, this ML "
+        "estimate should not be treated as a trading instruction. Its main "
+        "purpose is educational: it shows why short-term prediction is "
+        "uncertain, and why long-term thinking, diversification, and scenario "
+        "planning are important.",
+        icon="⚠️",
+    )
+
     st.divider()
 
     st.header("What this means for beginners")
