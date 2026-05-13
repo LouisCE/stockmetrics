@@ -69,6 +69,58 @@ with clarity and confidence.
 
     st.divider()
 
+    st.header("✅ Project validation summary")
+
+    st.markdown(
+        """
+StockMetrics was built around **five business requirements** and
+**four project hypotheses**. These were validated through dashboard
+features, exploratory data analysis, portfolio metrics, scenario forecasting,
+and machine learning evaluation.
+"""
+    )
+
+    st.subheader("Business requirements")
+
+    st.markdown(
+        """
+1. **Historical Market Exploration** — supported through the Stock Explorer
+   page.
+2. **Portfolio Risk Comparison** — supported through the Portfolio Plans page.
+3. **Predictive Analytics Feature** — supported through the next-day return
+   regression model.
+4. **Scenario-Based Forecasting** — supported through long-term optimistic,
+   realistic, and pessimistic scenario ranges.
+5. **Clear Communication of ML Results** — supported through the Model
+   Performance page.
+"""
+    )
+
+    st.subheader("Project hypotheses")
+
+    st.markdown(
+        """
+1. **Concentrated portfolio plans are riskier than diversified ones but may
+   offer greater potential rewards** — supported by the analysis.
+2. **Technology stocks exhibit higher volatility than diversified ETFs** —
+   supported by the analysis.
+3. **Diversified portfolios experience smaller drawdowns than concentrated
+   portfolios** — supported by the analysis.
+4. **Short-horizon return prediction is inherently difficult** — supported
+   with caution, as the final model achieved a very weak positive Test R².
+"""
+    )
+
+    st.info(
+        "For full business requirement validation, hypothesis validation, "
+        "CRISP-DM mapping, and technical project details, see the "
+        "[StockMetrics README file]"
+        "(https://github.com/LouisCE/stockmetrics/blob/main/README.md).",
+        icon="📘",
+    )
+
+    st.divider()
+
     st.header("💡 Core investing principles")
     c1, c2, c3 = st.columns(3)
     with c1:
