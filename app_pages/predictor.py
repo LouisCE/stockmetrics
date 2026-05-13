@@ -279,6 +279,15 @@ This keeps StockMetrics beginner-friendly by showing that:
         "features."
     )
 
+    st.info(
+        "This estimate is based on the latest processed dataset and saved "
+        "model included with this project version. It is **not a live daily "
+        "market forecast**. If the full notebook pipeline is re-run with "
+        "newer Yahoo Finance data, the final dataset date, prediction, and "
+        "model metrics may change.",
+        icon="ℹ️"
+    )
+
     if model_pred is not None:
         st.metric(
             "Estimated next-day return",
