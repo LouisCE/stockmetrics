@@ -247,12 +247,12 @@ unexpected market shocks.
 
 That limitation is part of the learning goal. It shows beginners that:
 
-- short-term price movement is noisy
-- model outputs are estimates, not guarantees
-- prediction uncertainty should be communicated clearly
-- long-term scenario ranges are more responsible than single-point promises
-- therefore, long-term investing is often more sensible than relying on
-day-to-day predictions
+- Short-term price movement is noisy.
+- Model outputs are estimates, not guarantees.
+- Prediction uncertainty should be communicated clearly.
+- Long-term scenario ranges are more responsible than single-point promises.
+- Therefore, long-term investing is often more sensible than relying on
+day-to-day predictions.
 """
     )
 
