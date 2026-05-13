@@ -322,7 +322,26 @@ day-to-day predictions.
 These plots are technical checks from the evaluation notebook. They help show
 whether the model generalised to unseen data and whether prediction errors
 looked reasonable.
+
+They also provide dashboard-visible evidence of multiple plot types, including
+scatter plots, histograms, and time-series plots.
 """
+    )
+
+    st.info(
+        "**How to read these plots:**\n\n"
+        "- **Actual vs predicted plots** compare the model's estimates with "
+        "the real next-day returns. If the model were highly accurate, points "
+        "would sit closer to a clear diagonal pattern. In this project, the "
+        "relationship is weak, which matches the very small positive R².\n"
+        "- The **residual histogram** shows prediction errors. A residual is "
+        "the gap between the actual value and the predicted value. Errors "
+        "clustered near zero are better, but wide spread means uncertainty "
+        "remains high.\n"
+        "- The **time-series plots** show how predictions and errors behaved "
+        "over time. Large spikes or clusters of errors show that short-term "
+        "market prediction is unstable across different market conditions.",
+        icon="ℹ️"
     )
 
     plot_files = [
