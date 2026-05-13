@@ -375,6 +375,72 @@ scatter plots, histograms, and time-series plots.
 
     st.divider()
 
+    st.header("EDA plot evidence for hypotheses")
+
+    st.write(
+        """
+These additional EDA plots support the project hypotheses and business
+requirements around volatility, diversification, concentration risk, and
+cross-asset relationships.
+"""
+    )
+
+    st.info(
+        "**How to read these plots:**\n\n"
+        "- The **price time-series plot** shows how each asset's adjusted "
+        "closing price changed over time. Rising lines show historical "
+        "growth, while sharper rises and falls show a bumpier journey.\n"
+        "- The **daily returns time-series plot** shows short-term ups and "
+        "downs. Larger spikes mean larger day-to-day moves.\n"
+        "- The **returns histogram** shows which daily return outcomes were "
+        "common and which were more extreme.\n"
+        "- The **box plot** compares how spread out each asset's daily "
+        "returns were. A taller box or longer whiskers usually means more "
+        "volatility and more extreme daily moves.\n"
+        "- The **correlation heatmap** shows how similarly assets moved "
+        "compared with each other. Stronger relationships mean assets tended "
+        "to rise and fall together, while weaker relationships suggest more "
+        "diversification benefit.\n"
+        "- The **rolling volatility plot** shows how risk changed over time. "
+        "Spikes mean the asset had a period of larger day-to-day movements.",
+        icon="ℹ️"
+    )
+
+    eda_plot_files = [
+        (
+            figures / "eda_adj_close_timeseries.png",
+            "Adjusted close time series: long-term price trends",
+        ),
+        (
+            figures / "eda_daily_returns_timeseries.png",
+            "Daily returns time series: short-term volatility patterns",
+        ),
+        (
+            figures / "eda_daily_returns_hist.png",
+            "Daily returns histogram: common and extreme daily outcomes",
+        ),
+        (
+            figures / "eda_daily_returns_boxplot.png",
+            "Daily returns box plot: volatility and outlier comparison",
+        ),
+        (
+            figures / "eda_returns_correlation_heatmap.png",
+            "Correlation heatmap: relationship between asset returns",
+        ),
+        (
+            figures / "eda_rolling_volatility_30d.png",
+            "Rolling volatility: changing short-term risk over time",
+        ),
+    ]
+
+    for path, caption in eda_plot_files:
+        if path.exists():
+            st.image(str(path), caption=caption, use_container_width=True)
+        else:
+            st.warning(f"Missing: {path.name}")
+
+    st.divider()
+
     st.header("Feature importance")
 
     st.write(
