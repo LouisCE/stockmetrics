@@ -273,6 +273,46 @@ day-to-day predictions.
     )
     st.json(train_report.get("best_params", {}))
 
+    st.subheader("Hyperparameter search space")
+
+    st.write(
+        "The final model tuning used six Random Forest hyperparameters, "
+        "each with three distinct values. This created a full search space "
+        "of 3⁶ = 729 possible parameter combinations before successive "
+        "halving was applied to reduce runtime."
+    )
+
+    search_space = pd.DataFrame(
+        [
+            {
+                "Hyperparameter": "n_estimators",
+                "Values tested": "100, 200, 300",
+            },
+            {
+                "Hyperparameter": "max_depth",
+                "Values tested": "5, 10, None",
+            },
+            {
+                "Hyperparameter": "min_samples_split",
+                "Values tested": "2, 5, 10",
+            },
+            {
+                "Hyperparameter": "min_samples_leaf",
+                "Values tested": "1, 2, 4",
+            },
+            {
+                "Hyperparameter": "max_features",
+                "Values tested": "sqrt, log2, 0.5",
+            },
+            {
+                "Hyperparameter": "max_leaf_nodes",
+                "Values tested": "50, 200, None",
+            },
+        ]
+    )
+
+    st.dataframe(search_space, use_container_width=True, hide_index=True)
+
     st.divider()
 
     st.header("Evaluation plots")
