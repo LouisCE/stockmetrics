@@ -126,14 +126,14 @@ and machine learning evaluation.
     with c1:
         st.subheader("⏳ Start early")
         st.write(
-            "Time is your biggest advantage because compounding needs time."
+            "Time is your biggest asset because compounding needs time."
         )
     with c2:
-        st.subheader("🧘 Think long-term")
-        st.write("Time in the market often beats timing the market.")
-    with c3:
         st.subheader("🧺 Diversify")
         st.write("Spreading exposure can reduce concentration risk.")
+    with c3:
+        st.subheader("🧘 Think long-term")
+        st.write("Time in the market often beats timing the market.")
 
     st.divider()
 
@@ -190,7 +190,7 @@ and machine learning evaluation.
             "over time instead of trying to guess the perfect moment to buy."
         )
 
-        st.subheader("📦 What is an ETF?")
+        st.subheader("📁 What is an ETF?")
         st.write(
             "An ETF, or exchange-traded fund, is a basket of investments that "
             "can be bought and sold like a stock. ETFs can offer instant "
