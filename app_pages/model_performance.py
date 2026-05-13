@@ -139,6 +139,15 @@ time-series data.
             icon="⚠️"
         )
 
+    st.info(
+        "This result reflects the saved model and processed dataset included "
+        "with this project version. If the full notebook pipeline is re-run "
+        "from data collection using newer Yahoo Finance data, the latest "
+        "date, model metrics, and predictions may change. This is expected "
+        "because the project uses live endpoint data during collection.",
+        icon="ℹ️"
+    )
+
     st.divider()
 
     st.header("Model performance metrics")
