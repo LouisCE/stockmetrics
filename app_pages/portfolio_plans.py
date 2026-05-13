@@ -157,13 +157,17 @@ also experience larger drawdowns and a bumpier ride.
     st.header("Core investing principles in one chart")
 
     st.write(
-        "This chart illustrates all of the homepage core investing principles "
-        "in one place: \n"
-        "1. Starting early gives your money more time to grow. \n"
-        "2. Staying invested through ups and downs allows you to benefit from "
-        "long-term growth. \n"
-        "3. Diversification can reduce concentration risk, although it may "
-        "also reduce exposure to the fastest-growing individual assets."
+        "This chart shows how £1 would have grown historically under the "
+        "selected plan. It also helps illustrate the power of the homepage "
+        "core investing principles in one place:\n\n"
+        "1. **Start early** — giving your money more time to grow can improve "
+        "long-term growth potential.\n"
+        "2. **Diversify** — spreading exposure can reduce concentration risk, "
+        "although it may also reduce exposure to the fastest-growing "
+        "individual assets.\n"
+        "3. **Think long-term** — staying invested through ups and downs can "
+        "help investors benefit from long-term growth instead of reacting to "
+        "short-term market noise."
     )
 
     equity = (1 + plan_ret.fillna(0)).cumprod()
@@ -183,10 +187,11 @@ also experience larger drawdowns and a bumpier ride.
     st.plotly_chart(fig, use_container_width=True)
 
     st.info(
-        "This chart shows how £1 would have grown historically under the "
-        "selected plan. It helps illustrate the trade-off between "
-        "diversification, concentration, and volatility.",
-        icon="ℹ️"
+        "This chart illustrates the trade-off between diversification, "
+        "concentration, and volatility. It is based on historical "
+        "performance and useful for education and comparison, but it does "
+        "not guarantee future returns.",
+        icon="💡",
     )
 
     st.divider()
