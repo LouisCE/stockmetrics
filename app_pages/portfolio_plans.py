@@ -196,7 +196,7 @@ also experience larger drawdowns and a bumpier ride.
 
     st.divider()
 
-    st.header("Your selected plan")
+    st.header("🧭 Your selected plan")
     st.write(
         "This table shows the assets included in the selected plan and "
         "their target weights."
@@ -214,6 +214,13 @@ also experience larger drawdowns and a bumpier ride.
     )
 
     st.dataframe(plan_table, use_container_width=True, hide_index=True)
+
+    st.info(
+        "**Weight (%)** shows how much of the selected plan is allocated to "
+        "each asset. For example, a 50% weight means half of the plan is "
+        "assigned to that asset.",
+        icon="ℹ️",
+    )
 
     st.write(
         "This is your selected plan. It is shown for educational comparison "
