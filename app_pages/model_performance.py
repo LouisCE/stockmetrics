@@ -202,6 +202,15 @@ time-series data.
             icon="⚠️"
         )
 
+    st.info(
+        "The low R² score is part of the lesson. It shows that even when a "
+        "machine learning model detects a small signal, short-term market "
+        "prediction remains unreliable. This supports StockMetrics' message "
+        "that long-term investing and scenario thinking are generally more "
+        "sensible for beginners than short-term day trading.",
+        icon="ℹ️",
+    )
+
     st.divider()
 
     st.header("Why R² > 0 is a meaningful success rule")
