@@ -3,6 +3,7 @@ Pytest checks for portfolio calculation helpers in `src/portfolio.py`.
 """
 
 import pandas as pd
+import pytest
 
 from src.portfolio import (
     build_plan_returns,
@@ -78,3 +79,16 @@ def test_build_plan_returns_renormalises_missing_tickers() -> None:
 
     assert len(result) == 2
     assert round(result.iloc[0], 4) == 0.01
+
+
+def test_build_plan_returns_raises_when_no_tickers_exist() -> None:
+    returns = pd.DataFrame(
+        {
+            "AAPL": [0.01, 0.02],
+        }
+    )
+
+    weights = {"MSFT": 1.0}
+
+    with pytest.raises(ValueError):
+        build_plan_returns(returns, weights)
