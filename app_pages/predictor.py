@@ -22,6 +22,7 @@ from src.config import (
     format_display_date,
     format_ticker_label,
     get_paths,
+    get_currency_symbol,
 )
 from src.data_processing import load_clean_prices_latest
 from src.features import (
@@ -258,7 +259,7 @@ This keeps StockMetrics beginner-friendly by showing that:
     row1_col1, row1_col2 = st.columns(2)
     row2_col1, row2_col2 = st.columns(2)
 
-    currency_symbol = "£" if ticker.endswith(".L") else "$"
+    currency_symbol = get_currency_symbol(ticker)
 
     row1_col1.metric(
         "Latest adjusted close",

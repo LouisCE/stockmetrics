@@ -7,14 +7,17 @@ from __future__ import annotations
 import pandas as pd
 import plotly.express as px
 
-from src.config import format_ticker_label
+from src.config import (
+    format_ticker_label,
+    get_currency_symbol,
+)
 
 
 def line_prices(df: pd.DataFrame, ticker: str) -> "px.Figure":
     """Price history line chart for one ticker."""
     d = df[df["Ticker"] == ticker].sort_values("Date")
     label = format_ticker_label(ticker)
-    currency_symbol = "£" if ticker.endswith(".L") else "$"
+    currency_symbol = get_currency_symbol(ticker)
 
     fig = px.line(
         d,

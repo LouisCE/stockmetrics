@@ -124,6 +124,11 @@ def format_ticker_label(ticker: str) -> str:
     return TICKER_DISPLAY_LABELS.get(ticker, ticker)
 
 
+def get_currency_symbol(ticker: str) -> str:
+    """Return display currency symbol for a ticker."""
+    return "£" if ticker.endswith(".L") else "$"
+
+
 def format_display_date(value) -> str:
     """Return a DD/MM/YYYY display date string."""
     return pd.to_datetime(value).strftime("%d/%m/%Y")
