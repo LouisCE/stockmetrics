@@ -312,11 +312,9 @@ This keeps StockMetrics beginner-friendly by showing that:
 
     st.info(
         "The machine learning model predicts **next-day return only**. "
-        "Because daily returns are noisy, StockMetrics treats this as a small "
-        "educational signal rather than a trading instruction.\n\n"
-        f"Estimated daily volatility from historical data: "
-        f"**{sigma_simple:.4%}**",
-        icon="ℹ️"
+        "It is separate from the long-term scenario ranges below, which are "
+        "based on historical trend and volatility.",
+        icon="ℹ️",
     )
 
     st.warning(
@@ -385,9 +383,16 @@ This keeps StockMetrics beginner-friendly by showing that:
     )
 
     st.info(
+        f"Estimated daily volatility from historical data: "
+        f"**{sigma_simple:.4%}**\n\n"
+        "This volatility figure is used for the long-term scenario "
+        "simulation. Higher volatility means the selected asset has "
+        "historically had larger day-to-day price swings, which can "
+        "create a wider range between the pessimistic and optimistic "
+        "outcomes.\n\n"
         "These scenario ranges are driven by **historical trend and "
         "volatility**, not by the next-day machine learning estimate. "
         "StockMetrics separates short-term ML from long-term scenarios to "
         "communicate uncertainty more responsibly.",
-        icon="ℹ️"
+        icon="ℹ️",
     )
