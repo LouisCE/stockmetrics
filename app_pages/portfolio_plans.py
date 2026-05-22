@@ -28,6 +28,7 @@ from src.portfolio import (
 
 @st.cache_data(show_spinner=False)
 def load_returns(version: str) -> pd.DataFrame:
+    """Load clean prices and calculate daily returns for portfolio plans."""
     paths = get_paths(version)
     clean_df = load_clean_prices_latest(paths.processed_dir, version)
     prices = price_wide(clean_df)
