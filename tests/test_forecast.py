@@ -71,3 +71,16 @@ def test_get_last_price_raises_for_missing_ticker() -> None:
 
     with pytest.raises(ValueError):
         get_last_price(df, "MSFT")
+
+
+def test_estimate_mu_sigma_raises_for_missing_ticker() -> None:
+    df = pd.DataFrame(
+        {
+            "Date": pd.date_range("2024-01-01", periods=5, freq="D"),
+            "Ticker": ["AAPL"] * 5,
+            "Adj_Close": [100, 101, 102, 103, 104],
+        }
+    )
+
+    with pytest.raises(ValueError):
+        estimate_mu_sigma_from_history(df, "MSFT")
