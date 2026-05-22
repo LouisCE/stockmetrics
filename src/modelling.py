@@ -188,12 +188,12 @@ def train_and_tune(
     metrics_train = {
         "r2": float(r2_score(y_train, pred_train)),
         "mae": float(mean_absolute_error(y_train, pred_train)),
-        "rmse": float(mean_squared_error(y_train, pred_train, squared=False)),
+        "rmse": float(mean_squared_error(y_train, pred_train) ** 0.5),
     }
     metrics_test = {
         "r2": float(r2_score(y_test, pred_test)),
         "mae": float(mean_absolute_error(y_test, pred_test)),
-        "rmse": float(mean_squared_error(y_test, pred_test, squared=False)),
+        "rmse": float(mean_squared_error(y_test, pred_test) ** 0.5),
     }
 
     return TrainResult(
