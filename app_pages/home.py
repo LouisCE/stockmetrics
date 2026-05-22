@@ -319,9 +319,16 @@ and machine learning evaluation.
             "One commonly used platform is Trading 212 (T212), which is known "
             "for features such as commission-free trading, a user-friendly "
             "interface, fractional shares, a wide range of available assets, "
-            "interest on uninvested cash, and free ISA accounts in the UK.\n\n"
+            "interest on uninvested cash, free ISA accounts in the UK, and "
+            "multi-currency investing.\n\n"
+            "Trading 212 supports holding multiple currency balances, "
+            "including USD, EUR, and GBP. This can help users buy assets in "
+            "their native currency, such as buying US stocks with a USD "
+            "balance, instead of converting currency for every trade. If "
+            "currency is converted in-app, Trading 212 states that its "
+            "standard FX fee is 0.15%.\n\n"
             "However, this is **not financial advice**. Always do your own "
-            "research and choose a platform that suits your needs. "
+            "research and choose a platform that suits your needs."
         )
 
     with st.expander("🧱 Are there any other assets I can explore?"):
