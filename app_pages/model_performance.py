@@ -273,7 +273,9 @@ day-to-day predictions.
     )
     st.json(train_report.get("best_params", {}))
 
-    st.subheader("Hyperparameter search space")
+    st.divider()
+
+    st.header("Hyperparameter search space")
 
     st.write(
         "The final model tuning used six Random Forest hyperparameters, "
