@@ -56,7 +56,7 @@ with st.sidebar:
         "- Forecasts show scenarios and uncertainty, not guaranteed "
         "outcomes.\n"
         "- Do your own research; **your capital is at risk.**",
-        icon="⚠️"
+        icon="⚠️",
     )
 
 
@@ -68,9 +68,9 @@ def render_footer() -> None:
         "This site was developed by Louis Cowell-English as part of a "
         "Portfolio Project for educational use."
     )
-    st.markdown(
-        "View the project on "
-        "[GitHub](https://github.com/LouisCE/stockmetrics)"
+    st.link_button(
+        "View the project on GitHub",
+        "https://github.com/LouisCE/stockmetrics",
     )
 
 
