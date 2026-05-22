@@ -272,9 +272,10 @@ def render() -> None:
             line_returns(filtered_df, ticker),
             use_container_width=True,
         )
-        st.caption(
+        st.info(
             "Daily returns show day-to-day volatility. Short-term noise is "
-            "normal."
+            "normal.",
+            icon="ℹ️",
         )
 
     with tab3:
@@ -282,9 +283,10 @@ def render() -> None:
             hist_returns(filtered_df, ticker),
             use_container_width=True,
         )
-        st.caption(
+        st.info(
             "The distribution helps show which daily return outcomes were "
-            "most common and which were more extreme."
+            "most common and which were more extreme.",
+            icon="ℹ️",
         )
 
     render_asset_guide()
