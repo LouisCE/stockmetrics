@@ -89,6 +89,7 @@ def build_pipeline() -> Pipeline:
     return pipe
 
 
+# Hyperparameter grid for tuning. See get_param_grid() for details.
 def get_param_grid(fast: bool = False) -> Dict[str, list[object]]:
     """
     Hyperparameter options for search.
@@ -101,6 +102,7 @@ def get_param_grid(fast: bool = False) -> Dict[str, list[object]]:
         6 hyperparameters, each with 3 distinct acceptable values.
     """
     if fast:
+        # Small grid for quick iteration during notebook development.
         return {
             "model__n_estimators": [25, 50],
             "model__max_depth": [5, 10],
@@ -110,6 +112,10 @@ def get_param_grid(fast: bool = False) -> Dict[str, list[object]]:
             "model__max_leaf_nodes": [200],
         }
 
+    # Full grid for more thorough search with HalvingGridSearchCV.
+    # Six hyperparameters with three candidate values each.
+    # 3^6 for a total of 729 possible combinations before halving
+    # search reduction.
     return {
         "model__n_estimators": [100, 200, 300],
         "model__max_depth": [5, 10, None],
@@ -120,6 +126,8 @@ def get_param_grid(fast: bool = False) -> Dict[str, list[object]]:
     }
 
 
+# The main function that will be called by the
+# notebook and later by the Streamlit app.
 def train_and_tune(
     feat_df: pd.DataFrame,
     test_size: float = 0.2,
@@ -204,6 +212,8 @@ def train_and_tune(
     )
 
 
+# Utility function to save the trained model for later use
+# in the Streamlit app.
 def save_model(model: Pipeline, models_dir: Path, filename: str) -> Path:
     models_dir.mkdir(parents=True, exist_ok=True)
     path = models_dir / filename
