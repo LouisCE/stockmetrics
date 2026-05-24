@@ -33,8 +33,10 @@ models/*
 !models/model_card_v2.md
 !models/stock_forecast_model_v2.pkl
 
-# Track evaluation artefacts, ignore only huge prediction CSVs
+# Ignore earlier row-level prediction exports
 outputs/v1/reports/predictions_train_v1.csv
 outputs/v1/reports/predictions_test_v1.csv
-outputs/v2/reports/predictions_train_v2.csv
-outputs/v2/reports/predictions_test_v2.csv
+
+# Keep v2 prediction exports for reproducible evaluation evidence
+!outputs/v2/reports/predictions_train_v2.csv
+!outputs/v2/reports/predictions_test_v2.csv
