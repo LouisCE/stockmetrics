@@ -27,13 +27,20 @@ data/processed/v2/*
 !data/processed/v2/clean_prices_v2_latest.csv
 !data/processed/v2/features_v2_latest.csv
 
+# Artefact strategy:
+# v1 = lightweight iteration evidence
+# v2 = full reproducibility evidence for the deployed dashboard
+
 # Model files and other generated outputs
+# Keep model cards for iteration evidence, and keep the v2 model used
+# by the deployed dashboard. Older model binaries can be recreated.
 models/*
 !models/model_card_v1.md
 !models/model_card_v2.md
 !models/stock_forecast_model_v2.pkl
 
-# Ignore earlier row-level prediction exports
+# Ignore earlier row-level prediction exports to avoid unnecessary
+# repository bloat. v2 retains full reproducibility evidence.
 outputs/v1/reports/predictions_train_v1.csv
 outputs/v1/reports/predictions_test_v1.csv
 
