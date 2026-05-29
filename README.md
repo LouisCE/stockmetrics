@@ -972,6 +972,34 @@ These findings reinforce why StockMetrics presents long-term outcomes as probabi
 
 ---
 
+### Hypothesis Validation Summary
+
+The project hypotheses were validated using quantitative analysis from EDA, portfolio metrics, drawdown analysis, volatility statistics, correlation analysis, and machine learning evaluation metrics.
+
+The statistical and quantitative evidence included:
+
+- annualised return comparisons
+- annualised volatility comparisons
+- rolling volatility analysis
+- maximum drawdown calculations
+- daily return distributions
+- correlation analysis
+- chronological train/test ML evaluation metrics, including R², MAE, and RMSE
+- actual-vs-predicted plots and residual analysis
+
+These measures were used to evaluate concentration risk, volatility behaviour, diversification effects, drawdown severity, and predictive model performance.
+
+| Hypothesis | Validation Method | Statistical / Quantitative Evidence | Conclusion |
+|---|---|---|---|
+| Hypothesis 1: Concentrated portfolios are riskier but may offer greater rewards. | Compared portfolio-level returns, volatility, and drawdown across the four risk-based plans. | Portfolio metrics and drawdown comparisons showed that more concentrated plans produced a bumpier risk profile than the diversified ETF-based plan. | Validated. Concentration increased risk exposure and supported the educational message that higher potential reward usually comes with higher volatility and drawdown risk. |
+| Hypothesis 2: Technology stocks have higher volatility than diversified ETFs. | Compared daily return distributions, box plots, and annualised volatility across individual tickers. | The EDA return distribution, box plot, and volatility summary showed wider return variation for technology stocks than for the broad ETF holdings. | Validated. The selected technology stocks generally showed higher volatility than the diversified ETF options. |
+| Hypothesis 3: Diversified portfolios have smaller drawdowns than concentrated portfolios. | Compared maximum drawdown across assets and portfolio plans. | Drawdown analysis showed that diversified ETF exposure reduced concentration risk compared with individual technology stock exposure and higher-risk portfolio plans. | Validated. Diversification helped reduce the severity of portfolio declines. |
+| Hypothesis 4: Short-horizon return prediction is inherently difficult. | Evaluated the supervised regression model using chronological train/test split, R², MAE, RMSE, residual plots, and actual-vs-predicted plots. | The final model achieved a very small positive Test R² of approximately 0.000740. This met the business case threshold of Test R² > 0, but showed that predictive signal was extremely weak. | Validated. The model captured limited generalisable signal, but the weak result supports the conclusion that next-day market prediction is highly uncertain. |
+
+Overall, the hypotheses were successfully validated because each conclusion is supported by quantitative evidence rather than visual judgement alone. The results also support the dashboard's educational purpose: helping beginner investors understand volatility, diversification, drawdowns, uncertainty, and the limitations of short-term prediction.
+
+---
+
 ## CRISP-DM Process
 
 StockMetrics follows the CRISP-DM (Cross Industry Standard Process for Data Mining) framework to structure the data science workflow.
