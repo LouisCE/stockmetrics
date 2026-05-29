@@ -1002,7 +1002,37 @@ Overall, the hypotheses were successfully validated because each conclusion is s
 
 ## CRISP-DM Process
 
-StockMetrics follows the CRISP-DM (Cross Industry Standard Process for Data Mining) framework to structure the data science workflow.
+StockMetrics follows the CRISP-DM (Cross Industry Standard Process for Data Mining) methodology to structure the full data science workflow, covering Business Understanding, Data Understanding, Data Preparation, Modelling, Evaluation, and Dashboard Communication through a reproducible notebook pipeline and Streamlit application.
+
+---
+
+### Pipeline Architecture
+
+```text
+Yahoo Finance Endpoint
+        ↓
+01_data_collection.ipynb
+        ↓
+02_data_cleaning.ipynb
+        ↓
+03_eda.ipynb
+        ↓
+04_feature_engineering.ipynb
+        ↓
+05_model_training.ipynb
+        ↓
+06_model_evaluation.ipynb
+        ↓
+Versioned Outputs + Saved Model
+        ↓
+Streamlit Dashboard
+```
+
+---
+
+### CRISP-DM Stage Mapping
+
+This pipeline separates data collection, preparation, exploratory analysis, modelling, evaluation, and deployment into clearly reproducible CRISP-DM stages.
 
 | CRISP-DM Stage | Implementation |
 |---|---|
@@ -1020,7 +1050,7 @@ Each stage produces reproducible outputs that are saved in **versioned project f
 - `data/processed/<version>/`
 - `outputs/<version>/`
 
-This structure ensures that datasets, models and evaluation artefacts remain reproducible across project iterations.
+This structure helps ensure that datasets, models, and evaluation artefacts remain reproducible across project iterations.
 
 ---
 
