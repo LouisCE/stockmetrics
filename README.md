@@ -404,6 +404,8 @@ data/processed/<version>/
 outputs/<version>/
 ```
 
+This versioned folder structure ensures reproducibility, traceability, and clear separation between experimental artefacts and the current deployed dashboard assets.
+
 Each processing stage saves both:
 
 - timestamped archive files
@@ -416,6 +418,14 @@ data/processed/v2/clean_prices_v2_latest.csv
 ```
 
 This design allows experiments to be repeated while keeping a clear audit trail.
+
+> [!NOTE]  
+> StockMetrics retains both **v1** and **v2** as part of the project’s development history, but **v2 is the current production version used by the deployed dashboard**.
+>
+> - **v1** was an earlier iteration that used the accumulating ETF share classes (`VWRP.L` and `VUAG.L`).
+> - **v2** replaced these with the distributing ETF share classes (`VWRL.L` and `VUSA.L`) to provide a longer shared historical window and improve comparability across the included assets.
+>
+> Retaining `v1` provides evidence of iteration and experimentation during development, while `v2` is the current version used for the submitted dashboard, model artefacts, and reproducible evaluation outputs.
 
 ---
 
