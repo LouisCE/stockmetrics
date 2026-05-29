@@ -221,7 +221,7 @@ return_1d.shift(-1)
 
 This model is not used to produce trading signals. Instead, it demonstrates how machine learning can attempt to detect patterns in financial time-series data.
 
-The model output is used as an educational indicator of short-term market uncertainty, and the final evaluation showed a small positive test-set R², meaning the model met the project business case while still highlighting how weak short-term predictive signal can be in finance.
+The model output is used as an educational indicator of short-term market uncertainty, and the final evaluation showed a small positive test-set R². This meant the model met the project business case while still highlighting how weak short-term predictive signal can be in finance.
 
 Implemented in:
 
@@ -281,7 +281,7 @@ The Model Performance page displays:
 - evaluation plots
 - feature importance
 
-This ensures transparency regarding both the model’s success against the business case and the fact that the predictive signal remains weak.
+This ensures transparency regarding both the model’s success against the business case and the weakness of the predictive signal.
 
 Implemented in:
 
