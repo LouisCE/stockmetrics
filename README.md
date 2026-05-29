@@ -709,6 +709,8 @@ Portfolio plans that concentrate capital in a smaller number of high-growth comp
 
 This hypothesis tests whether portfolio plans that allocate more weight to individual technology stocks exhibit higher volatility and potentially higher returns than broadly diversified ETF-based plans.
 
+---
+
 #### Validation approach
 
 To test this hypothesis:
@@ -717,6 +719,8 @@ To test this hypothesis:
 - Historical daily returns were calculated for each asset.
 - Portfolio return series were simulated using weighted daily returns.
 - Portfolio volatility and cumulative performance were compared across the four plans.
+
+---
 
 #### Validation metrics
 
@@ -729,6 +733,8 @@ This hypothesis was assessed using:
 
 The hypothesis was considered supported if the more concentrated plans showed higher volatility and deeper drawdowns than the diversified plans, while also showing stronger upside during favourable market periods.
 
+---
+
 #### Evidence generated in
 
 ```
@@ -737,9 +743,11 @@ src/portfolio.py
 jupyter_notebooks/03_eda.ipynb
 ```
 
+---
+
 #### Conclusion
 
-**Status:** Supported
+**Status:** Supported by the analysis.
 
 The historical portfolio simulations show that more concentrated plans generally exhibit higher volatility and larger drawdowns compared with diversified plans.
 
@@ -747,17 +755,23 @@ However, these plans may also achieve higher cumulative returns during strong ma
 
 This supports the hypothesis that increased concentration can amplify both potential gains and potential losses.
 
+---
+
 #### Business Implications
 
-Beginner investors should favour diversified portfolio structures when prioritising risk reduction, as increased concentration leads to higher volatility and deeper drawdowns.
+The findings suggest that diversified portfolio structures may reduce downside risk for beginner investors, as increased concentration leads to higher volatility and deeper drawdowns.
 
 This insight directly informs the design of the portfolio plans in the dashboard, where users can visually compare how increasing concentration impacts both potential returns and downside risk.
+
+These findings support the use of diversification-focused portfolio structures for beginner investors who may be less comfortable with large short-term drawdowns.
 
 ---
 
 ### Hypothesis 2: Technology stocks exhibit higher volatility than diversified ETFs
 
 Large technology companies are often perceived as more volatile than diversified index funds because they are exposed to company-specific risks and investor sentiment.
+
+---
 
 #### Validation approach
 
@@ -767,6 +781,8 @@ To test this hypothesis:
 - Return distributions were visualised using histograms and boxplots.
 - Rolling volatility (30-day standard deviation of returns) was analysed.
 - Volatility statistics were compared across ETFs and technology stocks.
+
+---
 
 #### Validation metrics
 
@@ -778,6 +794,8 @@ This hypothesis was assessed using:
 
 The hypothesis was considered supported if the individual technology stocks showed consistently wider return distributions and higher volatility statistics than VWRL.L and VUSA.L.
 
+---
+
 #### Evidence generated in
 
 ```
@@ -788,11 +806,13 @@ Key plots produced include:
 
 - Daily return distributions
 - Boxplots comparing volatility across tickers
-- Rolling volatility time series
+- Rolling volatility time-series
+
+---
 
 #### Conclusion
 
-**Status:** Supported
+**Status:** Supported by the analysis.
 
 The EDA results show that individual technology stocks generally exhibit higher volatility and wider return distributions than diversified ETFs such as VWRL.L and VUSA.L.
 
@@ -800,11 +820,15 @@ As expected, a greater proportion of Tesla in particular correlated with greater
 
 This supports the hypothesis that concentration in individual equities leads to more volatile price behaviour.
 
+---
+
 #### Business Implications
 
-Beginner investors should expect individual technology stocks to experience larger short-term price swings compared to diversified ETFs.  
+Beginner investors should expect individual technology stocks to experience larger short-term price swings compared to diversified ETFs.
 
 This reinforces the importance of diversification when managing risk and helps users interpret volatility observed in the Stock Explorer dashboard.
+
+These findings reinforce the importance of volatility awareness when investing in concentrated technology-focused assets.
 
 ---
 
@@ -814,6 +838,8 @@ Diversification across many companies is widely considered a mechanism for reduc
 
 This hypothesis tests whether portfolios with broader diversification demonstrate smaller historical drawdowns than more concentrated portfolios.
 
+---
+
 #### Validation approach
 
 To test this hypothesis:
@@ -822,6 +848,8 @@ To test this hypothesis:
 - Portfolio plans were constructed using predefined allocation weights.
 - Portfolio equity curves were simulated using cumulative returns.
 - Maximum drawdowns were computed for each portfolio plan.
+
+---
 
 #### Validation metrics
 
@@ -833,6 +861,8 @@ This hypothesis was assessed using:
 
 The hypothesis was considered supported if the diversified plans showed smaller peak-to-trough declines than the more concentrated plans.
 
+---
+
 #### Evidence generated in
 
 ```
@@ -841,19 +871,25 @@ app_pages/portfolio_plans.py
 src/portfolio.py
 ```
 
+---
+
 #### Conclusion
 
-**Status:** Supported
+**Status:** Supported by the analysis.
 
 The diversified portfolio plans generally show smaller historical drawdowns compared with more concentrated plans that include higher allocations to individual technology stocks.
 
 This supports the hypothesis that diversification can reduce downside risk, although it may also reduce potential upside.
+
+---
 
 #### Business Implications
 
 Diversification reduces downside risk and should be considered by beginner investors seeking more stable long-term outcomes.
 
 This insight supports the inclusion of low-risk portfolio plans in the dashboard and helps users understand why diversified funds are often recommended as a starting point.
+
+These findings support the use of diversified index-based investing approaches for users prioritising long-term stability and reduced downside risk.
 
 ---
 
@@ -863,6 +899,8 @@ Financial markets are known to be noisy and difficult to predict over short time
 
 This hypothesis evaluates whether a machine learning model can predict **next-day stock returns** using engineered historical features, while recognising that any predictive signal is likely to be weak.
 
+---
+
 #### Validation approach
 
 To test this hypothesis:
@@ -871,6 +909,8 @@ To test this hypothesis:
 - A chronological train/test split was used to prevent data leakage.
 - Model performance was evaluated using R², MAE, and RMSE.
 - Actual vs predicted plots and residual analysis were generated.
+
+---
 
 #### Validation metrics
 
@@ -884,6 +924,8 @@ This hypothesis was assessed using:
 
 The hypothesis was considered supported if the model either failed to generalise or achieved only a very weak positive Test R², indicating that short-horizon prediction remains highly difficult even when some signal is present.
 
+---
+
 #### Evidence generated in
 
 ```
@@ -891,9 +933,11 @@ jupyter_notebooks/05_model_training.ipynb
 jupyter_notebooks/06_model_evaluation.ipynb
 ```
 
+---
+
 #### Conclusion
 
-**Status:** Supported with caution
+**Status:** Supported with caution, as the final model achieved a very weak positive Test R².
 
 The final model did achieve the business case success criterion of **Test R² > 0** on unseen data, but only by a very small margin.
 
@@ -908,19 +952,23 @@ This supports the hypothesis that **short-horizon return prediction remains inhe
 
 For this reason, StockMetrics does not use the machine learning model to generate long-horizon forecasts. Instead, it uses historical trend and volatility to produce scenario ranges, reinforcing uncertainty awareness and long-term investing principles.
 
+---
+
 #### Business Implications
 
-Short-term market prediction should not be relied upon for investment decision-making due to the extremely weak predictive signal.  
+Short-term market prediction should not be relied upon for investment decision-making due to the extremely weak predictive signal.
 
 This reinforces the educational positioning of the dashboard, where the ML model is used to demonstrate uncertainty rather than provide actionable trading signals, and supports the use of scenario-based forecasting for long-term planning.
 
-**Final model result**
+**Current model result**
 
 - **Predictive task:** next-day return regression
 - **Success criterion:** Test R² > 0
-- **Final Test R²:** 0.000740
+- **Current Test R²:** 0.000740
 - **Outcome:** successful against the business case, but with a very weak predictive signal
 - **How the dashboard uses it:** as an educational short-horizon signal only, not as trading advice and not as the driver of long-horizon scenario ranges
+
+These findings reinforce why StockMetrics presents long-term outcomes as probabilistic scenario ranges rather than precise short-term predictions.
 
 ---
 
