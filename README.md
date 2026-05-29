@@ -462,6 +462,8 @@ Financial market data contains several inherent limitations.
 
 These limitations are explicitly acknowledged in the project documentation and dashboard explanations to ensure responsible interpretation of results.
 
+Financial markets are also influenced by unpredictable macroeconomic events, policy decisions, geopolitical developments, and investor sentiment, meaning historical performance cannot reliably guarantee future outcomes.
+
 ---
 
 ## Epics and User Stories
