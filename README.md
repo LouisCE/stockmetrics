@@ -485,7 +485,7 @@ This Epic is linked to **Milestone 1**.
 
 These stories are implemented across the six `jupyter_notebooks` and support the full CRISP-DM data science workflow.
 
-| User | User Story | Benefit | Implemented In |
+| Target | Expectation | Outcome | Implemented In |
 |---|---|---|---|
 | As a data scientist | I want to collect historical stock data | so the dataset can be used for analysis and modelling. | `jupyter_notebooks/01_data_collection.ipynb` |
 | As a data analyst | I want to clean and prepare the dataset | so the data is suitable for analysis and modelling. | `jupyter_notebooks/02_data_cleaning.ipynb` |
@@ -502,7 +502,7 @@ This Epic is linked to **Milestone 2**.
 
 This Epic covers the reusable modules in `src/`, which separate project logic from the notebooks and Streamlit dashboard pages.
 
-| User | User Story | Benefit | Implemented In |
+| Target | Expectation | Outcome | Implemented In |
 |---|---|---|---|
 | As a developer | I want a central configuration module | so paths, tickers, versions, display labels, and plan descriptions remain consistent across the project. | `src/config.py` |
 | As a data scientist | I want reusable data collection helpers | so historical Yahoo Finance data can be downloaded and saved consistently from the endpoint. | `src/data_collection.py` |
@@ -520,106 +520,134 @@ This Epic covers the reusable modules in `src/`, which separate project logic fr
 
 This Epic is linked to **Milestone 3**.
 
-This Epic covers the main Streamlit entry point in `app.py`, including page routing, sidebar navigation, and consistent dashboard structure.
+This Epic covers the main Streamlit entry point in `app.py`, including branding, navigation, disclaimer messaging, routing, and the persistent footer.
 
-| User | User Story | Benefit | Implemented In |
+| Target | Expectation | Outcome | Implemented In |
 |---|---|---|---|
-| As a beginner investor | I want a clear sidebar navigation menu | so I can move easily between the dashboard pages. | `app.py` |
-| As a beginner investor | I want all dashboard pages routed from one main app entry point | so navigation feels consistent and easy to use. | `app.py` |
+| As a beginner investor | I want the browser tab to show the StockMetrics name and chart icon | so the dashboard feels branded, professional, and easy to identify. | `app.py` |
+| As a beginner investor | I want to see the StockMetrics title and tagline | so I immediately understand the dashboard purpose. | `app.py` |
+| As a beginner investor | I want a clear sidebar navigation menu | so I can move easily between all dashboard pages. | `app.py` |
+| As a beginner investor | I want each navigation option to load the correct page | so the app feels reliable and consistent. | `app.py` |
+| As a beginner investor | I want a visible educational disclaimer | so I understand the dashboard is not financial advice. | `app.py` |
+| As a beginner investor | I want a persistent footer with attribution and GitHub access | so I can identify the project source and repository. | `app.py` |
 
 ---
 
-### Epic - User Onboarding and Educational Content
+### Epic - Home Page and User Onboarding
 
 This Epic is linked to **Milestone 3**.
 
 This Epic covers the `app_pages/home.py` page, which introduces StockMetrics and provides beginner-friendly investing guidance.
 
-| User | User Story | Benefit | Implemented In |
+| Target | Expectation | Outcome | Implemented In |
 |---|---|---|---|
-| As a beginner investor | I want a simple homepage explaining what StockMetrics does and who it is for | so I can quickly understand the app. | `app_pages/home.py` |
-| As a beginner investor | I want beginner-friendly investing principles | so I can understand the basic ideas behind long-term investing. | `app_pages/home.py` |
-| As a beginner investor | I want a glossary in plain English | so I can understand unfamiliar investing terms. | `app_pages/home.py` |
-| As a beginner investor | I want FAQs in plain English | so I can understand key concepts used throughout the dashboard. | `app_pages/home.py` |
-| As a beginner investor | I want an introduction to the four risk-based plans | so I can understand the portfolio options before comparing them. | `app_pages/home.py` |
-| As a beginner investor | I want clear educational disclaimers | so I understand that StockMetrics is not financial advice. | `app_pages/home.py` |
+| As a beginner investor | I want a welcoming title and inspirational quote | so I feel motivated to begin my investing journey. | `app_pages/home.py` |
+| As a beginner investor | I want a clear Home page introduction and hero image | so I understand that StockMetrics helps explain risk, returns, and uncertainty without overwhelming me. | `app_pages/home.py` |
+| As a beginner investor | I want the app purpose and audience explained | so I understand how StockMetrics helps beginners in more detail. | `app_pages/home.py` |
+| As an assessor | I want a project validation summary on the dashboard | so I can quickly see how business requirements and hypotheses are supported by dashboard evidence. | `app_pages/home.py` |
+| As a beginner investor | I want core investing principles displayed | so I can learn the basic ideas of starting early, thinking long-term, and diversifying. | `app_pages/home.py` |
+| As a beginner investor | I want a plain-English glossary | so I can understand key investing terms. | `app_pages/home.py` |
+| As a beginner investor | I want expandable FAQs | so I can learn answers to common beginner investing questions. | `app_pages/home.py` |
+| As a beginner investor | I want a preview of the four risk-based plans | so I understand the available portfolio styles before comparing them. | `app_pages/home.py` |
 
 ---
 
-### Epic - Asset Exploration and Market Insights
+### Epic - Stock Explorer and Asset Education
 
-This Epic is linked to **Milestone 3**.
+This Epic is linked to **Milestone 4**.
 
-This Epic covers the `app_pages/stock_explorer.py` page, which allows users to explore historical asset behaviour.
+This Epic covers the `app_pages/stock_explorer.py` page, which allows users to explore selected assets using historical price and return data.
 
-| User | User Story | Benefit | Implemented In |
+| Target | Expectation | Outcome | Implemented In |
 |---|---|---|---|
-| As a beginner investor | I want to explore a curated list of stocks and ETFs | so I do not get overwhelmed by too many choices. | `app_pages/stock_explorer.py` |
-| As a beginner investor | I want to select an asset and date range | so I can focus on a time period that matters to me. | `app_pages/stock_explorer.py` |
-| As a beginner investor | I want summary information for the selected asset and period | so I can quickly understand the data being shown. | `app_pages/stock_explorer.py` |
-| As a beginner investor | I want interactive price, return, and distribution charts | so I can understand historical performance and volatility visually. | `app_pages/stock_explorer.py`, `src/viz.py` |
-| As a beginner investor | I want plain-English explanations of the included assets | so I understand what the companies and funds are. | `app_pages/stock_explorer.py` |
-| As a beginner investor | I want educational captions alongside the charts | so I understand that historical data is for learning, not trading signals. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want a clear Stock Explorer introduction and hero image | so I understand the purpose of the page. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want to select an asset from a curated dropdown | so I can explore a specific stock or ETF without being overwhelmed. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want to select a date range | so I can focus on a specific time period. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want key metrics for my selected asset and period | so I understand the data scope being shown. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want an interactive price chart | so I can visualise historical price movement. | `app_pages/stock_explorer.py`, `src/viz.py` |
+| As a beginner investor | I want an interactive daily returns chart | so I can understand short-term movement and volatility. | `app_pages/stock_explorer.py`, `src/viz.py` |
+| As a beginner investor | I want an interactive return distribution chart | so I can see common and extreme daily return outcomes. | `app_pages/stock_explorer.py`, `src/viz.py` |
+| As a beginner investor | I want educational chart captions and messages | so I understand that historical data is for learning, not trading signals. | `app_pages/stock_explorer.py` |
+| As a beginner investor | I want expandable asset explanations | so I understand what each included company or ETF represents. | `app_pages/stock_explorer.py` |
 
 ---
 
 ### Epic - Predictor and Scenario Guidance
 
-This Epic is linked to **Milestone 3**.
+This Epic is linked to **Milestone 4**.
 
-This Epic covers the `app_pages/predictor.py` page, which separates short-term ML estimation from long-term scenario ranges.
+This Epic covers the `app_pages/predictor.py` page, which separates short-term machine learning output from long-term historical scenario ranges.
 
-| User | User Story | Benefit | Implemented In |
+| Target | Expectation | Outcome | Implemented In |
 |---|---|---|---|
-| As a beginner investor | I want to select an asset, forecast horizon, and trend window | so I can explore how assumptions affect long-term scenarios. | `app_pages/predictor.py` |
-| As a beginner investor | I want to see the latest price and date for the selected asset | so I have context for the forecast output. | `app_pages/predictor.py` |
-| As a beginner investor | I want a separate next-day machine learning estimate | so I can distinguish short-term ML output from long-term scenarios. | `app_pages/predictor.py` |
-| As a beginner investor | I want optimistic, realistic, and pessimistic scenario ranges | so I can understand uncertainty instead of relying on one “magic number”. | `app_pages/predictor.py`, `src/forecast.py` |
-| As a beginner investor | I want beginner-friendly interpretation and disclaimers | so I understand that forecasts and ML outputs are educational, not financial advice. | `app_pages/predictor.py` |
+| As a beginner investor | I want a clear Predictor introduction and hero image | so I understand the purpose of the forecasting page. | `app_pages/predictor.py` |
+| As a beginner investor | I want the page to explain short-term ML and long-term scenarios separately | so I understand that they are different types of outputs. | `app_pages/predictor.py` |
+| As a beginner investor | I want to select an asset | so I can generate outputs for the investment I am interested in. | `app_pages/predictor.py` |
+| As a beginner investor | I want to select a forecast horizon | so I can compare different long-term timeframes. | `app_pages/predictor.py` |
+| As a beginner investor | I want to select a trend window | so I can control how much historical data informs the scenario ranges. | `app_pages/predictor.py` |
+| As a beginner investor | I want scenario assumption metrics for the selected asset | so I understand the latest price, date, trend window, and drift used in the scenario calculation. | `app_pages/predictor.py`, `src/forecast.py` |
+| As a beginner investor | I want a separate next-day ML estimate with reproducibility context and plain-English interpretation | so I can understand the short-term model output without confusing it with the long-term scenarios. | `app_pages/predictor.py`, `src/modelling.py` |
+| As a beginner investor | I want a clear ML risk warning | so I understand the next-day estimate is educational and not a trading instruction. | `app_pages/predictor.py` |
+| As a beginner investor | I want a beginner-friendly explanation of short-term prediction uncertainty | so I understand why long-term thinking and scenario planning are more useful than day-to-day prediction. | `app_pages/predictor.py` |
+| As a beginner investor | I want pessimistic, realistic, and optimistic scenario end prices | so I understand uncertainty instead of relying on one fixed prediction. | `app_pages/predictor.py`, `src/forecast.py` |
+| As a beginner investor | I want clear scenario explanations and warnings | so I understand the outputs are educational estimates, not guaranteed outcomes. | `app_pages/predictor.py` |
 
 ---
 
-### Epic - Portfolio Planning and Risk Comparison
+### Epic - Portfolio Plans and Risk Comparison
 
-This Epic is linked to **Milestone 3**.
+This Epic is linked to **Milestone 5**.
 
-This Epic covers the `app_pages/portfolio_plans.py` page, which helps users compare diversification, concentration, and risk.
+This Epic covers the `app_pages/portfolio_plans.py` page, which helps users compare risk-based portfolio plans using historical metrics and visualisations.
 
-| User | User Story | Benefit | Implemented In |
+| Target | Expectation | Outcome | Implemented In |
 |---|---|---|---|
-| As a beginner investor | I want four risk-based portfolio plans with clear descriptions | so I can compare different risk styles. | `app_pages/portfolio_plans.py`, `src/portfolio.py` |
-| As a beginner investor | I want the selected plan to be clearly highlighted | so I can see which plan I am currently reviewing. | `app_pages/portfolio_plans.py` |
-| As a beginner investor | I want performance and risk metrics for each plan | so I can compare return, volatility, and drawdown. | `app_pages/portfolio_plans.py`, `src/portfolio.py` |
-| As a beginner investor | I want to see how £1 would have grown historically | so I can visualise long-term differences between plans. | `app_pages/portfolio_plans.py` |
-| As a beginner investor | I want to view the selected plan’s allocation table | so I can clearly see which assets make up the plan. | `app_pages/portfolio_plans.py` |
-| As a beginner investor | I want educational risk messaging and disclaimers | so I understand that the plans are for comparison, not personal financial advice. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want a clear Portfolio Plans introduction and hero image | so I understand the purpose of the page. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want the relative risk labels explained | so I understand that the plans differ by concentration and volatility. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want to select a portfolio plan | so I can explore a specific risk style. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want the selected plan highlighted | so I know which plan I am currently viewing. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want the four plans displayed visually | so I can compare the plan styles quickly. | `app_pages/portfolio_plans.py`, `src/portfolio.py` |
+| As a beginner investor | I want historical performance and risk metrics | so I can compare return, volatility, and drawdown. | `app_pages/portfolio_plans.py`, `src/portfolio.py` |
+| As a beginner investor | I want an explanation linking the chart to investing principles | so I understand compounding, staying invested, and diversification. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want a growth of £1 chart | so I can visualise how the selected plan performed historically. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want a selected plan allocation table with weight explanations and educational guidance | so I can understand the assets, percentages, and non-recommendation context for the selected plan. | `app_pages/portfolio_plans.py`, `src/portfolio.py` |
+| As a beginner investor | I want simple decision guidance if I still feel unsure | so I have a beginner-friendly fallback explanation without receiving personal financial advice. | `app_pages/portfolio_plans.py` |
+| As a beginner investor | I want an encouraging final message | so I feel confident that I have taken a positive first step in understanding investing. | `app_pages/portfolio_plans.py` |
 
 ---
 
-### Epic - Model Transparency and Evaluation
+### Epic - Model Performance and Transparency
 
-This Epic is linked to **Milestone 3**.
+This Epic is linked to **Milestone 5**.
 
-This Epic covers the `app_pages/model_performance.py` page, which presents model performance, evaluation evidence, and business-case transparency.
+This Epic covers the `app_pages/model_performance.py` page, which presents model performance, evaluation evidence, hyperparameters, plots, feature importance, and educational interpretation.
 
-| User | User Story | Benefit | Implemented In |
+| Target | Expectation | Outcome | Implemented In |
 |---|---|---|---|
-| As a technical reviewer | I want the model business-case result displayed clearly | so I can quickly see whether the model met its stated success rule. | `app_pages/model_performance.py` |
-| As a technical reviewer | I want to view train and test evaluation metrics | so I can assess model performance more accurately. | `app_pages/model_performance.py` |
-| As a technical reviewer | I want beginner-friendly interpretation of the model results | so the technical outputs are understandable in context. | `app_pages/model_performance.py` |
-| As a technical reviewer | I want to view the best hyperparameters | so I can inspect the final tuned model settings. | `app_pages/model_performance.py` |
-| As a technical reviewer | I want to view evaluation plots and feature importance | so I can visually assess model behaviour and influential features. | `app_pages/model_performance.py` |
-| As a technical reviewer | I want clear educational disclaimers | so the project communicates that the model is not financial advice. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want a clear Model Performance introduction and hero image | so I understand the purpose of the page. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want the next-day prediction task explained | so I understand what the model is trying to predict. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want the business case result displayed clearly | so I can see whether the model met its success rule. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want model reproducibility explained | so I understand the displayed result reflects the saved dataset and model artefacts for this project version. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want train and test evaluation metrics displayed | so I can assess model performance. | `app_pages/model_performance.py`, `src/evaluation.py` |
+| As a technical reviewer | I want plain-English explanations of R², MAE, and RMSE | so the metrics are understandable in context. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want the R² success rule explained | so I understand why a small positive signal can still support the business case. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want the model limitations explained | so I understand why short-term prediction is difficult. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want the best hyperparameters displayed | so I can inspect the tuned model settings. | `app_pages/model_performance.py`, `src/modelling.py` |
+| As a technical reviewer | I want the full hyperparameter search space displayed | so I can verify that the final model tuning used six hyperparameters with three values each. | `app_pages/model_performance.py`, `src/modelling.py` |
+| As a technical reviewer | I want evaluation plots displayed | so I can visually assess model behaviour and prediction errors. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want EDA plot evidence displayed | so I can connect the dashboard evidence to the project hypotheses around volatility, diversification, and concentration risk. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want feature importance displayed | so I can see which features influenced the model most. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want a final ML model summary | so I can understand the overall model conclusion. | `app_pages/model_performance.py` |
 
 ---
 
 ### Epic - Deployment and Application Availability
 
-This Epic is linked to **Milestone 4**.
+This Epic is linked to **Milestone 6**.
 
 This Epic covers deployment configuration, hosted availability, and the steps required to make the finished dashboard publicly accessible on **Render**.
 
-| User | User Story | Benefit |
+| Target | Expectation | Outcome |
 |---|---|---|
 | As a user | I want the StockMetrics dashboard deployed online | so I can access the application from a live public URL. |
 | As a developer | I want the application deployed using Render | so the dashboard can be reliably hosted and accessed by users. |
@@ -628,11 +656,11 @@ This Epic covers deployment configuration, hosted availability, and the steps re
 
 ### Epic - Dashboard Polish and README Documentation
 
-This Epic is linked to **Milestone 5**.
+This Epic is linked to **Milestone 7**.
 
 This Epic covers presentation of the live dashboard and `README.md` documentation, including the dataset description, hypothesis validation, CRISP-DM documentation, project rationale, machine learning business case, dashboard design explanation, and Agile traceability, ensuring the submission is clear, structured, and aligned with assessment requirements.
 
-| User | User Story | Benefit |
+| Target | Expectation | Outcome |
 |---|---|---|
 | As a user | I want the dashboard to be polished, accessible, and beginner-friendly | so the deployed application feels professional and easy to use. |
 | As an assessor | I want the dataset source, structure, and variables clearly documented | so I can verify the data used is appropriate and well understood. |
@@ -647,11 +675,11 @@ This Epic covers presentation of the live dashboard and `README.md` documentatio
 
 ### Epic - TESTING Documentation and Validation
 
-This Epic is linked to **Milestone 6**.
+This Epic is linked to **Milestone 8**.
 
 This Epic covers `TESTING.md` documentation, including code validation, automated testing covered in `tests/`, manual functional testing, widget interaction testing and evidence of bug tracking.
 
-| User | User Story | Benefit |
+| Target | Expectation | Outcome |
 |---|---|---|
 | As an assessor | I want **PEP 8** validation evidence | so I can assess technical quality. |
 | As a developer | I want automated tests carried out with **Pytest** | so the core project logic is reliable. |
