@@ -1030,6 +1030,54 @@ Streamlit Dashboard
 
 ---
 
+### CRISP-DM Pipeline Flowchart
+
+The following Mermaid flowchart visualises the end-to-end CRISP-DM pipeline used in StockMetrics, from Yahoo Finance endpoint collection through data preparation, exploratory analysis, feature engineering, machine learning evaluation, and final dashboard deployment.
+
+```mermaid
+flowchart TD
+
+    A[Yahoo Finance Endpoint] --> B[01 Data Collection]
+    B --> C[data/raw/v2]
+
+    C --> D[02 Data Cleaning]
+    D --> E[data/processed/v2]
+
+    E --> F[03 Exploratory Data Analysis]
+    E --> G[04 Feature Engineering]
+
+    G --> H[features_v2_latest.csv]
+
+    H --> I[05 Model Training]
+    I --> J[RandomForestRegressor Pipeline]
+    I --> K[Saved Model .pkl]
+    I --> L[Training Reports]
+
+    K --> M[06 Model Evaluation]
+    M --> N[Evaluation Metrics]
+    M --> O[Evaluation Plots]
+    M --> P[Feature Importance]
+
+    E --> Q[Streamlit Dashboard]
+
+    Q --> R[Home Page]
+    Q --> S[Stock Explorer]
+    Q --> T[Predictor]
+    Q --> U[Portfolio Plans]
+    Q --> V[Model Performance]
+
+    E --> W[Monte Carlo Forecasting]
+    W --> T
+```
+
+![screenshot](documentation/mermaid_flowchart.png)
+![screenshot](documentation/mermaid_flowchart_2.png)
+
+**Interactive Mermaid source:**
+[View in Mermaid Live Editor](http://mermaid.live/edit#pako:eNptk9ty2jAQhl9Fo2tCHHOKfdGZhEOgKa0DaTOtYDJbezGayJJHkkkok3evsIHgTn1jS__37653pR2NVYI0pCuhXuM1aEseBwu5kMQ9N-wnrJUiIy5BxkiGMskVl3ZJLi4-kVvmXZEBWCB9JQTGliu5rIy3JdBniVMvNbxebvzlMWi_1AbM8w9mgSC5TA_WQSkPK2uuVYzGYHIeYFgSI-a1yPAtF0qDVXpbBbuRILaGm-U5ese8Nhkh2ELv_yHlElFXGSvsrsTGbFUx5nnjPwuwaGwzNpsTNi6xCfM6ZOqaJsijBn5W-qTUP7MZyERlI-Ui2Rmm7mWUJhHPUbjUNfiezWGDySFeM38RNfkLO6YgM8yVtuZUzH0JTJnXPZiHGxAFnA1hWhJf2YdApmg1j00N-HYORELZuhyxY-cm2b6C_UH4ZxQPbG41Qia4dVMw698KdHJiHkpmxsYqQxJBemxAtT93XhW_HCaJuiY-skhjwmM339r-dxa5SlZKcOUqBmlq6g9WNSRCvVI6-0_BT46QFkkftHCn2-WNwdiPQT5V2WmDpponNLS6wAbN0AXbL-lujy2oXWOGCxq6zwT0y4Iu5Lvz5CB_KZUdbVoV6ZqGKxDGrYrcHWwccEg1nBAorJpvZXyyoExQ91UhLQ2DMiINd_SNhlftoNnx_HbQ7QV-qxt02w26pWGr2wxavXZwfe33vFbP8zvvDfqnLMJrXvc6Dera6Lo4re56eeXf_wLd3Tw5)
+
+---
+
 ### CRISP-DM Stage Mapping
 
 This pipeline separates data collection, preparation, exploratory analysis, modelling, evaluation, and deployment into clearly reproducible CRISP-DM stages.
