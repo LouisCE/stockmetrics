@@ -1197,6 +1197,15 @@ Six hyperparameters were tuned in the full search:
 
 Each hyperparameter includes at least three candidate values, satisfying the advanced modelling requirement.
 
+| Hyperparameter | Values Tested | Rationale |
+|---|---|---|
+| `n_estimators` | [100, 200, 300] | Balanced model complexity and runtime |
+| `max_depth` | [5, 10, None] | Control tree depth to avoid overfitting |
+| `min_samples_split` | [2, 5, 10] | Ensure splits have sufficient samples |
+| `min_samples_leaf` | [1, 2, 4] | Balance bias-variance trade-off |
+| `max_features` | ["sqrt", "log2", 0.5] | Optimise feature subset selection |
+| `max_leaf_nodes` | [50, 200, None] | Limit tree growth for efficiency |
+
 ---
 
 ### Success Criteria, Model Results and Interpretation
@@ -1224,9 +1233,7 @@ In financial return forecasting, especially at the next-day horizon, very high R
 
 ### Model Output and User Relevance
 
-The model predicts next-day returns, which are highly noisy in financial markets.
-
-Therefore the predictions are not used directly as trading signals.
+The model predicts next-day returns, which are highly noisy in financial markets. Therefore, the predictions are not used directly as trading signals.
 
 Instead, the model serves two purposes:
 
@@ -1235,7 +1242,9 @@ Instead, the model serves two purposes:
 
 To communicate uncertainty responsibly, long-horizon outcomes are modelled separately using a Monte Carlo simulation approach based on historical log-return paths, while the ML pipeline is reserved for short-term next-day educational estimates.
 
-Final outcome: the model achieved a **slightly positive** test-set R² and was therefore **successful against the business case**. However, the signal was weak, so the model is still best understood as an educational demonstration of short-horizon uncertainty rather than a dependable trading tool.
+Current outcome: the model achieved a **slightly positive** test-set R² and was therefore **successful against the business case**. However, the signal was weak, so the model is still best understood as an educational demonstration of short-horizon uncertainty rather than a dependable trading tool.
+
+This business case aligns with the educational purpose of StockMetrics by prioritising interpretability, uncertainty awareness, and beginner-friendly communication over unrealistic claims of predictive accuracy.
 
 ---
 
