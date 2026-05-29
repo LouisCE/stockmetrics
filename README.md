@@ -1104,15 +1104,15 @@ This structure helps ensure that datasets, models, and evaluation artefacts rema
 
 ## Rationale to map the business requirements to the Data Visualisations and ML tasks
 
-This section links each business requirement to the analysis or machine learning task used to address it.
+This section maps each business requirement to the corresponding analysis, visualisation, or machine learning task used to address it.
 
-| Business Requirement | Data Analysis / Visualisation | ML Task |
+| Business Requirement | Dashboard Evidence / Data Visualisation | ML Task |
 |---|---|---|
-| Historical Market Exploration | Price charts, daily returns visualisation, and return distribution histograms | — |
-| Portfolio Risk Comparison | Portfolio equity curves, volatility metrics, and drawdown analysis | — |
-| Predictive Analytics Feature | Model evaluation plots, feature importance visualisation | Regression model predicting next-day returns |
-| Scenario-Based Forecasting | Scenario tables showing optimistic, realistic, and pessimistic outcomes | — |
-| Clear Communication of Model Results | Actual vs predicted plots, residual analysis, and performance metrics | Evaluation of regression model performance (R², MAE, RMSE) |
+| Historical Market Exploration | Stock Explorer price chart, daily returns chart, return distribution histogram, key metrics, and asset education expanders | — |
+| Portfolio Risk Comparison | Portfolio Plans metrics, max drawdown, allocation table, plan comparison boxes, and growth of £1 chart | — |
+| Predictive Analytics Feature | Predictor next-day ML estimate and Model Performance evaluation evidence | Regression model predicting next-day returns |
+| Scenario-Based Forecasting | Predictor optimistic, realistic, and pessimistic scenario table based on historical drift and volatility | — |
+| Clear Communication of Model Results | Model Performance business case result, R²/MAE/RMSE metrics, actual vs predicted plots, residual plots, feature importance, and hyperparameter search space | Evaluation of regression model performance |
 
 This mapping ensures that each dashboard component directly supports the project’s business objectives.
 
