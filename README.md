@@ -1826,15 +1826,14 @@ The project followed a structured hierarchy:
 - **Epics** → represent major project phases aligned with CRISP-DM stages
 - **User Stories** → define specific functional requirements
 - **Tasks** → break User Stories into implementable steps
-
 - **Milestones** → represent significant moments in the project's maturity throughout the development process
 - **Sprints** → represent periods of time during which tasks are completed to achieve Milestones
 
 Each User Story included:
 
-- a clear user-focused objective  
-- defined acceptance criteria  
-- linked implementation tasks  
+- a clear user-focused objective
+- defined acceptance criteria
+- linked implementation tasks
 
 This ensured that all development work could be traced directly back to business requirements.
 
@@ -1862,10 +1861,10 @@ This ensured that the Agile workflow directly supported a structured data scienc
 
 Each issue included:
 
-- a clear description  
-- acceptance criteria  
-- labels (Bug, Epic, etc.)  
-- linkage to commits and features  
+- a clear description
+- acceptance criteria
+- labels (Bug, Epic, Sprint, etc.)
+- linkage to commits and features
 
 This provides full traceability:
 
@@ -1897,24 +1896,28 @@ Bugs were also documented within **TESTING.md**, allowing all planning, progress
 
 [GitHub Milestones](https://www.github.com/LouisCE/stockmetrics/milestones) were used to mark key checkpoints in the project's development lifecycle.
 
-While Epics and User Stories defined the project's functionality, Milestones represented the "Definition of Done" for major phases, ensuring that development remained aligned with the core business case.
+While Epics and User Stories defined the project's functionality, Milestones represented larger delivery phases and significant moments in the project's maturity throughout development.
 
-Each Milestone bridged multiple **Sprints**, which are flexible one-or-two-week time-boxes used to manage task execution. This structure allowed for iterative development while maintaining a clear path toward final assessment.
+Each Milestone bridged one or more **Sprints**, which were managed as flexible one-week time-boxes used to organise implementation work, testing, and refinement.
 
-A deliberate buffer period was integrated into the final weeks to minimise time trouble and mitigate technical risk, providing extra time for rigorous testing, bug fixing, and final UI/UX polish.
+This structure supported iterative delivery while maintaining a clear progression from CRISP-DM data science workflow → dashboard implementation → deployment → assessment readiness.
+
+A deliberate buffer period was integrated into the final stage to minimise technical risk and provide additional time for validation, debugging, UI/UX polish, and final documentation refinement.
 
 | Milestone | Sprint | Outcome |
-| :--- | :--- | :--- |
-| M0 - Project Setup Initialised | Sprint 0 | Repository created, early file structure planned, CI template integration, and dataset procurement with `yfinance`. |
-| M1 - Data Science Pipeline Ready | Sprints 1 and 2 | Completion of all `jupyter_notebooks` (01-06) covering data collection and cleaning, EDA, feature engineering, and ML model training and evaluation. |
-| M2 - Core Logic Modularised | Sprint 3 | Transitioning notebook logic into production-ready `src` modules. |
-| M3 - Streamlit Dashboard UI Developed | Sprint 4 and 5 | Implementation of the **Streamlit** frontend, including `app.py` and all functional `app_pages` with a beginner-friendly UI. |
-| M4 - Deployment on Render Successful | Sprint 6 | Successful hosting on **Render**, environment configuration, and stability validation. |
-| M5 - UX Refinement & README Complete | Sprint 7 and 8 | Dashboard and educational guidance polish and `README.md` completion to explain the project with rationale, business case, and hypotheses. |
-| M6 - Validation and TESTING Complete | Sprints 9 and 10 | `TESTING.md` completion to prove the project works with PEP 8 compliance, automated testing suite with Pytest handled in the `tests` files, widget validation, user story testing and comprehensive bug logging. |
-| M7 - Project Ready for Assessment | Sprint 11 | Final Agile board alignment in **GitHub Issues**, **GitHub Projects** and **GitHub Milestones**, buffer period, and project submission. |
+| --- | --- | --- |
+| M0 - Project Setup Initialised | Sprint 0 | Repository setup, early project structure planning, Code Institute template adaptation, and initial Yahoo Finance endpoint integration. |
+| M1 - Data Science Pipeline Ready | Sprint 1 | Completion of all CRISP-DM notebooks covering data collection, cleaning, EDA, feature engineering, model training, and model evaluation. |
+| M2 - Core Logic Modularised | Sprint 2 | Transition of reusable logic into production-ready `src` modules to separate dashboard, notebook, and modelling responsibilities. |
+| M3 - Dashboard Foundation and Onboarding Complete | Sprints 3 and 4 | Implementation of `app.py`, sidebar navigation, branding, routing, educational disclaimers, footer layout, and the `home.py` onboarding experience. |
+| M4 - Interactive Exploration and Forecasting Complete | Sprints 5 and 6 | Completion of `stock_explorer.py` and `predictor.py` with interactive Plotly charts, historical analysis, Monte Carlo forecasting, and beginner-focused educational guidance. |
+| M5 - Portfolio and ML Transparency Complete | Sprints 7 and 8 | Completion of `portfolio_plans.py` and `model_performance.py` with portfolio analytics, evaluation metrics, feature importance analysis, and machine learning transparency outputs. |
+| M6 - Deployment on Render Successful | Sprint 9 | Successful deployment to Render, environment configuration, deployment validation, and hosted dashboard accessibility testing. |
+| M7 - UX Polish and README Complete | Sprint 10 | README refinement, accessibility improvements, educational messaging polish, business case clarification, hypothesis validation documentation, and UX consistency improvements. |
+| M8 - Validation and TESTING Complete | Sprint 11 | Completion of `TESTING.md`, PEP 8 validation, automated testing, widget interaction testing, user story testing, and bug tracking evidence. |
+| M9 - StockMetrics Ready for Assessment | Sprint 12 | Final Agile alignment across GitHub Issues, Projects, and Milestones, final buffer period, deployment verification, and submission readiness review. |
 
-> **Note on Agility:** Sprints were managed as flexible time targets rather than strict deadlines, allowing adaptation during development while maintaining overall milestone alignment.
+> **Note on Agility:** Sprints were managed as flexible implementation targets rather than rigid deadlines, allowing adaptation during model experimentation, dashboard iteration, and documentation refinement while maintaining overall milestone alignment.
 
 | Link | Screenshot |
 |---|---|
