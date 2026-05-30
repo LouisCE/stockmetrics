@@ -1986,7 +1986,23 @@ The Agile process ensured that:
 
 ## Testing
 
-> [!NOTE]  
+Comprehensive testing for StockMetrics was documented separately in `TESTING.md`, including:
+
+- Code validation and PEP 8 compliance checks
+- Jupyter notebook validation
+- Automated testing with Pytest
+- Pipeline reproducibility testing
+- Defensive programming validation
+- Deployment testing
+- Responsiveness testing
+- Browser compatibility testing
+- Lighthouse audits
+- User story testing
+- Widget interaction testing
+- Bug tracking, fixes, and known issues
+
+
+> [!NOTE]
 > For all testing, please refer to the [TESTING.md](TESTING.md) file.
 
 ---
