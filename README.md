@@ -1254,6 +1254,33 @@ The machine learning model was developed iteratively to improve performance and 
 
 ---
 
+### Model Selection and Parameter Tuning Iterations
+
+The deployed model was selected after several modelling and validation stages.
+
+| Iteration | Purpose | Outcome |
+|---|---|---|
+| Smoke test | Confirmed that the modelling pipeline could run quickly on a smaller sample before using more data. | The pipeline executed successfully and helped validate the preprocessing, training, and scoring workflow. |
+| Medium-size test | Tested the same workflow on a larger sample to check whether the approach remained stable. | The model continued to run successfully and supported moving to the full dataset. |
+| Full dataset RandomForestRegressor | Trained and tuned the final model using the full feature dataset. | This became the final saved model because it used the complete available training data and time-aware validation. |
+| Linear Regression baseline | Provided a simple model comparison point. | Helped demonstrate that model choice was considered rather than assumed. |
+| Dummy Regressor baseline | Provided a naive baseline for comparison. | Helped contextualise whether the final model captured any useful signal beyond a simple average prediction. |
+
+The deployed model uses `RandomForestRegressor` because it can model non-linear relationships in tabular data and works well with mixed engineered financial features.
+
+The documented tuning process used time-aware validation to reduce leakage risk. The full tuning grid covered at least six hyperparameters with multiple candidate values, including:
+
+- `n_estimators`
+- `max_depth`
+- `min_samples_split`
+- `min_samples_leaf`
+- `max_features`
+- `max_leaf_nodes`
+
+This satisfies the requirement to document and demonstrate parameter tuning and model selection strategy before selecting the deployed model.
+
+---
+
 ### Initial Approach
 
 The initial modelling approach used a `RandomForestRegressor` with standard hyperparameter tuning using `GridSearchCV`.
