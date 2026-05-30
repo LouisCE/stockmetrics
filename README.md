@@ -2009,48 +2009,155 @@ Comprehensive testing for StockMetrics was documented separately in `TESTING.md`
 
 ## Deployment
 
-The live deployed application can be accessed here:  
+The live deployed application can be accessed here:
+
 [StockMetrics on Render](https://stockmetrics-emhu.onrender.com)
+
+---
 
 ### Render Deployment
 
-The StockMetrics dashboard is deployed using **Render**. The following steps were used to deploy the application.
+The StockMetrics dashboard is deployed using **Render**. The following steps were used to deploy the application:
 
 1. Log in to **Render.com** using a GitHub account.
-2. Create a workspace and click **New → Web Service**.
-3. Under **Source Code**, select **Git Provider** and connect the GitHub repository.
-4. Choose the repository. In my case: `LouisCE/stockmetrics`.
-5. Enter a unique service name. In my case: `stockmetrics`.
-6. Select **Python 3** as the runtime environment.
-7. Select the **main** branch for deployment.
-8. Choose the **Frankfurt (EU Central)** region.
-9. Leave **Root Directory** empty so the repository root is used.
-10. Set the **Build Command** to install project dependencies and configure Streamlit:
+2. Create a workspace.
+3. Select **New → Web Service**.
+4. Under **Source Code**, select **Git Provider** and connect the GitHub repository.
+5. Choose the repository. In my case: `LouisCE/stockmetrics`.
+6. Enter a unique service name. In my case: `stockmetrics`.
+7. Select **Python 3** as the runtime environment.
+8. Select the **main** branch for deployment.
+9. Choose the **Frankfurt (EU Central)** region.
+10. Leave **Root Directory** empty so the repository root is used.
+11. Set the **Build Command** to install project dependencies and configure Streamlit:
 
-```
+```bash
 pip install -r requirements.txt && bash setup.sh
 ```
 
-11. Set the **Start Command** to run the Streamlit dashboard:
+12. Set the **Start Command** to run the Streamlit dashboard:
 
-```
+```bash
 streamlit run app.py --server.port $PORT --server.address 0.0.0.0
 ```
 
-12. Select the **Free** instance type.
-13. Leave **Environment Variables** empty as no external secrets are required.
-14. In **Advanced Settings**, set the **Health Check Path** to:
+13. Select the **Free** instance type.
+14. Leave **Environment Variables** empty as no external secrets are required.
+15. In **Advanced Settings**, set the **Health Check Path** to:
 
-```
+```text
 /
 ```
 
-15. Disable **Auto-Deploy** initially to allow manual deployment control during development.
-16. Click **Deploy Web Service**.
+16. Disable **Auto-Deploy** during development if manual deployment control is preferred.
+17. Click **Deploy Web Service**.
 
 Once the build process completes, Render provides a public URL where the dashboard can be accessed.
 
-Free Render instances spin down after periods of inactivity, so the first request may take several seconds while the service wakes up.
+> [!NOTE]
+> Free Render instances may spin down after periods of inactivity. The first page load after inactivity may therefore take several seconds while the service restarts.
+
+![screenshot](documentation/deployment/render_live.png)
+
+---
+
+### Required Deployment Files
+
+Render uses the following project files during deployment:
+
+| File | Purpose |
+| --- | --- |
+| `app.py` | Main Streamlit application entry point |
+| `requirements.txt` | Installs all Python dependencies required by the project |
+| `runtime.txt` | Specifies the Python runtime version |
+| `setup.sh` | Creates the Streamlit configuration required by Render |
+
+Project dependencies can be installed locally using:
+
+```bash
+pip install -r requirements.txt
+```
+
+If additional packages are installed during development, the requirements file can be updated using:
+
+```bash
+pip freeze > requirements.txt
+```
+
+---
+
+### Local Development
+
+To run StockMetrics locally:
+
+1. Clone the repository.
+2. Create and activate a virtual environment.
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Start the Streamlit application:
+
+```bash
+streamlit run app.py
+```
+
+5. Open the local URL provided by Streamlit in a web browser.
+
+No database configuration, API keys, or environment variables are required.
+
+---
+
+### Cloning
+
+You can clone the repository by following these steps:
+
+1. Visit the GitHub repository.
+2. Click the green **Code** button.
+3. Copy the repository URL.
+4. Open a terminal.
+5. Navigate to the directory where you want the project stored.
+6. Run:
+
+```bash
+git clone https://github.com/LouisCE/stockmetrics.git
+```
+
+7. Enter the project directory:
+
+```bash
+cd stockmetrics
+```
+
+8. Install the project requirements and launch the application locally.
+
+---
+
+### Forking
+
+You can create your own copy of this repository by following these steps:
+
+1. Log in to GitHub.
+2. Navigate to the repository:
+
+   * `LouisCE/stockmetrics`
+3. Click the **Fork** button near the top-right corner of the repository page.
+4. Choose the GitHub account where the fork should be created.
+5. GitHub will create a copy of the repository under your own account.
+
+You may then clone your fork and make changes independently without affecting the original project.
+
+---
+
+### Why Render Instead of Heroku
+
+My decision to deploy on Render rather than Heroku was based on advice from my PP5 mentor, **Mo Shami**, who recommended Render over Heroku as a simpler deployment platform for Streamlit applications.
+
+Having previously deployed my PP4 project using Heroku, I also wanted to broaden my experience and deployment repertoire by deploying a project using a different cloud platform.
+
+Render provided a straightforward deployment workflow, integrated directly with GitHub, and supported the Streamlit application without requiring additional infrastructure or environment-specific configuration.
 
 ---
 
