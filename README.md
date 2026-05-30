@@ -1608,19 +1608,27 @@ The overall goal is to help users move from confusion to confidence in a short a
 
 ## Plots
 
-> [!NOTE]  
-> These plots were generated during the EDA and evaluation stages and support hypothesis validation and the ML business case.  
-> The interactive versions of key insights are presented within the dashboard itself.
+The visualisations included in StockMetrics were generated during the Data Understanding and Evaluation stages of the CRISP-DM workflow to support business requirements, hypothesis validation, and machine learning evaluation.
 
-This section includes multiple plot types used across exploratory analysis and machine learning evaluation, including **line plots, histograms, box plots, heatmaps, scatter plots, and residual diagnostics**.
+The interactive versions of key insights are presented throughout the dashboard itself.
+
+This section includes multiple plot types used across exploratory analysis and model evaluation, including **line plots, histograms, box plots, heatmaps, scatter plots, and residual analysis visualisations**.
+
+The dashboard displays **at least five distinct plot types and additional model diagnostic visualisations** that help answer business requirements. These are visible across the interactive dashboard pages and the Model Performance evidence section:
+
+- **Line plots**: Historical price trends, daily returns, portfolio growth, and prediction time-series outputs.
+- **Histograms**: Return distributions and model residual distributions.
+- **Scatter plots**: Actual vs predicted model evaluation plots displayed on the Model Performance page.
+- **Box plots**: Volatility comparison evidence used to compare return distributions across assets.
+- **Heatmaps**: Correlation analysis used to investigate relationships between assets.
 
 These visualisations were generated during the **Data Understanding** and **Evaluation** stages of CRISP-DM and were used to investigate historical market behaviour, compare volatility across assets, validate project hypotheses, and determine whether the regression pipeline met the ML business case success criterion.
 
 ---
 
-### Exploratory Data Analysis Plots
+### Market Behaviour Evidence
 
-The following plots were used to validate the hypotheses around **volatility, diversification, concentration risk, and comparative market behaviour**.
+The following visualisations were produced during the **Data Understanding** stage of CRISP-DM and were used to investigate **volatility, diversification, concentration risk, and comparative market behaviour**.
 
 | Plot | Purpose | Key Metric / Evidence | Interpretation / Insight | Business Evidence | Screenshot |
 |---|---|---|---|---|---|
@@ -1633,9 +1641,9 @@ The following plots were used to validate the hypotheses around **volatility, di
 
 ---
 
-### Model Evaluation Plots
+### Machine Learning Evaluation Evidence
 
-The following diagnostic plots were used to determine whether the regression pipeline met the **ML business case success criterion of Test R² > 0**.
+The following visualisations were produced during the **Evaluation** stage of CRISP-DM and were used to assess whether the regression pipeline met the **ML business case success criterion of Test R² > 0**.
 
 | Plot | Purpose | Key Metric / Evidence | Interpretation / Insight | Business Evidence | Screenshot |
 |---|---|---|---|---|---|
