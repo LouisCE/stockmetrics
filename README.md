@@ -1697,6 +1697,115 @@ The **StockMetrics** project uses the following technologies to collect financia
 
 ---
 
+## Project Structure
+
+The repository is organised using a modular structure that separates dashboard presentation, reusable business logic, CRISP-DM notebooks, datasets, model artefacts, outputs, documentation, deployment files, and testing utilities.
+
+A project structure tree containing the most important files and folders is shown below.
+
+```
+stockmetrics/
+│
+├── app.py
+├── app_pages/
+│   ├── __init__.py
+│   ├── home.py
+│   ├── stock_explorer.py
+│   ├── predictor.py
+│   ├── portfolio_plans.py
+│   └── model_performance.py
+│
+├── data/
+│   ├── raw/
+│   │   ├── v1/
+│   │   └── v2/
+│   └── processed/
+│       ├── v1/
+│       └── v2/
+│
+├── documentation/
+│
+├── jupyter_notebooks/
+│   ├── 01_data_collection.ipynb
+│   ├── 02_data_cleaning.ipynb
+│   ├── 03_eda.ipynb
+│   ├── 04_feature_engineering.ipynb
+│   ├── 05_model_training.ipynb
+│   └── 06_model_evaluation.ipynb
+│
+├── models/
+│   ├── model_card_v1.md
+│   ├── model_card_v2.md
+│   └── stock_forecast_model_v2.pkl
+│
+├── outputs/
+│   ├── v1/
+│   │   ├── figures/
+│   │   └── reports/
+│   └── v2/
+│       ├── figures/
+│       └── reports/
+│
+├── src/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── data_collection.py
+│   ├── data_processing.py
+│   ├── evaluation.py
+│   ├── features.py
+│   ├── forecast.py
+│   ├── modelling.py
+│   ├── portfolio.py
+│   └── viz.py
+│
+├── tests/
+│   ├── test_config.py
+│   ├── test_data_processing.py
+│   ├── test_features.py
+│   ├── test_forecast.py
+│   ├── test_modelling.py
+│   └── test_portfolio.py
+│
+├── README.md
+├── TESTING.md
+├── requirements-dev.txt
+├── requirements.txt
+├── runtime.txt
+├── setup.sh
+└── Procfile
+```
+
+---
+
+### Structure Overview
+
+| Folder / File | Purpose |
+|---|---|
+| `app.py` | Streamlit application entry point handling page routing, sidebar navigation, branding, disclaimer messaging, and footer logic |
+| `app_pages/` | Individual Streamlit dashboard pages separated into modular page components |
+| `app_pages/home.py` | Home page containing onboarding content, glossary, FAQs, business requirement summaries, and project hypothesis overview |
+| `app_pages/stock_explorer.py` | Interactive historical market exploration page with price, return, distribution, and asset explanation visualisations |
+| `app_pages/predictor.py` | Forecasting page combining short-term ML estimation with long-term Monte Carlo scenario ranges |
+| `app_pages/portfolio_plans.py` | Portfolio comparison page displaying historical return, volatility, drawdown, and allocation analysis |
+| `app_pages/model_performance.py` | Model evaluation page displaying business case results, metrics, plots, feature importance, and hyperparameter evidence |
+| `data/raw/` | Raw Yahoo Finance endpoint snapshots stored in versioned folders for reproducibility |
+| `data/processed/` | Cleaned and feature-engineered datasets stored in versioned folders |
+| `documentation/` | README images, dashboard screenshots, Agile evidence, deployment screenshots, responsiveness testing, validation screenshots, and testing assets |
+| `jupyter_notebooks/` | CRISP-DM workflow notebooks covering data collection, cleaning, EDA, feature engineering, modelling, and evaluation |
+| `models/` | Saved trained machine learning pipeline artefacts |
+| `outputs/` | Generated EDA plots, evaluation figures, prediction outputs, feature importance plots, and JSON reports |
+| `src/` | Reusable Python modules for configuration, data collection, processing, feature engineering, modelling, evaluation, forecasting, portfolio calculations, and visualisation |
+| `tests/` | Automated Pytest test files covering deterministic reusable project logic |
+| `requirements.txt` | Python dependencies required for local development and deployment |
+| `requirements-dev.txt` | Additional development and notebook-related dependencies |
+| `runtime.txt` | Python runtime version used during deployment |
+| `setup.sh` | Streamlit deployment setup script used by Render |
+| `Procfile` | Deployment process configuration for the hosted Streamlit application |
+| `README.md` | Main project documentation covering business requirements, CRISP-DM workflow, dashboard design, ML business case, and deployment |
+| `TESTING.md` | Validation, testing, responsiveness, browser compatibility, bug tracking, and quality assurance evidence |
+
+---
+
 ## Agile Development Process
 
 Agile methodology was used throughout the development of **StockMetrics** to ensure structured, iterative progress aligned with the project’s business requirements and CRISP-DM workflow.
