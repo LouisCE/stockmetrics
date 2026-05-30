@@ -1380,9 +1380,16 @@ The iterative process demonstrates:
 
 The Streamlit dashboard is structured as a multi-page application using the `app_pages` folder.
 
-The dashboard pages either address a specific business requirement directly or support the overall user experience through onboarding and explanation.
+Each dashboard page was designed to support one or more business requirements through beginner-friendly explanations, interactive visualisations, and consistent educational messaging.
 
-Each page is designed to guide beginner investors from basic understanding, through historical exploration and forecasting, to portfolio comparison and model transparency.
+The dashboard guides users through a structured learning flow, from onboarding and foundational investing concepts, to historical market exploration, forecasting, portfolio comparison, and machine learning transparency across the dedicated dashboard pages.
+
+> [!NOTE]
+> This section provides a high-level overview of the dashboard design, page structure, and user experience decisions.
+>
+> To avoid duplicating large numbers of screenshots across the project documentation, only representative screenshots are included here.
+>
+> Detailed feature-level screenshot evidence can be found in the **User Story Testing** section of [TESTING.md](TESTING.md).
 
 ---
 
@@ -1415,20 +1422,23 @@ This structured sidebar supports intuitive navigation, reinforces information hi
 
 - welcome introduction and project purpose
 - introductory quote
+- visual hero image with caption
+- project validation summary linking business requirements and hypotheses to dashboard evidence
 - beginner investing principles
 - glossary explanations
 - ETF and diversification guidance
 - FAQ expanders
 - four risk-based plan overview
-- educational disclaimer
 
 **Interpretation**
 
-The Home page is designed as the onboarding layer of the dashboard. It helps beginners understand the language of investing before interacting with forecasts, plans, or machine learning outputs. The FAQ expanders and glossary improve accessibility for users with no prior financial background.
+The Home page is designed as the onboarding layer of the dashboard. It helps users with no prior financial background understand the purpose of StockMetrics, the project evidence base, and the language of investing before interacting with forecasts, plans, or machine learning outputs.
 
-**Business requirement addressed**
+The project validation summary also gives assessors and users a quick link between the dashboard, business requirements, hypotheses, and README evidence.
 
-- clear onboarding and user guidance
+**Business requirements addressed**
+
+- supports all business requirements through onboarding, education, and project validation context
 
 ![screenshot](documentation/dashboard/home.png)
 
@@ -1474,17 +1484,22 @@ Illustrate potential future outcomes using scenario ranges.
 - ticker selection
 - forecast horizon selection
 - trend window selection
+- latest adjusted close and date metrics
+- estimated daily drift metric
 - ML next-day estimate
-- ML disclaimer and uncertainty messaging
+- model reproducibility note
+- ML disclaimer and risk warning
 - Monte Carlo scenario simulation
-- optimistic / realistic / pessimistic outcomes
+- optimistic / realistic / pessimistic scenario outcomes
 - scenario result table
 - beginner interpretation guidance
-- volatility and drift metrics
+- volatility context
 
 **Interpretation**
 
-The Predictor page combines a short-term ML next-day estimate with long-term Monte Carlo scenario projections to help beginners understand both short-term noise and long-term uncertainty ranges. It teaches that long-term investing outcomes are better understood as a range of possibilities rather than a single guaranteed number, while also reinforcing that short-term ML signals remain weak and highly uncertain.
+The Predictor page combines a short-term ML next-day estimate with long-term Monte Carlo scenario projections to help beginners understand both short-term noise and long-term uncertainty ranges.
+
+It clearly explains that the ML estimate is not a live daily market forecast, is not a trading instruction, and is not used to generate the long-term scenario ranges. This supports responsible communication of uncertainty.
 
 **Business requirement addressed**
 
@@ -1505,15 +1520,22 @@ Allow users to compare different portfolio diversification strategies.
 - selectable portfolio plans
 - beginner-friendly risk explanation
 - plan comparison boxes with relative risk labels
-- portfolio metrics
-- historical growth chart
+- selected plan highlighting
+- portfolio performance metrics
+- historical growth of £1 chart
+- chart explanation linked to core investing principles
 - allocation breakdown table
+- weight percentage explanation
+- decision guidance for users who still feel unsure
 - volatility and drawdown comparison
 - educational plan disclaimer
+- encouraging closing message
 
 **Interpretation**
 
-The Portfolio Plans page helps users compare the trade-off between diversification and concentration. More concentrated plans may produce stronger growth in favourable conditions, but they also tend to show higher volatility and deeper drawdowns. The allocation table and plan comparison boxes make risk differences easy to interpret visually.
+The Portfolio Plans page helps users compare the trade-off between diversification and concentration. More concentrated plans may produce stronger growth in favourable conditions, but they can also show higher volatility and deeper drawdowns.
+
+The growth of £1 chart connects the comparison back to the core investing principles of starting early, diversifying, and thinking long-term. The allocation table and weight explanation make the structure of each plan clear for beginner users.
 
 **Business requirement addressed**
 
@@ -1534,19 +1556,28 @@ Provide transparency regarding the machine learning model.
 - business case success indicator
 - regression metrics
 - beginner-friendly metric explanations
+- model reproducibility note
+- low R² interpretation
+- R² > 0 success rule explanation
+- model limitation explanation
+- best hyperparameter display
+- hyperparameter search space table
+- evaluation plot explanations
 - actual vs predicted plots
 - residual analysis plots
-- best hyperparameter display
+- EDA plot evidence for hypotheses
 - feature importance table
-- saved evaluation plot display
-- model disclaimer
+- final ML model summary
 
 **Interpretation**
 
-The Model Performance page explains whether the predictive model actually met the business case and how much trust should be placed in it. A slightly positive Test R² supports the educational ML task, but the weak magnitude reinforces that short-term market prediction remains highly uncertain. Hyperparameters, residual plots, and feature importance outputs help demonstrate modelling transparency and advanced tuning evidence.
+The Model Performance page explains whether the predictive model met the business case and how much trust should be placed in it. A slightly positive Test R² supports the educational ML task, but the weak magnitude reinforces that short-term market prediction remains highly uncertain.
 
-**Business requirement addressed**
+The page also displays the hyperparameter search space, evaluation plots, EDA evidence, and feature importance outputs, giving both beginner users and assessors transparent evidence of model performance and hypothesis validation.
 
+**Business requirements addressed**
+
+- predictive analytics feature
 - clear communication of model results
 
 ![screenshot](documentation/dashboard/model_performance.png)
