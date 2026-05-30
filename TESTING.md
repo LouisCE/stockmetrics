@@ -173,3 +173,13 @@ The following parts of the project were not prioritised for automated unit tests
 - selected `src/` modules such as `data_collection.py`, `viz.py`, and `evaluation.py`, because they either depend on external services, generate visual outputs, or were less suitable for lightweight deterministic unit testing than the core reusable logic covered here
 
 This kept the automated test suite lightweight, relevant, and aligned with the overall project architecture and testing strategy.
+
+---
+
+## User Story Testing
+
+User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
+
+This section focuses on dashboard behaviour only. Code validation, notebook validation, automated testing, deployment testing, widget interaction testing, and bug tracking are documented separately in this file.
+
+The following dashboard epics are linked to the relevant implementation milestones documented in README.md.
