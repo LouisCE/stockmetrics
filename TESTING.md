@@ -200,3 +200,22 @@ This Epic covers the main Streamlit entry point in `app.py`, including branding,
 | As a beginner investor | I want each navigation option to load the correct page | so the app feels reliable and consistent. | ![screenshot](documentation/dashboard/routing.png)  |
 | As a beginner investor | I want a visible educational disclaimer | so I understand the dashboard is not financial advice. | ![screenshot](documentation/dashboard/disclaimer.png) |
 | As a beginner investor | I want a persistent footer with attribution and GitHub access | so I can identify the project source and repository. | ![screenshot](documentation/dashboard/footer.png) |
+
+---
+
+### Epic - Home Page and User Onboarding
+
+This Epic is linked to **Milestone 3**.
+
+This Epic covers the `app_pages/home.py` page, which introduces StockMetrics and provides beginner-friendly investing guidance.
+
+| Target | Expectation | Outcome | Screenshot |
+|---|---|---|---|
+| As a beginner investor | I want a welcoming title and inspirational quote | so I feel motivated to begin my investing journey. | ![screenshot](documentation/dashboard/home_title_intro.png) |
+| As a beginner investor | I want a clear Home page introduction and hero image | so I understand that StockMetrics helps explain risk, returns, and uncertainty without overwhelming me. | ![screenshot](documentation/dashboard/home_hero_image.png) |
+| As a beginner investor | I want the app purpose and audience explained | so I understand how StockMetrics helps beginners in more detail. | ![screenshot](documentation/dashboard/home_purpose_section.png) |
+| As an assessor | I want a project validation summary on the dashboard | so I can quickly see how business requirements and hypotheses are supported by dashboard evidence. | ![screenshot](documentation/dashboard/home_validation_summary.png) |
+| As a beginner investor | I want core investing principles displayed | so I can learn the basic ideas of starting early, thinking long-term, and diversifying. | ![screenshot](documentation/dashboard/home_core_principles.png) |
+| As a beginner investor | I want a plain-English glossary | so I can understand key investing terms. | ![screenshot](documentation/dashboard/home_glossary.png) |
+| As a beginner investor | I want expandable FAQs | so I can learn answers to common beginner investing questions. | ![screenshot](documentation/dashboard/home_faq_expanders.png) |
+| As a beginner investor | I want a preview of the four risk-based plans | so I understand the available portfolio styles before comparing them. | ![screenshot](documentation/dashboard/home_plan_preview.png) |
