@@ -183,3 +183,20 @@ User Story Testing was carried out by manually checking the deployed dashboard a
 This section focuses on dashboard behaviour only. Code validation, notebook validation, automated testing, deployment testing, widget interaction testing, and bug tracking are documented separately in this file.
 
 The following dashboard epics are linked to the relevant implementation milestones documented in README.md.
+
+---
+
+### Epic - Dashboard Structure and Navigation System
+
+This Epic is linked to **Milestone 3**.
+
+This Epic covers the main Streamlit entry point in `app.py`, including branding, navigation, disclaimer messaging, routing, and the persistent footer.
+
+| Target | Expectation | Outcome | Screenshot |
+|---|---|---|---|
+| As a beginner investor | I want the browser tab to show the StockMetrics name and chart icon | so the dashboard feels branded, professional, and easy to identify. | ![screenshot](documentation/dashboard/favicon.png) |
+| As a beginner investor | I want to see the StockMetrics title and tagline | so I immediately understand the dashboard purpose. | ![screenshot](documentation/dashboard/title_tagline.png) |
+| As a beginner investor | I want a clear sidebar navigation menu | so I can move easily between all dashboard pages. | ![screenshot](documentation/dashboard/navigation_menu.png)  |
+| As a beginner investor | I want each navigation option to load the correct page | so the app feels reliable and consistent. | ![screenshot](documentation/dashboard/routing.png)  |
+| As a beginner investor | I want a visible educational disclaimer | so I understand the dashboard is not financial advice. | ![screenshot](documentation/dashboard/disclaimer.png) |
+| As a beginner investor | I want a persistent footer with attribution and GitHub access | so I can identify the project source and repository. | ![screenshot](documentation/dashboard/footer.png) |
