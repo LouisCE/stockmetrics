@@ -2204,6 +2204,18 @@ This design improves usability for beginner investors but does not represent the
 
 ---
 
+### Concentration in Technology Stocks
+
+The Magnificent Seven companies were selected because of their prominence, market influence, and familiarity to many beginner investors during the development of this project.
+
+However, market leadership changes over time. Future market environments may be driven by different sectors, industries, or geographic regions, reducing the representativeness of a technology-focused asset selection.
+
+This means that the Magnificent Seven should be viewed primarily as educational examples of large-cap growth stocks rather than permanent representatives of the broader equity market.
+
+The two ETF examples (`VWRL.L` and `VUSA.L`) help mitigate this limitation by providing diversified exposure across a much wider range of companies and sectors.
+
+---
+
 ### Educational Scope
 
 The machine learning model is designed as an **educational demonstration of predictive analytics** rather than a trading signal generator.
@@ -2216,6 +2228,45 @@ To address these limitations, StockMetrics:
 - avoids compounding the ML predictions meant for the next day to make long-term predictions and instead uses historical trend and volatility for long-horizon forecasting
 
 This approach reinforces the importance of uncertainty when interpreting financial predictions.
+
+---
+
+### Time Sensitivity of Short-Horizon Estimates
+
+The machine learning model predicts the **next available trading day return** based on the most recent processed dataset snapshot included in the deployed application.
+
+Because the deployed dashboard uses a reproducible versioned dataset snapshot rather than continuously streaming live market data, the exact next-day estimate shown in the app may no longer correspond to the assessor’s real current market date when the project is reviewed.
+
+This is an intentional trade-off made in favour of:
+
+- reproducibility
+- stable deployment
+- version-controlled evidence
+- consistent ML evaluation outputs across project submissions
+
+Although the individual next-day estimate naturally becomes historically outdated over time, the **educational value of the predictive task remains valid**.
+
+The key user lesson is not the literal future price move itself, but rather the broader insight that **short-horizon market forecasting contains extremely weak signal relative to noise**, even when a model technically meets its business case threshold.
+
+This reinforces one of the core beginner-investor learning outcomes of StockMetrics:
+
+- short-term market timing is highly uncertain
+- longer-term scenario thinking is more reliable for decision support
+- predictive analytics should be interpreted probabilistically rather than as deterministic advice
+
+The project also depends on third-party financial data endpoints during the initial data collection stage. To improve reproducibility and reduce dependency on live endpoint availability, successfully collected raw snapshots are versioned and stored within the repository for downstream processing and evaluation.
+
+---
+
+### Third-Party Endpoint Dependency
+
+The data collection stage depends on the external Yahoo Finance endpoint accessed through the `yfinance` library.
+
+Because this is a live third-party service, temporary endpoint instability, rate limiting, or API response changes may occasionally affect live data collection during future reruns of the project.
+
+To improve reproducibility and reduce dependency on external availability during downstream analysis, successfully collected raw snapshots are versioned and stored under `data/raw/v2/`.
+
+This allows the remaining CRISP-DM pipeline stages to be rerun consistently from saved project data even if the live endpoint is temporarily unavailable.
 
 ---
 
