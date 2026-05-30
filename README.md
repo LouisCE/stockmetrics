@@ -2272,7 +2272,7 @@ This allows the remaining CRISP-DM pipeline stages to be rerun consistently from
 
 ## Future Features
 
-Several enhancements could be implemented in future iterations of StockMetrics to improve educational depth, diversification coverage, and personalised investor guidance.
+Future improvements would focus on expanding educational value, improving interpretability, increasing diversification coverage, and enhancing personalised investor guidance while maintaining the beginner-friendly scope of the dashboard.
 
 ---
 
@@ -2314,7 +2314,7 @@ Future iterations could experiment with:
 
 - weekly return prediction
 - monthly return prediction
-- rolling 3-month trend prediction
+- quarterly (3-month) return prediction
 - volatility regime classification
 - Gradient Boosting models (XGBoost or LightGBM)
 - linear models with regularisation
