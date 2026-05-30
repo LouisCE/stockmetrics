@@ -2409,13 +2409,11 @@ The following references were used during development to support best practices,
 | [Python Documentation](https://www.python.org/doc/) | Language reference used for core Python behaviour and standard library usage. |
 | [Pandas Documentation](https://pandas.pydata.org/docs/) | Reference for DataFrame manipulation used in data cleaning and feature engineering. |
 | [NumPy Documentation](https://numpy.org/doc/) | Reference for numerical operations used across notebooks and modelling utilities. |
-| [SciPy Documentation](https://docs.scipy.org/doc/scipy/) | Reference for statistical tests used for hypothesis validation (where applicable). |
 | [scikit-learn Documentation](https://scikit-learn.org/stable/) | Reference for pipelines, preprocessing, model selection, and evaluation metrics. |
-| [feature-engine Documentation](https://feature-engine.trainindata.com/) | Reference for feature engineering transformers integrated into ML pipelines. |
-| [XGBoost Documentation](https://xgboost.readthedocs.io/) | Reference for gradient boosting modelling and tuning options. |
 | [Plotly Documentation](https://plotly.com/python/) | Reference for interactive chart creation in the Streamlit dashboard. |
 | [Streamlit Documentation](https://docs.streamlit.io/) | Reference for multipage dashboard patterns, widgets, and caching. |
 | [Render Documentation](https://render.com/docs) | Reference for deployment configuration, build/start commands, and service management. |
+| [Mermaid](https://mermaid.js.org) | Used to create the CRISP-DM pipeline flowchart visualising the end-to-end data science workflow. |
 | [ChatGPT](https://chat.openai.com) | Used responsibly as a learning aid while going through the LMS, for planning the file structure, debugging support, improving beginner-friendly explanations, and drafting documentation during development. |
 
 ---
@@ -2432,7 +2430,7 @@ The following references were used during development to support best practices,
 
 I would like to acknowledge the following people and organisations for their support throughout the development of this project:
 
-- I would like to thank my PP5 Code Institute mentor, **Mo Shami**, for guidance on structuring the logical project workflow (repository setup → data → cleaning → processing → training → evaluation → dashboard → deployment → documentation) and for feedback throughout development.
+- I would like to thank my PP5 Code Institute mentor, **Mo Shami**, for guidance on structuring the logical project workflow (repository setup → data → cleaning → processing → training → evaluation → dashboard → deployment → documentation), for recommending Render as the deployment service, and for feedback throughout development.
 
 - I would like to thank my previous Code Institute mentor, **Tim Nelson**, for guidance on mapping evidence for the full Agile Development process, including use of epics, user stories, sprints and milestones.
 
