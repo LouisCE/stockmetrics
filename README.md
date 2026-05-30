@@ -2369,6 +2369,12 @@ These additions would allow StockMetrics to evolve from educational comparison t
 
 ---
 
+## Project Conclusion
+
+Overall, StockMetrics was developed as an educational predictive analytics project designed to help beginner investors better understand risk, diversification, short-term uncertainty, and long-term investing behaviour through interactive visualisations, machine learning, scenario-based forecasting, and accessible financial education.
+
+---
+
 ## Credits
 
 This section acknowledges the learning resources, technical references, data sources, and people that supported the research, development, deployment, and documentation of StockMetrics.
