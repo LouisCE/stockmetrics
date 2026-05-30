@@ -1584,6 +1584,28 @@ The page also displays the hyperparameter search space, evaluation plots, EDA ev
 
 ---
 
+### UX Design and Accessibility Rationale
+
+The dashboard was designed specifically for beginner investors, with a strong focus on clarity, simplicity, and cognitive load reduction.
+
+Key UX decisions include:
+
+- limiting asset choices to a small curated set to avoid overwhelm
+- using plain English explanations instead of technical jargon
+- structuring pages in a logical learning flow (learn → explore → predict → compare)
+- providing consistent layouts and interaction patterns across pages
+- using expanders and tooltips to progressively reveal information
+
+These design decisions help users quickly understand the purpose of each page through clear information hierarchy, intuitive interactions, and beginner-focused communication.
+
+The web dashboard's design follows UX design principles and accessibility best practices through predictable navigation, consistent layouts, responsive design, expandable explanations, and clear educational guidance.
+
+The dashboard was tested across mobile, tablet, and desktop screen sizes to help ensure a responsive user experience and consistent presentation of content.
+
+The overall goal is to help users move from confusion to confidence in a short amount of time while maintaining a clear, approachable, and consistent learning experience throughout the dashboard.
+
+---
+
 ## Plots
 
 > [!NOTE]  
