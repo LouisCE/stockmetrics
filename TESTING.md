@@ -387,3 +387,68 @@ All previously closed/fixed bugs can be tracked [here](https://www.github.com/Lo
 ![screenshot](documentation/bugs/fixed-bugs.png)
 
 The following are the most significant bugs that were identified and resolved during development.
+
+---
+
+#### Setup and Notebook Bugs
+
+1. `ppscore==1.1.0` installation failure on Windows / Python 3.12
+
+**Issue:**
+Installing `ppscore==1.1.0` failed during environment setup on Windows using Python 3.12.
+
+**Cause:**
+`ppscore` did not install cleanly in the local Windows / Python 3.12 environment, resulting in dependency and environment setup issues.
+
+**Fix:**
+The package was commented out and ultimately excluded from the environment because it was not critical to the StockMetrics analysis pipeline. Correlation analysis and feature importance were used instead to investigate relationships between variables.
+
+---
+
+2. Markdown added to a Python code cell
+
+**Issue:**
+A notebook cell failed to run (syntax/indent errors) because Markdown headings and bullet points were pasted into a Python cell instead of a Markdown cell.
+
+**Cause:**
+While building the early notebooks, I pasted the “Objective / Inputs / Outputs” template into the wrong cell type in VS Code/Jupyter.
+
+**Fix:**
+Converted the cell to a Markdown cell and kept code-only content in Python cells. After fixing, the notebook ran cleanly and the documentation remained visible at the top of the notebook.
+
+---
+
+3. Full Hyperparameter Search Caused Excessive Runtime
+
+**Issue:**
+The model training cell (`GridSearchCV` + `RandomForestRegressor`) ran for an extremely long time and sometimes caused VS Code/Jupyter to become unresponsive. Interrupting the cell did not reliably stop the process.
+
+**Cause:**
+The full model training run took an extremely long time and, in earlier attempts, caused the notebook kernel to crash or become unresponsive.
+
+The full hyperparameter grid with time-series cross-validation created a very high number of model fits (all parameter combinations across time-series splits), which placed too much strain on local hardware during training. In addition, using parallel execution (`n_jobs=-1`) could saturate CPU resources, making the laptop slow or appear frozen.
+
+**Temporary Fix:**
+Reduced training load during development by:
+- limiting parallelism (`n_jobs=1`) in both `RandomForestRegressor` and `GridSearchCV`, and
+- adding a `fast=True` option to run a smaller grid for validation while iterating.
+
+This allowed the notebook to run reliably on local hardware. A full-grid run (`fast=False`) is reserved for final evidence generation once the pipeline is confirmed working.
+
+**Fix:**
+The modelling workflow was revised to use a more efficient search strategy for the full optimisation run with `HalvingGridSearchCV`. This reduced the likelihood of crashes while still allowing the project to demonstrate advanced hyperparameter tuning.
+
+This was the most significant technical challenge encountered during the project.
+
+---
+
+4. `.gitignore` Not Ignoring Tracked Model Artefact
+
+**Issue:**
+The file `models/stock_forecast_model_v1.pkl` continued to appear in Git even though the intention was to ignore generated model artefacts and only track `models/model_card_v1.md`.
+
+**Cause:**
+The `.pkl` file had already been tracked by Git before the ignore rules were finalised. Because of this, updating `.gitignore` alone did not stop the file from appearing in version control.
+
+**Fix:**
+The `.gitignore` file was updated to ignore files in `models/` while explicitly allowing `models/model_card_v1.md` to remain tracked. The repository history was then corrected so the model card remained version-controlled and the generated `.pkl` artefact was excluded going forward.
