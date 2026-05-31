@@ -740,3 +740,15 @@ StockMetrics is built with Streamlit, which handles much of the frontend renderi
 No functional fix was required because the issue did not prevent users from accessing or using the dashboard. Manual responsiveness testing, browser compatibility testing, widget testing, and deployment testing confirmed that the dashboard remained usable and stable.
 
 This is documented as a known performance limitation of the chosen dashboard framework rather than a functional application bug.
+
+---
+
+### Unfixed Bugs
+
+There are no remaining known bugs at the time of submission. However, despite extensive testing, it is not possible to guarantee that every issue has been identified. Additional edge cases may exist that were not encountered during development or testing.
+
+[![GitHub issue custom search](https://img.shields.io/github/issues-search/LouisCE/stockmetrics?query=is%3Aissue%2Bis%3Aopen%2Blabel%3Abug&label=Unfixed%20Bugs&color=red)](https://www.github.com/LouisCE/stockmetrics/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+
+Any remaining open issues can be tracked [here](https://www.github.com/LouisCE/stockmetrics/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
+
+![screenshot](documentation/bugs/unfixed-bugs.png)
