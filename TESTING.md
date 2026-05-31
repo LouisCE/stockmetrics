@@ -581,3 +581,95 @@ The original feature set did not provide enough useful short-horizon signal for 
 
 **Fix:**  
 Additional lightweight mean-reversion features were incorporated into the feature engineering pipeline, specifically `zscore_30d` and `mean_reversion_5d`. The feature dataset was regenerated, and the model was retrained and reevaluated using the updated inputs. This improved the final test-set R² to **0.000740**, allowing the model to satisfy the project business case success criterion of **Test R² > 0** without materially increasing runtime or changing the overall project approach.
+
+---
+
+#### Deployment Bugs
+
+14. Incorrect Streamlit start command for Render deployment
+
+**Issue:**
+The initial start command suggested by Render was configured for a Django application (`gunicorn your_application.wsgi`) rather than a Streamlit dashboard. If left unchanged, the deployment would fail because the project does not contain a Django WSGI application.
+
+**Cause:**
+Render automatically detects Python projects and pre-populates a default start command intended for common frameworks such as Django or Flask. Since StockMetrics uses Streamlit, this command was not compatible with the application architecture.
+
+**Fix:**
+Replaced the default command with the correct Streamlit startup command:
+
+```
+streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+```
+
+This ensures the Streamlit server binds to Render's dynamically assigned port and allows external access to the deployed dashboard.
+
+---
+
+15. Incorrect deployment instructions from external example (environment variables)
+
+**Issue:**
+An external deployment example recommended manually setting the following environment variables:
+
+```
+PORT=8501
+PYTHON_VERSION=3.12.1
+```
+
+Using those variables could have caused deployment conflicts or unnecessary configuration complexity.
+
+**Cause:**
+Some hosting platforms require manual port configuration for Streamlit applications. However, Render automatically injects the `PORT` environment variable and handles Python runtime configuration internally.
+
+**Fix:**
+Left the **Environment Variables** section empty during deployment. Render automatically supplies the required port value, and the application correctly reads it via the `$PORT` variable in the start command.
+
+---
+
+16. Health check endpoint misconfiguration
+
+**Issue:**
+The default Render configuration set the Health Check Path to:
+
+```
+/healthz
+```
+
+The Streamlit dashboard does not provide a `/healthz` endpoint, which could cause Render to incorrectly report the service as unhealthy even when the application is running.
+
+**Cause:**  
+Render applies a generic health check path that is commonly used in API services or containerised applications but is not present in a standard Streamlit deployment.
+
+**Fix:**  
+Updated the Health Check Path to:
+
+```
+/
+```
+
+This allows Render to verify that the root page of the dashboard is accessible.
+
+---
+
+17. Deployment started from an outdated remote repository state
+
+**Issue:**
+Local project changes had not yet been committed or pushed to GitHub when deployment began. This meant the deployed version would not reflect the latest modifications and local development state.
+
+**Cause:**
+Render deploys directly from the remote GitHub repository rather than the local machine. Any uncommitted changes remain unavailable to the deployment process.
+
+**Fix:**
+The deployment proceeded using the latest commit available on GitHub to confirm the deployment pipeline worked correctly. Subsequent project updates could then be deployed correctly after pushing new commits and triggering a manual deployment.
+
+---
+
+18. Predictor ML estimate unavailable on the deployed app
+
+**Issue:**
+The deployed StockMetrics app showed **"Estimated next-day return: Not available"** on the Predictor page, even though the ML next-day prediction worked correctly in the local development environment.
+
+**Cause:**
+The deployed environment did not include the required ML artefacts because they were excluded by `.gitignore`. Specifically, the trained model file (`models/stock_forecast_model_v2.pkl`) and the engineered features dataset (`data/processed/v2/features_v2_latest.csv`) were not being tracked in the repository, so the live app could not load them.
+
+**Fix:**
+Updated `.gitignore` to allow the required deployment artefacts, then force-added and committed the missing files to the repository. After redeployment, the live Predictor page was able to load the model and features dataset correctly and display the ML next-day estimate as expected.
