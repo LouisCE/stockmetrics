@@ -367,3 +367,9 @@ All interactive Streamlit widgets were manually tested and behaved as expected.
 Sidebar navigation loaded the correct pages, the footer GitHub link button opened the project repository, FAQ and asset guide expanders displayed the correct content, selectboxes updated dashboard outputs appropriately, date inputs filtered data correctly, and tabs displayed the expected chart views.
 
 No widget-related issues were identified during testing.
+
+---
+
+## Bugs
+
+Below is a summary of the most significant bugs I encountered during the project. Bugs were labelled as `Bug` within GitHub Issues and given the `Fixed Bug` label once fixed.
