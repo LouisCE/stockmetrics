@@ -261,3 +261,25 @@ This Epic covers the `app_pages/predictor.py` page, which separates short-term m
 | As a beginner investor | I want a beginner-friendly explanation of short-term prediction uncertainty | so I understand why long-term thinking and scenario planning are more useful than day-to-day prediction. | ![screenshot](documentation/dashboard/predictor_beginner_explanation.png) |
 | As a beginner investor | I want pessimistic, realistic, and optimistic scenario end prices | so I understand uncertainty instead of relying on one fixed prediction. | ![screenshot](documentation/dashboard/predictor_scenarios.png) |
 | As a beginner investor | I want clear scenario explanations and warnings | so I understand the outputs are educational estimates, not guaranteed outcomes. | ![screenshot](documentation/dashboard/predictor_scenario_warnings.png) |
+
+---
+
+### Epic - Portfolio Plans and Risk Comparison
+
+This Epic is linked to **Milestone 5**.
+
+This Epic covers the `app_pages/portfolio_plans.py` page, which helps users compare risk-based portfolio plans using historical metrics and visualisations.
+
+| Target | Expectation | Outcome | Screenshot |
+|---|---|---|---|
+| As a beginner investor | I want a clear Portfolio Plans introduction and hero image | so I understand the purpose of the page. | ![screenshot](documentation/dashboard/portfolio_intro_hero.png) |
+| As a beginner investor | I want the relative risk labels explained | so I understand that the plans differ by concentration and volatility. | ![screenshot](documentation/dashboard/portfolio_risk_explanation.png) |
+| As a beginner investor | I want to select a portfolio plan | so I can explore a specific risk style. | ![screenshot](documentation/dashboard/portfolio_select.png) |
+| As a beginner investor | I want the selected plan highlighted | so I know which plan I am currently viewing. | ![screenshot](documentation/dashboard/portfolio_selected_highlight.png) |
+| As a beginner investor | I want the four plans displayed visually | so I can compare the plan styles quickly. | ![screenshot](documentation/dashboard/portfolio_plan_boxes.png) |
+| As a beginner investor | I want historical performance and risk metrics | so I can compare return, volatility, and drawdown. | ![screenshot](documentation/dashboard/portfolio_metrics.png) |
+| As a beginner investor | I want an explanation linking the chart to investing principles | so I understand compounding, staying invested, and diversification. | ![screenshot](documentation/dashboard/portfolio_chart_explanation.png) |
+| As a beginner investor | I want a growth of £1 chart | so I can visualise how the selected plan performed historically. | ![screenshot](documentation/dashboard/portfolio_growth_chart.png) |
+| As a beginner investor | I want a selected plan allocation table with weight explanations and educational guidance | so I can understand the assets, percentages, and non-recommendation context for the selected plan. | ![screenshot](documentation/dashboard/portfolio_allocation.png) |
+| As a beginner investor | I want simple decision guidance if I still feel unsure | so I have a beginner-friendly fallback explanation without receiving personal financial advice. | ![screenshot](documentation/dashboard/portfolio_decision_guidance.png) |
+| As a beginner investor | I want an encouraging final message | so I feel confident that I have taken a positive first step in understanding investing. | ![screenshot](documentation/dashboard/portfolio_final_message.png) |
