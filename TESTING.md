@@ -339,3 +339,21 @@ This provides clear traceability from User Story → Implementation → Validati
 Widget interaction testing was carried out by manually checking that each interactive Streamlit widget behaved correctly and updated the dashboard as expected.
 
 This testing focused specifically on user-interactive widgets, including sidebar navigation, link buttons, selectboxes, date inputs, tabs, and expanders.
+
+---
+
+### Widget Interaction Testing Results
+
+| Widget | Expectation | Outcome | Screenshot |
+| --- | --- | --- | --- |
+| Sidebar navigation radio | Selecting each sidebar page option should load the correct dashboard page | Each page loaded correctly from the sidebar navigation without errors, including Home, Stock Explorer, Predictor, Portfolio Plans, and Model Performance | ![screenshot](documentation/dashboard/routing.png) |
+| Footer GitHub link button | Clicking the footer button should provide access to the project repository | The footer button displayed consistently and linked users to the StockMetrics GitHub repository | ![screenshot](documentation/dashboard/footer_button.png) |
+| Home page FAQ expanders | Expanding and collapsing FAQ sections should reveal the correct beginner-friendly guidance | FAQ expanders opened and displayed the expected explanations for investing basics, buying and selling, investment frequency, S&P 500, FTSE All-World, Magnificent Seven, Tesla, scenario ranges, Trading 212, and additional assets | ![screenshot](documentation/dashboard/home_faqs.png) |
+| Stock Explorer asset selectbox | Selecting a different asset should update the selected asset label, metrics, charts, and asset-specific outputs | Asset-specific metrics and visualisations updated correctly when switching between included ETFs and Magnificent Seven stocks | ![screenshot](documentation/dashboard/stock_explorer_asset_selector.png) |
+| Stock Explorer date range input | Changing the start and end dates should filter the displayed data to the selected period | Row count, date range metrics, price chart, returns chart, and distribution chart updated correctly to match the selected date range | ![screenshot](documentation/dashboard/stock_explorer_date_range.png) |
+| Stock Explorer chart tabs | Selecting each chart tab should display the correct chart and supporting guidance | The Prices, Returns, and Distribution tabs displayed the expected Plotly charts with relevant educational guidance | ![screenshot](documentation/dashboard/stock_returns_chart.png) |
+| Stock Explorer asset guide expanders | Expanding an asset guide item should reveal the correct plain-English company or fund explanation | Asset guide expanders opened correctly for the included stocks and ETFs and displayed the expected beginner-friendly descriptions | ![screenshot](documentation/dashboard/stock_explorer_asset_guide.png) |
+| Predictor asset selectbox | Selecting a different asset should update the latest price, latest date, drift, volatility, ML estimate, and scenario table | Predictor outputs refreshed correctly for each selected asset using the relevant historical data and ticker-specific currency formatting | ![screenshot](documentation/dashboard/predictor_asset_selector.png) |
+| Predictor forecast horizon selectbox | Changing the forecast horizon should update the long-term scenario output table | Scenario end-price outputs updated correctly when switching between 1, 2, 5, and 10 year horizons | ![screenshot](documentation/dashboard/predictor_horizon_selector.png) |
+| Predictor trend window selectbox | Changing the trend window should update the historical assumptions used for the scenario ranges | Trend window used, estimated daily drift, estimated volatility context, and scenario values updated correctly when switching between 1, 2, 5, and 10 year windows | ![screenshot](documentation/dashboard/predictor_trend_window_selector.png) |
+| Portfolio Plans selectbox | Selecting a different portfolio plan should update all plan-specific outputs | The selected plan, highlighted plan box, performance metrics, growth chart, and allocation table all updated correctly for each plan | ![screenshot](documentation/dashboard/portfolio_plan_selector.png) |
