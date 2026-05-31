@@ -695,3 +695,48 @@ The failure was caused by a backend search infrastructure issue that prevented p
 
 **Fix:**
 No local fix was required. I monitored the GitHub Status page until the "Issues" and "Actions" services were restored to "normal" status. Once GitHub deployed their infrastructure mitigation, the project board and issue tracking functionality returned to full operation.
+
+---
+
+### Known Issues
+
+1. Render free instance cold start behaviour
+
+**Issue:**
+After deployment, Render displays a warning that free-tier services spin down after periods of inactivity. When the service restarts, the first request may take up to ~50 seconds.
+
+**Cause:**
+Render automatically suspends idle services on the free tier to conserve resources.
+
+**Fix / Mitigation:**
+No technical fix is required for development or assessment purposes. This behaviour is documented in the README deployment section so users understand the potential delay on the first request after inactivity.
+
+---
+
+2. Yahoo Finance / `yfinance` endpoint availability
+
+**Issue:**
+During final pipeline validation, the live Yahoo Finance endpoint occasionally returned `yfinance` download errors, including `YFTzMissingError` and empty responses for valid tickers.
+
+**Cause:**
+The data collection notebook depends on a live third-party endpoint. Temporary service issues, rate limiting, or API response changes can prevent `yfinance` from returning data, even when ticker symbols are valid.
+
+**Fix / Mitigation:**
+The data collection notebook was updated to handle live endpoint failure gracefully by reporting the issue and listing the existing saved raw snapshots available for reproducibility. No downstream pipeline logic was changed. The remaining notebooks (`02_data_cleaning.ipynb` to `06_model_evaluation.ipynb`) continue to run from the saved `data/raw/v2/` snapshots.
+
+This is documented as an external service limitation rather than an application bug. The issue reinforced the importance of the project's versioned data strategy, because the downstream CRISP-DM workflow remains reproducible even when the live endpoint is unavailable.
+
+---
+
+3. Lighthouse Performance Score
+
+**Issue:**
+The Lighthouse audit returned a lower Performance score for the deployed Home page.
+
+**Cause:**
+StockMetrics is built with Streamlit, which handles much of the frontend rendering, JavaScript bundling, and server communication internally. This limits direct control over some Lighthouse performance recommendations compared with a custom static frontend.
+
+**Fix / Mitigation:**
+No functional fix was required because the issue did not prevent users from accessing or using the dashboard. Manual responsiveness testing, browser compatibility testing, widget testing, and deployment testing confirmed that the dashboard remained usable and stable.
+
+This is documented as a known performance limitation of the chosen dashboard framework rather than a functional application bug.
