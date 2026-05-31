@@ -308,3 +308,16 @@ This Epic covers the `app_pages/model_performance.py` page, which presents model
 | As a technical reviewer | I want EDA plot evidence displayed | so I can connect the dashboard evidence to the project hypotheses around volatility, diversification, and concentration risk. | ![screenshot](documentation/dashboard/model_eda_evidence.png) |
 | As a technical reviewer | I want feature importance displayed | so I can see which features influenced the model most. | ![screenshot](documentation/dashboard/model_feature_importance.png) |
 | As a technical reviewer | I want a final ML model summary | so I can understand the overall model conclusion. | ![screenshot](documentation/dashboard/model_summary.png) |
+
+---
+
+### Epic - Deployment and Application Availability
+
+This Epic is linked to **Milestone 6**.
+
+This Epic covers deployment configuration, hosted availability, and the steps required to make the finished dashboard publicly accessible on Render.
+
+| Target | Expectation | Outcome | Screenshot |
+|---|---|---|---|
+| As a user | I want the StockMetrics dashboard deployed online | so I can access the application from a live public URL. | ![screenshot](documentation/deployment/stockmetrics_url.png) |
+| As a developer | I want the application deployed using Render | so the dashboard can be reliably hosted and accessed by users. | ![screenshot](documentation/deployment/render_live.png) |
