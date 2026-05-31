@@ -219,3 +219,23 @@ This Epic covers the `app_pages/home.py` page, which introduces StockMetrics and
 | As a beginner investor | I want a plain-English glossary | so I can understand key investing terms. | ![screenshot](documentation/dashboard/home_glossary.png) |
 | As a beginner investor | I want expandable FAQs | so I can learn answers to common beginner investing questions. | ![screenshot](documentation/dashboard/home_faq_expanders.png) |
 | As a beginner investor | I want a preview of the four risk-based plans | so I understand the available portfolio styles before comparing them. | ![screenshot](documentation/dashboard/home_plan_preview.png) |
+
+---
+
+### Epic - Stock Explorer and Asset Education
+
+This Epic is linked to **Milestone 4**.
+
+This Epic covers the `app_pages/stock_explorer.py` page, which allows users to explore selected assets using historical price and return data.
+
+| Target | Expectation | Outcome | Screenshot |
+|---|---|---|---|
+| As a beginner investor | I want a clear Stock Explorer introduction and hero image | so I understand the purpose of the page. | ![screenshot](documentation/dashboard/stock_intro_hero.png) |
+| As a beginner investor | I want to select an asset from a curated dropdown | so I can explore a specific stock or ETF without being overwhelmed. | ![screenshot](documentation/dashboard/stock_asset_select.png) |
+| As a beginner investor | I want to select a date range | so I can focus on a specific time period. | ![screenshot](documentation/dashboard/stock_date_range.png) |
+| As a beginner investor | I want key metrics for my selected asset and period | so I understand the data scope being shown. | ![screenshot](documentation/dashboard/stock_metrics.png) |
+| As a beginner investor | I want an interactive price chart | so I can visualise historical price movement. | ![screenshot](documentation/dashboard/stock_price_chart.png) |
+| As a beginner investor | I want an interactive daily returns chart | so I can understand short-term movement and volatility. | ![screenshot](documentation/dashboard/stock_returns_chart.png) |
+| As a beginner investor | I want an interactive return distribution chart | so I can see common and extreme daily return outcomes. | ![screenshot](documentation/dashboard/stock_distribution_chart.png) |
+| As a beginner investor | I want educational chart captions and messages | so I understand that historical data is for learning, not trading signals. | ![screenshot](documentation/dashboard/stock_chart_guidance.png) |
+| As a beginner investor | I want expandable asset explanations | so I understand what each included company or ETF represents. | ![screenshot](documentation/dashboard/stock_asset_expanders.png) |
