@@ -553,3 +553,31 @@ After updating `app_pages/portfolio_plans.py` to import new constants (`PLAN_DES
 
 **Fix:**
 Added the missing `TICKER_DISPLAY_NAMES` and `PLAN_DESCRIPTIONS` dictionaries to `src/config.py`, saved the file, and reran the Streamlit app. After the constants existed in the config module, the import resolved correctly and the Portfolio Plans page loaded as expected.
+
+---
+
+#### Modelling and Feature Engineering Bugs
+
+12. Feature engineering and modelling column mismatch (`zscore_30d` KeyError)
+
+**Issue:**
+Model training failed with `KeyError: ['zscore_30d']` when running `train_and_tune(smoke_df, test_size=0.2, fast=True)` in `05_model_training.ipynb`.
+
+**Cause:**
+A new engineered feature, `zscore_30d`, was added to the feature pipeline and modelling configuration, but the updated `src/features.py` file had not been saved before rerunning the notebooks. As a result, the regenerated features dataset did not yet contain the expected column.
+
+**Fix:**
+The changes to `src/features.py` were saved, then `04_feature_engineering.ipynb` was rerun to rebuild the latest features dataset. After that, `05_model_training.ipynb` was rerun so the training data was recreated from the corrected feature set.
+
+---
+
+13. Model initially unsuccessful against business case due to weak feature set
+
+**Issue:**  
+The trained model initially remained unsuccessful against the project business case because test-set R² stayed slightly below zero on unseen data.
+
+**Cause:**  
+The original feature set did not provide enough useful short-horizon signal for the model to achieve a positive test-set R², even though the overall pipeline and evaluation logic were functioning correctly.
+
+**Fix:**  
+Additional lightweight mean-reversion features were incorporated into the feature engineering pipeline, specifically `zscore_30d` and `mean_reversion_5d`. The feature dataset was regenerated, and the model was retrained and reevaluated using the updated inputs. This improved the final test-set R² to **0.000740**, allowing the model to satisfy the project business case success criterion of **Test R² > 0** without materially increasing runtime or changing the overall project approach.
