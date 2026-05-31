@@ -452,3 +452,104 @@ The `.pkl` file had already been tracked by Git before the ignore rules were fin
 
 **Fix:**
 The `.gitignore` file was updated to ignore files in `models/` while explicitly allowing `models/model_card_v1.md` to remain tracked. The repository history was then corrected so the model card remained version-controlled and the generated `.pkl` artefact was excluded going forward.
+
+---
+
+#### Dashboard and App Bugs
+
+5. Sidebar Navigation Not Working in Early Streamlit App Structure
+
+**Issue:**
+In an early version of the Streamlit app, the sidebar did not provide working navigation between dashboard pages, which made the multi-page structure unclear and limited usability.
+
+**Cause:**
+The initial `app.py` displayed sidebar instructions telling the user to use Streamlit’s page menu, but the project pages were being organised under a custom `app_pages/` structure. At this stage, the application was not yet fully wired to use explicit sidebar-driven routing between page modules.
+
+**Fix:**
+Refactored `app.py` to import each page from `app_pages/`, define a `PAGES` dictionary, and use a sidebar `st.radio()` control to switch between page `render()` functions directly. This made the sidebar the main navigation method and resolved the issue.
+
+---
+
+6. Streamlit Dashboard Layout Too Wide
+
+**Issue:**
+The dashboard initially used the `wide` layout in Streamlit, which caused the interface to feel overly stretched and visually unbalanced on large displays.
+
+**Cause:**
+Using `layout="wide"` in `st.set_page_config()` made content expand across the full browser width, making charts and text blocks harder to read and less visually organised.
+
+**Fix:**
+The layout was changed to a **centered layout** with `layout="centered"`, improving readability and maintaining a clearer visual hierarchy for charts, tables, and explanatory text.
+
+---
+
+7. Predictor page not loading correctly in Streamlit
+
+**Issue:**
+The Predictor page did not load correctly in Streamlit.
+
+**Cause:**
+The page structure was inconsistent with the app’s chosen navigation and rendering approach, so the page logic was not being executed as expected.
+
+**Fix:**
+The page was refactored to match the app’s final `render()`-based navigation structure so that prediction logic, model loading, and page content executed correctly.
+
+---
+
+8. Predictor produced unrealistic long-horizon scenario outputs
+
+**Issue:**
+Early versions of the Predictor page produced unrealistic long-horizon scenario outputs, including extreme growth, sharp collapses, and near-zero end prices.
+
+**Cause:**
+The forecasting logic relied too heavily on compounding short-horizon machine learning next-day return predictions across long periods. Because next-day returns are noisy and unstable, this produced unrealistic long-range scenario paths.
+
+**Fix:**
+The forecasting approach was redesigned so that long-horizon scenario generation uses historical trend and volatility rather than compounding noisy next-day ML predictions. This produced more stable and realistic scenario ranges while preserving the ML model as a short-horizon educational component.
+
+---
+
+9. Model Performance page was tied to a fixed artefact version
+
+**Issue:**
+The Model Performance page was initially tied to a fixed artefact version, which reduced flexibility when newer project versions were generated.
+
+**Cause:**
+The page used a hard-coded version path rather than reading from the project configuration.
+
+**Fix:**
+The page was updated to use the configured project version so that reports, plots, and feature importance files could be loaded consistently from the correct versioned output folder.
+
+---
+
+10. Streamlit Server Freezing / Terminal Hanging After `streamlit run app.py`
+
+**Issue:**
+Running `streamlit run app.py` caused the terminal to freeze, preventing the application from launching or responding to interrupts such as `Ctrl + C`.
+
+**Cause:**
+A stuck `python.exe` process, likely related to Streamlit’s file watcher on Windows, prevented new Streamlit instances from starting cleanly.
+
+**Fix:**
+Restarting the system cleared the hung process. During development, Streamlit could then be launched as normal with
+
+`streamlit run app.py`
+
+Streamlit could also be launched using:
+
+`streamlit run app.py --server.port 8502 --server.fileWatcherType none`
+
+Disabling the file watcher prevents similar hangs from occurring during development on Windows systems.
+
+---
+
+11. ImportError after adding Portfolio Plans metadata
+
+**Issue:**
+The Streamlit app failed to start after updating the Portfolio Plans page, raising an `ImportError` stating that `PLAN_DESCRIPTIONS` could not be imported from `src.config`.
+
+**Cause:**
+After updating `app_pages/portfolio_plans.py` to import new constants (`PLAN_DESCRIPTIONS` and `TICKER_DISPLAY_NAMES`) from `src.config`, the corresponding changes in `src/config.py` had not yet been saved before rerunning the app.
+
+**Fix:**
+Added the missing `TICKER_DISPLAY_NAMES` and `PLAN_DESCRIPTIONS` dictionaries to `src/config.py`, saved the file, and reran the Streamlit app. After the constants existed in the config module, the import resolved correctly and the Portfolio Plans page loaded as expected.
