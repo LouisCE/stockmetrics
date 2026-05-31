@@ -283,3 +283,28 @@ This Epic covers the `app_pages/portfolio_plans.py` page, which helps users comp
 | As a beginner investor | I want a selected plan allocation table with weight explanations and educational guidance | so I can understand the assets, percentages, and non-recommendation context for the selected plan. | ![screenshot](documentation/dashboard/portfolio_allocation.png) |
 | As a beginner investor | I want simple decision guidance if I still feel unsure | so I have a beginner-friendly fallback explanation without receiving personal financial advice. | ![screenshot](documentation/dashboard/portfolio_decision_guidance.png) |
 | As a beginner investor | I want an encouraging final message | so I feel confident that I have taken a positive first step in understanding investing. | ![screenshot](documentation/dashboard/portfolio_final_message.png) |
+
+---
+
+### Epic - Model Performance and Transparency
+
+This Epic is linked to **Milestone 5**.
+
+This Epic covers the `app_pages/model_performance.py` page, which presents model performance, evaluation evidence, hyperparameters, plots, feature importance, and educational interpretation.
+
+| Target | Expectation | Outcome | Screenshot |
+|---|---|---|---|
+| As a technical reviewer | I want a clear Model Performance introduction and hero image | so I understand the purpose of the page. | ![screenshot](documentation/dashboard/model_intro_hero.png) |
+| As a technical reviewer | I want the next-day prediction task explained | so I understand what the model is trying to predict. | ![screenshot](documentation/dashboard/model_task_explanation.png) |
+| As a technical reviewer | I want the business case result displayed clearly | so I can see whether the model met its success rule. | ![screenshot](documentation/dashboard/model_business_case.png) |
+| As a technical reviewer | I want model reproducibility explained | so I understand the displayed result reflects the saved dataset and model artefacts for this project version. | ![screenshot](documentation/dashboard/model_reproducibility.png) |
+| As a technical reviewer | I want train and test evaluation metrics displayed | so I can assess model performance. | ![screenshot](documentation/dashboard/model_metrics.png) |
+| As a technical reviewer | I want plain-English explanations of R², MAE, and RMSE | so the metrics are understandable in context. | ![screenshot](documentation/dashboard/model_metrics_explained.png) |
+| As a technical reviewer | I want the R² success rule explained | so I understand why a small positive signal can still support the business case. | ![screenshot](documentation/dashboard/model_r2_explanation.png) |
+| As a technical reviewer | I want the model limitations explained | so I understand why short-term prediction is difficult. | ![screenshot](documentation/dashboard/model_limitations.png) |
+| As a technical reviewer | I want the best hyperparameters displayed | so I can inspect the tuned model settings. | ![screenshot](documentation/dashboard/model_hyperparameters.png) |
+| As a technical reviewer | I want the full hyperparameter search space displayed | so I can verify that the final model tuning used six hyperparameters with three values each. | ![screenshot](documentation/dashboard/model_search_space.png) |
+| As a technical reviewer | I want evaluation plots displayed | so I can visually assess model behaviour and prediction errors. | ![screenshot](documentation/dashboard/model_plots.png) |
+| As a technical reviewer | I want EDA plot evidence displayed | so I can connect the dashboard evidence to the project hypotheses around volatility, diversification, and concentration risk. | ![screenshot](documentation/dashboard/model_eda_evidence.png) |
+| As a technical reviewer | I want feature importance displayed | so I can see which features influenced the model most. | ![screenshot](documentation/dashboard/model_feature_importance.png) |
+| As a technical reviewer | I want a final ML model summary | so I can understand the overall model conclusion. | ![screenshot](documentation/dashboard/model_summary.png) |
