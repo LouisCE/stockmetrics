@@ -239,3 +239,25 @@ This Epic covers the `app_pages/stock_explorer.py` page, which allows users to e
 | As a beginner investor | I want an interactive return distribution chart | so I can see common and extreme daily return outcomes. | ![screenshot](documentation/dashboard/stock_distribution_chart.png) |
 | As a beginner investor | I want educational chart captions and messages | so I understand that historical data is for learning, not trading signals. | ![screenshot](documentation/dashboard/stock_chart_guidance.png) |
 | As a beginner investor | I want expandable asset explanations | so I understand what each included company or ETF represents. | ![screenshot](documentation/dashboard/stock_asset_expanders.png) |
+
+---
+
+### Epic - Predictor and Scenario Guidance
+
+This Epic is linked to **Milestone 4**.
+
+This Epic covers the `app_pages/predictor.py` page, which separates short-term machine learning output from long-term historical scenario ranges.
+
+| Target | Expectation | Outcome | Screenshot |
+|---|---|---|---|
+| As a beginner investor | I want a clear Predictor introduction and hero image | so I understand the purpose of the forecasting page. | ![screenshot](documentation/dashboard/predictor_intro_hero.png) |
+| As a beginner investor | I want the page to explain short-term ML and long-term scenarios separately | so I understand that they are different types of outputs. | ![screenshot](documentation/dashboard/predictor_explanation.png) |
+| As a beginner investor | I want to select an asset | so I can generate outputs for the investment I am interested in. | ![screenshot](documentation/dashboard/predictor_asset_select.png) |
+| As a beginner investor | I want to select a forecast horizon | so I can compare different long-term timeframes. | ![screenshot](documentation/dashboard/predictor_horizon.png) |
+| As a beginner investor | I want to select a trend window | so I can control how much historical data informs the scenario ranges. | ![screenshot](documentation/dashboard/predictor_window.png) |
+| As a beginner investor | I want scenario assumption metrics for the selected asset | so I understand the latest price, date, trend window, and drift used in the scenario calculation. | ![screenshot](documentation/dashboard/predictor_metrics.png) |
+| As a beginner investor | I want a separate next-day ML estimate with reproducibility context and plain-English interpretation | so I can understand the short-term model output without confusing it with the long-term scenarios. | ![screenshot](documentation/dashboard/predictor_ml_estimate.png) |
+| As a beginner investor | I want a clear ML risk warning | so I understand the next-day estimate is educational and not a trading instruction. | ![screenshot](documentation/dashboard/predictor_ml_warning.png) |
+| As a beginner investor | I want a beginner-friendly explanation of short-term prediction uncertainty | so I understand why long-term thinking and scenario planning are more useful than day-to-day prediction. | ![screenshot](documentation/dashboard/predictor_beginner_explanation.png) |
+| As a beginner investor | I want pessimistic, realistic, and optimistic scenario end prices | so I understand uncertainty instead of relying on one fixed prediction. | ![screenshot](documentation/dashboard/predictor_scenarios.png) |
+| As a beginner investor | I want clear scenario explanations and warnings | so I understand the outputs are educational estimates, not guaranteed outcomes. | ![screenshot](documentation/dashboard/predictor_scenario_warnings.png) |
