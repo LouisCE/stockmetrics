@@ -673,3 +673,25 @@ The deployed environment did not include the required ML artefacts because they 
 
 **Fix:**
 Updated `.gitignore` to allow the required deployment artefacts, then force-added and committed the missing files to the repository. After redeployment, the live Predictor page was able to load the model and features dataset correctly and display the ML next-day estimate as expected.
+
+---
+
+#### External Service Bug
+
+19. GitHub Issues and Project board failed to load
+
+**Issue:**
+GitHub Issues and the Projects board became inaccessible, displaying error messages:
+
+- **"Stale cache warning: Failed to fetch data"**
+- **"This project failed to load."**
+
+Attempts to refresh the page or restart the local system did not resolve the connection failure.
+
+**Cause:**
+A major infrastructure disruption on GitHub’s end. Official status reports confirmed degraded performance across **Issues, Pull Requests, Actions, and Packages** starting at 16:31 UTC on 27 April 2026.
+
+The failure was caused by a backend search infrastructure issue that prevented project data from being retrieved or rendered in the web interface.
+
+**Fix:**
+No local fix was required. I monitored the GitHub Status page until the "Issues" and "Actions" services were restored to "normal" status. Once GitHub deployed their infrastructure mitigation, the project board and issue tracking functionality returned to full operation.
