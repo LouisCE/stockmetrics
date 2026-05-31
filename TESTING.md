@@ -321,3 +321,13 @@ This Epic covers deployment configuration, hosted availability, and the steps re
 |---|---|---|---|
 | As a user | I want the StockMetrics dashboard deployed online | so I can access the application from a live public URL. | ![screenshot](documentation/deployment/stockmetrics_url.png) |
 | As a developer | I want the application deployed using Render | so the dashboard can be reliably hosted and accessed by users. | ![screenshot](documentation/deployment/render_live.png) |
+
+---
+
+### User Story Testing Summary
+
+All dashboard User Stories were manually tested against the deployed Streamlit application.
+
+Each User Story maps directly to a visible dashboard feature, with evidence captured through screenshots. Navigation behaved consistently, interactive widgets updated outputs correctly, visualisations rendered without error, and all educational guidance was displayed as intended.
+
+This provides clear traceability from User Story → Implementation → Validation, satisfying Agile and assessment requirements.
