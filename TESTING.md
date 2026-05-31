@@ -331,3 +331,11 @@ All dashboard User Stories were manually tested against the deployed Streamlit a
 Each User Story maps directly to a visible dashboard feature, with evidence captured through screenshots. Navigation behaved consistently, interactive widgets updated outputs correctly, visualisations rendered without error, and all educational guidance was displayed as intended.
 
 This provides clear traceability from User Story → Implementation → Validation, satisfying Agile and assessment requirements.
+
+---
+
+## Widget Interaction Testing
+
+Widget interaction testing was carried out by manually checking that each interactive Streamlit widget behaved correctly and updated the dashboard as expected.
+
+This testing focused specifically on user-interactive widgets, including sidebar navigation, link buttons, selectboxes, date inputs, tabs, and expanders.
