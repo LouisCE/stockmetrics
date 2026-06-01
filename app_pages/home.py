@@ -72,11 +72,17 @@ with clarity and confidence.
     st.header("📊 Dataset summary")
 
     st.write(
-        "The dataset contains historical daily price data collected from "
-        "Yahoo Finance for the Magnificent Seven stocks together with "
-        "the Vanguard S&P 500 ETF (VUSA.L) and Vanguard FTSE All-World "
-        "ETF (VWRL.L). The project uses adjusted closing prices, daily "
-        "returns, volatility measures, portfolio metrics, and engineered "
+        "StockMetrics uses historical daily price data collected from "
+        "Yahoo Finance for two ETFs and the Magnificent Seven technology "
+        "companies: Apple, Amazon, Alphabet, Meta, Microsoft, Nvidia, "
+        "and Tesla."
+    )
+
+    st.write(
+        "The current dashboard uses the v2 dataset, which includes "
+        "VWRL.L, VUSA.L, AAPL, AMZN, GOOGL, META, MSFT, NVDA, and TSLA. "
+        "The analysis is based mainly on adjusted closing prices, daily "
+        "returns, volatility, drawdowns, portfolio metrics, and engineered "
         "features for machine learning."
     )
 
@@ -97,15 +103,16 @@ and machine learning evaluation.
 
     st.markdown(
         """
-1. **Historical Market Exploration** — supported through the Stock Explorer
-   page.
-2. **Portfolio Risk Comparison** — supported through the Portfolio Plans page.
-3. **Predictive Analytics Feature** — supported through the next-day return
-   regression model.
-4. **Scenario-Based Forecasting** — supported through long-term optimistic,
-   realistic, and pessimistic scenario ranges.
-5. **Clear Communication of ML Results** — supported through the Model
-   Performance page.
+1. **Historical Market Exploration** — implemented in the Stock Explorer
+   page using price charts, daily returns, and return distributions.
+2. **Portfolio Risk Comparison** — implemented in the Portfolio Plans page
+   using risk-based plans, volatility, returns, and drawdowns.
+3. **Predictive Analytics Feature** — implemented through a supervised
+   regression model that estimates next-day return.
+4. **Scenario-Based Forecasting** — implemented in the Predictor page using
+   long-term optimistic, realistic, and pessimistic scenario ranges.
+5. **Clear Communication of ML Results** — implemented in the Model
+   Performance page using metrics, plots, and feature importance.
 """
     )
 
@@ -114,13 +121,16 @@ and machine learning evaluation.
     st.markdown(
         """
 1. **Concentrated portfolio plans are riskier than diversified ones but may
-   offer greater potential rewards** — supported by the analysis.
+   offer greater potential rewards** — validated using portfolio returns,
+   volatility, drawdowns, and growth-of-£1 comparisons.
 2. **Technology stocks exhibit higher volatility than diversified ETFs** —
-   supported by the analysis.
+   validated using daily return distributions, boxplots, and rolling
+   volatility.
 3. **Diversified portfolios experience smaller drawdowns than concentrated
-   portfolios** — supported by the analysis.
-4. **Short-horizon return prediction is inherently difficult** — supported
-   with caution, as the final model achieved a very weak positive Test R².
+   portfolios** — validated using portfolio drawdown and volatility metrics.
+4. **Short-horizon return prediction is inherently difficult** — validated
+   using Test R², MAE, RMSE, actual-vs-predicted plots, and residual
+   analysis.
 """
     )
 
@@ -226,7 +236,8 @@ and machine learning evaluation.
         )
         st.info(
             "**Did you know?** Historically, the stock market "
-            "has returned an average of ~10% per year.",
+            "has often been cited as returning around 10% per year "
+            "before inflation over the long term.",
             icon="ℹ️"
         )
 
