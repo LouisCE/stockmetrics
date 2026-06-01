@@ -233,6 +233,29 @@ For reproducibility, raw snapshots collected successfully during development are
 
 ---
 
+### Pipeline Testing Summary
+
+The end-to-end pipeline validation confirmed that the StockMetrics notebook workflow is reproducible from the saved project data.
+
+The isolated `stockmetrics-pipeline-check` worktree was used to protect the main project folder while testing the notebook sequence. This ensured that the validation process did not accidentally overwrite or modify the main project outputs during testing.
+
+The validation confirmed the following:
+
+- The project contains a working endpoint collection notebook.
+- Successfully collected raw snapshots are stored under `data/raw/v2/`.
+- The data cleaning notebook can load and process the saved raw snapshots.
+- The EDA notebook can generate summary statistics and visual outputs.
+- The feature engineering notebook can create and save model-ready features.
+- The model training notebook can train, tune, and save the ML pipeline.
+- The model evaluation notebook can evaluate the saved model and generate reports, predictions, and plots.
+- Versioned outputs are stored under dedicated project folders such as `data/processed/v2/`, `outputs/v2/`, and `models/`.
+
+During final validation, the live Yahoo Finance endpoint returned temporary yfinance errors for the data collection notebook. This did not affect the reproducibility of the project because the raw data snapshots had already been collected and stored in the repository.
+
+This supports the project’s reproducibility strategy: live endpoint collection is used to obtain the source data, while saved versioned snapshots allow the remaining CRISP-DM pipeline stages to be rerun consistently.
+
+---
+
 ## User Story Testing
 
 User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
