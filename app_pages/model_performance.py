@@ -151,6 +151,30 @@ time-series data.
 
     st.divider()
 
+    st.header("⚙️ ML pipeline overview")
+
+    st.write(
+        "The machine learning workflow followed the CRISP-DM structure used "
+        "throughout the project. Each stage was completed in the project "
+        "notebooks before the saved model and evaluation artefacts were used "
+        "in the deployed dashboard."
+    )
+
+    st.markdown(
+        """
+1. Data collection from Yahoo Finance
+2. Data cleaning and preparation
+3. Exploratory data analysis (EDA)
+4. Feature engineering
+5. Model training
+6. Hyperparameter optimisation
+7. Model evaluation
+8. Dashboard deployment
+"""
+    )
+
+    st.divider()
+
     st.header("🧮 Model performance metrics")
 
     st.write(
