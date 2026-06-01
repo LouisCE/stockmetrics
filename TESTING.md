@@ -253,6 +253,25 @@ The validation confirmed the following:
 During final validation, the live Yahoo Finance endpoint returned temporary yfinance errors for the data collection notebook. This did not affect the reproducibility of the project because the raw data snapshots had already been collected and stored in the repository.
 
 This supports the project’s reproducibility strategy: live endpoint collection is used to obtain the source data, while saved versioned snapshots allow the remaining CRISP-DM pipeline stages to be rerun consistently.
+---
+
+## Deployment Testing
+
+The deployed Streamlit dashboard was tested on Render after deployment.
+
+The following checks were performed during deployment validation:
+
+- Dashboard pages loaded successfully.
+- Sidebar navigation worked correctly.
+- Interactive widgets and Plotly visualisations rendered correctly.
+- Model predictions and portfolio calculations executed correctly.
+- Versioned datasets and saved model artefacts loaded successfully.
+- External links opened correctly.
+- No deployment-specific issues were encountered during testing.
+
+Deployment testing confirmed that the deployed application behaved consistently with the local development environment and that all major dashboard functionality operated correctly in production.
+
+![screenshot](documentation/deployment/render_live.png)
 
 ---
 
