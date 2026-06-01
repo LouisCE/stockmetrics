@@ -220,6 +220,19 @@ For reproducibility, raw snapshots collected successfully during development are
 
 ---
 
+### Pipeline Validation Results
+
+| Directory | File | GitHub File | Screenshot | Notes |
+| --- | --- | --- | --- | --- |
+| `jupyter_notebooks/` | `01_data_collection.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/01_data_collection.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/01_data_collection_pipeline.png) | Endpoint collection mechanism implemented. Raw snapshots are stored in `data/raw/v2/` for reproducibility. |
+| `jupyter_notebooks/` | `02_data_cleaning.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/02_data_cleaning.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/02_data_cleaning_pipeline.png) | Validated successfully from saved raw snapshots. |
+| `jupyter_notebooks/` | `03_eda.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/03_eda.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/03_eda_pipeline.png)  | Validated successfully and generated EDA outputs. |
+| `jupyter_notebooks/` | `04_feature_engineering.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/04_feature_engineering.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/04_feature_engineering_pipeline.png) | Validated successfully and generated versioned feature datasets. |
+| `jupyter_notebooks/` | `05_model_training.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/05_model_training.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/05_model_training_pipeline.png)  | Validated successfully and saved the trained ML pipeline and training report. |
+| `jupyter_notebooks/` | `06_model_evaluation.ipynb` | [View](https://github.com/LouisCE/stockmetrics/blob/main/jupyter_notebooks/06_model_evaluation.ipynb) | ![screenshot](documentation/validation/jupyter_notebooks/06_model_evaluation_pipeline.png) | Validated successfully and saved evaluation reports, predictions, and plots. |
+
+---
+
 ## User Story Testing
 
 User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
