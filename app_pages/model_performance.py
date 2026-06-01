@@ -342,129 +342,187 @@ day-to-day predictions.
 
     st.divider()
 
-    st.header("Evaluation plots")
+    st.header("📑 Model evaluation and data foundation evidence")
 
     st.write(
         """
-These plots are technical checks from the evaluation notebook. They help show
-whether the model generalised to unseen data and whether prediction errors
-looked reasonable.
+This section brings together two types of evidence from the CRISP-DM workflow:
+
+1. **Model evaluation plots**, which show whether the next-day return model
+generalised to unseen test data.
+2. **EDA plot evidence**, which explains the historical market patterns,
+volatility, diversification, and concentration risk behind the project
+hypotheses and business requirements.
+
+This keeps the Model Performance page focused on both the model outcome and
+the data evidence used to interpret that outcome.
+"""
+    )
+
+    eval_tab, eda_tab = st.tabs(
+        ["📊 ML evaluation evidence", "🔬 EDA evidence"]
+    )
+
+    with eval_tab:
+        st.subheader("Model evaluation plots")
+        st.write(
+            """
+These plots were generated during the Evaluation stage of CRISP-DM. They help
+show whether the regression model generalised to unseen chronological test data
+and whether it met the ML business case success rule of Test R² > 0.
 
 They also provide dashboard-visible evidence of multiple plot types, including
-scatter plots, histograms, and time-series plots.
+scatter plots, histograms, residual analysis visualisations, and time-series
+plots.
 """
-    )
+        )
 
-    st.info(
-        "**How to read these plots:**\n\n"
-        "- **Actual vs predicted plots** compare the model's estimates with "
-        "the real next-day returns. If the model were highly accurate, points "
-        "would sit closer to a clear diagonal pattern. In this project, the "
-        "relationship is weak, which matches the very small positive R².\n"
-        "- The **residual histogram** shows prediction errors. A residual is "
-        "the gap between the actual value and the predicted value. Errors "
-        "clustered near zero are better, but wide spread means uncertainty "
-        "remains high.\n"
-        "- The **time-series plots** show how predictions and errors behaved "
-        "over time. Large spikes or clusters of errors show that short-term "
-        "market prediction is unstable across different market conditions.",
-        icon="ℹ️"
-    )
+        st.info(
+            "**How to read these plots:**\n\n"
+            "- **Actual vs predicted plots** compare the model's estimates "
+            "with the real next-day returns. If the model were highly "
+            "accurate, points would sit closer to a clear diagonal pattern. "
+            "In this project, the relationship is weak, which matches the "
+            "very small positive R².\n"
+            "- The **residual histogram** shows prediction errors. A residual "
+            "is the gap between the actual value and the predicted value. "
+            "Errors clustered near zero are better, but wide spread means "
+            "uncertainty remains high.\n"
+            "- The **time-series plots** show how predictions and errors "
+            "behaved over time. Large spikes or clusters of errors show that "
+            "short-term market prediction is unstable across different market "
+            "conditions.",
+            icon="ℹ️",
+        )
 
-    plot_files = [
-        (
-            figures / f"eval_actual_vs_pred_train_{version}.png",
-            "Train set: actual vs predicted returns",
-        ),
-        (
-            figures / f"eval_actual_vs_pred_test_{version}.png",
-            "Test set: actual vs predicted returns",
-        ),
-        (
-            figures / f"eval_residuals_hist_test_{version}.png",
-            "Test set: prediction error distribution",
-        ),
-        (
-            figures / f"eval_residuals_timeseries_test_{version}.png",
-            "Test set: prediction errors over time",
-        ),
-        (
-            figures / f"eval_pred_timeseries_test_{version}.png",
-            "Test set: actual vs predicted returns over time",
-        ),
-    ]
+        st.success(
+            "**Business requirement and hypothesis evidence:**\n\n"
+            "- Supports **Business Requirement 3** by showing that "
+            "StockMetrics includes a supervised predictive analytics "
+            "regression task.\n"
+            "- Supports **Business Requirement 5** by clearly communicating "
+            "R², MAE, RMSE, actual-vs-predicted plots, "
+            "residual plots, and model limitations.\n"
+            "- Supports **Hypothesis 4** because the final model achieved "
+            "only a very weak positive Test R², showing that next-day "
+            "return prediction remains highly uncertain even when a small "
+            "signal is detected.",
+            icon="✅",
+        )
 
-    for path, caption in plot_files:
-        if path.exists():
-            st.image(str(path), caption=caption, use_container_width=True)
-        else:
-            st.warning(f"Missing: {path.name}")
+        plot_files = [
+            (
+                figures / f"eval_actual_vs_pred_train_{version}.png",
+                "Train set: actual vs predicted returns",
+            ),
+            (
+                figures / f"eval_actual_vs_pred_test_{version}.png",
+                "Test set: actual vs predicted returns",
+            ),
+            (
+                figures / f"eval_residuals_hist_test_{version}.png",
+                "Test set: prediction error distribution",
+            ),
+            (
+                figures / f"eval_residuals_timeseries_test_{version}.png",
+                "Test set: prediction errors over time",
+            ),
+            (
+                figures / f"eval_pred_timeseries_test_{version}.png",
+                "Test set: actual vs predicted returns over time",
+            ),
+        ]
 
-    st.divider()
+        for path, caption in plot_files:
+            if path.exists():
+                st.image(str(path), caption=caption, use_container_width=True)
+            else:
+                st.warning(f"Missing: {path.name}")
 
-    st.header("EDA plot evidence for hypotheses")
+    with eda_tab:
+        st.subheader("EDA plots")
+        st.write(
+            """
+These plots were generated during the Data Understanding stage of CRISP-DM.
+They support the project hypotheses and business requirements around historical
+market behaviour, volatility, diversification, concentration risk, drawdowns,
+and cross-asset relationships.
 
-    st.write(
-        """
-These additional EDA plots support the project hypotheses and business
-requirements around volatility, diversification, concentration risk, and
-cross-asset relationships.
+They are included here as **data foundation evidence** because model
+performance should be interpreted in the context of the historical data used to
+train and evaluate the pipeline.
 """
-    )
+        )
 
-    st.info(
-        "**How to read these plots:**\n\n"
-        "- The **price time-series plot** shows how each asset's adjusted "
-        "closing price changed over time. Rising lines show historical "
-        "growth, while sharper rises and falls show a bumpier journey.\n"
-        "- The **daily returns time-series plot** shows short-term ups and "
-        "downs. Larger spikes mean larger day-to-day moves.\n"
-        "- The **returns histogram** shows which daily return outcomes were "
-        "common and which were more extreme.\n"
-        "- The **box plot** compares how spread out each asset's daily "
-        "returns were. A taller box or longer whiskers usually means more "
-        "volatility and more extreme daily moves.\n"
-        "- The **correlation heatmap** shows how similarly assets moved "
-        "compared with each other. Stronger relationships mean assets tended "
-        "to rise and fall together, while weaker relationships suggest more "
-        "diversification benefit.\n"
-        "- The **rolling volatility plot** shows how risk changed over time. "
-        "Spikes mean the asset had a period of larger day-to-day movements.",
-        icon="ℹ️"
-    )
+        st.info(
+            "**How to read these plots:**\n\n"
+            "- The **price time-series plot** shows how each asset's adjusted "
+            "closing price changed over time. Rising lines show historical "
+            "growth, while sharper rises and falls show a bumpier journey.\n"
+            "- The **daily returns time-series plot** shows short-term ups "
+            "and downs. Larger spikes mean larger day-to-day moves.\n"
+            "- The **returns histogram** shows which daily return outcomes "
+            "were common and which were more extreme.\n"
+            "- The **box plot** compares how spread out each asset's daily "
+            "returns were. A taller box or longer whiskers usually means more "
+            "volatility and more extreme daily moves.\n"
+            "- The **correlation heatmap** shows how similarly assets moved "
+            "compared with each other. Stronger relationships mean assets "
+            "tended to rise and fall together, while weaker relationships "
+            "suggest more diversification benefit.\n"
+            "- The **rolling volatility plot** shows how risk changed over "
+            "time. Spikes mean the asset had a period of larger day-to-day "
+            "movements.",
+            icon="ℹ️",
+        )
 
-    eda_plot_files = [
-        (
-            figures / "eda_adj_close_timeseries.png",
-            "Adjusted close time series: long-term price trends",
-        ),
-        (
-            figures / "eda_daily_returns_timeseries.png",
-            "Daily returns time series: short-term volatility patterns",
-        ),
-        (
-            figures / "eda_daily_returns_hist.png",
-            "Daily returns histogram: common and extreme daily outcomes",
-        ),
-        (
-            figures / "eda_daily_returns_boxplot.png",
-            "Daily returns box plot: volatility and outlier comparison",
-        ),
-        (
-            figures / "eda_returns_correlation_heatmap.png",
-            "Correlation heatmap: relationship between asset returns",
-        ),
-        (
-            figures / "eda_rolling_volatility_30d.png",
-            "Rolling volatility: changing short-term risk over time",
-        ),
-    ]
+        st.success(
+            "**Business requirement and hypothesis evidence:**\n\n"
+            "- Supports **Business Requirement 1** by showing historical "
+            "market behaviour through prices, returns, distributions, "
+            "volatility, and correlations.\n"
+            "- Supports **Business Requirement 2** by showing evidence behind "
+            "diversification, concentration risk, volatility, and drawdown "
+            "behaviour.\n"
+            "- Supports **Hypotheses 1, 2, and 3** by showing that "
+            "concentrated technology exposure generally had higher "
+            "volatility, while diversified ETF exposure showed smoother "
+            "behaviour and reduced downside risk.",
+            icon="✅",
+        )
 
-    for path, caption in eda_plot_files:
-        if path.exists():
-            st.image(str(path), caption=caption, use_container_width=True)
-        else:
-            st.warning(f"Missing: {path.name}")
+        eda_plot_files = [
+            (
+                figures / "eda_adj_close_timeseries.png",
+                "Adjusted close time series: long-term price trends",
+            ),
+            (
+                figures / "eda_daily_returns_timeseries.png",
+                "Daily returns time series: short-term volatility patterns",
+            ),
+            (
+                figures / "eda_daily_returns_hist.png",
+                "Daily returns histogram: common and extreme daily outcomes",
+            ),
+            (
+                figures / "eda_daily_returns_boxplot.png",
+                "Daily returns box plot: volatility and outlier comparison",
+            ),
+            (
+                figures / "eda_returns_correlation_heatmap.png",
+                "Correlation heatmap: relationship between asset returns",
+            ),
+            (
+                figures / "eda_rolling_volatility_30d.png",
+                "Rolling volatility: changing short-term risk over time",
+            ),
+        ]
+
+        for path, caption in eda_plot_files:
+            if path.exists():
+                st.image(str(path), caption=caption, use_container_width=True)
+            else:
+                st.warning(f"Missing: {path.name}")
 
     st.divider()
 
