@@ -302,7 +302,7 @@ and machine learning evaluation.
         )
 
     with st.expander(
-        "📊 Why does StockMetrics use scenario ranges instead of one "
+        "🎭 Why does StockMetrics use scenario ranges instead of one "
         "prediction?"
     ):
         st.write(
@@ -376,18 +376,21 @@ diversification, concentration, and volatility.
 
     with col2:
         st.success(
-            "⚖️ **Targeted (Moderate Risk)**\n\n"
-            "Focused exposure to large US companies in the S&P 500."
+            "🎯 **Targeted (Moderate Risk)**\n\n"
+            "Focused exposure to large US companies in the S&P 500 "
+            "for balance."
         )
 
     with col3:
         st.warning(
             "🧗 **Concentrated (High Risk)**\n\n"
-            "Mix of S&P 500 and Magnificent Seven for higher growth."
+            "Mix of S&P 500 and Magnificent Seven for higher growth "
+            "potential."
         )
 
     with col4:
         st.error(
             "🌋 **Aggressive (Higher Risk)**\n\n"
-            "High concentration with Tesla overweight for volatility."
+            "High concentration with Tesla overweight to illustrate "
+            "volatility."
         )

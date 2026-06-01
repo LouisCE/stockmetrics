@@ -52,7 +52,7 @@ def render_plan_boxes(selected_plan: str) -> None:
     with col2:
         label = "✅ Selected" if plans[1] == selected_plan else ""
         st.success(
-            f"⚖️ **{plans[1]}**\n\n"
+            f"🎯 **{plans[1]}**\n\n"
             f"{PLAN_DESCRIPTIONS[plans[1]]}\n\n"
             f"{label}"
         )
@@ -102,7 +102,7 @@ def render() -> None:
 
     st.divider()
 
-    st.header("What's your appetite for risk?")
+    st.header("⚖️ What's your appetite for risk?")
 
     st.write(
         """
@@ -155,7 +155,7 @@ also experience larger drawdowns and a bumpier ride.
 
     st.divider()
 
-    st.header("Core investing principles in one chart")
+    st.header("🪙 Core investing principles in one chart")
 
     st.write(
         "This chart shows how £1 would have grown historically under the "

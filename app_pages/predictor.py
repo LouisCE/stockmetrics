@@ -106,7 +106,7 @@ def _ml_interpretation_message(model_pred: float | None) -> tuple[str, str]:
 
 
 def render() -> None:
-    st.title("🎯 Predictor")
+    st.title("🔮 Predictor")
 
     st.divider()
 
@@ -166,7 +166,7 @@ This keeps StockMetrics beginner-friendly by showing that:
 
     st.divider()
 
-    st.header("Select an asset and forecast horizon")
+    st.header("🎛️ Select an asset and forecast horizon")
 
     st.write(
         "Use the dropdown to select an asset and the horizon selector to "
@@ -271,7 +271,7 @@ This keeps StockMetrics beginner-friendly by showing that:
 
     st.divider()
 
-    st.header("Next-day machine learning estimate")
+    st.header("🤖 Next-day machine learning estimate")
 
     st.write(
         "If a machine learning model was successfully trained for this "
@@ -356,7 +356,7 @@ This keeps StockMetrics beginner-friendly by showing that:
 
     out = pd.DataFrame(
         {
-            "Scenario": ["Pessimistic", "Realistic", "Optimistic"],
+            "Scenario": ["🌧️ Pessimistic", "⛅ Realistic", "☀️ Optimistic"],
             "Percentile": ["25th", "50th (median)", "75th"],
             f"Projected price ({currency_symbol})": [
                 round(res.pessimistic, 2),

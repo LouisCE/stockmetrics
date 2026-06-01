@@ -23,9 +23,9 @@ st.set_page_config(
 
 # Define the available pages and their render functions
 PAGES = {
-    "🏁 Home": home_page,
+    "🏠 Home": home_page,
     "🔎 Stock Explorer": stock_explorer_page,
-    "🎯 Predictor": predictor_page,
+    "🔮 Predictor": predictor_page,
     "💼 Portfolio Plans": portfolio_plans_page,
     "🧪 Model Performance": model_performance_page,
 }

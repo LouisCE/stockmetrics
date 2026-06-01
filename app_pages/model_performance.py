@@ -32,6 +32,7 @@ def render() -> None:
     st.divider()
 
     st.header("Machine learning model evaluation and what it means")
+
     st.write(
         "Review whether the machine learning model met its business case, "
         "what the results mean, and why the signal should be interpreted "
@@ -112,7 +113,7 @@ buy/sell recommendation.
 
     st.divider()
 
-    st.header("Business case result")
+    st.header("📡 Business case result")
 
     st.write(
         """
@@ -150,7 +151,7 @@ time-series data.
 
     st.divider()
 
-    st.header("Model performance metrics")
+    st.header("🧮 Model performance metrics")
 
     st.write(
         "The model's performance was evaluated using several metrics. These "
@@ -258,7 +259,7 @@ day-to-day predictions.
 
     st.divider()
 
-    st.header("Best hyperparameters")
+    st.header("🏆 Best hyperparameters")
 
     st.write(
         "Hyperparameters are model settings chosen during training. "
@@ -275,7 +276,7 @@ day-to-day predictions.
 
     st.divider()
 
-    st.header("Hyperparameter search space")
+    st.header("🌌 Hyperparameter search space")
 
     st.write(
         "The final model tuning used six Random Forest hyperparameters, "
