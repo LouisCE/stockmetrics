@@ -176,6 +176,50 @@ This kept the automated test suite lightweight, relevant, and aligned with the o
 
 ---
 
+## End-to-End Pipeline Testing
+
+The full StockMetrics notebook pipeline was tested end-to-end in an isolated Git worktree named `stockmetrics-pipeline-check`.
+
+This separate worktree was created from the committed project state so the notebooks could be rerun without changing or overwriting the working files, outputs, or documentation in the main `stockmetrics` project folder.
+
+The isolated pipeline check was created using:
+
+```bash
+git worktree add --detach ../stockmetrics-pipeline-check HEAD
+```
+
+This created a separate detached Git worktree named `stockmetrics-pipeline-check` from the current committed project state. This allowed the notebooks to be tested independently without modifying the main `stockmetrics` project folder.
+
+Before running the notebooks, the isolated worktree was refreshed and prepared using:
+
+```bash
+git fetch origin
+git reset --hard origin/main
+git clean -fdx
+
+xcopy ..\stockmetrics\data\raw\v2 data\raw\v2 /E /I /Y
+
+git status
+```
+
+The `git fetch origin` and `git reset --hard origin/main` commands ensured that the isolated worktree matched the latest committed version of the project on GitHub. The `git clean -fdx` command removed previously generated files, folders, cached files, and ignored artefacts from earlier validation attempts. The `xcopy` command restored the saved raw data snapshots required for reproducible downstream testing.
+
+The final `git status` check confirmed that the worktree was clean and ready before running the notebook pipeline:
+
+```bash
+Not currently on any branch.
+nothing to commit, working tree clean
+```
+
+This allowed the downstream notebooks to be tested from the saved `data/raw/v2/` snapshots without relying on the live Yahoo Finance endpoint during validation.
+
+> [!NOTE]
+> The data collection notebook uses yfinance to collect data from the Yahoo Finance endpoint. Because this is a live third-party service, availability may vary due to temporary endpoint issues, rate limiting, or API response changes.
+
+For reproducibility, raw snapshots collected successfully during development are stored in `data/raw/v2/`. This allows notebooks `02_data_cleaning.ipynb` to `06_model_evaluation.ipynb` to be rerun from saved project data without depending on live endpoint availability.
+
+---
+
 ## User Story Testing
 
 User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
