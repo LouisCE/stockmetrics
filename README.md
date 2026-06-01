@@ -2010,15 +2010,15 @@ A deliberate buffer period was integrated into the final stage to minimise techn
 | Milestone | Sprint | Outcome |
 | --- | --- | --- |
 | M0 - Project Setup Initialised | Sprint 0 | Repository setup, early project structure planning, Code Institute template adaptation, and initial Yahoo Finance endpoint integration. |
-| M1 - Data Science Pipeline Ready | Sprint 1 | Completion of all CRISP-DM notebooks covering data collection, cleaning, EDA, feature engineering, model training, and model evaluation. |
-| M2 - Core Logic Modularised | Sprint 2 | Transition of reusable logic into production-ready `src` modules to separate dashboard, notebook, and modelling responsibilities. |
-| M3 - Dashboard Foundation and Onboarding Complete | Sprints 3 and 4 | Implementation of `app.py`, sidebar navigation, branding, routing, educational disclaimers, footer layout, and the `home.py` onboarding experience. |
-| M4 - Interactive Exploration and Forecasting Complete | Sprints 5 and 6 | Completion of `stock_explorer.py` and `predictor.py` with interactive Plotly charts, historical analysis, Monte Carlo forecasting, and beginner-focused educational guidance. |
-| M5 - Portfolio and ML Transparency Complete | Sprints 7 and 8 | Completion of `portfolio_plans.py` and `model_performance.py` with portfolio analytics, evaluation metrics, feature importance analysis, and machine learning transparency outputs. |
-| M6 - Deployment on Render Successful | Sprint 9 | Successful deployment to Render, environment configuration, deployment validation, and hosted dashboard accessibility testing. |
-| M7 - UX Polish and README Complete | Sprint 10 | README refinement, accessibility improvements, educational messaging polish, business case clarification, hypothesis validation documentation, and UX consistency improvements. |
-| M8 - Validation and TESTING Complete | Sprint 11 | Completion of `TESTING.md`, PEP 8 validation, automated testing, widget interaction testing, user story testing, and bug tracking evidence. |
-| M9 - StockMetrics Ready for Assessment | Sprint 12 | Final Agile alignment across GitHub Issues, Projects, and Milestones, final buffer period, deployment verification, and submission readiness review. |
+| M1 - Data Science Pipeline Ready | Sprints 1 and 2 | Completion of all CRISP-DM notebooks covering data collection, cleaning, EDA, feature engineering, model training, and model evaluation. |
+| M2 - Core Logic Modularised | Sprint 3 | Transition of reusable logic into production-ready `src` modules to separate dashboard, notebook, and modelling responsibilities. |
+| M3 - Dashboard Foundation and Onboarding Complete | Sprints 4 and 5 | Implementation of `app.py`, sidebar navigation, branding, routing, educational disclaimers, footer layout, and the `home.py` onboarding experience. |
+| M4 - Interactive Exploration and Forecasting Complete | Sprints 6 and 7 | Completion of `stock_explorer.py` and `predictor.py` with interactive Plotly charts, historical analysis, Monte Carlo forecasting, and beginner-focused educational guidance. |
+| M5 - Portfolio and ML Transparency Complete | Sprints 8 and 9 | Completion of `portfolio_plans.py` and `model_performance.py` with portfolio analytics, evaluation metrics, feature importance analysis, and machine learning transparency outputs. |
+| M6 - Deployment on Render Successful | Sprint 10 | Successful deployment to Render, environment configuration, deployment validation, and hosted dashboard accessibility testing. |
+| M7 - UX Polish and README Complete | Sprint 11 | README refinement, accessibility improvements, educational messaging polish, business case clarification, hypothesis validation documentation, and UX consistency improvements. |
+| M8 - Validation and TESTING Complete | Sprint 12 | Completion of `TESTING.md`, PEP 8 validation, automated testing, widget interaction testing, user story testing, and bug tracking evidence. |
+| M9 - StockMetrics Ready for Assessment | Sprint 13 | Final Agile alignment across GitHub Issues, Projects, and Milestones, final buffer period, deployment verification, and submission readiness review. |
 
 > **Note on Agility:** Sprints were managed as flexible implementation targets rather than rigid deadlines, allowing adaptation during model experimentation, dashboard iteration, and documentation refinement while maintaining overall milestone alignment.
 
