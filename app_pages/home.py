@@ -69,6 +69,19 @@ with clarity and confidence.
 
     st.divider()
 
+    st.header("📊 Dataset summary")
+
+    st.write(
+        "The dataset contains historical daily price data collected from "
+        "Yahoo Finance for the Magnificent Seven stocks together with "
+        "the Vanguard S&P 500 ETF (VUSA.L) and Vanguard FTSE All-World "
+        "ETF (VWRL.L). The project uses adjusted closing prices, daily "
+        "returns, volatility measures, portfolio metrics, and engineered "
+        "features for machine learning."
+    )
+
+    st.divider()
+
     st.header("✅ Project validation summary")
 
     st.markdown(
