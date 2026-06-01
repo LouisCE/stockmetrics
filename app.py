@@ -34,7 +34,7 @@ with st.sidebar:
     st.title("📈 StockMetrics")
 
     # StockMetrics tagline
-    st.markdown("*Clueless to confident in fifteen minutes*")
+    st.markdown("*Clueless to confident in one hour.*")
 
     # Divider to separate tagline from navigation
     st.divider()

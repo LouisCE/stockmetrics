@@ -130,7 +130,7 @@ Learning how to invest can feel overwhelming. New investors are hit with unfamil
 
 StockMetrics exists to cut through the noise and help users start investing earlier with greater clarity and confidence.
 
-The goal is to **help beginner investors become more confident in fifteen minutes or less** by providing:
+The goal is to **help beginner investors become more confident in one hour or less** by providing:
 
 - a clear explanation of the purpose of the app.
 - simple investing principles to anchor decision-making.
