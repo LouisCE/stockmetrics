@@ -378,6 +378,22 @@ Streamlit handled the main responsive layout behaviour, while manual testing con
 
 ---
 
+## Browser Compatibility Testing
+
+The deployed StockMetrics dashboard was manually tested across three modern desktop browsers available on the test device.
+
+Testing focused on:
+
+- Streamlit page rendering
+- sidebar navigation
+- widget interaction
+- Plotly chart rendering
+- responsiveness
+- loading dashboard assets
+- invalid route handling
+
+---
+
 ## User Story Testing
 
 User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
