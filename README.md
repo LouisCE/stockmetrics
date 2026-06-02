@@ -647,6 +647,7 @@ This Epic covers the `app_pages/home.py` page, which introduces StockMetrics and
 | As a beginner investor | I want a welcoming title and inspirational quote | so I feel motivated to begin my investing journey. | `app_pages/home.py` |
 | As a beginner investor | I want a clear Home page introduction and hero image | so I understand that StockMetrics helps explain risk, returns, and uncertainty without overwhelming me. | `app_pages/home.py` |
 | As a beginner investor | I want the app purpose and audience explained | so I understand how StockMetrics helps beginners in more detail. | `app_pages/home.py` |
+| As a beginner investor | I want a clear dataset summary on the Home page | so I understand which ETFs and technology stocks are used before exploring the dashboard. | `app_pages/home.py` |
 | As an assessor | I want a project validation summary on the dashboard | so I can quickly see how business requirements and hypotheses are supported by dashboard evidence. | `app_pages/home.py` |
 | As a beginner investor | I want core investing principles displayed | so I can learn the basic ideas of starting early, thinking long-term, and diversifying. | `app_pages/home.py` |
 | As a beginner investor | I want a plain-English glossary | so I can understand key investing terms. | `app_pages/home.py` |
@@ -730,6 +731,7 @@ This Epic covers the `app_pages/model_performance.py` page, which presents model
 | As a technical reviewer | I want a clear Model Performance introduction and hero image | so I understand the purpose of the page. | `app_pages/model_performance.py` |
 | As a technical reviewer | I want the next-day prediction task explained | so I understand what the model is trying to predict. | `app_pages/model_performance.py` |
 | As a technical reviewer | I want the business case result displayed clearly | so I can see whether the model met its success rule. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want a clear ML pipeline overview | so I can understand how the project moves from data collection through training, evaluation, and dashboard deployment. | `app_pages/model_performance.py` |
 | As a technical reviewer | I want model reproducibility explained | so I understand the displayed result reflects the saved dataset and model artefacts for this project version. | `app_pages/model_performance.py` |
 | As a technical reviewer | I want train and test evaluation metrics displayed | so I can assess model performance. | `app_pages/model_performance.py`, `src/evaluation.py` |
 | As a technical reviewer | I want plain-English explanations of R², MAE, and RMSE | so the metrics are understandable in context. | `app_pages/model_performance.py` |
@@ -737,10 +739,12 @@ This Epic covers the `app_pages/model_performance.py` page, which presents model
 | As a technical reviewer | I want the model limitations explained | so I understand why short-term prediction is difficult. | `app_pages/model_performance.py` |
 | As a technical reviewer | I want the best hyperparameters displayed | so I can inspect the tuned model settings. | `app_pages/model_performance.py`, `src/modelling.py` |
 | As a technical reviewer | I want the full hyperparameter search space displayed | so I can verify that the final model tuning used six hyperparameters with three values each. | `app_pages/model_performance.py`, `src/modelling.py` |
-| As a technical reviewer | I want evaluation plots displayed | so I can visually assess model behaviour and prediction errors. | `app_pages/model_performance.py` |
-| As a technical reviewer | I want EDA plot evidence displayed | so I can connect the dashboard evidence to the project hypotheses around volatility, diversification, and concentration risk. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want a model evaluation and data foundation evidence section | so I can see how CRISP-DM evaluation outputs and EDA evidence are brought together in the dashboard. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want ML evaluation plots grouped in their own tab | so I can inspect actual-vs-predicted plots, residual plots, and prediction time-series evidence. | `app_pages/model_performance.py`, `outputs/v2/figures/` |
+| As a technical reviewer | I want EDA plots grouped in their own tab | so I can connect volatility, diversification, correlation, and concentration-risk evidence to the project hypotheses. | `app_pages/model_performance.py`, `outputs/v2/figures/` |
 | As a technical reviewer | I want feature importance displayed | so I can see which features influenced the model most. | `app_pages/model_performance.py` |
 | As a technical reviewer | I want a final ML model summary | so I can understand the overall model conclusion. | `app_pages/model_performance.py` |
+| As a technical reviewer | I want a project conclusion on the Model Performance page | so I can understand the overall findings from the model evaluation, EDA evidence, hypotheses, and business requirements. | `app_pages/model_performance.py` |
 
 ---
 
