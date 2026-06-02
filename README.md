@@ -22,10 +22,12 @@ https://stockmetrics-emhu.onrender.com
 ## Table of Contents
 
 - [Live Dashboard](#live-dashboard)
+
 - [Project Overview](#project-overview)
   - [Core Investing Principles](#core-investing-principles)
   - [Four Risk-Based Plans](#four-risk-based-plans)
   - [Forecasts Over Time](#forecasts-over-time)
+
 - [Business Requirements](#business-requirements)
   - [Target Audience](#target-audience)
   - [Core Business Goals](#core-business-goals)
@@ -34,6 +36,7 @@ https://stockmetrics-emhu.onrender.com
   - [Business Requirement 3 - Predictive Analytics Feature](#business-requirement-3---predictive-analytics-feature)
   - [Business Requirement 4 - Scenario-Based Forecasting](#business-requirement-4---scenario-based-forecasting)
   - [Business Requirement 5 - Clear Communication of ML Model Results](#business-requirement-5---clear-communication-of-ml-model-results)
+
 - [Dataset Content](#dataset-content)
   - [Dataset Scope](#dataset-scope)
   - [ETFs Included](#etfs-included)
@@ -43,18 +46,34 @@ https://stockmetrics-emhu.onrender.com
   - [Dataset Versioning](#dataset-versioning)
   - [Data Processing Workflow](#data-processing-workflow)
   - [Data Limitations](#data-limitations)
+
 - [Epics and User Stories](#epics-and-user-stories)
+  - [Epic - Data Science Pipeline Development](#epic---data-science-pipeline-development)
+  - [Epic - Core Application Architecture](#epic---core-application-architecture)
+  - [Epic - Dashboard Structure and Navigation System](#epic---dashboard-structure-and-navigation-system)
+  - [Epic - Home Page and User Onboarding](#epic---home-page-and-user-onboarding)
+  - [Epic - Stock Explorer and Asset Education](#epic---stock-explorer-and-asset-education)
+  - [Epic - Predictor and Scenario Guidance](#epic---predictor-and-scenario-guidance)
+  - [Epic - Portfolio Plans and Risk Comparison](#epic---portfolio-plans-and-risk-comparison)
+  - [Epic - Model Performance and Transparency](#epic---model-performance-and-transparency)
+  - [Epic - Deployment and Application Availability](#epic---deployment-and-application-availability)
+  - [Epic - Dashboard Polish and README Documentation](#epic---dashboard-polish-and-readme-documentation)
+  - [Epic - TESTING Documentation and Validation](#epic---testing-documentation-and-validation)
+
 - [Project Hypotheses](#project-hypotheses)
   - [Hypothesis 1: Concentrated portfolio plans are riskier than diversified ones but also have greater potential rewards](#hypothesis-1-concentrated-portfolio-plans-are-riskier-than-diversified-ones-but-also-have-greater-potential-rewards)
   - [Hypothesis 2: Technology stocks exhibit higher volatility than diversified ETFs](#hypothesis-2-technology-stocks-exhibit-higher-volatility-than-diversified-etfs)
   - [Hypothesis 3: Diversified portfolios experience smaller drawdowns than concentrated portfolios](#hypothesis-3-diversified-portfolios-experience-smaller-drawdowns-than-concentrated-portfolios)
   - [Hypothesis 4: Short-horizon return prediction is inherently difficult](#hypothesis-4-short-horizon-return-prediction-is-inherently-difficult)
   - [Hypothesis Validation Summary](#hypothesis-validation-summary)
+
 - [CRISP-DM Process](#crisp-dm-process)
   - [Pipeline Architecture](#pipeline-architecture)
   - [CRISP-DM Pipeline Flowchart](#crisp-dm-pipeline-flowchart)
   - [CRISP-DM Stage Mapping](#crisp-dm-stage-mapping)
+
 - [Rationale to map the business requirements to the Data Visualisations and ML tasks](#rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
+
 - [ML Business Case](#ml-business-case)
   - [Predictive Task](#predictive-task)
   - [Learning Method](#learning-method)
@@ -62,6 +81,7 @@ https://stockmetrics-emhu.onrender.com
   - [Hyperparameter Optimisation](#hyperparameter-optimisation)
   - [Success Criteria, Model Results and Interpretation](#success-criteria-model-results-and-interpretation)
   - [Model Output and User Relevance](#model-output-and-user-relevance)
+
 - [Model Development and Iteration](#model-development-and-iteration)
   - [Model Selection and Parameter Tuning Iterations](#model-selection-and-parameter-tuning-iterations)
   - [Initial Approach](#initial-approach)
@@ -69,6 +89,7 @@ https://stockmetrics-emhu.onrender.com
   - [Hyperparameter Optimisation Strategy](#hyperparameter-optimisation-strategy)
   - [Final Model Outcome](#final-model-outcome)
   - [Conclusion](#conclusion)
+
 - [Dashboard Design](#dashboard-design)
   - [Sidebar Navigation Menu](#sidebar-navigation-menu)
   - [Home Page](#home-page)
@@ -77,20 +98,30 @@ https://stockmetrics-emhu.onrender.com
   - [Portfolio Plans](#portfolio-plans)
   - [Model Performance](#model-performance)
   - [UX Design and Accessibility Rationale](#ux-design-and-accessibility-rationale)
+
 - [Plots](#plots)
   - [Market Behaviour Evidence](#market-behaviour-evidence)
-  - [Model Evaluation Evidence](#model-evaluation-evidence)
+  - [Machine Learning Evaluation Evidence](#machine-learning-evaluation-evidence)
   - [Plot Relevance to the Business Case](#plot-relevance-to-the-business-case)
+
 - [Tools and Technologies](#tools-and-technologies)
-  - [Core Technologies](#core-technologies)
-  - [Data Science and Machine Learning](#data-science-and-machine-learning)
-  - [Data Visualisation](#data-visualisation)
-  - [Machine Learning Techniques](#machine-learning-techniques)
-  - [Development and Validation Tools](#development-and-validation-tools)
+
 - [Project Structure](#project-structure)
   - [Structure Overview](#structure-overview)
+
 - [Agile Development Process](#agile-development-process)
+  - [Agile Structure and Workflow](#agile-structure-and-workflow)
+  - [Mapping to CRISP-DM](#mapping-to-crisp-dm)
+  - [Issue Structure](#issue-structure)
+  - [GitHub Issues](#github-issues)
+  - [GitHub Milestones](#github-milestones)
+  - [GitHub Projects](#github-projects)
+  - [MoSCoW Prioritisation](#moscow-prioritisation)
+  - [Version Control and Incremental Development](#version-control-and-incremental-development)
+  - [Summary](#summary)
+
 - [Testing](#testing)
+
 - [Deployment](#deployment)
   - [Render Deployment](#render-deployment)
   - [Required Deployment Files](#required-deployment-files)
@@ -98,6 +129,7 @@ https://stockmetrics-emhu.onrender.com
   - [Cloning](#cloning)
   - [Forking](#forking)
   - [Why Render Instead of Heroku](#why-render-instead-of-heroku)
+
 - [Project Limitations](#project-limitations)
   - [Market Noise](#market-noise)
   - [Non-Stationary Market Behaviour](#non-stationary-market-behaviour)
@@ -106,6 +138,7 @@ https://stockmetrics-emhu.onrender.com
   - [Educational Scope](#educational-scope)
   - [Time Sensitivity of Short-Horizon Estimates](#time-sensitivity-of-short-horizon-estimates)
   - [Third-Party Endpoint Dependency](#third-party-endpoint-dependency)
+
 - [Future Features](#future-features)
   - [Expanded Asset Universe and Sector Coverage](#expanded-asset-universe-and-sector-coverage)
   - [Dividend and Income Modelling](#dividend-and-income-modelling)
@@ -113,7 +146,9 @@ https://stockmetrics-emhu.onrender.com
   - [Recommendation and Robo-Advisor Features](#recommendation-and-robo-advisor-features)
   - [Macroeconomic and Multi-Factor Integration](#macroeconomic-and-multi-factor-integration)
   - [Portfolio-Level Simulation and Optimisation](#portfolio-level-simulation-and-optimisation)
+
 - [Project Conclusion](#project-conclusion)
+
 - [Credits](#credits)
   - [General Guidance](#general-guidance)
   - [Code / Technical References](#code--technical-references)
