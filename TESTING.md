@@ -406,6 +406,14 @@ Testing focused on:
 
 ---
 
+### Browser Compatibility Summary
+
+No major browser-specific issues were identified.
+
+The deployed dashboard, Streamlit widgets, sidebar navigation, Plotly charts, and saved visual assets functioned consistently across Chrome, Edge, and Firefox.
+
+---
+
 ## User Story Testing
 
 User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
