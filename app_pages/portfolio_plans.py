@@ -124,7 +124,7 @@ also experience larger drawdowns and a bumpier ride.
 
     st.divider()
 
-    st.header("Historical performance of your selected plan")
+    st.header("🏛️ Historical performance of your selected plan")
 
     st.write(
         "This section shows how the selected plan would have performed "
