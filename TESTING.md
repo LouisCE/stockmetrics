@@ -974,15 +974,20 @@ This is documented as an external service limitation rather than an application 
 3. Lighthouse Performance Score
 
 **Issue:**
-The Lighthouse audit returned a lower Performance score for the deployed Home page.
+The Lighthouse audit returned a low Performance score for the deployed Home page.
 
 **Cause:**
-StockMetrics is built with Streamlit, which handles much of the frontend rendering, JavaScript bundling, and server communication internally. This limits direct control over some Lighthouse performance recommendations compared with a custom static frontend.
+StockMetrics is built with Streamlit, which handles much of the frontend rendering, JavaScript bundling, and server communication internally. Because Streamlit handles all rendering via a single-page JavaScript architecture, it naturally introduces layout shifts and asset bloat that tools like Google Lighthouse penalise. This limits direct control over some Lighthouse performance recommendations compared with a custom static frontend. 
 
 **Fix / Mitigation:**
 No functional fix was required because the issue did not prevent users from accessing or using the dashboard. Manual responsiveness testing, browser compatibility testing, widget testing, and deployment testing confirmed that the dashboard remained usable and stable.
 
-This is documented as a known performance limitation of the chosen dashboard framework rather than a functional application bug.
+This is documented as a known performance limitation of the chosen dashboard framework rather than a functional application bug. For this prototype, I prioritised rapid UI deployment and interactive ML visualisation over absolute web performance. In a commercial production environment, I would decouple the frontend using a framework like React and serve the ML model via a fast API like FastAPI.
+
+---
+
+> [!NOTE]
+> Due to the constantly evolving nature of the project, some screenshots may be slightly outdated. However, they still capture the essence of the live features.
 
 ---
 
