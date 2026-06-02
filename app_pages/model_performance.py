@@ -401,12 +401,13 @@ plots.
             "StockMetrics includes a supervised predictive analytics "
             "regression task.\n"
             "- Supports **Business Requirement 5** by clearly communicating "
-            "R², MAE, RMSE, actual-vs-predicted plots, "
-            "residual plots, and model limitations.\n"
+            "R², MAE, RMSE, actual-vs-predicted plots, residual plots, "
+            "and model limitations.\n"
             "- Supports **Hypothesis 4** because the final model achieved "
-            "only a very weak positive Test R², showing that next-day "
-            "return prediction remains highly uncertain even when a small "
-            "signal is detected.",
+            "a very small positive Test R² of approximately **0.000740**. "
+            "This met the business case threshold of Test R² > 0, but showed "
+            "that the predictive signal was extremely weak, supporting the "
+            "conclusion that next-day market prediction is highly uncertain.",
             icon="✅",
         )
 
@@ -481,13 +482,27 @@ train and evaluate the pipeline.
             "- Supports **Business Requirement 1** by showing historical "
             "market behaviour through prices, returns, distributions, "
             "volatility, and correlations.\n"
-            "- Supports **Business Requirement 2** by showing evidence behind "
-            "diversification, concentration risk, volatility, and drawdown "
-            "behaviour.\n"
-            "- Supports **Hypotheses 1, 2, and 3** by showing that "
-            "concentrated technology exposure generally had higher "
-            "volatility, while diversified ETF exposure showed smoother "
-            "behaviour and reduced downside risk.",
+            "- Supports **Business Requirement 2** by showing evidence "
+            "behind diversification, concentration risk, volatility, and "
+            "drawdown behaviour.\n"
+            "- Supports **Hypothesis 1** because concentrated exposure "
+            "showed higher risk. For example, TSLA showed annualised "
+            "volatility of approximately **56.6%** compared with "
+            "**14.0%** for VWRL.L, while TSLA experienced a maximum "
+            "drawdown of approximately **-73.6%** compared with "
+            "**-25.0%** for VWRL.L.\n"
+            "- Supports **Hypothesis 2** because technology stocks "
+            "generally showed higher volatility than diversified ETFs. "
+            "For example, TSLA showed annualised volatility of "
+            "approximately **56.6%**, NVDA **44.6%**, and META "
+            "**39.1%**, compared with **15.1%** for VUSA.L and "
+            "**14.0%** for VWRL.L.\n"
+            "- Supports **Hypothesis 3** because diversified assets "
+            "experienced smaller drawdowns than concentrated technology "
+            "exposure. For example, META reached a maximum drawdown of "
+            "approximately **-76.7%** and TSLA approximately **-73.6%**, "
+            "compared with approximately **-25.5%** for VUSA.L and "
+            "**-25.0%** for VWRL.L.",
             icon="✅",
         )
 
