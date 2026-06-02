@@ -460,6 +460,7 @@ This testing focused specifically on user-interactive widgets, including sidebar
 | Predictor forecast horizon selectbox | Changing the forecast horizon should update the long-term scenario output table | Scenario end-price outputs updated correctly when switching between 1, 2, 5, and 10 year horizons | ![screenshot](documentation/dashboard/predictor_horizon_selector.png) |
 | Predictor trend window selectbox | Changing the trend window should update the historical assumptions used for the scenario ranges | Trend window used, estimated daily drift, estimated volatility context, and scenario values updated correctly when switching between 1, 2, 5, and 10 year windows | ![screenshot](documentation/dashboard/predictor_trend_window_selector.png) |
 | Portfolio Plans selectbox | Selecting a different portfolio plan should update all plan-specific outputs | The selected plan, highlighted plan box, performance metrics, growth chart, and allocation table all updated correctly for each plan | ![screenshot](documentation/dashboard/portfolio_plan_selector.png) |
+| Model Performance evidence tabs | Selecting the ML evaluation and EDA evidence tabs should display the correct plot group and supporting guidance | The ML evaluation evidence tab displayed actual-vs-predicted, residual, and prediction time-series plots, while the EDA evidence tab displayed market behaviour plots for prices, returns, distributions, correlation, and rolling volatility | ![screenshot](documentation/dashboard/model_evidence_tabs.png) |
 
 ---
 
