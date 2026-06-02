@@ -5,6 +5,53 @@
 
 ---
 
+## Table of Contents
+
+- [Code Validation](#code-validation)
+  - [Python Files](#python-files)
+  - [Jupyter Notebooks](#jupyter-notebooks)
+  - [Code Validation Summary](#code-validation-summary)
+
+- [Automated Testing](#automated-testing)
+  - [Automated Test Scope](#automated-test-scope)
+  - [Test Execution](#test-execution)
+  - [Automated Testing Summary](#automated-testing-summary)
+
+- [End-to-End Pipeline Testing](#end-to-end-pipeline-testing)
+  - [Pipeline Validation Results](#pipeline-validation-results)
+  - [Pipeline Testing Summary](#pipeline-testing-summary)
+
+- [Defensive Programming](#defensive-programming)
+  - [Defensive Programming Testing](#defensive-programming-testing)
+  - [Defensive Programming Summary](#defensive-programming-summary)
+
+- [Deployment Testing](#deployment-testing)
+
+- [Responsiveness Testing](#responsiveness-testing)
+  - [Tested Device Sizes](#tested-device-sizes)
+  - [Responsiveness Testing Results](#responsiveness-testing-results)
+  - [Responsiveness Summary](#responsiveness-summary)
+
+- [Browser Compatibility Testing](#browser-compatibility-testing)
+  - [Browser Compatibility Results](#browser-compatibility-results)
+  - [Browser Compatibility Summary](#browser-compatibility-summary)
+
+- [User Story Testing](#user-story-testing)
+  - [User Story Testing Summary](#user-story-testing-summary)
+
+- [Widget Interaction Testing](#widget-interaction-testing)
+  - [Widget Interaction Testing Results](#widget-interaction-testing-results)
+  - [Widget Interaction Testing Summary](#widget-interaction-testing-summary)
+
+- [Bugs](#bugs)
+  - [Fixed Bugs](#fixed-bugs)
+  - [Known Issues](#known-issues)
+  - [Unfixed Bugs](#unfixed-bugs)
+
+- [Testing Summary](#testing-summary)
+
+---
+
 ## Code Validation
 
 All custom-written code for the **StockMetrics** project was validated using appropriate tools to help ensure standards compliance, readability, and correctness.
