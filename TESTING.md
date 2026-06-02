@@ -370,6 +370,14 @@ Testing focused on:
 
 ---
 
+### Responsiveness Summary
+
+The deployed dashboard remained functional and readable across the tested viewport sizes.
+
+Streamlit handled the main responsive layout behaviour, while manual testing confirmed that the dashboard content, navigation, widgets, tables, charts, footer, and disclaimers remained usable on mobile, tablet, and desktop devices.
+
+---
+
 ## User Story Testing
 
 User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
