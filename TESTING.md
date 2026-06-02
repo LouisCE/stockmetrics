@@ -328,6 +328,35 @@ Deployment testing confirmed that the deployed application behaved consistently 
 
 ---
 
+## Responsiveness Testing
+
+The deployed StockMetrics dashboard was manually tested across mobile, tablet, and desktop viewport sizes.
+
+StockMetrics is built with Streamlit, so much of the responsive layout behaviour is handled by the Streamlit framework. Manual testing was still carried out to confirm that the deployed dashboard remained usable, readable, and stable across different screen sizes.
+
+Testing focused on:
+
+- sidebar navigation
+- page layout
+- educational text
+- dashboard widgets
+- Plotly charts
+- tables and metrics
+- footer and disclaimer content
+- invalid route handling
+
+---
+
+### Tested Device Sizes
+
+| Device Type | Example Viewport Tested | Width | Height |
+| --- | --- | --- | --- |
+| Mobile | iPhone SE | 375px | 667px |
+| Tablet | iPad Mini | 768px | 1024px |
+| Desktop | Nest Hub Max | 1280px | 800px |
+
+---
+
 ## User Story Testing
 
 User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
