@@ -357,6 +357,19 @@ Testing focused on:
 
 ---
 
+### Responsiveness Testing Results
+
+| Page | Mobile | Tablet | Desktop | Notes |
+| --- | --- | --- | --- | --- |
+| Home | ![screenshot](documentation/responsiveness/mobile-home.png) | ![screenshot](documentation/responsiveness/tablet-home.png) | ![screenshot](documentation/responsiveness/desktop-home.png) | Introductory content and educational sections remained readable |
+| Stock Explorer | ![screenshot](documentation/responsiveness/mobile-stock-explorer.png) | ![screenshot](documentation/responsiveness/tablet-stock-explorer.png) | ![screenshot](documentation/responsiveness/desktop-stock-explorer.png) | Charts and ticker controls resized correctly |
+| Predictor | ![screenshot](documentation/responsiveness/mobile-predictor.png) | ![screenshot](documentation/responsiveness/tablet-predictor.png) | ![screenshot](documentation/responsiveness/desktop-predictor.png) | Forecast widgets and scenario outputs remained usable |
+| Portfolio Plans | ![screenshot](documentation/responsiveness/mobile-portfolio-plans.png) | ![screenshot](documentation/responsiveness/tablet-portfolio-plans.png) | ![screenshot](documentation/responsiveness/desktop-portfolio-plans.png) | Portfolio cards, charts, and metrics remained readable |
+| Model Performance | ![screenshot](documentation/responsiveness/mobile-model-performance.png) | ![screenshot](documentation/responsiveness/tablet-model-performance.png) | ![screenshot](documentation/responsiveness/desktop-model-performance.png) | Evaluation plots and model explanations displayed correctly |
+| Sidebar Navigation | ![screenshot](documentation/responsiveness/mobile-sidebar.png) | ![screenshot](documentation/responsiveness/tablet-sidebar.png) | ![screenshot](documentation/responsiveness/desktop-sidebar.png) | Sidebar navigation remained accessible |
+
+---
+
 ## User Story Testing
 
 User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
