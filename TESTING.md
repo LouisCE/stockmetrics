@@ -1000,3 +1000,35 @@ There are no remaining known bugs at the time of submission. However, despite ex
 Any remaining open issues can be tracked [here](https://www.github.com/LouisCE/stockmetrics/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
 
 ![screenshot](documentation/bugs/unfixed-bugs.png)
+
+---
+
+## Testing Summary
+
+The StockMetrics testing strategy combined code validation, notebook validation, automated testing, manual dashboard testing, deployment validation, and reproducibility testing to provide evidence across both the machine learning workflow and the deployed Streamlit application.
+
+The project was validated through:
+
+- PEP 8 validation of all custom Python files
+- PEP 8 validation of executable Jupyter Notebook code cells
+- Automated testing using `pytest` across six test modules and 25 tests
+- End-to-end pipeline validation using an isolated Git worktree
+- Defensive programming and defensive design testing
+- Deployment testing on Render
+- Responsiveness testing across mobile, tablet, and desktop viewport sizes
+- Browser compatibility testing across Chrome, Edge, and Firefox
+- User Story Testing linked to implemented dashboard features
+- Widget interaction testing for Streamlit controls and navigation
+- Bug tracking, bug resolution, and known issue documentation
+
+Together, these testing activities provide confidence that:
+
+- the CRISP-DM notebook workflow is reproducible
+- the machine learning pipeline operates correctly from data preparation through evaluation
+- dashboard features behave as expected
+- interactive widgets update outputs correctly
+- deployment is stable and accessible
+- educational guidance and defensive safeguards function as intended
+- versioned datasets, reports, and model artefacts can be reproduced consistently
+
+Testing confirmed that the implemented dashboard features, machine learning workflow, deployment process, visualisations, and supporting documentation successfully support the project's business requirements, hypotheses, and educational objectives while remaining consistent with the deployed application.
