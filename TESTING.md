@@ -253,6 +253,22 @@ The validation confirmed the following:
 During final validation, the live Yahoo Finance endpoint returned temporary yfinance errors for the data collection notebook. This did not affect the reproducibility of the project because the raw data snapshots had already been collected and stored in the repository.
 
 This supports the project’s reproducibility strategy: live endpoint collection is used to obtain the source data, while saved versioned snapshots allow the remaining CRISP-DM pipeline stages to be rerun consistently.
+
+---
+
+## Defensive Programming
+
+StockMetrics is a Streamlit data dashboard and machine learning project rather than a CRUD application with user accounts, authentication, forms, or database ownership rules. Defensive programming therefore focused on protecting the data science workflow, dashboard inputs, reproducibility, model interpretation, and user understanding.
+
+The main defensive programming and defensive design concerns were:
+
+- handling external endpoint instability
+- validating data before analysis and modelling
+- preventing time-series leakage
+- restricting dashboard inputs to supported options
+- avoiding misleading financial or machine learning claims
+- keeping the project reproducible from saved artefacts
+- handling invalid application routes gracefully
 ---
 
 ## Deployment Testing
