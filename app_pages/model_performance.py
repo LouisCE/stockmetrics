@@ -574,3 +574,26 @@ which features were most useful to the model when making predictions.
         "additional insight into how the model made predictions and which "
         "features it relied on."
     )
+
+    st.divider()
+
+    st.header("📌 Project conclusion")
+
+    st.write(
+        "The project findings suggest that:\n\n"
+        "- Diversification can help reduce volatility and drawdown risk.\n"
+        "- Concentrated technology exposure showed higher historical risk "
+        "and may offer higher growth potential, but with a bumpier journey.\n"
+        "- Technology stocks generally showed higher volatility than the "
+        "diversified ETF alternatives included in the project.\n"
+        "- Short-term market prediction remains highly uncertain even when a "
+        "machine learning model detects a small signal.\n"
+        "- Long-term planning and scenario thinking are often more useful "
+        "than relying on next-day predictions. This supports **Business "
+        "Requirement 4** because StockMetrics presents future outcomes as "
+        "optimistic, realistic, and pessimistic scenario ranges rather than "
+        "single-point promises.\n\n"
+        "These findings support the educational purpose of StockMetrics and "
+        "help explain why the dashboard focuses on risk, uncertainty, and "
+        "scenario ranges rather than trading signals."
+    )
