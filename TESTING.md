@@ -285,6 +285,27 @@ The main defensive programming and defensive design concerns were:
 | Investment disclaimer | Users should understand that StockMetrics is educational and not financial advice. | Reviewed the global sidebar disclaimer displayed throughout the dashboard. | The dashboard clearly states that StockMetrics is educational only and that capital is at risk. | ![screenshot](documentation/dashboard/disclaimer.png) |
 | Missing evaluation artefacts | The dashboard should fail safely if required model evaluation artefacts are unavailable. | Reviewed the Model Performance page safeguards and artefact existence checks. | Missing artefacts trigger a clear error message and stop further processing safely. | ![screenshot](documentation/defensive/model_artefact_check.png) |
 | Invalid route handling | Invalid URLs should not cause the deployed application to crash. | Entered an invalid route on the deployed application. | Streamlit displayed its built-in Page Not Found screen while the application continued running normally. | ![screenshot](documentation/defensive/invalid_route.png) |
+
+---
+
+### Defensive Programming Summary
+
+Defensive programming in StockMetrics focused on stability, reproducibility, and responsible interpretation rather than account-based access control.
+
+The project includes safeguards for:
+
+- temporary external endpoint failures
+- reproducibility through saved raw data snapshots
+- required dataset column validation
+- target variable validation before model training
+- chronological train/test splitting to reduce leakage risk
+- restricted dashboard input controls
+- missing model evaluation artefact checks
+- educational financial and machine learning disclaimers
+- graceful handling of invalid application routes
+
+These checks help ensure that StockMetrics remains stable, reproducible, and suitable for beginner investors using the deployed dashboard.
+
 ---
 
 ## Deployment Testing
