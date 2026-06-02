@@ -1336,6 +1336,12 @@ This means the model was **successful against the business case**, but the predi
 
 In financial return forecasting, especially at the next-day horizon, very high R² values are uncommon because market returns contain substantial noise. For this reason, StockMetrics treats a positive test-set R² as evidence of a small generalisable signal rather than strong predictive power.
 
+This very low Test R² is consistent with the wider financial modelling challenge that short-term asset returns are noisy and difficult to predict from historical price-based features alone. While the model technically met the project success rule of Test R² > 0, the result explains less than 0.1% of the observed variance in next-day returns, meaning the predictive signal should be treated as extremely weak.
+
+This outcome does not represent a project failure. Instead, it supports the educational purpose of StockMetrics: short-term machine learning forecasts should be interpreted cautiously, and beginner investors are better served by understanding risk, volatility, diversification, and long-term scenario ranges than by relying on day-to-day trading predictions.
+
+More advanced modelling approaches might improve results by incorporating additional data such as sentiment, macroeconomic indicators, earnings information, or broader market factors, but those inputs were intentionally outside the scope of this beginner-focused project.
+
 ---
 
 ### Model Output and User Relevance
