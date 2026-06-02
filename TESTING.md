@@ -313,6 +313,7 @@ This Epic covers the `app_pages/home.py` page, which introduces StockMetrics and
 | As a beginner investor | I want a welcoming title and inspirational quote | so I feel motivated to begin my investing journey. | ![screenshot](documentation/dashboard/home_title_intro.png) |
 | As a beginner investor | I want a clear Home page introduction and hero image | so I understand that StockMetrics helps explain risk, returns, and uncertainty without overwhelming me. | ![screenshot](documentation/dashboard/home_hero_image.png) |
 | As a beginner investor | I want the app purpose and audience explained | so I understand how StockMetrics helps beginners in more detail. | ![screenshot](documentation/dashboard/home_purpose_section.png) |
+| As a beginner investor | I want a clear dataset summary on the Home page | so I understand which ETFs and technology stocks are used before exploring the dashboard. | ![screenshot](documentation/dashboard/home_dataset_summary.png) |
 | As an assessor | I want a project validation summary on the dashboard | so I can quickly see how business requirements and hypotheses are supported by dashboard evidence. | ![screenshot](documentation/dashboard/home_validation_summary.png) |
 | As a beginner investor | I want core investing principles displayed | so I can learn the basic ideas of starting early, thinking long-term, and diversifying. | ![screenshot](documentation/dashboard/home_core_principles.png) |
 | As a beginner investor | I want a plain-English glossary | so I can understand key investing terms. | ![screenshot](documentation/dashboard/home_glossary.png) |
@@ -396,6 +397,7 @@ This Epic covers the `app_pages/model_performance.py` page, which presents model
 | As a technical reviewer | I want a clear Model Performance introduction and hero image | so I understand the purpose of the page. | ![screenshot](documentation/dashboard/model_intro_hero.png) |
 | As a technical reviewer | I want the next-day prediction task explained | so I understand what the model is trying to predict. | ![screenshot](documentation/dashboard/model_task_explanation.png) |
 | As a technical reviewer | I want the business case result displayed clearly | so I can see whether the model met its success rule. | ![screenshot](documentation/dashboard/model_business_case.png) |
+| As a technical reviewer | I want a clear ML pipeline overview | so I can understand how the project moves from data collection through training, evaluation, and dashboard deployment. | ![screenshot](documentation/dashboard/model_pipeline_overview.png) |
 | As a technical reviewer | I want model reproducibility explained | so I understand the displayed result reflects the saved dataset and model artefacts for this project version. | ![screenshot](documentation/dashboard/model_reproducibility.png) |
 | As a technical reviewer | I want train and test evaluation metrics displayed | so I can assess model performance. | ![screenshot](documentation/dashboard/model_metrics.png) |
 | As a technical reviewer | I want plain-English explanations of R², MAE, and RMSE | so the metrics are understandable in context. | ![screenshot](documentation/dashboard/model_metrics_explained.png) |
@@ -403,10 +405,12 @@ This Epic covers the `app_pages/model_performance.py` page, which presents model
 | As a technical reviewer | I want the model limitations explained | so I understand why short-term prediction is difficult. | ![screenshot](documentation/dashboard/model_limitations.png) |
 | As a technical reviewer | I want the best hyperparameters displayed | so I can inspect the tuned model settings. | ![screenshot](documentation/dashboard/model_hyperparameters.png) |
 | As a technical reviewer | I want the full hyperparameter search space displayed | so I can verify that the final model tuning used six hyperparameters with three values each. | ![screenshot](documentation/dashboard/model_search_space.png) |
-| As a technical reviewer | I want evaluation plots displayed | so I can visually assess model behaviour and prediction errors. | ![screenshot](documentation/dashboard/model_plots.png) |
-| As a technical reviewer | I want EDA plot evidence displayed | so I can connect the dashboard evidence to the project hypotheses around volatility, diversification, and concentration risk. | ![screenshot](documentation/dashboard/model_eda_evidence.png) |
+| As a technical reviewer | I want a model evaluation and data foundation evidence section | so I can see how CRISP-DM evaluation outputs and EDA evidence are brought together in the dashboard. | ![screenshot](documentation/dashboard/model_evidence_intro.png) |
+| As a technical reviewer | I want ML evaluation plots grouped in their own tab | so I can inspect actual-vs-predicted plots, residual plots, and prediction time-series evidence. | ![screenshot](documentation/dashboard/model_ml_evaluation_evidence.png) |
+| As a technical reviewer | I want EDA plots grouped in their own tab | so I can connect volatility, diversification, correlation, and concentration-risk evidence to the project hypotheses. | ![screenshot](documentation/dashboard/model_eda_evidence.png) |
 | As a technical reviewer | I want feature importance displayed | so I can see which features influenced the model most. | ![screenshot](documentation/dashboard/model_feature_importance.png) |
 | As a technical reviewer | I want a final ML model summary | so I can understand the overall model conclusion. | ![screenshot](documentation/dashboard/model_summary.png) |
+| As a technical reviewer | I want a project conclusion on the Model Performance page | so I can understand the overall findings from the model evaluation, EDA evidence, hypotheses, and business requirements. | ![screenshot](documentation/dashboard/project_conclusion.png) |
 
 ---
 
