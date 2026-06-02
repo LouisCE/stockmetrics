@@ -269,6 +269,22 @@ The main defensive programming and defensive design concerns were:
 - avoiding misleading financial or machine learning claims
 - keeping the project reproducible from saved artefacts
 - handling invalid application routes gracefully
+
+---
+
+### Defensive Programming Testing
+
+| Area | Expected Behaviour | Testing Performed | Result | Screenshot |
+| --- | --- | --- | --- | --- |
+| Yahoo Finance endpoint handling | The data collection workflow should handle temporary endpoint failures without preventing project reproducibility. | Reviewed the notebook output generated when live Yahoo Finance collection was unavailable. | The notebook displayed a clear endpoint failure message and confirmed that previously saved raw snapshots remained available for reproducibility. | ![screenshot](documentation/defensive/yfinance_endpoint_issue.png) |
+| Required dataset columns | EDA should not continue if required market-data columns are missing. | Reviewed the EDA validation logic that checks for required columns before analysis begins. | Missing required columns would trigger a `KeyError`, preventing invalid analysis from continuing. | ![screenshot](documentation/defensive/eda_column_validation.png) |
+| Target column validation | Model training should not continue if the target variable is unavailable. | Reviewed the model training validation checks before model fitting. | Missing target data would trigger a `KeyError`, preventing invalid model training. | ![screenshot](documentation/defensive/model_target_validation.png) |
+| Chronological train/test split | Future observations should not leak into historical training data. | Reviewed the machine learning business case and time-aware evaluation approach used during training. | The project uses chronological train/test splitting and time-aware validation rather than random shuffling, reducing the risk of time-series leakage. | ![screenshot](documentation/defensive/chronological_split.png) |
+| Restricted dashboard inputs | Users should only be able to select supported tickers and date ranges through controlled dashboard widgets. | Tested dashboard controls within the Stock Explorer page. | Streamlit widgets restrict users to supported ticker and date selections. | ![screenshot](documentation/dashboard/stock_asset_select.png) |
+| Forecast and ML interpretation warnings | Users should not mistake forecasts or ML estimates for guaranteed outcomes. | Reviewed educational warnings displayed on the Predictor page. | Forecasts are clearly presented as uncertain educational estimates rather than trading signals. | ![screenshot](documentation/dashboard/predictor_scenario_warnings.png) |
+| Investment disclaimer | Users should understand that StockMetrics is educational and not financial advice. | Reviewed the global sidebar disclaimer displayed throughout the dashboard. | The dashboard clearly states that StockMetrics is educational only and that capital is at risk. | ![screenshot](documentation/dashboard/disclaimer.png) |
+| Missing evaluation artefacts | The dashboard should fail safely if required model evaluation artefacts are unavailable. | Reviewed the Model Performance page safeguards and artefact existence checks. | Missing artefacts trigger a clear error message and stop further processing safely. | ![screenshot](documentation/defensive/model_artefact_check.png) |
+| Invalid route handling | Invalid URLs should not cause the deployed application to crash. | Entered an invalid route on the deployed application. | Streamlit displayed its built-in Page Not Found screen while the application continued running normally. | ![screenshot](documentation/defensive/invalid_route.png) |
 ---
 
 ## Deployment Testing
