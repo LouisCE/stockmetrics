@@ -563,13 +563,14 @@ which features were most useful to the model when making predictions.
 
     st.divider()
 
-    st.header("ML model summary")
+    st.header("🧠 ML model summary")
 
     st.write(
         "The model showed a small positive signal on unseen data, meeting the "
-        "project's educational business case. However, the signal was weak, "
-        "which supports the app's beginner-friendly message that short-term "
-        "market prediction is difficult and uncertain. The evaluation plots "
-        "and feature importance provide additional insights into how the "
-        "model made predictions and which features it relied on."
+        "project's educational business case because the Test R² was greater "
+        "than 0. However, the signal was very weak, which supports the "
+        "project hypothesis that short-term market prediction is inherently "
+        "difficult. The evaluation plots and feature importance provide "
+        "additional insight into how the model made predictions and which "
+        "features it relied on."
     )
