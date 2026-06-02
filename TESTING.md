@@ -394,6 +394,18 @@ Testing focused on:
 
 ---
 
+### Browser Compatibility Results
+
+| Page | Chrome | Edge | Firefox | Notes |
+| --- | --- | --- | --- | --- |
+| Home | ![screenshot](documentation/browser/chrome/home.png) | ![screenshot](documentation/browser/edge/home.png) | ![screenshot](documentation/browser/firefox/home.png) | Dashboard rendered and functioned correctly |
+| Stock Explorer | ![screenshot](documentation/browser/chrome/stock_explorer.png) | ![screenshot](documentation/browser/edge/stock_explorer.png) | ![screenshot](documentation/browser/firefox/stock_explorer.png) | Dashboard rendered and functioned correctly |
+| Predictor | ![screenshot](documentation/browser/chrome/predictor.png) | ![screenshot](documentation/browser/edge/predictor.png) | ![screenshot](documentation/browser/firefox/predictor.png) | Dashboard rendered and functioned correctly |
+| Portfolio Plans | ![screenshot](documentation/browser/chrome/portfolio_plans.png) | ![screenshot](documentation/browser/edge/portfolio_plans.png) | ![screenshot](documentation/browser/firefox/portfolio_plans.png) | Dashboard rendered and functioned correctly |
+| Model Performance | ![screenshot](documentation/browser/chrome/model_performance.png) | ![screenshot](documentation/browser/edge/model_performance.png) | ![screenshot](documentation/browser/firefox/model_performance.png) | Dashboard rendered and functioned correctly |
+
+---
+
 ## User Story Testing
 
 User Story Testing was carried out by manually checking the deployed dashboard against the implemented dashboard User Stories.
