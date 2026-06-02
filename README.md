@@ -1530,6 +1530,7 @@ This structured sidebar supports intuitive navigation, reinforces information hi
 - welcome introduction and project purpose
 - introductory quote
 - visual hero image with caption
+- dataset summary explaining the v2 ETF and technology stock universe
 - project validation summary linking business requirements and hypotheses to dashboard evidence
 - beginner investing principles
 - glossary explanations
@@ -1661,6 +1662,7 @@ Provide transparency regarding the machine learning model.
 **Features**
 
 - business case success indicator
+- ML pipeline overview showing the workflow from data collection to dashboard deployment
 - regression metrics
 - beginner-friendly metric explanations
 - model reproducibility note
@@ -1669,18 +1671,26 @@ Provide transparency regarding the machine learning model.
 - model limitation explanation
 - best hyperparameter display
 - hyperparameter search space table
-- evaluation plot explanations
-- actual vs predicted plots
-- residual analysis plots
-- EDA plot evidence for hypotheses
+- model evaluation and data foundation evidence introduction
+- tabbed ML evaluation and EDA evidence section
+- ML evaluation evidence tab with actual-vs-predicted plots, residual plots, and prediction time-series plots
+- EDA evidence tab with price, returns, distribution, volatility, and correlation plots
+- business requirement and hypothesis evidence explanations
 - feature importance table
 - final ML model summary
+- project conclusion summarising key findings, hypothesis outcomes, and scenario-based planning rationale
 
 **Interpretation**
 
 The Model Performance page explains whether the predictive model met the business case and how much trust should be placed in it. A slightly positive Test R² supports the educational ML task, but the weak magnitude reinforces that short-term market prediction remains highly uncertain.
 
-The page also displays the hyperparameter search space, evaluation plots, EDA evidence, and feature importance outputs, giving both beginner users and assessors transparent evidence of model performance and hypothesis validation.
+The page includes an ML pipeline overview that summarises how the project moves from Yahoo Finance data collection through cleaning, EDA, feature engineering, model training, hyperparameter optimisation, model evaluation, and dashboard deployment. This helps users and assessors understand how the saved model and evaluation artefacts were produced before being displayed in the app.
+
+The page also displays the hyperparameter search space and feature importance outputs, helping users and assessors understand how the final model was trained and what information it relied upon when making predictions.
+
+A dedicated tabbed evidence section brings together model evaluation evidence and EDA evidence. The **ML evaluation evidence** tab shows actual-vs-predicted plots, residual plots, and prediction time-series outputs from the Evaluation stage of CRISP-DM. The **EDA evidence** tab shows historical market plots from the Data Understanding stage, including adjusted close prices, daily returns, return distributions, box plots, correlation, and rolling volatility. This keeps the Model Performance page aligned with both the model outcome and the data foundation used to validate the project hypotheses.
+
+The page ends with a project conclusion that summarises the main findings from the model evaluation and EDA evidence. It reinforces that diversification can help reduce risk, concentrated technology exposure showed higher historical volatility and drawdowns, short-term prediction remains uncertain, and long-term scenario thinking supports the dashboard's educational purpose.
 
 **Business requirements addressed**
 
