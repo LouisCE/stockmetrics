@@ -121,7 +121,7 @@ Where necessary, imports were grouped at the top of the pasted validation input 
 
 Automated testing was implemented using `pytest` to validate reusable project logic within the `src/` modules.
 
-The tests focused on deterministic functions and data-processing helpers where expected outputs could be asserted reliably without depending on Streamlit UI rendering or expensive model-training runs.
+The automated test suite includes **25 tests** across six test modules. These tests focused on deterministic functions and data-processing helpers where expected outputs could be asserted reliably without depending on Streamlit UI rendering or expensive model-training runs.
 
 This approach complemented manual dashboard testing by adding repeatable checks for backend logic while keeping the test suite lightweight and practical for the project scope.
 
@@ -146,15 +146,15 @@ The Streamlit interface itself was tested manually, while backend logic was test
 
 | Test Module | Command Used | Result | Screenshot |
 | --- | --- | --- | --- |
-| config tests | `python -m pytest tests/test_config.py` | Passed | ![screenshot](documentation/tests/test_config.png) |
-| data processing tests | `python -m pytest tests/test_data_processing.py` | Passed | ![screenshot](documentation/tests/test_data_processing.png) |
-| features tests | `python -m pytest tests/test_features.py` | Passed | ![screenshot](documentation/tests/test_features.png) |
-| forecast tests | `python -m pytest tests/test_forecast.py` | Passed | ![screenshot](documentation/tests/test_forecast.png) |
-| modelling tests | `python -m pytest tests/test_modelling.py` | Passed | ![screenshot](documentation/tests/test_modelling.png) |
-| portfolio tests | `python -m pytest tests/test_portfolio.py` | Passed | ![screenshot](documentation/tests/test_portfolio.png) |
-| full suite | `python -m pytest` | All tests passed | ![screenshot](documentation/tests/test_full.png) |
+| config tests | `python -m pytest tests/test_config.py` | 5 Passed in 9.12s | ![screenshot](documentation/tests/test_config.png) |
+| data processing tests | `python -m pytest tests/test_data_processing.py` | 4 Passed 1.61s | ![screenshot](documentation/tests/test_data_processing.png) |
+| features tests | `python -m pytest tests/test_features.py` | 1 Passed in 1.97s | ![screenshot](documentation/tests/test_features.png) |
+| forecast tests | `python -m pytest tests/test_forecast.py` | 5 Passed in 2.24s| ![screenshot](documentation/tests/test_forecast.png) |
+| modelling tests | `python -m pytest tests/test_modelling.py` | 4 Passed in 21.31s | ![screenshot](documentation/tests/test_modelling.png) |
+| portfolio tests | `python -m pytest tests/test_portfolio.py` | 6 Passed in 1.55s | ![screenshot](documentation/tests/test_portfolio.png) |
+| full suite | `python -m pytest` | 25 tests passed in 4.64s | ![screenshot](documentation/tests/test_full.png) |
 
-> **Full test suite result:** 21 tests passed in 3.15 seconds
+**Full test suite result:** All tests passed
 
 ---
 
